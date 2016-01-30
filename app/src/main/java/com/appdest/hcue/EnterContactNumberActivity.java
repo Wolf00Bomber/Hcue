@@ -139,7 +139,7 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 			{
 				Toast.makeText(EnterContactNumberActivity.this, "Need To Implement.", Toast.LENGTH_SHORT).show();
 			}
-			else if(button.getText().toString().equalsIgnoreCase("Delete"))
+			else if(button.getText().toString().equalsIgnoreCase("  "))
 			{
 				if(str.length()>0)
 				{

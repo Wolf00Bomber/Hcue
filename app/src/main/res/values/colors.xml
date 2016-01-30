@@ -12,5 +12,8 @@
 
     <color name="greyed_out">#888</color>
     <color name="white">#FFFFFF</color>
+    <color name="green">#3CD728</color>
+    <color name="red">#F92A36</color>
+    <color name="orange">#F37122</color>
 
 </resources>

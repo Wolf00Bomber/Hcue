@@ -16,38 +16,77 @@
         android:text="Choose your Doctor"
         android:textColor="@android:color/black"
         android:textSize="30sp" />
-
-    <GridView
-        android:id="@+id/gridView1"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:listSelector="@android:color/transparent"
-        android:numColumns="2" >
-    </GridView>
-
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:orientation="horizontal" >
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
-        <Button
+        <ImageView
+            android:id="@+id/ivLeft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/back_button_icon"
-            android:text="BACK"
-            android:textColor="#40000000"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/margin_15"
+            android:src="@drawable/left_scrole_welcome" />
+
+        <GridView
+            android:id="@+id/gridView1"
+            android:layout_width="1100dp"
+            android:layout_height="wrap_content"
+            android:horizontalSpacing="@dimen/margin_5"
+            android:verticalSpacing="@dimen/margin_5"
+            android:scrollbars="none"
+            android:listSelector="@android:color/transparent"
+            android:numColumns="2" />
+
+        <ImageView
+            android:id="@+id/ivRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/margin_15"
+            android:src="@drawable/right_scrole_welcome" />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="@dimen/margin_20"
+        android:orientation="horizontal" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#4EAF9F"
+            android:drawableLeft="@drawable/rate_your_visit_icn"
+            android:drawablePadding="@dimen/margin_10"
+            android:gravity="center"
+            android:text="@string/rate"
+            android:textSize="30sp"/>
+
+        <Button
+            android:id="@+id/btnBookAppointment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:background="@drawable/quickappointment_btn"
+            android:text="Book Appoinment"
+            android:textColor="@color/white"
             android:textSize="30sp" />
 
         <Button
+            android:id="@+id/btnCancelAppointment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/next_button_icon"
-            android:text="NEXT"
-            android:textColor="#ffffff"
+            android:layout_marginLeft="@dimen/margin_20"
+            android:background="@drawable/latestappointment_btn"
+            android:text="Cancel Appoinment"
+            android:textColor="@color/orange"
             android:textSize="30sp" />
     </LinearLayout>
 
