@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -21,6 +22,8 @@ public class SelectDoctorActivity extends BaseActivity
 	private LinearLayout llMain;
 	private TextView tvHeading;
 	private GridView gridView = null;
+	private Button btnBookAppointment,btnCancelAppointment;
+	private ImageView ivLeft,ivRight;
 	
 	@Override
 	public void initializeControls() 
@@ -29,14 +32,20 @@ public class SelectDoctorActivity extends BaseActivity
 		
 		llBody.addView(llMain);
 		
-		tvHeading  = (TextView)llMain.findViewById(R.id.tvHeading);
+		tvHeading  				= (TextView)	llMain.findViewById(R.id.tvHeading);
+
+		ivLeft  				= (ImageView)	llMain.findViewById(R.id.ivLeft);
+		ivRight  				= (ImageView)	llMain.findViewById(R.id.ivRight);
+
+		btnBookAppointment 		= (Button)		llMain.findViewById(R.id.btnBookAppointment);
+		btnCancelAppointment 	= (Button)		llMain.findViewById(R.id.btnCancelAppointment);
 		
 		tvBack.setVisibility(View.GONE);
 		ivLike.setVisibility(View.GONE);
 		ivHome.setVisibility(View.GONE);
 		
 		
-		gridView = (GridView) findViewById(R.id.gridView1);
+		gridView = (GridView) llMain.findViewById(R.id.gridView1);
 		
 		setSpecificTypeFace(llMain, AppConstants.WALSHEIM_MEDIUM);
 		tvHeading.setTypeface(AppConstants.WALSHEIM_LIGHT);
@@ -50,26 +59,34 @@ public class SelectDoctorActivity extends BaseActivity
 	{
 		gridView.setAdapter(new GridAdapter());
 		
-		gridView.setOnItemClickListener(new OnItemClickListener() 
-		{
+		gridView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View v, int pos,long arg3) 
+			public void onItemClick(AdapterView<?> arg0, View v, int pos, long arg3) {
+
+			}
+
+		});
+
+		btnBookAppointment.setOnClickListener(new View.OnClickListener()
+		{
+			@Override
+			public void onClick(View v)
 			{
-				Intent intent = new Intent(SelectDoctorActivity.this,WelcomeActivity.class);
+				Intent intent = new Intent(SelectDoctorActivity.this,EnterContactNumberActivity.class);
 				startActivity(intent);
 			}
-			
 		});
 		
 	}
+
 	
 	
 	private class GridAdapter extends BaseAdapter {
 
 		@Override
 		public int getCount() {
-			return 6;
+			return 12;
 		}
 
 		@Override
@@ -91,11 +108,13 @@ public class SelectDoctorActivity extends BaseActivity
 				holder.tvDoctorName = (TextView) view.findViewById(R.id.tvDoctorName);
 				holder.tvDesignation = (TextView) view.findViewById(R.id.tvDesignation);
 				holder.tvSpecality = (TextView) view.findViewById(R.id.tvSpecality);
+				holder.tvStatus		=	(TextView)view.findViewById(R.id.tvStatus);
 				holder.iv = (ImageView) view.findViewById(R.id.imageView);
 				
 				holder.tvDoctorName.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 				holder.tvDesignation.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 				holder.tvSpecality.setTypeface(AppConstants.WALSHEIM_MEDIUM);
+				holder.tvStatus.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 
 				view.setTag(holder);
 			} else {
@@ -112,7 +131,7 @@ public class SelectDoctorActivity extends BaseActivity
 	}
 
 	static class ViewHolder {
-		TextView tvDoctorName, tvDesignation, tvSpecality;
+		TextView tvDoctorName, tvDesignation, tvSpecality,tvStatus;
 		ImageView iv;
 	}
 	

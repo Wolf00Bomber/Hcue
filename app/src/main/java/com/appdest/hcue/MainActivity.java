@@ -25,7 +25,7 @@ public class MainActivity extends Activity implements OnClickListener{
 
 	
 	EditText edtFirstName, edtLastName, edtAge;
-	Button btnConfirm, btnNext;
+	Button btnConfirm;
 	TextView tvMale,tvFeMale;
 	LinearLayout llUserDetails, llKeyboard;
 	ImageView ivMale,ivFeMale;
@@ -62,7 +62,7 @@ public class MainActivity extends Activity implements OnClickListener{
 		btnConfirm 		= 	(Button) 		findViewById(R.id.btnConfirm);
 		ivMale 			= 	(ImageView) 	findViewById(R.id.ivMale);
 		ivFeMale 		= 	(ImageView) 	findViewById(R.id.ivFeMale);
-		btnNext 		=	(Button)		findViewById(R.id.btnNext);
+
 		
 		
 		slide_up = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up);
@@ -100,7 +100,7 @@ public class MainActivity extends Activity implements OnClickListener{
 					}
 				}, 50);
 				if(hasFocus){
-					btnNext.setText("Next");					
+
 					
 					
 					if(llKeyboard.getVisibility() == View.GONE)
@@ -124,7 +124,7 @@ public class MainActivity extends Activity implements OnClickListener{
 					}
 				}, 50);
 				if(hasFocus){
-					btnNext.setText("Next");					
+
 					if(llKeyboard.getVisibility() == View.GONE)
 						llKeyboard.startAnimation(slide_up);
 					llKeyboard.setVisibility(View.VISIBLE);
@@ -144,7 +144,7 @@ public class MainActivity extends Activity implements OnClickListener{
 					}
 				}, 50);
 				if(hasFocus){
-					btnNext.setText("Done");					
+
 					
 					if(llKeyboard.getVisibility() == View.GONE)
 						llKeyboard.startAnimation(slide_up);
@@ -310,7 +310,7 @@ public class MainActivity extends Activity implements OnClickListener{
 			llKeyboard.setVisibility(View.VISIBLE);
 			if(v.getId() == R.id.edtAge)
 			{
-				btnNext.setText("Done");
+
 			}
 			break;
 

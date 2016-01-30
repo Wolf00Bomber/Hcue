@@ -4,7 +4,7 @@
     android:id="@+id/llKeyBoard"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/keyboard_background"
+    android:background="@drawable/key_board_bg"
     android:orientation="vertical"
     android:visibility="visible">
 
@@ -116,6 +116,16 @@
             android:padding="5dp"
             android:text="P"
             android:textSize="26sp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:background="@drawable/clear_back_icon"
+            android:onClick="keyboardClick"
+            android:padding="5dp"
+            android:text="  "
+            android:textColor="#FFFFFF"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -125,6 +135,15 @@
         android:orientation="horizontal"
         android:paddingLeft="5dp"
         android:paddingRight="5dp">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+            android:padding="5dp"
+            android:text="123"
+            android:textSize="26sp" />
 
         <Button
             android:layout_width="wrap_content"
@@ -225,15 +244,7 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="3dp"
-            android:background="@drawable/keyboard"
-            android:onClick="keyboardClick"
-            android:padding="5dp"
-            android:text="SHIFT"
-            android:textSize="26sp" />
+
 
         <Button
             android:layout_width="wrap_content"
@@ -296,37 +307,25 @@
             android:textSize="26sp" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="3dp"
-            android:background="@drawable/keyboard"
-            android:onClick="keyboardClick"
-            android:padding="5dp"
-            android:text="M"
-            android:textSize="26sp" />
-
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:background="@drawable/keyboard"
+        android:onClick="keyboardClick"
+        android:padding="5dp"
+        android:text="M"
+        android:textSize="26sp" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
-            android:background="@drawable/num_pad_key_delt"
+            android:background="@drawable/space_bar_key_icon"
             android:onClick="keyboardClick"
             android:padding="5dp"
-            android:text="DELETE"
-            android:textColor="#FFFFFF"
+            android:text="SPACE"
             android:textSize="26sp" />
 
-        <Button
-            android:id="@+id/btnNext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="3dp"
-            android:background="@drawable/num_pad_key_next"
-            android:onClick="keyboardClick"
-            android:padding="5dp"
-            android:text="NEXT"
-            android:textColor="#FFFFFF"
-            android:textSize="26sp" />
+
     </LinearLayout>
 
     <LinearLayout

@@ -45,6 +45,17 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:text="Physiotherapist" />
+        <TextView
+            android:id="@+id/tvStatus"
+            android:textStyle="normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_5"
+            android:layout_marginRight="@dimen/margin_10"
+            android:textColor="@color/green"
+            android:textSize="20sp"
+            android:gravity="center|right"
+            android:text="Available" />
     </LinearLayout>
 
 </RelativeLayout>

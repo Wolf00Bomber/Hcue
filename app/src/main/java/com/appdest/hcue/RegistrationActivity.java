@@ -22,7 +22,7 @@ import com.appdest.hcue.common.AppConstants;
 public class RegistrationActivity extends BaseActivity implements OnClickListener
 {
 	EditText edtFirstName, edtLastName, edtAge;
-	Button btnConfirm, btnNext;
+	Button btnConfirm, btnNext,btnClearFields;
 	TextView tvMale,tvFeMale;
 	LinearLayout llUserDetails, llKeyboard,llNumbers;
 	ImageView ivMale,ivFeMale;
@@ -50,6 +50,7 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 		ivMale 			= 	(ImageView)		llUserDetails.findViewById(R.id.ivMale);
 		ivFeMale 		= 	(ImageView)		llUserDetails.findViewById(R.id.ivFeMale);
 		btnNext 		=	(Button)		llUserDetails.findViewById(R.id.btnNext);
+		btnClearFields 	=	(Button)		llUserDetails.findViewById(R.id.btnClearFields);
 
 		tvTitle.setText("Enter Patient Details");
 
@@ -176,13 +177,14 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 			if(button.getText().toString().equalsIgnoreCase("123"))
 			{
 				if(llNumbers.getVisibility() == View.GONE)
+				{
 					llKeyboard.startAnimation(slide_down);
-				llKeyboard.setVisibility(View.GONE);
-				llNumbers.startAnimation(slide_up);
-				llNumbers.setVisibility(View.VISIBLE);
-				Toast.makeText(RegistrationActivity.this, "Need To Implement.", Toast.LENGTH_SHORT).show();
+					llKeyboard.setVisibility(View.GONE);
+					llNumbers.setVisibility(View.VISIBLE);
+					llNumbers.startAnimation(slide_up);
+				}
 			}
-			else if(button.getText().toString().equalsIgnoreCase("Delete"))
+			else if(button.getText().toString().equalsIgnoreCase("  "))
 			{
 				if(str.length()>0)
 				{
@@ -197,10 +199,7 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 				((EditText)focusedView).setText(str);
 				((EditText)focusedView).setSelection(((EditText)focusedView).length());
 			}
-			else if(button.getText().toString().equalsIgnoreCase("Shift"))
-			{
-				Toast.makeText(RegistrationActivity.this, "Need To Implement.", Toast.LENGTH_SHORT).show();
-			}
+
 			else if(button.getText().toString().equalsIgnoreCase("Next"))
 			{
 				if(edtFirstName.isFocused())
