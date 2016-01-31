@@ -31,7 +31,6 @@ public class SelectDoctorForFeedbackActivity extends BaseActivity
 		tvHeading  = (TextView)llMain.findViewById(R.id.tvHeading);
 		
 		tvBack.setVisibility(View.GONE);
-		ivLike.setVisibility(View.GONE);
 		ivHome.setVisibility(View.GONE);
 		
 		

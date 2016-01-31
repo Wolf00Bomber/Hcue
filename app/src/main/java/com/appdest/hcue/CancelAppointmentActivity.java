@@ -37,7 +37,6 @@ public class CancelAppointmentActivity extends BaseActivity
 
 
         tvBack.setVisibility(View.GONE);
-        ivLike.setVisibility(View.GONE);
         ivHome.setVisibility(View.GONE);
 
 

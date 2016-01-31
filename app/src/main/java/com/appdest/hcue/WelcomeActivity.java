@@ -28,7 +28,6 @@ public class WelcomeActivity extends BaseActivity
 		
 		
 		tvBack.setVisibility(View.GONE);
-		ivLike.setVisibility(View.GONE);
 		ivHome.setVisibility(View.GONE);
 		
 		ivImage = (ImageView) llMain.findViewById(R.id.ivImage);

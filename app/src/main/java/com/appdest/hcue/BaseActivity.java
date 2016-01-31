@@ -29,7 +29,7 @@ public abstract class BaseActivity extends Activity
 	public LayoutParams layoutParams;
 	public ProgressDialog progressdialog;
 	public TextView tvBack,tvTitle;
-	public ImageView ivLike,ivHome;
+	public ImageView ivHome;
 	
 
 	@Override
@@ -73,7 +73,7 @@ public abstract class BaseActivity extends Activity
 		llBottom = (LinearLayout) findViewById(R.id.llFooter);
 		tvBack = (TextView) findViewById(R.id.tvBack);
 		tvTitle = (TextView) findViewById(R.id.tvTitle);
-		ivLike = (ImageView) findViewById(R.id.ivLike);
+
 		ivHome = (ImageView) findViewById(R.id.ivHome);
 		
 //		tvTitle.setTypeface(AppConstants.WALSHEIM_MEDIUM);

@@ -16,7 +16,6 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
 	private ImageView ivImage;
 	private TextView tvName,tvSpecality;
 	private Button btnSubmit;
-	private ImageView ivOne,ivTwo,ivThree,ivFour,ivFive;
 	private EditText edtFeedback;
 
 	@Override
@@ -28,15 +27,11 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
 		
 		
 		tvBack.setVisibility(View.GONE);
-		ivLike.setVisibility(View.GONE);
+
 		ivHome.setVisibility(View.GONE);
 		
 		ivImage 	= 	(ImageView)	llFeedback.findViewById(R.id.ivImage);
-		ivOne		=	(ImageView)	llFeedback.findViewById(R.id.ivOne);
-		ivTwo		=	(ImageView)	llFeedback.findViewById(R.id.ivTwo);
-		ivThree		=	(ImageView)	llFeedback.findViewById(R.id.ivThree);
-		ivFour		=	(ImageView)	llFeedback.findViewById(R.id.ivFour);
-		ivFive		=	(ImageView)	llFeedback.findViewById(R.id.ivFive);
+
 		tvName 		= 	(TextView) 	llFeedback.findViewById(R.id.tvName);
 		tvSpecality	= 	(TextView) 	llFeedback.findViewById(R.id.tvSpecality);
 		btnSubmit 	= 	(Button) 	llFeedback.findViewById(R.id.btnSubmit);

@@ -41,7 +41,6 @@ public class SelectDoctorActivity extends BaseActivity
 		btnCancelAppointment 	= (Button)		llMain.findViewById(R.id.btnCancelAppointment);
 		
 		tvBack.setVisibility(View.GONE);
-		ivLike.setVisibility(View.GONE);
 		ivHome.setVisibility(View.GONE);
 		
 		
