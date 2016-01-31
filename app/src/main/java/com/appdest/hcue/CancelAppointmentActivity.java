@@ -67,7 +67,7 @@ public class CancelAppointmentActivity extends BaseActivity
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(CancelAppointmentActivity.this,EnterContactNumberActivity.class);
+                Intent intent = new Intent(CancelAppointmentActivity.this,ConfirmCancelationActivity.class);
                 startActivity(intent);
             }
         });

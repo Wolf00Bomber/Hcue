@@ -68,12 +68,19 @@ public class SelectDoctorActivity extends BaseActivity
 
 		});
 
-		btnBookAppointment.setOnClickListener(new View.OnClickListener()
+		btnBookAppointment.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(SelectDoctorActivity.this, EnterContactNumberActivity.class);
+				startActivity(intent);
+			}
+		});
+		btnCancelAppointment.setOnClickListener(new View.OnClickListener()
 		{
 			@Override
 			public void onClick(View v)
 			{
-				Intent intent = new Intent(SelectDoctorActivity.this,EnterContactNumberActivity.class);
+				Intent intent = new Intent(SelectDoctorActivity.this,CancelAppointmentActivity.class);
 				startActivity(intent);
 			}
 		});
