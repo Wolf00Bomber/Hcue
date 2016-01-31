@@ -28,7 +28,7 @@ public class WelcomeActivity extends BaseActivity
 		
 		
 		tvBack.setVisibility(View.GONE);
-		ivHome.setVisibility(View.GONE);
+		tvHome.setVisibility(View.GONE);
 		
 		ivImage = (ImageView) llMain.findViewById(R.id.ivImage);
 		tvName = (TextView) llMain.findViewById(R.id.tvName);

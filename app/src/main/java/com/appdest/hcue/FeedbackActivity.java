@@ -13,9 +13,9 @@ import android.widget.TextView;
 public class FeedbackActivity extends BaseActivity implements OnClickListener
 {
 	private LinearLayout llFeedback;
-	private ImageView ivImage;
-	private TextView tvName,tvSpecality;
-	private Button btnSubmit;
+	private ImageView ivImage,ivExcellent,ivGood,ivAverage,ivPoor;
+	private TextView tvName,tvSpecality,tvAdditionalComments;
+	private Button btnDone;
 	private EditText edtFeedback;
 
 	@Override
@@ -26,23 +26,34 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
 		llBody.addView(llFeedback);
 		
 		
-		tvBack.setVisibility(View.GONE);
-
-		ivHome.setVisibility(View.GONE);
+		tvBack.setText("Previous Page");
 		
-		ivImage 	= 	(ImageView)	llFeedback.findViewById(R.id.ivImage);
+		ivImage 				= 	(ImageView)	llFeedback.findViewById(R.id.ivImage);
+		ivExcellent 			= 	(ImageView)	llFeedback.findViewById(R.id.ivExcellent);
+		ivGood 					= 	(ImageView)	llFeedback.findViewById(R.id.ivGood);
+		ivAverage 				= 	(ImageView)	llFeedback.findViewById(R.id.ivAverage);
+		ivPoor 					= 	(ImageView)	llFeedback.findViewById(R.id.ivPoor);
 
-		tvName 		= 	(TextView) 	llFeedback.findViewById(R.id.tvName);
-		tvSpecality	= 	(TextView) 	llFeedback.findViewById(R.id.tvSpecality);
-		btnSubmit 	= 	(Button) 	llFeedback.findViewById(R.id.btnSubmit);
+		tvName 					= 	(TextView) 	llFeedback.findViewById(R.id.tvName);
+		tvSpecality				= 	(TextView) 	llFeedback.findViewById(R.id.tvSpecality);
+		tvAdditionalComments	= 	(TextView) 	llFeedback.findViewById(R.id.tvAdditionalComments);
+
+		btnDone 				= 	(Button) 	llFeedback.findViewById(R.id.btnDone);
 		
 		setSpecificTypeFace(llFeedback, AppConstants.WALSHEIM_LIGHT);
 		
 		tvName.setTypeface(AppConstants.WALSHEIM_MEDIUM);
-		btnSubmit.setTypeface(AppConstants.WALSHEIM_BOLD);
+		btnDone.setTypeface(AppConstants.WALSHEIM_BOLD);
 		tvName.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 		
 		tvTitle.setText("Thanks for using hCue");
+
+		ivExcellent.setOnClickListener(this);
+		ivGood.setOnClickListener(this);
+		ivAverage.setOnClickListener(this);
+		ivPoor.setOnClickListener(this);
+		btnDone.setOnClickListener(this);
+		tvAdditionalComments.setOnClickListener(this);
 	}
 
 	@Override
@@ -54,7 +65,21 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
 	@Override
 	public void onClick(View v) 
 	{
-		
+		switch (v.getId())
+		{
+			case R.id.ivExcellent:
+				break;
+			case R.id.ivGood:
+				break;
+			case R.id.ivAverage:
+				break;
+			case R.id.ivPoor:
+				break;
+			case R.id.btnDone:
+				break;
+			case R.id.tvAdditionalComments:
+				break;
+		}
 	}
 
 }

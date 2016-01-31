@@ -60,6 +60,7 @@
         android:layout_margin="@dimen/margin_20"
         android:orientation="horizontal" >
         <TextView
+            android:id="@+id/tvRateYourVisit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#4EAF9F"

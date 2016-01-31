@@ -31,7 +31,7 @@ public class SelectDoctorForFeedbackActivity extends BaseActivity
 		tvHeading  = (TextView)llMain.findViewById(R.id.tvHeading);
 		
 		tvBack.setVisibility(View.GONE);
-		ivHome.setVisibility(View.GONE);
+		tvHome.setVisibility(View.GONE);
 		
 		
 		gridView = (GridView) findViewById(R.id.gridView1);

@@ -37,7 +37,7 @@ public class CancelAppointmentActivity extends BaseActivity
 
 
         tvBack.setVisibility(View.GONE);
-        ivHome.setVisibility(View.GONE);
+        tvHome.setVisibility(View.GONE);
 
 
         gvAppointments = (GridView) llCancelAppointment.findViewById(R.id.gvAppointments);

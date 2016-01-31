@@ -28,8 +28,8 @@ public abstract class BaseActivity extends Activity
 	public Context context;
 	public LayoutParams layoutParams;
 	public ProgressDialog progressdialog;
-	public TextView tvBack,tvTitle;
-	public ImageView ivHome;
+	public TextView tvBack,tvTitle,tvHome;
+
 	
 
 	@Override
@@ -41,8 +41,8 @@ public abstract class BaseActivity extends Activity
 		initLocal();
 		initializeControls();
 		bindControls();
-		
-		ivHome.setOnClickListener(new OnClickListener() 
+
+		tvHome.setOnClickListener(new OnClickListener()
 		{
 			
 			@Override
@@ -74,7 +74,7 @@ public abstract class BaseActivity extends Activity
 		tvBack = (TextView) findViewById(R.id.tvBack);
 		tvTitle = (TextView) findViewById(R.id.tvTitle);
 
-		ivHome = (ImageView) findViewById(R.id.ivHome);
+		tvHome = (TextView) findViewById(R.id.tvHome);
 		
 //		tvTitle.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 //		tvBack.setTypeface(AppConstants.WALSHEIM_MEDIUM);

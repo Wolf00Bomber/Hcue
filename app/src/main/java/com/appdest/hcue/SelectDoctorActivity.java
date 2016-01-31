@@ -20,7 +20,7 @@ public class SelectDoctorActivity extends BaseActivity
 {
 
 	private LinearLayout llMain;
-	private TextView tvHeading;
+	private TextView tvHeading,tvRateYourVisit;
 	private GridView gridView = null;
 	private Button btnBookAppointment,btnCancelAppointment;
 	private ImageView ivLeft,ivRight;
@@ -33,6 +33,7 @@ public class SelectDoctorActivity extends BaseActivity
 		llBody.addView(llMain);
 		
 		tvHeading  				= (TextView)	llMain.findViewById(R.id.tvHeading);
+		tvRateYourVisit  		= (TextView)	llMain.findViewById(R.id.tvRateYourVisit);
 
 		ivLeft  				= (ImageView)	llMain.findViewById(R.id.ivLeft);
 		ivRight  				= (ImageView)	llMain.findViewById(R.id.ivRight);
@@ -41,7 +42,7 @@ public class SelectDoctorActivity extends BaseActivity
 		btnCancelAppointment 	= (Button)		llMain.findViewById(R.id.btnCancelAppointment);
 		
 		tvBack.setVisibility(View.GONE);
-		ivHome.setVisibility(View.GONE);
+		tvHome.setVisibility(View.GONE);
 		
 		
 		gridView = (GridView) llMain.findViewById(R.id.gridView1);
@@ -80,6 +81,15 @@ public class SelectDoctorActivity extends BaseActivity
 			public void onClick(View v)
 			{
 				Intent intent = new Intent(SelectDoctorActivity.this,CancelAppointmentActivity.class);
+				startActivity(intent);
+			}
+		});
+		tvRateYourVisit.setOnClickListener(new View.OnClickListener()
+		{
+			@Override
+			public void onClick(View v)
+			{
+				Intent intent = new Intent(SelectDoctorActivity.this,FeedbackActivity.class);
 				startActivity(intent);
 			}
 		});

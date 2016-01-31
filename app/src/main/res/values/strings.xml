@@ -8,5 +8,6 @@
     <string name="powered_by_hcue">Powered by hCue</string>
     <string name="website">www.hCue.in</string>
     <string name="rate"><u>RATE YOUR VISIT</u></string>
+    <string name="additional_comments"><u>ADDITIONAL COMMENTS</u></string>
 
 </resources>
