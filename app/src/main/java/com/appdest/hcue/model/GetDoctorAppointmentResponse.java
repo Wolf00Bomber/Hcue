@@ -2,6 +2,7 @@ package com.appdest.hcue.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,7 +14,7 @@ public class GetDoctorAppointmentResponse {
     public int count;
 
     @SerializedName("rows")
-    public List<AppointmentRow> appointmentRows;
+    public ArrayList<AppointmentRow> appointmentRows;
 
     public class TimeSlot
     {
@@ -25,8 +26,6 @@ public class GetDoctorAppointmentResponse {
         public String Available;
         @SerializedName("TokenNumber")
         public String TokenNumber;
-        @SerializedName("PatientInfo")
-        public PatientInfo patientInfo;
 
         public String getStartTime() {
             return StartTime;
@@ -58,78 +57,6 @@ public class GetDoctorAppointmentResponse {
 
         public void setTokenNumber(String tokenNumber) {
             TokenNumber = tokenNumber;
-        }
-
-        public PatientInfo getPatientInfo() {
-            return patientInfo;
-        }
-
-        public void setPatientInfo(PatientInfo patientInfo) {
-            this.patientInfo = patientInfo;
-        }
-    }
-
-    public class PatientInfo
-    {
-        @SerializedName("PatientID")
-        public String PatientID;
-        @SerializedName("FullName")
-        public String FullName;
-        @SerializedName("AppointmentID")
-        public String AppointmentID;
-        @SerializedName("AppointmentStatus")
-        public String AppointmentStatus;
-        @SerializedName("MobileNumber")
-        public String MobileNumber;
-        @SerializedName("Sex")
-        public String Sex;
-
-        public String getPatientID() {
-            return PatientID;
-        }
-
-        public void setPatientID(String patientID) {
-            PatientID = patientID;
-        }
-
-        public String getFullName() {
-            return FullName;
-        }
-
-        public void setFullName(String fullName) {
-            FullName = fullName;
-        }
-
-        public String getAppointmentID() {
-            return AppointmentID;
-        }
-
-        public void setAppointmentID(String appointmentID) {
-            AppointmentID = appointmentID;
-        }
-
-        public String getAppointmentStatus() {
-            return AppointmentStatus;
-        }
-
-        public void setAppointmentStatus(String appointmentStatus) {
-            AppointmentStatus = appointmentStatus;
-        }
-
-        public String getMobileNumber() {
-            return MobileNumber;
-        }
-
-        public void setMobileNumber(String mobileNumber) {
-            MobileNumber = mobileNumber;
-        }
-
-        public String getSex() {
-            return Sex;
-        }
-
-        public void setSex(String sex) {
-            Sex = sex;
         }
     }
 

@@ -13,10 +13,17 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import com.appdest.hcue.BaseActivity;
 import com.appdest.hcue.R;
+import com.appdest.hcue.common.AppConstants;
+import com.appdest.hcue.model.GetDoctorAppointmentResponse;
 import com.appdest.hcue.model.TimeObject;
+import com.appdest.hcue.utils.TimeUtils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by cvlhyd on 26-01-2016.
@@ -25,13 +32,13 @@ public class CustomTimeAdapter extends BaseAdapter
 {
 
     private Context context;
-    private ArrayList<TimeObject> arrTimeObjects;
+    private GetDoctorAppointmentResponse.AppointmentRow appointmentRow;
     private GridView.LayoutParams cellParams;
 
-    public CustomTimeAdapter(Context context, ArrayList<TimeObject> arrTimeObjects)
+    public CustomTimeAdapter(Context context, GetDoctorAppointmentResponse.AppointmentRow appointmentRow)
     {
         this.context = context;
-        this.arrTimeObjects = arrTimeObjects;
+        this.appointmentRow = appointmentRow;
         init(context);
     }
 
@@ -46,14 +53,16 @@ public class CustomTimeAdapter extends BaseAdapter
 
     @Override
     public int getCount() {
-        if(arrTimeObjects != null && arrTimeObjects.size() > 0)
-            return arrTimeObjects.size();
+        if(appointmentRow != null
+            && appointmentRow.getTimeSlots() != null
+            && appointmentRow.getTimeSlots().size() > 0)
+            return appointmentRow.getTimeSlots().size();
         return 0;
     }
 
     @Override
     public Object getItem(int position) {
-        return arrTimeObjects.get(position);
+        return appointmentRow.getTimeSlots().get(position);
     }
 
     @Override
@@ -71,30 +80,39 @@ public class CustomTimeAdapter extends BaseAdapter
             view.setLayoutParams(cellParams);
         }
 
-        TimeObject timeObject = arrTimeObjects.get(position);
+        GetDoctorAppointmentResponse.TimeSlot timeSlot = appointmentRow.getTimeSlots().get(position);
 
         TextView tvCell = (TextView) view.findViewById(R.id.tvCell);
         tvCell.setTypeface(null, Typeface.NORMAL);
         // clear styling
-        if("NORMAL".equalsIgnoreCase(timeObject.state))
-        {
-            tvCell.setTextColor(Color.LTGRAY);
-            tvCell.setBackgroundResource(R.drawable.selected_time_bg);
-        }
-        else if("UNAVAILABLE".equalsIgnoreCase(timeObject.state))
-        {
-            tvCell.setTextColor(Color.WHITE);
-            tvCell.setBackgroundResource(R.drawable.selected_time_col_bg);
-            tvCell.setPaintFlags(tvCell.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-        }
-        else if("AVAILABLE".equalsIgnoreCase(timeObject.state))
+//        if("NORMAL".equalsIgnoreCase(timeObject.state))
+//        {
+//            tvCell.setTextColor(Color.LTGRAY);
+//            tvCell.setBackgroundResource(R.drawable.selected_time_bg);
+//        }
+//        else
+        if("Y".equalsIgnoreCase(timeSlot.Available)/*"UNAVAILABLE".equalsIgnoreCase(timeObject.state)*/)
         {
             tvCell.setTextColor(Color.WHITE);
             tvCell.setBackgroundResource(R.drawable.selected_time_gcol_bg);
+            tvCell.setEnabled(true);
+//            tvCell.setTextColor(Color.WHITE);
+//            tvCell.setBackgroundResource(R.drawable.selected_time_col_bg);
+//            tvCell.setPaintFlags(tvCell.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         }
+        else
+        {
+        /*"AVAILABLE".equalsIgnoreCase(timeObject.state)*/
+        /*if("N".equalsIgnoreCase(timeSlot.Available)*/
+
+            tvCell.setTextColor(Color.LTGRAY);
+            tvCell.setBackgroundResource(R.drawable.selected_time_bg);
+            tvCell.setEnabled(false);
+        }
+        ((BaseActivity)context).setSpecificTypeFace((ViewGroup)view, AppConstants.WALSHEIM_MEDIUM);
 
         // set text
-        tvCell.setText(timeObject.timeValue);
+        tvCell.setText(TimeUtils.format2hhmm(timeSlot.getStartTime()));
 
         return view;
     }

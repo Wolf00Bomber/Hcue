@@ -12,13 +12,32 @@
         android:layout_margin="10dp"
         android:src="@drawable/left_arrow_time" />
 
-    <GridView
-        android:id="@+id/gvTime"
+    <FrameLayout
         android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:listSelector="@android:color/transparent"
-        android:numColumns="5" />
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+
+        <ProgressBar
+            android:id="@+id/pBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvNoSlots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="No Slots present"
+            android:textColor="#000000"
+            android:visibility="gone" />
+    </FrameLayout>
 
     <ImageView
         android:id="@+id/ivRightTime"

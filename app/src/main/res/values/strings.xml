@@ -9,7 +9,7 @@
     <string name="website">www.hCue.in</string>
     <string name="rate"><u>RATE YOUR VISIT</u></string>
     <string name="additional_comments"><u>ADDITIONAL COMMENTS</u></string>
-    <string name="at">@</string>
-    <string name="question">?</string>
+    <string name="at">\u0040</string>
+    <string name="question">\u003F</string>
 
 </resources>

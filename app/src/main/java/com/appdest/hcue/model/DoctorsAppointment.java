@@ -14,13 +14,13 @@ public class DoctorsAppointment {
     String DayCD;
 
     @SerializedName("USRType")
-    int USRType;
+    String USRType;
 
     @SerializedName("VisitUserTypeID")
     String VisitUserTypeID;
 
     @SerializedName("EndTime")
-    int EndTime;
+    String EndTime;
 
     @SerializedName("ConsultationDt")
     String ConsultationDt;
@@ -29,10 +29,10 @@ public class DoctorsAppointment {
     int AddressConsultID;
 
     @SerializedName("PatientID")
-    String PatientID;
+    long PatientID;
 
     @SerializedName("StartTime")
-    int StartTime;
+    String StartTime;
 
     @SerializedName("AppointmentStatus")
     String AppointmentStatus;
@@ -59,11 +59,11 @@ public class DoctorsAppointment {
         DayCD = dayCD;
     }
 
-    public int getUSRType() {
+    public String getUSRType() {
         return USRType;
     }
 
-    public void setUSRType(int USRType) {
+    public void setUSRType(String USRType) {
         this.USRType = USRType;
     }
 
@@ -75,11 +75,11 @@ public class DoctorsAppointment {
         VisitUserTypeID = visitUserTypeID;
     }
 
-    public int getEndTime() {
+    public String getEndTime() {
         return EndTime;
     }
 
-    public void setEndTime(int endTime) {
+    public void setEndTime(String endTime) {
         EndTime = endTime;
     }
 
@@ -99,19 +99,19 @@ public class DoctorsAppointment {
         AddressConsultID = addressConsultID;
     }
 
-    public String getPatientID() {
+    public long getPatientID() {
         return PatientID;
     }
 
-    public void setPatientID(String patientID) {
+    public void setPatientID(long patientID) {
         PatientID = patientID;
     }
 
-    public int getStartTime() {
+    public String getStartTime() {
         return StartTime;
     }
 
-    public void setStartTime(int startTime) {
+    public void setStartTime(String startTime) {
         StartTime = startTime;
     }
 

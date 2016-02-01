@@ -2,9 +2,6 @@ package com.appdest.hcue.model;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by cvlhyd on 26-01-2016.
- */
 public class GetDoctorAppointmentRequest {
 
     public int getDoctorID() {

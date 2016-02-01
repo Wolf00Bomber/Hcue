@@ -1,142 +1,175 @@
 package com.appdest.hcue;
 
-import android.graphics.drawable.Drawable;
+import android.media.Image;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.GridView;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.appdest.hcue.adapters.CustomTimeAdapter;
+import com.appdest.hcue.adapters.CustomAppointmentAdapter;
 import com.appdest.hcue.common.AppConstants;
+import com.appdest.hcue.model.DoctorsAppointment;
+import com.appdest.hcue.model.DoctorsAppointmentResponse;
 import com.appdest.hcue.model.GetDoctorAppointmentRequest;
 import com.appdest.hcue.model.GetDoctorAppointmentResponse;
-import com.appdest.hcue.model.TimeObject;
 import com.appdest.hcue.services.RestCallback;
 import com.appdest.hcue.services.RestClient;
 import com.appdest.hcue.services.RestError;
+import com.appdest.hcue.utils.Connectivity;
 import com.appdest.hcue.utils.CustomCalendarView;
 import com.appdest.hcue.utils.EventHandler;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 
-import retrofit.Callback;
-import retrofit.ResponseCallback;
 import retrofit.client.Response;
 
-/**
- * Created by cvlhyd on 25-01-2016.
- */
 public class ChooseAppointmentActivity extends BaseActivity {
 
     private LinearLayout llAppointment;
     private CustomCalendarView customCalendarView;
-    private GridView gvTime;
+    private ViewPager mViewPager;
+    private ProgressBar pBar;
+    private TextView tvNoSlots;
+    private Button btnProvideDetails;
+    private ImageView ivLeftTime, ivRightTime;
+    private CustomAppointmentAdapter mCustomPagerAdapter;
 
-    
+
     @Override
     public void initializeControls() {
         llAppointment = (LinearLayout) inflater.inflate(R.layout.choose_date_time_of_appointment, null);
         llBody.addView(llAppointment);
         customCalendarView = (CustomCalendarView) llAppointment.findViewById(R.id.calendar_view);
-        gvTime = (GridView) llAppointment.findViewById(R.id.gvTime);
+        mViewPager = (ViewPager) llAppointment.findViewById(R.id.viewPager);
+        tvNoSlots = (TextView) llAppointment.findViewById(R.id.tvNoSlots);
+        pBar = (ProgressBar) llAppointment.findViewById(R.id.pBar);
+        btnProvideDetails = (Button) llAppointment.findViewById(R.id.btnProvideDetails);
+        ivLeftTime = (ImageView) llAppointment.findViewById(R.id.ivLeftTime);
+        ivRightTime = (ImageView) llAppointment.findViewById(R.id.ivRightTime);
+        mCustomPagerAdapter = new CustomAppointmentAdapter(this);
+        mViewPager.setAdapter(mCustomPagerAdapter);
 
         customCalendarView.updateCalendar();
         customCalendarView.setEventHandler(new EventHandler() {
             @Override
             public void onDayClicked(Date date) {
-                // show returned day
+
                 DateFormat df = SimpleDateFormat.getDateInstance();
                 Toast.makeText(ChooseAppointmentActivity.this, df.format(date), Toast.LENGTH_SHORT).show();
-                GetDoctorAppointmentRequest doctorAppointmentRequest = new GetDoctorAppointmentRequest();
-                doctorAppointmentRequest.setDoctorID(487);
-                doctorAppointmentRequest.setFilterByDate("2016-01-29");
-                doctorAppointmentRequest.setAddressID(331);
-                String url = "http://dct4avjn1lfw.cloudfront.net";
-                RestClient.getAPI(url).getDoctorAppointment(doctorAppointmentRequest, new RestCallback<GetDoctorAppointmentResponse>() {
-                    @Override
-                    public void failure(RestError restError) {
-
-                    }
-
-                    @Override
-                    public void success(GetDoctorAppointmentResponse getDoctorAppointmentResponse, Response response) {
-                        if(response != null)
-                            Log.i("Response", ""+response);
-                    }
-                });
+                if (Connectivity.isConnected(ChooseAppointmentActivity.this)) {
+                    populateTimeSlots();
+                } else {
+                    Toast.makeText(ChooseAppointmentActivity.this, "No Internet Connection", Toast.LENGTH_SHORT).show();
+                }
             }
         });
-
-        Date now = new Date();
-        long interval = 15 * 60* 1000;
-        Date startDate = new Date(now.getTime() + 5 * interval);
-        Date endDate = new Date(now.getTime() + 15 * interval);
-
-        Drawable d = getResources().getDrawable(R.drawable.selected_time_col_bg);
-        int gvCellWidth = d.getIntrinsicWidth();
-        int gvCellHeight = d.getIntrinsicHeight();
-        int heightGap = 25;
-        int widthGap = 25;
-        int xItems = 5;
-        int yItems = 3;
-        int gvWidth = xItems * gvCellWidth + (xItems - 1) * widthGap + 1;
-        int gvHeight = yItems * gvCellHeight + (yItems - 1) * heightGap + 1;
-        gvTime.setAdapter(new CustomTimeAdapter(this, populateTimeObjects(interval, startDate, endDate)));
-        gvTime.setLayoutParams(new LinearLayout.LayoutParams(gvWidth, gvHeight));
-        gvTime.setHorizontalSpacing(widthGap);
-        gvTime.setVerticalSpacing(heightGap);
-        gvTime.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-        });
-
         setSpecificTypeFace(llAppointment, AppConstants.WALSHEIM_MEDIUM);
         tvTitle.setText("Choose Date & Time of your Appointment");
+        btnProvideDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (Connectivity.isConnected(ChooseAppointmentActivity.this)) {
+                    bookAppointement();
+                } else {
+                    Toast.makeText(ChooseAppointmentActivity.this, "No Internet Connection", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        ivLeftTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mViewPager.setCurrentItem(mViewPager.getCurrentItem() - 1);
+            }
+        });
+
+        ivRightTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);
+            }
+        });
     }
 
-    private ArrayList<TimeObject> populateTimeObjects(long period, Date startDate, Date endDate)
+    private void bookAppointement()
     {
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
-        ArrayList<TimeObject> timeObjectArrayList = new ArrayList<>();
-        // By Default
-        Date now = new Date();
-        int i = 0;
-        while (true)
-        {
+        DoctorsAppointment doctorsAppointment = new DoctorsAppointment();
+        doctorsAppointment.setAddressConsultID(341);
+        doctorsAppointment.setDayCD("TUE");
+        doctorsAppointment.setUSRType("KIOSK");
+        doctorsAppointment.setVisitUserTypeID("OPATIENT");
+        doctorsAppointment.setEndTime("11:50");
+        doctorsAppointment.setConsultationDt("2016-01-05");
+        doctorsAppointment.setAddressConsultID(2106);
+        doctorsAppointment.setPatientID(9944208696001l);
+        doctorsAppointment.setStartTime("11:40");
+        doctorsAppointment.setAppointmentStatus("B");
+        doctorsAppointment.setUSRId(7);
+        doctorsAppointment.setDoctorVisitRsnID("ALLMRDRR");
+        String url = "http://dct4avjn1lfw.cloudfront.net";
 
-            if(now.getTime() < startDate.getTime())
-            {
-                timeObjectArrayList.add(new TimeObject("NORMAL", sdf.format(now)));
+        RestClient.getAPI(url).addDoctorsAppointment(doctorsAppointment, new RestCallback<DoctorsAppointmentResponse>() {
+            @Override
+            public void failure(RestError restError) {
+                Toast.makeText(ChooseAppointmentActivity.this, restError.getErrorMessage(), Toast.LENGTH_SHORT).show();
             }
-            else if(now.getTime() >= startDate.getTime()
-                    && now.getTime() < endDate.getTime())
-            {
-                if(i < 2)
+
+            @Override
+            public void success(DoctorsAppointmentResponse doctorsAppointmentResponse, Response response) {
+                if (doctorsAppointmentResponse != null) {
+
+                } else {
+                    Log.i("Response", "" + response.getReason());
+                }
+            }
+        });
+    }
+
+    private void populateTimeSlots()
+    {
+        tvNoSlots.setVisibility(View.GONE);
+        pBar.setVisibility(View.VISIBLE);
+        mViewPager.setVisibility(View.INVISIBLE);
+
+        GetDoctorAppointmentRequest doctorAppointmentRequest = new GetDoctorAppointmentRequest();
+        doctorAppointmentRequest.setDoctorID(487);
+        doctorAppointmentRequest.setFilterByDate("2016-01-29");
+        doctorAppointmentRequest.setAddressID(341);
+        String url = "http://dct4avjn1lfw.cloudfront.net";
+        RestClient.getAPI(url).getDoctorAppointment(doctorAppointmentRequest, new RestCallback<GetDoctorAppointmentResponse>() {
+            @Override
+            public void failure(RestError restError) {
+                tvNoSlots.setVisibility(View.VISIBLE);
+                pBar.setVisibility(View.GONE);
+                mViewPager.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void success(GetDoctorAppointmentResponse getDoctorAppointmentResponse, Response response) {
+                pBar.setVisibility(View.GONE);
+                if(getDoctorAppointmentResponse != null && getDoctorAppointmentResponse.count > 0)
                 {
-                    timeObjectArrayList.add(new TimeObject("UNAVAILABLE", sdf.format(now)));
+                    mViewPager.setVisibility(View.VISIBLE);
+                    tvNoSlots.setVisibility(View.GONE);
+                    ArrayList<GetDoctorAppointmentResponse.AppointmentRow> appointmentRows = getDoctorAppointmentResponse.appointmentRows;
+                    mCustomPagerAdapter.refresh(appointmentRows);
                 }
                 else
                 {
-                    timeObjectArrayList.add(new TimeObject("AVAILABLE", sdf.format(now)));
+                    mViewPager.setVisibility(View.INVISIBLE);
+                    tvNoSlots.setVisibility(View.VISIBLE);
+                    Log.i("Response", ""+response.getReason());
                 }
-                i++;
             }
-            else
-            {
-                break;
-            }
-            now = new Date(now.getTime() + period);
-        }
-
-        return timeObjectArrayList;
+        });
     }
 
     @Override
