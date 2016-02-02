@@ -1,6 +1,8 @@
 package com.appdest.hcue;
 
 import com.appdest.hcue.common.AppConstants;
+import com.appdest.hcue.model.DoctorsAppointmentResponse;
+import com.appdest.hcue.utils.TimeUtils;
 
 import android.content.Intent;
 import android.view.View;
@@ -14,10 +16,20 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 	private LinearLayout llConfirm;
 	private TextView tvTime,tvToken;
 	private Button btnProvideDetails,btnAskMe;
+	private DoctorsAppointmentResponse bookingDetails;
 
 	@Override
 	public void initializeControls() 
 	{
+		Intent i = getIntent();
+		if(!i.hasExtra("BookingDetails"))
+		{
+			finish();
+			return;
+		}
+		bookingDetails = (DoctorsAppointmentResponse) i.getSerializableExtra("BookingDetails");
+
+
 		llConfirm = (LinearLayout) inflater.inflate(R.layout.confirmation_summary, null);
 		llBody.addView(llConfirm);
 		
@@ -38,6 +50,9 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 		btnAskMe.setTypeface(AppConstants.WALSHEIM_BOLD);
 		
 		tvTitle.setText("Confirmation Summary");
+
+		tvTime.setText(TimeUtils.format2Date(bookingDetails.getConsultationDt()));
+		tvToken.setText(bookingDetails.getTokenNumber());
 	}
 
 	@Override
@@ -53,6 +68,7 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 		{
 			case R.id.btnProvideDetails:
 				Intent intent = new Intent(ConfirmationSummaryActivity.this,EnterMailActivity.class);
+				intent.putExtra("BookingDetails", bookingDetails);
 				startActivity(intent);
 				break;
 			case R.id.btnAskMe:

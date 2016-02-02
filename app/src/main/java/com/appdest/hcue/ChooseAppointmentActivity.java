@@ -1,6 +1,6 @@
 package com.appdest.hcue;
 
-import android.media.Image;
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
@@ -23,6 +23,7 @@ import com.appdest.hcue.services.RestError;
 import com.appdest.hcue.utils.Connectivity;
 import com.appdest.hcue.utils.CustomCalendarView;
 import com.appdest.hcue.utils.EventHandler;
+import com.appdest.hcue.utils.TimeUtils;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -58,6 +59,11 @@ public class ChooseAppointmentActivity extends BaseActivity {
         mViewPager.setAdapter(mCustomPagerAdapter);
 
         customCalendarView.updateCalendar();
+        if (Connectivity.isConnected(ChooseAppointmentActivity.this)) {
+            populateTimeSlots();
+        } else {
+            Toast.makeText(ChooseAppointmentActivity.this, "No Internet Connection", Toast.LENGTH_SHORT).show();
+        }
         customCalendarView.setEventHandler(new EventHandler() {
             @Override
             public void onDayClicked(Date date) {
@@ -77,7 +83,7 @@ public class ChooseAppointmentActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 if (Connectivity.isConnected(ChooseAppointmentActivity.this)) {
-                    bookAppointement();
+                    bookAppointment();
                 } else {
                     Toast.makeText(ChooseAppointmentActivity.this, "No Internet Connection", Toast.LENGTH_SHORT).show();
                 }
@@ -99,18 +105,34 @@ public class ChooseAppointmentActivity extends BaseActivity {
         });
     }
 
-    private void bookAppointement()
+    private void bookAppointment()
     {
+        int selectedPage = mViewPager.getCurrentItem();
+        mCustomPagerAdapter.getItemPosition(selectedPage);
+        GetDoctorAppointmentResponse.AppointmentRow selectedPageItem = mCustomPagerAdapter.getSelectedPageItem(selectedPage);
+        if(selectedPageItem == null)
+        {
+            Toast.makeText(this, "Please select an another date, where doctor appointment slots are present.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        GetDoctorAppointmentResponse.TimeSlot selectedTimeSlot = mCustomPagerAdapter.getSelectedTimeSlot();
+        if(selectedTimeSlot == null)
+        {
+            Toast.makeText(this, "Please select an Appointment Slot", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         DoctorsAppointment doctorsAppointment = new DoctorsAppointment();
-        doctorsAppointment.setAddressConsultID(341);
-        doctorsAppointment.setDayCD("TUE");
+        doctorsAppointment.setmDoctorIDId(selectedPageItem.getDoctorID()/*"487"*/);
+        doctorsAppointment.setAddressConsultID(selectedPageItem.getAddressConsultID()/*341*/);
+        doctorsAppointment.setDayCD(selectedPageItem.getDayCD()/*"TUE"*/);
         doctorsAppointment.setUSRType("KIOSK");
         doctorsAppointment.setVisitUserTypeID("OPATIENT");
-        doctorsAppointment.setEndTime("11:50");
-        doctorsAppointment.setConsultationDt("2016-01-05");
-        doctorsAppointment.setAddressConsultID(2106);
+        doctorsAppointment.setEndTime(TimeUtils.format2hhmm(selectedTimeSlot.getEndTime())/*"11:50"*/);
+        doctorsAppointment.setConsultationDt(TimeUtils.format2Date(selectedPageItem.getConsultationDate())/*"2016-01-05"*/);
+        doctorsAppointment.setAddressConsultID(selectedPageItem.getAddressConsultID()/*2106*/);
         doctorsAppointment.setPatientID(9944208696001l);
-        doctorsAppointment.setStartTime("11:40");
+        doctorsAppointment.setStartTime(TimeUtils.format2hhmm(selectedTimeSlot.getStartTime())/*"11:40"*/);
         doctorsAppointment.setAppointmentStatus("B");
         doctorsAppointment.setUSRId(7);
         doctorsAppointment.setDoctorVisitRsnID("ALLMRDRR");
@@ -119,13 +141,24 @@ public class ChooseAppointmentActivity extends BaseActivity {
         RestClient.getAPI(url).addDoctorsAppointment(doctorsAppointment, new RestCallback<DoctorsAppointmentResponse>() {
             @Override
             public void failure(RestError restError) {
-                Toast.makeText(ChooseAppointmentActivity.this, restError.getErrorMessage(), Toast.LENGTH_SHORT).show();
+                Log.e("Doctor Appointement", ""+restError.getErrorMessage());
+                Toast.makeText(ChooseAppointmentActivity.this, "Couldn't book appointment for the selected slot.", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void success(DoctorsAppointmentResponse doctorsAppointmentResponse, Response response) {
-                if (doctorsAppointmentResponse != null) {
 
+                /*{
+                    "SeqNo":0, "AppointmentID":162261630963, "AddressConsultID":717, "DayCD":
+                    "FRI", "ConsultationDt":1454025600000, "StartTime":"20:00", "EndTime":
+                    "20:10", "PatientID":9944208696001, "VisitUserTypeID":"OPATIENT", "DoctorID":
+                    487, "FirstTimeVisit":"Y", "DoctorVisitRsnID":"ALLMRDRR", "AppointmentStatus":
+                    "B", "TokenNumber":"13"
+                }*/
+                if (doctorsAppointmentResponse != null) {
+                    Intent i = new Intent(ChooseAppointmentActivity.this, ConfirmationSummaryActivity.class);
+                    i.putExtra("BookingDetails", doctorsAppointmentResponse);
+                    startActivity(i);
                 } else {
                     Log.i("Response", "" + response.getReason());
                 }

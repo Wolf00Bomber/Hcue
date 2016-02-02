@@ -36,8 +36,9 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/vertical_shade_line_calendar"
             android:visibility="invisible" />
@@ -49,16 +50,18 @@
             calendarNS:dateFormat="MMMM, yyyy" />
 
         <ImageView
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/vertical_shade_line_calendar" />
 
         <include layout="@layout/time_selection_grid_for_appointment" />
 
         <ImageView
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/vertical_shade_line_calendar"
             android:visibility="invisible" />

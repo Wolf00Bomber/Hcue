@@ -30,10 +30,13 @@ import java.util.Date;
  */
 public class CustomTimeAdapter extends BaseAdapter
 {
-
     private Context context;
     private GetDoctorAppointmentResponse.AppointmentRow appointmentRow;
     private GridView.LayoutParams cellParams;
+
+    public GetDoctorAppointmentResponse.TimeSlot getSelectedItem(int selectedItem){
+        return appointmentRow.getTimeSlots().get(selectedItem);
+    }
 
     public CustomTimeAdapter(Context context, GetDoctorAppointmentResponse.AppointmentRow appointmentRow)
     {
@@ -84,31 +87,19 @@ public class CustomTimeAdapter extends BaseAdapter
 
         TextView tvCell = (TextView) view.findViewById(R.id.tvCell);
         tvCell.setTypeface(null, Typeface.NORMAL);
-        // clear styling
-//        if("NORMAL".equalsIgnoreCase(timeObject.state))
-//        {
-//            tvCell.setTextColor(Color.LTGRAY);
-//            tvCell.setBackgroundResource(R.drawable.selected_time_bg);
-//        }
-//        else
-        if("Y".equalsIgnoreCase(timeSlot.Available)/*"UNAVAILABLE".equalsIgnoreCase(timeObject.state)*/)
+        if("Y".equalsIgnoreCase(timeSlot.Available))
         {
             tvCell.setTextColor(Color.WHITE);
             tvCell.setBackgroundResource(R.drawable.selected_time_gcol_bg);
             tvCell.setEnabled(true);
-//            tvCell.setTextColor(Color.WHITE);
-//            tvCell.setBackgroundResource(R.drawable.selected_time_col_bg);
-//            tvCell.setPaintFlags(tvCell.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         }
         else
         {
-        /*"AVAILABLE".equalsIgnoreCase(timeObject.state)*/
-        /*if("N".equalsIgnoreCase(timeSlot.Available)*/
-
             tvCell.setTextColor(Color.LTGRAY);
             tvCell.setBackgroundResource(R.drawable.selected_time_bg);
             tvCell.setEnabled(false);
         }
+
         ((BaseActivity)context).setSpecificTypeFace((ViewGroup)view, AppConstants.WALSHEIM_MEDIUM);
 
         // set text

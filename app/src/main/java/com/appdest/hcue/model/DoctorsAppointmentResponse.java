@@ -2,90 +2,55 @@ package com.appdest.hcue.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class DoctorsAppointmentResponse {
+import java.io.Serializable;
 
-    @SerializedName("AppointmentID")
-    int AppointmentID;
+public class DoctorsAppointmentResponse implements Serializable{
 
-    @SerializedName("AddressConsultID")
-    String AddressConsultID;
+    public int getSeqNo() {
+        return seqNo;
+    }
 
-    @SerializedName("DayCD")
-    int DayCD;
+    public void setSeqNo(int seqNo) {
+        this.seqNo = seqNo;
+    }
 
-    @SerializedName("ConsultationDt")
-    String ConsultationDt;
-
-    @SerializedName("StartTime")
-    int StartTime;
-
-    @SerializedName("EndTime")
-    String EndTime;
-
-    @SerializedName("PatientID")
-    int PatientID;
-
-    @SerializedName("VisitUserTypeID")
-    String VisitUserTypeID;
-
-    @SerializedName("DoctorID")
-    int DoctorID;
-
-    @SerializedName("FirstTimeVisit")
-    String FirstTimeVisit;
-
-    @SerializedName("DoctorVisitRsnID")
-    int DoctorVisitRsnID;
-
-    @SerializedName("AppointmentStatus")
-    String AppointmentStatus;
-
-    @SerializedName("TokenNumber")
-    String TokenNumber;
-
-    @SerializedName("CrtUSR")
-    int CrtUSR;
-
-    @SerializedName("CrtUSRType")
-    String CrtUSRType;
-
-    public int getAppointmentID() {
+    public long getAppointmentID() {
         return AppointmentID;
     }
 
-    public void setAppointmentID(int appointmentID) {
+    public void setAppointmentID(long appointmentID) {
         AppointmentID = appointmentID;
     }
 
-    public String getAddressConsultID() {
+    public int getAddressConsultID() {
         return AddressConsultID;
     }
 
-    public void setAddressConsultID(String addressConsultID) {
+    public void setAddressConsultID(int addressConsultID) {
         AddressConsultID = addressConsultID;
     }
 
-    public int getDayCD() {
+    public String getDayCD() {
         return DayCD;
     }
 
-    public void setDayCD(int dayCD) {
+    public void setDayCD(String dayCD) {
         DayCD = dayCD;
     }
 
-    public String getConsultationDt() {
+    public long getConsultationDt() {
         return ConsultationDt;
     }
 
-    public void setConsultationDt(String consultationDt) {
+    public void setConsultationDt(long consultationDt) {
         ConsultationDt = consultationDt;
     }
 
-    public int getStartTime() {
+    public String getStartTime() {
         return StartTime;
     }
 
-    public void setStartTime(int startTime) {
+    public void setStartTime(String startTime) {
         StartTime = startTime;
     }
 
@@ -97,11 +62,11 @@ public class DoctorsAppointmentResponse {
         EndTime = endTime;
     }
 
-    public int getPatientID() {
+    public Number getPatientID() {
         return PatientID;
     }
 
-    public void setPatientID(int patientID) {
+    public void setPatientID(Number patientID) {
         PatientID = patientID;
     }
 
@@ -129,11 +94,11 @@ public class DoctorsAppointmentResponse {
         FirstTimeVisit = firstTimeVisit;
     }
 
-    public int getDoctorVisitRsnID() {
+    public String getDoctorVisitRsnID() {
         return DoctorVisitRsnID;
     }
 
-    public void setDoctorVisitRsnID(int doctorVisitRsnID) {
+    public void setDoctorVisitRsnID(String doctorVisitRsnID) {
         DoctorVisitRsnID = doctorVisitRsnID;
     }
 
@@ -153,19 +118,46 @@ public class DoctorsAppointmentResponse {
         TokenNumber = tokenNumber;
     }
 
-    public int getCrtUSR() {
-        return CrtUSR;
-    }
+    @SerializedName("SeqNo")
+    public int seqNo;
 
-    public void setCrtUSR(int crtUSR) {
-        CrtUSR = crtUSR;
-    }
+    @SerializedName("AppointmentID")
+    long AppointmentID;
 
-    public String getCrtUSRType() {
-        return CrtUSRType;
-    }
+    @SerializedName("AddressConsultID")
+    int AddressConsultID;
 
-    public void setCrtUSRType(String crtUSRType) {
-        CrtUSRType = crtUSRType;
-    }
+    @SerializedName("DayCD")
+    String DayCD;
+
+    @SerializedName("ConsultationDt")
+    long ConsultationDt;
+
+    @SerializedName("StartTime")
+    String StartTime;
+
+    @SerializedName("EndTime")
+    String EndTime;
+
+    @SerializedName("PatientID")
+    Number PatientID;
+
+    @SerializedName("VisitUserTypeID")
+    String VisitUserTypeID;
+
+    @SerializedName("DoctorID")
+    int DoctorID;
+
+    @SerializedName("FirstTimeVisit")
+    String FirstTimeVisit;
+
+    @SerializedName("DoctorVisitRsnID")
+    String DoctorVisitRsnID;
+
+    @SerializedName("AppointmentStatus")
+    String AppointmentStatus;
+
+    @SerializedName("TokenNumber")
+    String TokenNumber;
+
 }

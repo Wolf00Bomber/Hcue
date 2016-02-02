@@ -65,13 +65,13 @@ public class GetDoctorAppointmentResponse {
         @SerializedName("ClinicName")
         public String ClinicName;
         @SerializedName("AddressConsultID")
-        public String AddressConsultID;
+        public int AddressConsultID;
         @SerializedName("AddressID")
-        public String AddressID;
+        public int AddressID;
         @SerializedName("DoctorID")
-        public String DoctorID;
+        public int DoctorID;
         @SerializedName("ConsultationDate")
-        public String ConsultationDate;
+        public long ConsultationDate;
         @SerializedName("DayCD")
         public String DayCD;
         @SerializedName("StartTime")
@@ -79,7 +79,7 @@ public class GetDoctorAppointmentResponse {
         @SerializedName("EndTime")
         public String EndTime;
         @SerializedName("MinPerCase")
-        public String MinPerCase;
+        public int MinPerCase;
         @SerializedName("Fees")
         public String Fees;
         @SerializedName("SlotList")
@@ -93,35 +93,35 @@ public class GetDoctorAppointmentResponse {
             ClinicName = clinicName;
         }
 
-        public String getAddressConsultID() {
+        public int getAddressConsultID() {
             return AddressConsultID;
         }
 
-        public void setAddressConsultID(String addressConsultID) {
+        public void setAddressConsultID(int addressConsultID) {
             AddressConsultID = addressConsultID;
         }
 
-        public String getAddressID() {
+        public int getAddressID() {
             return AddressID;
         }
 
-        public void setAddressID(String addressID) {
+        public void setAddressID(int addressID) {
             AddressID = addressID;
         }
 
-        public String getDoctorID() {
+        public int getDoctorID() {
             return DoctorID;
         }
 
-        public void setDoctorID(String doctorID) {
+        public void setDoctorID(int doctorID) {
             DoctorID = doctorID;
         }
 
-        public String getConsultationDate() {
+        public long getConsultationDate() {
             return ConsultationDate;
         }
 
-        public void setConsultationDate(String consultationDate) {
+        public void setConsultationDate(long consultationDate) {
             ConsultationDate = consultationDate;
         }
 
@@ -149,11 +149,11 @@ public class GetDoctorAppointmentResponse {
             EndTime = endTime;
         }
 
-        public String getMinPerCase() {
+        public int getMinPerCase() {
             return MinPerCase;
         }
 
-        public void setMinPerCase(String minPerCase) {
+        public void setMinPerCase(int minPerCase) {
             MinPerCase = minPerCase;
         }
 

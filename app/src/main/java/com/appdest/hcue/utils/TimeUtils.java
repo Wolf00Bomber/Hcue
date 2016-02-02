@@ -9,7 +9,7 @@ import java.util.Date;
  */
 public class TimeUtils {
 
-    private static SimpleDateFormat hhmmss, hhmm;
+    private static SimpleDateFormat hhmmss, hhmm, normalDate;
 
     private static SimpleDateFormat getSDFHHMMSS()
     {
@@ -24,6 +24,13 @@ public class TimeUtils {
         return hhmm;
     }
 
+    private static SimpleDateFormat getSDNormalDate()
+    {
+        if(normalDate == null)/*"2016-01-05"*/
+            normalDate = new SimpleDateFormat("yyyy-MM-dd");
+        return normalDate;
+    }
+
     public static String format2hhmm(String hhmmss)
     {
         try {
@@ -33,6 +40,12 @@ public class TimeUtils {
             e.printStackTrace();
         }
         return hhmmss;
+    }
+
+    public static String format2Date(long milliseconds)
+    {
+        Date d = new Date(milliseconds);
+        return getSDNormalDate().format(d);
     }
 
 }

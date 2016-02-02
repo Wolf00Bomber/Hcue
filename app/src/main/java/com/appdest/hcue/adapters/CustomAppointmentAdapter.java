@@ -4,6 +4,7 @@ package com.appdest.hcue.adapters;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.v4.view.PagerAdapter;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,12 +25,29 @@ public class CustomAppointmentAdapter extends PagerAdapter {
 
     private static final int heightGap = 25;
     private static final int widthGap = 25;
-    int gvWidth, gvHeight;
+    private int gvWidth, gvHeight;
+    private LinearLayout.LayoutParams llParams;
+    private GetDoctorAppointmentResponse.TimeSlot selectedTimeSlot;
+
+    public GetDoctorAppointmentResponse.TimeSlot getSelectedTimeSlot()
+    {
+        return selectedTimeSlot;
+    }
+
+    public GetDoctorAppointmentResponse.AppointmentRow getSelectedPageItem(int position)
+    {
+        if(appointmentRows != null && appointmentRows.size() != 0 && appointmentRows.size() >= position - 1)
+            return appointmentRows.get(position);
+        else
+            return null;
+    }
 
     public CustomAppointmentAdapter(Context context) {
         mContext = context;
         mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         preCalculateGridDimensions(context);
+        llParams = new LinearLayout.LayoutParams(gvWidth, gvHeight);
+        llParams.gravity = Gravity.CENTER;
     }
 
     public void refresh(ArrayList<GetDoctorAppointmentResponse.AppointmentRow> appointmentRows) {
@@ -56,13 +74,13 @@ public class CustomAppointmentAdapter extends PagerAdapter {
 
         GridView gvTime = (GridView) itemView.findViewById(R.id.gvTime);
         gvTime.setAdapter(new CustomTimeAdapter(mContext, appointmentRows.get(position)));
-        gvTime.setLayoutParams(new LinearLayout.LayoutParams(gvWidth, gvHeight));
+        gvTime.setLayoutParams(llParams);
         gvTime.setHorizontalSpacing(widthGap);
         gvTime.setVerticalSpacing(heightGap);
         gvTime.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                selectedTimeSlot = ((CustomTimeAdapter)parent.getAdapter()).getSelectedItem(position);
             }
         });
         container.addView(itemView);
@@ -75,7 +93,7 @@ public class CustomAppointmentAdapter extends PagerAdapter {
         int gvCellWidth = d.getIntrinsicWidth();
         int gvCellHeight = d.getIntrinsicHeight();
         int xItems = 5;
-        int yItems = 3;
+        int yItems = 5;
         gvWidth = xItems * gvCellWidth + (xItems - 1) * widthGap + 1;
         gvHeight = yItems * gvCellHeight + (yItems - 1) * heightGap + 1;
     }
