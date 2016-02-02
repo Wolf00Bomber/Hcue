@@ -13,36 +13,36 @@ import android.widget.TextView;
 public class EnterMailActivity extends BaseActivity implements OnClickListener
 {
 	private LinearLayout llEmail;
-	private EditText edtEnterEmail,edtDomain;
-	private Button btnConfirmMail,btnNoMailId;
-	private TextView tvSymbol;
+	private EditText edtEnterAddress,edtLandmark;
+	private Button btnConfirm,btnSkip;
+
 
 	@Override
 	public void initializeControls() 
 	{
 		llEmail = (LinearLayout) inflater.inflate(R.layout.mail_more_details, null);
 		llBody.addView(llEmail);
+
+
+
+		edtEnterAddress	=	(EditText)		llEmail.findViewById(R.id.edtEnterAddress);
+		edtLandmark		=	(EditText)		llEmail.findViewById(R.id.edtLandmark);
+
+
+
+		btnConfirm		=	(Button)		llEmail.findViewById(R.id.btnConfirm);
+		btnSkip			=	(Button)		llEmail.findViewById(R.id.btnSkip);
 		
 
-		
-		edtEnterEmail	=	(EditText)		llEmail.findViewById(R.id.edtEnterEmail);
-		edtDomain		=	(EditText)		llEmail.findViewById(R.id.edtDomain);
-		
-		tvSymbol		=	(TextView)		llEmail.findViewById(R.id.tvSymbol);
-		
-		btnConfirmMail	=	(Button)		llEmail.findViewById(R.id.btnConfirmMail);
-		btnNoMailId		=	(Button)		llEmail.findViewById(R.id.btnNoMailId);
-		
-
-		btnConfirmMail.setOnClickListener(this);
-		btnNoMailId.setOnClickListener(this);
+		btnConfirm.setOnClickListener(this);
+		btnSkip.setOnClickListener(this);
 		
 		setSpecificTypeFace(llEmail, AppConstants.WALSHEIM_LIGHT);
-		btnConfirmMail.setTypeface(AppConstants.WALSHEIM_BOLD);
-		btnNoMailId.setTypeface(AppConstants.WALSHEIM_BOLD);
+		btnConfirm.setTypeface(AppConstants.WALSHEIM_BOLD);
+		btnSkip.setTypeface(AppConstants.WALSHEIM_BOLD);
 		
 		tvTitle.setText("Enter Email Address");
-		tvSymbol.setText("@");
+
 		
 		
 	}
@@ -59,11 +59,11 @@ public class EnterMailActivity extends BaseActivity implements OnClickListener
 		switch(v.getId())
 		{
 
-			case R.id.btnConfirmMail:
+			case R.id.btnConfirm:
 				Intent intent = new Intent(EnterMailActivity.this,ConfirmationFullViewActivity.class);
 				startActivity(intent);
 				break;
-			case R.id.btnNoMailId:
+			case R.id.btnSkip:
 				break;
 				
 		}
