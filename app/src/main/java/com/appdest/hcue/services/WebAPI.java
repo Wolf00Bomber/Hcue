@@ -5,6 +5,8 @@ import com.appdest.hcue.model.DoctorsAppointment;
 import com.appdest.hcue.model.DoctorsAppointmentResponse;
 import com.appdest.hcue.model.GetDoctorAppointmentRequest;
 import com.appdest.hcue.model.GetDoctorAppointmentResponse;
+import com.appdest.hcue.model.GetPatientDetailsRequest;
+import com.appdest.hcue.model.GetPatientDetailsResponse;
 
 import retrofit.http.Body;
 import retrofit.http.Header;
@@ -37,5 +39,12 @@ public interface WebAPI {
     })
     @POST("/doctors/addDoctorsAppointments")
     void addDoctorsAppointment(@Body DoctorsAppointment doctorsAppointment, RestCallback<DoctorsAppointmentResponse> callback);
+
+    @Headers({
+            "Content-Type: application/json",
+            "User-Agent: Hcue"
+    })
+    @POST("/patients/addPatient")
+    void addPatient(@Body GetPatientDetailsRequest getPatientDetailsRequest, RestCallback<GetPatientDetailsResponse> callback);
 
 }
