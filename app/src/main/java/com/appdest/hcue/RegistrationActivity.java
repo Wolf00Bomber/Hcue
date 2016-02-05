@@ -24,7 +24,7 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 	EditText edtFirstName, edtLastName, edtAge;
 	Button btnConfirm, btnNext,btnClearFields;
 	TextView tvMale,tvFeMale;
-	LinearLayout llUserDetails, llKeyboard,llNumbers;
+	LinearLayout llUserDetails, llKeyboard,llNumbers,llSpecilaKeyboard;
 	ImageView ivMale,ivFeMale;
 	View focusedView;
 	InputMethodManager im;
@@ -37,20 +37,21 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 		llUserDetails = (LinearLayout) inflater.inflate(R.layout.user_details_activity, null);
 		llBody.addView(llUserDetails);
 
-		llUserDetails	=	(LinearLayout)	llUserDetails.findViewById(R.id.llUserDetails);
-		llNumbers		=	(LinearLayout)	llUserDetails.findViewById(R.id.llNumbers);
-		llKeyboard		=	(LinearLayout)	llUserDetails.findViewById(R.id.llKeyBoard);
-		edtFirstName 	= 	(EditText)		llUserDetails.findViewById(R.id.edtFirstName);
-		edtLastName 	= 	(EditText)		llUserDetails.findViewById(R.id.edtLastName);
+		llUserDetails		=	(LinearLayout)	llUserDetails.findViewById(R.id.llUserDetails);
+		llNumbers			=	(LinearLayout)	llUserDetails.findViewById(R.id.llNumbers);
+		llKeyboard			=	(LinearLayout)	llUserDetails.findViewById(R.id.llKeyBoard);
+		llSpecilaKeyboard	=	(LinearLayout)	llUserDetails.findViewById(R.id.llSpecialKeyBoard);
+		edtFirstName 		= 	(EditText)		llUserDetails.findViewById(R.id.edtFirstName);
+		edtLastName 		= 	(EditText)		llUserDetails.findViewById(R.id.edtLastName);
 
-		tvMale			=	(TextView)		llUserDetails.findViewById(R.id.tvMale);
-		tvFeMale		=	(TextView)		llUserDetails.findViewById(R.id.tvFeMale);
-		edtAge 			= 	(EditText)		llUserDetails.findViewById(R.id.edtAge);
-		btnConfirm 		= 	(Button)		llUserDetails.findViewById(R.id.btnConfirm);
-		ivMale 			= 	(ImageView)		llUserDetails.findViewById(R.id.ivMale);
-		ivFeMale 		= 	(ImageView)		llUserDetails.findViewById(R.id.ivFeMale);
-		btnNext 		=	(Button)		llUserDetails.findViewById(R.id.btnNext);
-		btnClearFields 	=	(Button)		llUserDetails.findViewById(R.id.btnClearFields);
+		tvMale				=	(TextView)		llUserDetails.findViewById(R.id.tvMale);
+		tvFeMale			=	(TextView)		llUserDetails.findViewById(R.id.tvFeMale);
+		edtAge 				= 	(EditText)		llUserDetails.findViewById(R.id.edtAge);
+		btnConfirm 			= 	(Button)		llUserDetails.findViewById(R.id.btnConfirm);
+		ivMale 				= 	(ImageView)		llUserDetails.findViewById(R.id.ivMale);
+		ivFeMale 			= 	(ImageView)		llUserDetails.findViewById(R.id.ivFeMale);
+		btnNext 			=	(Button)		llUserDetails.findViewById(R.id.btnNext);
+		btnClearFields 		=	(Button)		llUserDetails.findViewById(R.id.btnClearFields);
 
 		tvTitle.setText("Enter Patient Details");
 
@@ -58,6 +59,7 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 		slide_down  = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_down);
 
 		llNumbers.setVisibility(View.GONE);
+		llSpecilaKeyboard.setVisibility(View.GONE);
 //		llKeyboard.setVisibility(View.GONE);
 		setSpecificTypeFace(llUserDetails, AppConstants.LATO);
 		edtFirstName.setTypeface(AppConstants.WALSHEIM_LIGHT);
@@ -149,6 +151,8 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 					llNumbers.setVisibility(View.VISIBLE);
 					llKeyboard.startAnimation(slide_down);
 					llKeyboard.setVisibility(View.GONE);
+					llSpecilaKeyboard.startAnimation(slide_down);
+					llSpecilaKeyboard.setVisibility(View.GONE);
 
 				}
 			}
@@ -176,15 +180,25 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 
 			if(button.getText().toString().equalsIgnoreCase("123"))
 			{
-				if(llNumbers.getVisibility() == View.GONE)
+				if(llSpecilaKeyboard.getVisibility() == View.GONE)
 				{
 					llKeyboard.startAnimation(slide_down);
 					llKeyboard.setVisibility(View.GONE);
-					llNumbers.setVisibility(View.VISIBLE);
-					llNumbers.startAnimation(slide_up);
+					llSpecilaKeyboard.setVisibility(View.VISIBLE);
+					llSpecilaKeyboard.startAnimation(slide_up);
 				}
 			}
-			else if(button.getText().toString().equalsIgnoreCase("  "))
+			else if(button.getText().toString().equalsIgnoreCase("ABC"))
+			{
+				if(llKeyboard.getVisibility() == View.GONE)
+				{
+					llSpecilaKeyboard.startAnimation(slide_down);
+					llSpecilaKeyboard.setVisibility(View.GONE);
+					llKeyboard.setVisibility(View.VISIBLE);
+					llKeyboard.startAnimation(slide_up);
+				}
+			}
+			else if(button.getText().toString().equalsIgnoreCase("DEL"))
 			{
 				if(str.length()>0)
 				{
@@ -197,7 +211,7 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 			{
 				str = str + " ";
 				((EditText)focusedView).setText(str);
-				((EditText)focusedView).setSelection(((EditText)focusedView).length());
+				((EditText)focusedView).setSelection(((EditText) focusedView).length());
 			}
 
 			else if(button.getText().toString().equalsIgnoreCase("Next"))
@@ -318,6 +332,7 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 				if(llNumbers.getVisibility() == View.GONE)
 				{
 					llKeyboard.startAnimation(slide_down);
+					llSpecilaKeyboard.startAnimation(slide_down);
 					llNumbers.setVisibility(View.VISIBLE);
 					llNumbers.startAnimation(slide_up);
 				}

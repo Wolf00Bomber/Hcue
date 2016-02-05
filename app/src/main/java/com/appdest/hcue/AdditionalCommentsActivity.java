@@ -1,22 +1,33 @@
 package com.appdest.hcue;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.appdest.hcue.common.AppConstants;
+
 /**
  * Created by shyamprasadg on 02/02/16.
  */
 public class AdditionalCommentsActivity extends BaseActivity implements View.OnClickListener
 {
-    private LinearLayout llComments;
-    private ImageView ivImage;
-    private TextView tvName,tvSpecality;
+    private LinearLayout llComments,llKeyboard,llSpecilaKeyboard;
     private EditText edtEnterComments;
     private Button btnSubmit;
+    private View focusedView;
+    private InputMethodManager im;
+    private Handler h;
+    private Animation slide_up, slide_down;
     @Override
     public void initializeControls()
     {
@@ -26,27 +37,168 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
 
         edtEnterComments    =   (EditText)  llComments.findViewById(R.id.edtEnterComments);
 
-        tvName              =   (TextView)  llComments.findViewById(R.id.tvName);
-        tvSpecality         =   (TextView)  llComments.findViewById(R.id.tvSpecality);
-
-        ivImage             =   (ImageView) llComments.findViewById(R.id.ivImage);
-
         btnSubmit           =   (Button)    llComments.findViewById(R.id.btnSubmit);
 
+        llKeyboard          =   (LinearLayout) llComments.findViewById(R.id.llKeyBoard);
+        llSpecilaKeyboard   =   (LinearLayout) llComments.findViewById(R.id.llSpecialKeyBoard);
+
+        btnSubmit.setOnClickListener(this);
+        llKeyboard.setVisibility(View.GONE);
+        llSpecilaKeyboard.setVisibility(View.GONE);
+        setSpecificTypeFace(llComments, AppConstants.WALSHEIM_BOLD);
+
+        tvTitle.setText("Thanks for using hCue");
+
+        slide_up 	= AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up);
+        slide_down  = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_down);
+
     }
 
     @Override
-    public void bindControls() {
+    public void bindControls()
+    {
+        h = new Handler(Looper.getMainLooper());
 
+        edtEnterComments.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+            @Override
+            public void onFocusChange(final View v, boolean hasFocus) {
+                hideKeyBoard(v);
+                h.postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        hideKeyBoard(v);
+                    }
+                }, 50);
+                if (hasFocus) {
+
+                    if (llKeyboard.getVisibility() == View.GONE)
+                        llSpecilaKeyboard.setVisibility(View.GONE);
+//						llKeyboard.startAnimation(slide_up);
+
+                    llKeyboard.setVisibility(View.VISIBLE);
+
+                }
+            }
+        });
+
+        hideKeyBoard(edtEnterComments);
+
+        edtEnterComments.clearFocus();
+
+    }
+    public void keyboardClick(View v)
+    {
+        hideKeyBoard(v);
+        focusedView = getCurrentFocus();
+
+        Button button = (Button)v;
+
+        if(focusedView != null && focusedView instanceof EditText)
+        {
+            String str = ((EditText)focusedView).getText().toString();
+
+            if(button.getText().toString().equalsIgnoreCase("123"))
+            {
+                if(llSpecilaKeyboard.getVisibility() == View.GONE)
+                {
+                    llKeyboard.startAnimation(slide_down);
+                    llKeyboard.setVisibility(View.GONE);
+                    llSpecilaKeyboard.setVisibility(View.VISIBLE);
+                    llSpecilaKeyboard.startAnimation(slide_up);
+                }
+            }
+            else if(button.getText().toString().equalsIgnoreCase("ABC"))
+            {
+                if(llKeyboard.getVisibility() == View.GONE)
+                {
+                    llSpecilaKeyboard.startAnimation(slide_down);
+                    llSpecilaKeyboard.setVisibility(View.GONE);
+                    llKeyboard.setVisibility(View.VISIBLE);
+                    llKeyboard.startAnimation(slide_up);
+                }
+            }
+            else if(button.getText().toString().equalsIgnoreCase("DEL"))
+            {
+                if(str.length()>0)
+                {
+                    str = str.substring(0, str.length()-1);
+                    ((EditText)focusedView).setText(str);
+                    ((EditText)focusedView).setSelection(((EditText)focusedView).length());
+                }
+            }
+            else if(button.getText().toString().equalsIgnoreCase(""))
+            {
+                str = str + " ";
+                ((EditText)focusedView).setText(str);
+                ((EditText)focusedView).setSelection(((EditText) focusedView).length());
+            }
+
+            else if(button.getText().toString().equalsIgnoreCase("Done"))
+            {
+                if(llKeyboard.getVisibility() == View.VISIBLE)
+                    llKeyboard.startAnimation(slide_down);
+
+                llKeyboard.setVisibility(View.GONE);
+            }
+            else
+            {
+                str = str + button.getText().toString() ;
+                ((EditText)focusedView).setText(str);
+                ((EditText)focusedView).setSelection(((EditText)focusedView).length());
+            }
+        }
+
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        h.postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                llKeyboard.setVisibility(View.VISIBLE);
+                llSpecilaKeyboard.setVisibility(View.GONE);
+            }
+        }, 50);
+    }
+
+    public void hideKeyBoard(View view)
+    {
+        im = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        im.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
     @Override
-    public void onClick(View v)
+    public void onClick(final View v)
     {
         switch (v.getId())
         {
             case R.id.btnSubmit:
+                Intent intent = new Intent(AdditionalCommentsActivity.this,SelectDoctorActivity.class);
+                startActivity(intent);
                 break;
+
+            case R.id.edtEnterComments:
+                v.requestFocus();
+                hideKeyBoard(v);
+                h.postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        hideKeyBoard(v);
+                    }
+                }, 50);
+
+
+                if(llKeyboard.getVisibility() == View.GONE)
+                    llSpecilaKeyboard.setVisibility(View.GONE);
+                    llKeyboard.setVisibility(View.VISIBLE);
+
+                break;
+
         }
 
     }

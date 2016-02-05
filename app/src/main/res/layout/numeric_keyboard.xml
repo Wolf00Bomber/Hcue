@@ -119,7 +119,7 @@
             android:background="@drawable/clear_back_icon"
             android:onClick="keyboardClick"
             android:padding="5dp"
-            android:text="  "
-            android:textColor="#FFFFFF"
+            android:text="DEL"
+            android:textColor="@android:color/transparent"
              />
 </LinearLayout>

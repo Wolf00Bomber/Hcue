@@ -86,7 +86,7 @@
                     android:id="@+id/ivExcellent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/exalant_icon" />
+                    android:background="@drawable/exalant_icon" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -107,7 +107,7 @@
                     android:id="@+id/ivGood"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/good" />
+                    android:background="@drawable/good" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -126,7 +126,7 @@
                     android:id="@+id/ivAverage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/average" />
+                    android:background="@drawable/average" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -145,7 +145,7 @@
                     android:id="@+id/ivPoor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/poor" />
+                    android:background="@drawable/poor" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

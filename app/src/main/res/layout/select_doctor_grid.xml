@@ -38,6 +38,7 @@
             android:horizontalSpacing="@dimen/margin_5"
             android:verticalSpacing="@dimen/margin_5"
             android:scrollbars="none"
+            android:choiceMode="singleChoice"
             android:listSelector="@android:color/transparent"
             android:numColumns="2" />
 

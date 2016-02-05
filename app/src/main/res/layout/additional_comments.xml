@@ -4,52 +4,22 @@
     android:layout_height="match_parent"
     android:id="@+id/llComments"
     android:orientation="vertical">
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center|left"
-        android:layout_margin="@dimen/margin_25"
-        android:orientation="horizontal" >
+        android:gravity="center"
+        android:layout_marginTop="@dimen/margin_20"
+        android:text="ADDITIONAL COMMENTS"
+        android:textSize="40sp"/>
 
-        <ImageView
-            android:id="@+id/ivImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/doctor_defult" />
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/tvName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:gravity="center"
-                android:text="Dr P.Venkata Krishna"
-                android:textColor="@android:color/black"
-                android:textSize="40sp"
-                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tvSpecality"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"
-                android:gravity="center_vertical"
-                android:text="Physiotherapist"
-                android:textColor="@android:color/black"
-                android:textSize="24sp" />
-        </LinearLayout>
-
-</LinearLayout>
     <EditText
         android:id="@+id/edtEnterComments"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="@dimen/margin_20"
         android:background="@drawable/feed_back_text_field"
         android:hint="Enter Address"
         android:imeOptions="actionNext"
@@ -62,13 +32,23 @@
     <Button
         android:id="@+id/btnSubmit"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp"
         android:layout_gravity="center"
         android:background="@drawable/quickappointment_btn"
         android:text="Submit"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textStyle="bold" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_height="match_parent" >
+
+        <include layout="@layout/alphabet_keyboard" />
+        <include layout="@layout/special_keyboard"/>
+
+    </FrameLayout>
 
 </LinearLayout>

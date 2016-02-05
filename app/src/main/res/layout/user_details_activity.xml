@@ -159,6 +159,8 @@
         android:layout_height="match_parent" >
 
         <include layout="@layout/alphabet_keyboard" />
+        <include layout="@layout/special_keyboard"/>
+
 
         <include
             android:layout_width="match_parent"

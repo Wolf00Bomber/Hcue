@@ -67,6 +67,7 @@ public class SelectDoctorActivity extends BaseActivity
 			}
 
 		});
+		   gridView.setSelector(R.drawable.doctor);
 
 		btnBookAppointment.setOnClickListener(new View.OnClickListener() {
 			@Override
