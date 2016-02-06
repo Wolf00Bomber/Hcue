@@ -64,6 +64,15 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
             @Override
             public void onFocusChange(final View v, boolean hasFocus) {
                 hideKeyBoard(v);
+
+                if (hasFocus) {
+
+                    if (llKeyboard.getVisibility() == View.GONE)
+                        llSpecilaKeyboard.setVisibility(View.GONE);
+
+                    llKeyboard.setVisibility(View.VISIBLE);
+
+                }
                 h.postDelayed(new Runnable() {
 
                     @Override
@@ -71,21 +80,12 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
                         hideKeyBoard(v);
                     }
                 }, 50);
-                if (hasFocus) {
-
-                    if (llKeyboard.getVisibility() == View.GONE)
-                        llSpecilaKeyboard.setVisibility(View.GONE);
-//						llKeyboard.startAnimation(slide_up);
-
-                    llKeyboard.setVisibility(View.VISIBLE);
-
-                }
             }
         });
 
         hideKeyBoard(edtEnterComments);
 
-        edtEnterComments.clearFocus();
+//        edtEnterComments.clearFocus();
 
     }
     public void keyboardClick(View v)
@@ -184,6 +184,13 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
             case R.id.edtEnterComments:
                 v.requestFocus();
                 hideKeyBoard(v);
+
+
+
+                if(llKeyboard.getVisibility() == View.GONE)
+                    llSpecilaKeyboard.setVisibility(View.GONE);
+                    llKeyboard.setVisibility(View.VISIBLE);
+
                 h.postDelayed(new Runnable() {
 
                     @Override
@@ -191,11 +198,6 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
                         hideKeyBoard(v);
                     }
                 }, 50);
-
-
-                if(llKeyboard.getVisibility() == View.GONE)
-                    llSpecilaKeyboard.setVisibility(View.GONE);
-                    llKeyboard.setVisibility(View.VISIBLE);
 
                 break;
 

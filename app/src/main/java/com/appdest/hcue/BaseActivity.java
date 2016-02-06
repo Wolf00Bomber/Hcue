@@ -4,6 +4,7 @@ import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -28,7 +29,7 @@ public abstract class BaseActivity extends Activity
 	public Context context;
 	public LayoutParams layoutParams;
 	public ProgressDialog progressdialog;
-	public TextView tvBack,tvTitle,tvHome;
+	public TextView tvBack,tvTitle,tvHome,tvLogin;
 
 	
 
@@ -42,13 +43,11 @@ public abstract class BaseActivity extends Activity
 		initializeControls();
 		bindControls();
 
-		tvHome.setOnClickListener(new OnClickListener()
-		{
-			
+		tvHome.setOnClickListener(new OnClickListener() {
+
 			@Override
-			public void onClick(View view) 
-			{
-				
+			public void onClick(View view) {
+
 			}
 		});
 		
@@ -60,6 +59,16 @@ public abstract class BaseActivity extends Activity
 				
 			}
 		});
+
+		tvLogin.setOnClickListener(new OnClickListener()
+		{
+			@Override
+			public void onClick(View v)
+			{
+				Intent intent = new Intent(BaseActivity.this,AdminLoginActivity.class);
+				startActivity(intent);
+			}
+		});
 	}
 
 	private void initLocal() 
@@ -68,13 +77,13 @@ public abstract class BaseActivity extends Activity
 		layoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 		context = BaseActivity.this;
 		
-		llTop = (LinearLayout) findViewById(R.id.llTop);
-		llBody = (LinearLayout) findViewById(R.id.llMiddle);
-		llBottom = (LinearLayout) findViewById(R.id.llFooter);
-		tvBack = (TextView) findViewById(R.id.tvBack);
-		tvTitle = (TextView) findViewById(R.id.tvTitle);
-
-		tvHome = (TextView) findViewById(R.id.tvHome);
+		llTop 		= 	(LinearLayout) 	findViewById(R.id.llTop);
+		llBody 		= 	(LinearLayout) 	findViewById(R.id.llMiddle);
+		llBottom 	= 	(LinearLayout) 	findViewById(R.id.llFooter);
+		tvBack 		= 	(TextView) 		findViewById(R.id.tvBack);
+		tvTitle 	= 	(TextView) 		findViewById(R.id.tvTitle);
+		tvLogin		=	(TextView) 		findViewById(R.id.tvLogin);
+		tvHome 		= 	(TextView) 		findViewById(R.id.tvHome);
 		
 //		tvTitle.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 //		tvBack.setTypeface(AppConstants.WALSHEIM_MEDIUM);

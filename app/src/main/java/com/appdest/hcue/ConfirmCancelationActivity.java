@@ -32,6 +32,8 @@ public class ConfirmCancelationActivity extends BaseActivity implements View.OnC
         btnConfirm.setOnClickListener(this);
 
         setSpecificTypeFace(llCancel, AppConstants.WALSHEIM_BOLD);
+
+        tvTitle.setText("Confirm Cancellation");
     }
 
     @Override
