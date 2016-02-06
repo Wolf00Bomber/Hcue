@@ -4,12 +4,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * Created by NNBS PRAKASH RAO on 2/1/2016.
- */
+import static com.google.gson.internal.$Gson$Preconditions.checkArgument;
+
 public class TimeUtils {
 
-    private static SimpleDateFormat hhmmss, hhmm, normalDate;
+    private static SimpleDateFormat hhmmss, hhmm, normalDate, properDate;
 
     private static SimpleDateFormat getSDFHHMMSS()
     {
@@ -31,6 +30,13 @@ public class TimeUtils {
         return normalDate;
     }
 
+    private static SimpleDateFormat getSDProperDate()
+    {
+        if(properDate == null)/*"2016-01-05"*/
+            properDate = new SimpleDateFormat("dd MMM yyyy");
+        return properDate;
+    }
+
     public static String format2hhmm(String hhmmss)
     {
         try {
@@ -46,6 +52,25 @@ public class TimeUtils {
     {
         Date d = new Date(milliseconds);
         return getSDNormalDate().format(d);
+    }
+
+    public static String format2DateProper(long milliseconds)
+    {
+        Date d = new Date(milliseconds);
+        return getSDProperDate().format(d);
+    }
+
+    String getDayOfMonthSuffix(final int n) {
+        assert (n >= 1 && n <= 31);
+        if (n >= 11 && n <= 13) {
+            return "th";
+        }
+        switch (n % 10) {
+            case 1:  return "st";
+            case 2:  return "nd";
+            case 3:  return "rd";
+            default: return "th";
+        }
     }
 
 }

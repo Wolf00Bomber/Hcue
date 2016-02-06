@@ -42,6 +42,8 @@
             android:listSelector="@android:color/transparent"
             android:numColumns="2" />
 
+        <!--<include layout="@layout/time_selection_grid_for_appointment" />-->
+
         <ImageView
             android:id="@+id/ivRight"
             android:layout_width="wrap_content"

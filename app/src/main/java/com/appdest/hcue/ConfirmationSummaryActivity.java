@@ -5,6 +5,7 @@ import com.appdest.hcue.model.DoctorsAppointmentResponse;
 import com.appdest.hcue.utils.TimeUtils;
 
 import android.content.Intent;
+import android.text.format.DateUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -51,7 +52,13 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 		
 		tvTitle.setText("Confirmation Summary");
 
-		tvTime.setText(TimeUtils.format2Date(bookingDetails.getConsultationDt()));
+		String dateString =
+		DateUtils.isToday(bookingDetails.getConsultationDt())
+				? "Today"
+				: TimeUtils.format2DateProper(bookingDetails.getConsultationDt());
+		dateString = dateString +" "+ TimeUtils.format2hhmm(bookingDetails.getStartTime());
+
+		tvTime.setText(dateString);
 		tvToken.setText(bookingDetails.getTokenNumber());
 	}
 

@@ -108,7 +108,6 @@ public class ChooseAppointmentActivity extends BaseActivity {
     private void bookAppointment()
     {
         int selectedPage = mViewPager.getCurrentItem();
-        mCustomPagerAdapter.getItemPosition(selectedPage);
         GetDoctorAppointmentResponse.AppointmentRow selectedPageItem = mCustomPagerAdapter.getSelectedPageItem(selectedPage);
         if(selectedPageItem == null)
         {
@@ -147,14 +146,6 @@ public class ChooseAppointmentActivity extends BaseActivity {
 
             @Override
             public void success(DoctorsAppointmentResponse doctorsAppointmentResponse, Response response) {
-
-                /*{
-                    "SeqNo":0, "AppointmentID":162261630963, "AddressConsultID":717, "DayCD":
-                    "FRI", "ConsultationDt":1454025600000, "StartTime":"20:00", "EndTime":
-                    "20:10", "PatientID":9944208696001, "VisitUserTypeID":"OPATIENT", "DoctorID":
-                    487, "FirstTimeVisit":"Y", "DoctorVisitRsnID":"ALLMRDRR", "AppointmentStatus":
-                    "B", "TokenNumber":"13"
-                }*/
                 if (doctorsAppointmentResponse != null) {
                     Intent i = new Intent(ChooseAppointmentActivity.this, ConfirmationSummaryActivity.class);
                     i.putExtra("BookingDetails", doctorsAppointmentResponse);

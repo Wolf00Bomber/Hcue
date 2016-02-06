@@ -5,9 +5,6 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by cvlhyd on 26-01-2016.
- */
 public class GetDoctorAppointmentResponse {
 
     @SerializedName("count")
