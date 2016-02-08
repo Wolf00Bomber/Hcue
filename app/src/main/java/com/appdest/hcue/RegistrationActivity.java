@@ -77,6 +77,7 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 		edtFirstName.setOnClickListener(this);
 		edtLastName.setOnClickListener(this);
 		btnConfirm.setOnClickListener(this);
+		btnClearFields.setOnClickListener(this);
 
 	}
 
@@ -207,7 +208,7 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 					((EditText)focusedView).setSelection(((EditText)focusedView).length());
 				}
 			}
-			else if(button.getText().toString().equalsIgnoreCase(""))
+			else if(button.getText().toString().equalsIgnoreCase("SPACE"))
 			{
 				str = str + " ";
 				((EditText)focusedView).setText(str);
@@ -339,8 +340,13 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 
 				break;
 			case R.id.btnConfirm:
-				Intent intent = new Intent(RegistrationActivity.this,ChoosePatientActivity.class);
+				Intent intent = new Intent(RegistrationActivity.this,ChooseAppointmentActivity.class);
 				startActivity(intent);
+				break;
+			case R.id.btnClearFields:
+				edtFirstName.getText().clear();
+				edtLastName.getText().clear();
+				edtAge.getText().clear();
 				break;
 			default:
 				break;

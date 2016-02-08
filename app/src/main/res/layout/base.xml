@@ -70,7 +70,8 @@
         android:background="@drawable/base_footer_bg"
         android:gravity="center_vertical">
         
-        <TextView 
+        <TextView
+            android:id="@+id/tvLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/powered_by_hcue"

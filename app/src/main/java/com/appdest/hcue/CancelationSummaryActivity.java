@@ -30,6 +30,8 @@ public class CancelationSummaryActivity extends BaseActivity implements View.OnC
 
         btnOk.setOnClickListener(this);
         setSpecificTypeFace(llCancel, AppConstants.WALSHEIM_BOLD);
+
+        tvTitle.setText("Cancellation Summary");
     }
 
     @Override

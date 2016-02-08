@@ -74,8 +74,10 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
 		switch (v.getId())
 		{
 			case R.id.ivExcellent:
-				if(ivExcellent.getTag().equals("0"))
+
+				if("0".equals(ivExcellent.getTag()))
 				{
+					resetTags();
 					ivExcellent.setTag("1");
 					ivExcellent.setBackgroundResource(R.drawable.excellent_hov);
 					ivAverage.setBackgroundResource(R.drawable.average);
@@ -92,8 +94,9 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
 				}
 				break;
 			case R.id.ivGood:
-				if(ivGood.getTag().equals("0"))
+				if("0".equals(ivGood.getTag()))
 				{
+					resetTags();
 					ivGood.setTag("1");
 					ivGood.setBackgroundResource(R.drawable.good_hov);
 					ivAverage.setBackgroundResource(R.drawable.average);
@@ -109,8 +112,9 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
 				}
 				break;
 			case R.id.ivAverage:
-				if(ivAverage.getTag().equals("0"))
+				if("0".equals(ivAverage.getTag()))
 				{
+					resetTags();
 					ivAverage.setTag("1");
 					ivAverage.setBackgroundResource(R.drawable.average_hov);
 					ivPoor.setBackgroundResource(R.drawable.poor);
@@ -126,8 +130,9 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
 				}
 				break;
 			case R.id.ivPoor:
-				if(ivPoor.getTag().equals("0"))
+				if("0".equals(ivPoor.getTag()))
 				{
+					resetTags();
 					ivPoor.setTag("1");
 					ivPoor.setBackgroundResource(R.drawable.poor_hov);
 					ivAverage.setBackgroundResource(R.drawable.average);
@@ -151,6 +156,14 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
 				startActivity(ac);
 				break;
 		}
+	}
+
+	private void resetTags()
+	{
+		ivExcellent.setTag("0");
+		ivGood.setTag("0");
+		ivAverage.setTag("0");
+		ivPoor.setTag("0");
 	}
 
 }

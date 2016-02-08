@@ -45,16 +45,18 @@ public class ChooseAppointmentActivity extends BaseActivity {
 
 
     @Override
-    public void initializeControls() {
+    public void initializeControls()
+    {
         llAppointment = (LinearLayout) inflater.inflate(R.layout.choose_date_time_of_appointment, null);
         llBody.addView(llAppointment);
-        customCalendarView = (CustomCalendarView) llAppointment.findViewById(R.id.calendar_view);
-        mViewPager = (ViewPager) llAppointment.findViewById(R.id.viewPager);
-        tvNoSlots = (TextView) llAppointment.findViewById(R.id.tvNoSlots);
-        pBar = (ProgressBar) llAppointment.findViewById(R.id.pBar);
-        btnProvideDetails = (Button) llAppointment.findViewById(R.id.btnProvideDetails);
-        ivLeftTime = (ImageView) llAppointment.findViewById(R.id.ivLeftTime);
-        ivRightTime = (ImageView) llAppointment.findViewById(R.id.ivRightTime);
+
+        customCalendarView  = (CustomCalendarView) llAppointment.findViewById(R.id.calendar_view);
+        mViewPager          = (ViewPager) llAppointment.findViewById(R.id.viewPager);
+        tvNoSlots           = (TextView) llAppointment.findViewById(R.id.tvNoSlots);
+        pBar                = (ProgressBar) llAppointment.findViewById(R.id.pBar);
+        btnProvideDetails   = (Button) llAppointment.findViewById(R.id.btnProvideDetails);
+        ivLeftTime          = (ImageView) llAppointment.findViewById(R.id.ivLeftTime);
+        ivRightTime         = (ImageView) llAppointment.findViewById(R.id.ivRightTime);
         mCustomPagerAdapter = new CustomAppointmentAdapter(this);
         mViewPager.setAdapter(mCustomPagerAdapter);
 

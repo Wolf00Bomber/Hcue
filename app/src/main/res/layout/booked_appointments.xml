@@ -39,6 +39,7 @@
         android:horizontalSpacing="@dimen/margin_10"
         android:verticalSpacing="@dimen/margin_10"
         android:numColumns="2"
+        android:stretchMode="columnWidth"
         android:listSelector="@android:color/transparent"
         android:id="@+id/gvAppointments">
 
