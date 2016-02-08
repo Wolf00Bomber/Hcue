@@ -27,10 +27,10 @@ public class GetHospitalsRequest {
         HospitalID = hospitalID;
     }
 
-    @SerializedName("PageSize")
+    @SerializedName("DoctorPageSize")
     public int PageSize;
 
-    @SerializedName("PageNumber")
+    @SerializedName("DoctorPageNumber")
     public int PageNumber;
 
     @SerializedName("HospitalID")
