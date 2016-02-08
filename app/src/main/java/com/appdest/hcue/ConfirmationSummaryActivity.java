@@ -72,6 +72,8 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 				startActivity(intent);
 				break;
 			case R.id.btnAskMe:
+				Intent askme = new Intent(ConfirmationSummaryActivity.this,SelectDoctorActivity.class);
+				startActivity(askme);
 				break;
 		}
 	}

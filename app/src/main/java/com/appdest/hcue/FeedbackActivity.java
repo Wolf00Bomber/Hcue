@@ -94,7 +94,7 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
 				}
 				break;
 			case R.id.ivGood:
-				if(ivGood.getTag().equals("0"))
+				if("0".equals(ivGood.getTag()))
 				{
 					resetTags();
 					ivGood.setTag("1");
@@ -112,7 +112,7 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
 				}
 				break;
 			case R.id.ivAverage:
-				if(ivAverage.getTag().equals("0"))
+				if("0".equals(ivAverage.getTag()))
 				{
 					resetTags();
 					ivAverage.setTag("1");
@@ -130,7 +130,7 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
 				}
 				break;
 			case R.id.ivPoor:
-				if(ivPoor.getTag().equals("0"))
+				if("0".equals(ivPoor.getTag()))
 				{
 					resetTags();
 					ivPoor.setTag("1");

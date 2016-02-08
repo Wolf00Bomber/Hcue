@@ -128,7 +128,7 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
                     ((EditText)focusedView).setSelection(((EditText)focusedView).length());
                 }
             }
-            else if(button.getText().toString().equalsIgnoreCase(""))
+            else if(button.getText().toString().equalsIgnoreCase("SPACE"))
             {
                 str = str + " ";
                 ((EditText)focusedView).setText(str);
