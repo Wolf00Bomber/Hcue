@@ -22,7 +22,7 @@ import com.appdest.hcue.common.AppConstants;
 public class RegistrationActivity extends BaseActivity implements OnClickListener
 {
 	EditText edtFirstName, edtLastName, edtAge;
-	Button btnConfirm, btnNext,btnClearFields;
+	Button  btnNext,btnClearFields;
 	TextView tvMale,tvFeMale;
 	LinearLayout llUserDetails, llKeyboard,llNumbers,llSpecilaKeyboard;
 	ImageView ivMale,ivFeMale;
@@ -47,7 +47,6 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 		tvMale				=	(TextView)		llUserDetails.findViewById(R.id.tvMale);
 		tvFeMale			=	(TextView)		llUserDetails.findViewById(R.id.tvFeMale);
 		edtAge 				= 	(EditText)		llUserDetails.findViewById(R.id.edtAge);
-		btnConfirm 			= 	(Button)		llUserDetails.findViewById(R.id.btnConfirm);
 		ivMale 				= 	(ImageView)		llUserDetails.findViewById(R.id.ivMale);
 		ivFeMale 			= 	(ImageView)		llUserDetails.findViewById(R.id.ivFeMale);
 		btnNext 			=	(Button)		llUserDetails.findViewById(R.id.btnNext);
@@ -64,7 +63,6 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 		setSpecificTypeFace(llUserDetails, AppConstants.LATO);
 		edtFirstName.setTypeface(AppConstants.WALSHEIM_LIGHT);
 		edtLastName.setTypeface(AppConstants.WALSHEIM_LIGHT);
-		btnConfirm.setTypeface(AppConstants.WALSHEIM_BOLD);
 
 		ivMale.setTag(true);
 		ivFeMale.setTag(false);
@@ -76,8 +74,8 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 		edtAge.setOnClickListener(this);
 		edtFirstName.setOnClickListener(this);
 		edtLastName.setOnClickListener(this);
-		btnConfirm.setOnClickListener(this);
 		btnClearFields.setOnClickListener(this);
+		btnNext.setOnClickListener(this);
 
 	}
 
@@ -98,9 +96,8 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 						hideKeyBoard(v);
 					}
 				}, 50);
-				if(hasFocus){
-					btnNext.setText("Next");
-
+				if(hasFocus)
+                {
 
 					if(llKeyboard.getVisibility() == View.GONE)
 						llNumbers.setVisibility(View.GONE);
@@ -124,7 +121,6 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 					}
 				}, 50);
 				if(hasFocus){
-					btnNext.setText("Next");
 					if(llKeyboard.getVisibility() == View.GONE)
 						llNumbers.setVisibility(View.GONE);
 //						llKeyboard.startAnimation(slide_up);
@@ -145,7 +141,6 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 					}
 				}, 50);
 				if(hasFocus){
-					btnNext.setText("Done");
 
 					if(llNumbers.getVisibility() == View.GONE)
 						llNumbers.startAnimation(slide_up);
@@ -215,25 +210,7 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 				((EditText)focusedView).setSelection(((EditText) focusedView).length());
 			}
 
-			else if(button.getText().toString().equalsIgnoreCase("Next"))
-			{
-				if(edtFirstName.isFocused())
-					edtLastName.requestFocus();
-				else if(edtLastName.isFocused())
-				{
-					edtAge.requestFocus();
-					button.setText("Done");
-				}
-				else{
 
-					if(llKeyboard.getVisibility() == View.VISIBLE)
-						llKeyboard.startAnimation(slide_down);
-
-					llKeyboard.setVisibility(View.GONE);
-					llNumbers.setVisibility(View.VISIBLE);
-				}
-				//	Toast.makeText(MainActivity.this, "Need To Implement.", Toast.LENGTH_SHORT).show();
-			}
 			else if(button.getText().toString().equalsIgnoreCase("Done"))
 			{
 				if(llKeyboard.getVisibility() == View.VISIBLE)
@@ -339,7 +316,7 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 				}
 
 				break;
-			case R.id.btnConfirm:
+			case R.id.btnNext:
 				Intent intent = new Intent(RegistrationActivity.this,ChooseAppointmentActivity.class);
 				startActivity(intent);
 				break;

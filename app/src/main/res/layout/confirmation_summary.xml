@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 android:background="@drawable/dont_have_num_btn"
-                android:text="Ask Me Later"
+                android:text="Finish"
                 android:textColor="#000000"
                 android:textSize="22sp"
                 android:textStyle="bold" />
