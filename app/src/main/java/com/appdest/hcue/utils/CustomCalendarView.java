@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.text.format.DateUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -115,8 +116,9 @@ public class CustomCalendarView extends LinearLayout
 
                 Date date = (Date) parent.getItemAtPosition(position);
                 Date today = new Date();
-                if (date.getMonth() != today.getMonth() ||
-                        date.getYear() != today.getYear()) {
+                if (isSelectable(date, today))
+                {
+                    //TODO
                 }
                 else
                 {
@@ -129,6 +131,16 @@ public class CustomCalendarView extends LinearLayout
 
         });
     }
+
+    private boolean isSelectable(Date date, Date today)
+    {
+        return (date.before(today)
+                && !DateUtils.isToday(date.getTime()))
+                ||
+                (date.getMonth() != today.getMonth() ||
+                        date.getYear() != today.getYear());
+    }
+
 
     public void updateCalendar()
     {
@@ -145,7 +157,9 @@ public class CustomCalendarView extends LinearLayout
         // fill cells (42 days calendar as per our business logic)
         while (cells.size() < DAYS_COUNT)
         {
-            cells.add(calendar.getTime());
+
+            Date d = calendar.getTime();
+            cells.add(d);
             calendar.add(Calendar.DAY_OF_MONTH, 1);
         }
 
@@ -211,36 +225,34 @@ public class CustomCalendarView extends LinearLayout
 
             TextView tvCell = (TextView) view.findViewById(R.id.tvCell);
 
-            // if this day has an event, specify event image
-//            view.setBackgroundResource(eventDays.contains(date)) ?
-//                    R.drawable.reminder : 0);
-
             // clear styling
             tvCell.setTypeface(null, Typeface.NORMAL);
-            tvCell.setTextColor(Color.BLACK);
-            tvCell.setBackgroundResource(0);
 
-            if (date.getMonth() != today.getMonth() ||
-                    date.getYear() != today.getYear()) {
-                // if this day is outside current month, grey it out
-                tvCell.setTextColor(Color.TRANSPARENT/*getResources().getColor(R.color.greyed_out)*/);
-                tvCell.setBackgroundResource(0);
-            }
-            else if (date.getDate() == today.getDate())
+            if ( (date.before(today)
+                    && !DateUtils.isToday(date.getTime()))
+            ||
+                    (date.getMonth() != today.getMonth() ||
+                            date.getYear() != today.getYear())
+                    )
             {
-                // if it is today, set it to blue/bold
-                tvCell.setTypeface(null, Typeface.BOLD);
-                tvCell.setTextColor(getResources().getColor(R.color.white));
-                tvCell.setBackgroundResource(R.drawable.selected_date_icon);
+                // if this day is past Date, grey it out
+                view.setEnabled(false);
+                tvCell.setTextColor(getResources().getColor(R.color.greyed_out));
+                tvCell.setBackgroundResource(0);
             }
             else if(date.getDate() == selectedDate.getDate())
             {
-                tvCell.setTypeface(null, Typeface.BOLD);
+                view.setEnabled(true);
                 tvCell.setTextColor(getResources().getColor(R.color.white));
                 tvCell.setBackgroundResource(R.drawable.selected_date_icon);
             }
+            else
+            {
+                view.setEnabled(true);
+                tvCell.setTextColor(Color.BLACK);
+                tvCell.setBackgroundResource(0);
+            }
 
-            // set text
             tvCell.setText(String.valueOf(date.getDate()));
 
             return view;

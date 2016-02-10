@@ -2,8 +2,11 @@ package com.appdest.hcue;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
@@ -12,28 +15,46 @@ import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.appdest.hcue.common.AppConstants;
+import com.appdest.hcue.model.GetHospitalsResponse;
+
+import ademar.phasedseekbar.PhasedInteractionListener;
+import ademar.phasedseekbar.PhasedListener;
+import ademar.phasedseekbar.PhasedSeekBar;
+import ademar.phasedseekbar.SimplePhasedAdapter;
 
 public class RegistrationActivity extends BaseActivity implements OnClickListener
 {
 	EditText edtFirstName, edtLastName, edtAge;
-	Button  btnNext,btnClearFields;
-	TextView tvMale,tvFeMale;
+	Button  btnDone,btnClearFields;
 	LinearLayout llUserDetails, llKeyboard,llNumbers,llSpecilaKeyboard;
-	ImageView ivMale,ivFeMale;
 	View focusedView;
 	InputMethodManager im;
 	Handler h;
 	Animation slide_up, slide_down;
+    private GetHospitalsResponse.DoctorDetail selectedDoctorDetails;
+    private Number phNumber;
+    boolean isActivityNeedsFinish = false;
+
 
 	@Override
 	public void initializeControls()
 	{
+        Intent i = getIntent();
+        if(i.hasExtra("DoctorDetails") && i.hasExtra("PhoneNumber"))
+        {
+            selectedDoctorDetails = (GetHospitalsResponse.DoctorDetail) i.getSerializableExtra("DoctorDetails");
+            phNumber = (Number) i.getSerializableExtra("PhoneNumber");
+        }
+        else
+        {
+            isActivityNeedsFinish = true;
+            finish();
+            return;
+        }
+
 		llUserDetails = (LinearLayout) inflater.inflate(R.layout.user_details_activity, null);
 		llBody.addView(llUserDetails);
 
@@ -44,12 +65,8 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 		edtFirstName 		= 	(EditText)		llUserDetails.findViewById(R.id.edtFirstName);
 		edtLastName 		= 	(EditText)		llUserDetails.findViewById(R.id.edtLastName);
 
-		tvMale				=	(TextView)		llUserDetails.findViewById(R.id.tvMale);
-		tvFeMale			=	(TextView)		llUserDetails.findViewById(R.id.tvFeMale);
 		edtAge 				= 	(EditText)		llUserDetails.findViewById(R.id.edtAge);
-		ivMale 				= 	(ImageView)		llUserDetails.findViewById(R.id.ivMale);
-		ivFeMale 			= 	(ImageView)		llUserDetails.findViewById(R.id.ivFeMale);
-		btnNext 			=	(Button)		llUserDetails.findViewById(R.id.btnNext);
+		btnDone 			=	(Button)		llUserDetails.findViewById(R.id.btnDone);
 		btnClearFields 		=	(Button)		llUserDetails.findViewById(R.id.btnClearFields);
 
 		tvTitle.setText("Enter Patient Details");
@@ -59,29 +76,50 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 
 		llNumbers.setVisibility(View.GONE);
 		llSpecilaKeyboard.setVisibility(View.GONE);
-//		llKeyboard.setVisibility(View.GONE);
 		setSpecificTypeFace(llUserDetails, AppConstants.LATO);
 		edtFirstName.setTypeface(AppConstants.WALSHEIM_LIGHT);
 		edtLastName.setTypeface(AppConstants.WALSHEIM_LIGHT);
 
-		ivMale.setTag(true);
-		ivFeMale.setTag(false);
-
-		ivMale.setOnClickListener(this);
-		ivFeMale.setOnClickListener(this);
-		tvFeMale.setOnClickListener(this);
-		tvMale.setOnClickListener(this);
 		edtAge.setOnClickListener(this);
 		edtFirstName.setOnClickListener(this);
 		edtLastName.setOnClickListener(this);
 		btnClearFields.setOnClickListener(this);
-		btnNext.setOnClickListener(this);
+		btnDone.setOnClickListener(this);
 
-	}
+        PhasedSeekBar psbHorizontal = (PhasedSeekBar) findViewById(R.id.psb_hor);
 
-	@Override
+        final Resources resources = getResources();
+
+        psbHorizontal.setAdapter(new SimplePhasedAdapter(resources, new int[]{
+                R.drawable.male_seek_thumb,
+                R.drawable.female_seek_thumb}));
+
+        psbHorizontal.setListener(new PhasedListener() {
+            @Override
+            public void onPositionSelected(int position) {
+                /*if (position == 0) {
+
+                } else if (position == 1) {
+
+                }*/
+            }
+        });
+
+        psbHorizontal.setInteractionListener(new PhasedInteractionListener() {
+            @Override
+            public void onInteracted(int x, int y, int position, MotionEvent motionEvent) {
+                Log.d("PSB", String.format("onInteracted %d %d %d %d", x, y, position, motionEvent.getAction()));
+            }
+        });
+        psbHorizontal.setPosition(0);
+    }
+
+    @Override
 	public void bindControls()
 	{
+        if(isActivityNeedsFinish)
+            return;
+
 		h = new Handler(Looper.getMainLooper());
 
 		edtFirstName.setOnFocusChangeListener(new OnFocusChangeListener() {
@@ -98,13 +136,9 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 				}, 50);
 				if(hasFocus)
                 {
-
 					if(llKeyboard.getVisibility() == View.GONE)
 						llNumbers.setVisibility(View.GONE);
-//						llKeyboard.startAnimation(slide_up);
-
 					llKeyboard.setVisibility(View.VISIBLE);
-
 				}
 			}
 		});
@@ -123,7 +157,6 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 				if(hasFocus){
 					if(llKeyboard.getVisibility() == View.GONE)
 						llNumbers.setVisibility(View.GONE);
-//						llKeyboard.startAnimation(slide_up);
 					llKeyboard.setVisibility(View.VISIBLE);
 				}
 			}
@@ -252,26 +285,6 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 	public void onClick(final View v)
 	{
 		switch (v.getId()) {
-			case R.id.tvMale:
-			case R.id.ivMale:
-				if((Boolean) ivFeMale.getTag())
-				{
-					ivFeMale.setBackgroundResource(R.drawable.un_check_icon);
-					ivFeMale.setTag(false);
-				}
-				ivMale.setBackgroundResource(R.drawable.check_icon);
-				ivMale.setTag(true);
-				break;
-			case R.id.tvFeMale:
-			case R.id.ivFeMale:
-				if((Boolean) ivMale.getTag())
-				{
-					ivMale.setBackgroundResource(R.drawable.un_check_icon);
-					ivMale.setTag(false);
-				}
-				ivFeMale.setBackgroundResource(R.drawable.check_icon);
-				ivFeMale.setTag(true);
-				break;
 			case R.id.edtFirstName:
 			case R.id.edtLastName:
 				v.requestFocus();
@@ -287,12 +300,11 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 
 				if(llKeyboard.getVisibility() == View.GONE)
 					llNumbers.setVisibility(View.GONE);
-//				llKeyboard.startAnimation(slide_up);
 
 				llKeyboard.setVisibility(View.VISIBLE);
 				if(v.getId() == R.id.edtAge)
 				{
-					btnNext.setText("Done");
+					btnDone.setText("Done");
 				}
 				break;
 			case R.id.edtAge:
@@ -316,8 +328,10 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 				}
 
 				break;
-			case R.id.btnNext:
+			case R.id.btnDone:
 				Intent intent = new Intent(RegistrationActivity.this,ChooseAppointmentActivity.class);
+				intent.putExtra("DoctorDetails", selectedDoctorDetails);
+                intent.putExtra("PhoneNumber", phNumber);
 				startActivity(intent);
 				break;
 			case R.id.btnClearFields:

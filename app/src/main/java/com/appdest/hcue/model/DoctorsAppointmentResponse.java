@@ -160,4 +160,25 @@ public class DoctorsAppointmentResponse implements Serializable{
     @SerializedName("TokenNumber")
     String TokenNumber;
 
+    @SerializedName("Message")
+    String Message;
+
+    @SerializedName("ExceptionType")
+    String ExceptionType;
+
+    public String getMessage() {
+        return Message;
+    }
+
+    public void setMessage(String message) {
+        Message = message;
+    }
+
+    public String getExceptionType() {
+        return ExceptionType;
+    }
+
+    public void setExceptionType(String exceptionType) {
+        ExceptionType = exceptionType;
+    }
 }

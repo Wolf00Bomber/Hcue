@@ -2,6 +2,7 @@ package com.appdest.hcue.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
@@ -60,7 +61,7 @@ public class GetHospitalsResponse {
         public String CityTown;
     }
 
-    public class DoctorDetail
+    public class DoctorDetail implements Serializable
     {
         @SerializedName("DoctorID")
         public int DoctorID;
@@ -68,6 +69,10 @@ public class GetHospitalsResponse {
         public String FullName;
         @SerializedName("SpecialityCD")
         public LinkedHashMap<Integer,String> specialityCD;
+        @SerializedName("ImageURL")
+        public String ImageURL;
+        @SerializedName("AddressID")
+        public int AddressID;
     }
 
 

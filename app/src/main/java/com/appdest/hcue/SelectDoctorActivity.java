@@ -1,6 +1,7 @@
 package com.appdest.hcue;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -18,9 +19,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appdest.hcue.common.AppConstants;
-import com.appdest.hcue.model.DoctorsAppointment;
-import com.appdest.hcue.model.DoctorsAppointmentResponse;
-import com.appdest.hcue.model.GetDoctorAppointmentResponse;
 import com.appdest.hcue.model.GetHospitalsRequest;
 import com.appdest.hcue.model.GetHospitalsResponse;
 import com.appdest.hcue.services.RestCallback;
@@ -28,6 +26,7 @@ import com.appdest.hcue.services.RestClient;
 import com.appdest.hcue.services.RestError;
 import com.appdest.hcue.utils.Connectivity;
 import com.appdest.hcue.utils.TimeUtils;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -60,26 +59,13 @@ public class SelectDoctorActivity extends BaseActivity
         ivLeft  				= (ImageView)	llMain.findViewById(R.id.ivLeft);
         ivRight  				= (ImageView)	llMain.findViewById(R.id.ivRight);
 
-//        ivLeftTime  				= (ImageView)	llMain.findViewById(R.id.ivLeftTime);
-//        ivRightTime  				= (ImageView)	llMain.findViewById(R.id.ivRightTime);
-
-//        ivLeftTime.setImageResource(R.drawable.left_scrole_welcome);
-//        ivRightTime.setImageResource(R.drawable.right_scrole_welcome);
-
 		btnBookAppointment 		= (Button)		llMain.findViewById(R.id.btnBookAppointment);
 		btnCancelAppointment 	= (Button)		llMain.findViewById(R.id.btnCancelAppointment);
 		
 		tvBack.setVisibility(View.GONE);
 		tvHome.setVisibility(View.GONE);
 
-//        mViewPager = (ViewPager) llMain.findViewById(R.id.viewPager);
 		gridView = (GridView) llMain.findViewById(R.id.gridView1);
-		gridView.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                selectedDoctorDetails = (GetHospitalsResponse.DoctorDetail) (parent.getAdapter()).getItem(position);
-            }
-        });
 		setSpecificTypeFace(llMain, AppConstants.WALSHEIM_MEDIUM);
 		tvHeading.setTypeface(AppConstants.WALSHEIM_LIGHT);
 		
@@ -106,16 +92,16 @@ public class SelectDoctorActivity extends BaseActivity
 			@Override
 			public void failure(RestError restError) {
 				Log.e("Doctor Appointement", "" + restError.getErrorMessage());
-				Toast.makeText(SelectDoctorActivity.this, "Couldn't book appointment for the selected slot.", Toast.LENGTH_SHORT).show();
+				Toast.makeText(SelectDoctorActivity.this, "Couldn't get the List of Doctors.", Toast.LENGTH_SHORT).show();
 			}
 
 			@Override
 			public void success(GetHospitalsResponse getHospitalsResponse, Response response) {
 				if (getHospitalsResponse != null) {
 					gridAdapter.refresh(getHospitalsResponse.hospitalInfo.arrDoctorDetails);
-                    tvTitle.setText("Welcome to " + getHospitalsResponse.hospitalInfo.hospitalInfoInner.hospitalDetails.HospitalName);
-                    hospitalId = getHospitalsResponse.hospitalInfo.hospitalInfoInner.hospitalDetails.HospitalID;
-                } else {
+					tvTitle.setText("Welcome to " + getHospitalsResponse.hospitalInfo.hospitalInfoInner.hospitalDetails.HospitalName);
+					hospitalId = getHospitalsResponse.hospitalInfo.hospitalInfoInner.hospitalDetails.HospitalID;
+				} else {
 					Log.i("Response", "" + response.getReason());
 				}
 			}
@@ -127,21 +113,26 @@ public class SelectDoctorActivity extends BaseActivity
 	{
 		gridAdapter = new GridAdapter();
 		gridView.setAdapter(gridAdapter);
-		
-		gridView.setOnItemClickListener(new OnItemClickListener() {
+		gridView.setSelector(R.drawable.doctor);
+        gridView.setOnItemClickListener(new OnItemClickListener() {
 
-			@Override
-			public void onItemClick(AdapterView<?> arg0, View v, int pos, long arg3) {
-//                gridView.setSelection(pos) ;
-			}
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View v, int pos, long arg3) {
+                v.setSelected(true);
+                selectedDoctorDetails = (GetHospitalsResponse.DoctorDetail) gridAdapter.getItem(pos);
+            }
 
-		});
-		   gridView.setSelector(R.drawable.doctor);
-
+        });
 		btnBookAppointment.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+                if(selectedDoctorDetails == null)
+                {
+                    Toast.makeText(context, "Please select a doctor!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 				Intent intent = new Intent(SelectDoctorActivity.this, EnterContactNumberActivity.class);
+                intent.putExtra("DoctorDetails", selectedDoctorDetails);
 				startActivity(intent);
 			}
 		});
@@ -150,7 +141,13 @@ public class SelectDoctorActivity extends BaseActivity
 			@Override
 			public void onClick(View v)
 			{
+				if(selectedDoctorDetails == null)
+				{
+					Toast.makeText(context, "Please select a doctor!", Toast.LENGTH_SHORT).show();
+					return;
+				}
 				Intent intent = new Intent(SelectDoctorActivity.this,CancelAppointmentActivity.class);
+				intent.putExtra("DoctorDetails", selectedDoctorDetails);
 				startActivity(intent);
 			}
 		});
@@ -170,12 +167,16 @@ public class SelectDoctorActivity extends BaseActivity
 	
 	private class GridAdapter extends BaseAdapter {
 
+        private int mHeight, mWidth;
 		private ArrayList<GetHospitalsResponse.DoctorDetail> doctorDetails;
 
 		public void refresh(ArrayList<GetHospitalsResponse.DoctorDetail> doctorDetails)
 		{
 			this.doctorDetails = doctorDetails;
 			notifyDataSetChanged();
+            Drawable d = getResources().getDrawable(R.drawable.doctor_img_bg);
+            mHeight = d.getIntrinsicHeight();
+            mWidth = d.getIntrinsicWidth();
 		}
 
 		@Override
@@ -212,15 +213,30 @@ public class SelectDoctorActivity extends BaseActivity
 				holder.tvSpecality.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 				holder.tvStatus.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 
+                holder.tvDoctorName.setTextColor(context.getResources().getColorStateList(R.color.text_pressed_doctors));
+                holder.tvDesignation.setTextColor(context.getResources().getColorStateList(R.color.text_pressed_doctors));
+                holder.tvSpecality.setTextColor(context.getResources().getColorStateList(R.color.text_pressed_doctors));
+                holder.tvStatus.setTextColor(context.getResources().getColorStateList(R.color.text_pressed_doctors));
+
 				view.setTag(holder);
 			} else {
 				holder = (ViewHolder) view.getTag();
 			}
 			GetHospitalsResponse.DoctorDetail doctorDetail = doctorDetails.get(pos);
+            view.setTag(R.string.app_name, doctorDetail);
 			holder.tvDoctorName.setText(doctorDetail.FullName/*"Dr.P. Venkatakrishna"*/);
 			holder.tvDesignation.setText("Doctor Id : "+doctorDetail.DoctorID/*"BPT"*/);
 			holder.tvSpecality.setText(TextUtils.join(",", doctorDetail.specialityCD.values()) /*"Physiotherapist"*/);
-			return view;
+            if(!TextUtils.isEmpty(doctorDetail.ImageURL))
+            Picasso.with(context)
+                    .load(doctorDetail.ImageURL)
+                    .resize(mWidth, mHeight)
+                    .placeholder(R.drawable.doctor_img_bg)
+                    .centerInside()
+                    .into(holder.iv)
+                    ;
+
+            return view;
 		}
 
 	}

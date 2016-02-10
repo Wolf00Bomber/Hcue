@@ -48,10 +48,31 @@ public class TimeUtils {
         return hhmmss;
     }
 
+    public static long getLongForHHMMSS(String hhmmss)
+    {
+        try {
+            Date d = getSDFHHMMSS().parse(hhmmss);
+            return d.getTime();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return 0l;
+    }
+
+    public static String format2Date(Date date)
+    {
+        return getSDNormalDate().format(date);
+    }
+
     public static String format2Date(long milliseconds)
     {
         Date d = new Date(milliseconds);
         return getSDNormalDate().format(d);
+    }
+
+    public static String format2DateProper(Date date)
+    {
+        return getSDProperDate().format(date);
     }
 
     public static String format2DateProper(long milliseconds)
@@ -59,6 +80,8 @@ public class TimeUtils {
         Date d = new Date(milliseconds);
         return getSDProperDate().format(d);
     }
+
+
 
     String getDayOfMonthSuffix(final int n) {
         assert (n >= 1 && n <= 31);

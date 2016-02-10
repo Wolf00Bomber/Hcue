@@ -18,6 +18,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appdest.hcue.common.AppConstants;
+import com.appdest.hcue.model.GetHospitalsResponse;
+
+import java.math.BigDecimal;
 
 
 public class EnterContactNumberActivity extends BaseActivity implements OnClickListener
@@ -28,15 +31,29 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 	private EditText edtCode,edtNumber;
 	private Button btnConfirmNumber,btnNoNumber;
 	private boolean isMobile=true,isLandline=false;
-	private String PhoneNumber = "";
 	private View focusedView;
 	private InputMethodManager im;
 	private Handler h;
 	private Animation slide_up, slide_down;
+	private GetHospitalsResponse.DoctorDetail selectedDoctorDetails;
+    private Number phNumber;
+	boolean isActivityNeedsFinish = false;
 	
 	@Override
 	public void initializeControls() 
 	{
+		Intent i = getIntent();
+		if(i.hasExtra("DoctorDetails"))
+		{
+			selectedDoctorDetails = (GetHospitalsResponse.DoctorDetail) i.getSerializableExtra("DoctorDetails");
+		}
+		else
+		{
+			isActivityNeedsFinish = true;
+			finish();
+			return;
+		}
+
 		llMain = (LinearLayout) inflater.inflate(R.layout.enter_contact_number, null);
 		
 		llBody.addView(llMain);
@@ -70,7 +87,8 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 	@Override
 	public void bindControls() 
 	{
-
+		if(isActivityNeedsFinish)
+			return;
 		h = new Handler(Looper.getMainLooper());
 
 		edtCode.setOnFocusChangeListener(new OnFocusChangeListener() {
@@ -186,6 +204,8 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 	protected void onResume() 
 	{
 		super.onResume();
+		if(isActivityNeedsFinish)
+			return;
 
 		h.postDelayed(new Runnable() {
 
@@ -214,8 +234,10 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 				}
 				else
 				{
-					PhoneNumber = edtNumber.getText().toString().trim();
+                    phNumber = new BigDecimal(edtNumber.getText().toString().trim());
 					Intent intent	= new Intent(EnterContactNumberActivity.this,RegistrationActivity.class);
+                    intent.putExtra("PhoneNumber", phNumber);
+					intent.putExtra("DoctorDetails", selectedDoctorDetails);
 					startActivity(intent);
 				}
 				break;

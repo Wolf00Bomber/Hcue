@@ -8,9 +8,6 @@ import android.widget.LinearLayout;
 
 import com.appdest.hcue.common.AppConstants;
 
-/**
- * Created by shyamprasadg on 09/02/16.
- */
 public class EnterAddressActivity extends BaseActivity implements View.OnClickListener
 {
     private LinearLayout llEmail;
@@ -66,6 +63,7 @@ public class EnterAddressActivity extends BaseActivity implements View.OnClickLi
                 break;
             case R.id.btnSkip:
                 Intent skip = new Intent(EnterAddressActivity.this,SelectDoctorActivity.class);
+                skip.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(skip);
                 break;
 

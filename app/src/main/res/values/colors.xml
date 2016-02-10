@@ -16,4 +16,6 @@
     <color name="red">#F92A36</color>
     <color name="orange">#F37122</color>
 
+    <color name="default_seek_bar_color">#009688</color>
+    <color name="black">#000000</color>
 </resources>

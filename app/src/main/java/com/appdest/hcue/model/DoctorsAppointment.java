@@ -2,9 +2,6 @@ package com.appdest.hcue.model;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by cvlhyd on 26-01-2016.
- */
 public class DoctorsAppointment {
 
     @SerializedName("DoctorID")
@@ -29,7 +26,7 @@ public class DoctorsAppointment {
     int AddressConsultID;
 
     @SerializedName("PatientID")
-    long PatientID;
+    Number PatientID;
 
     @SerializedName("StartTime")
     String StartTime;
@@ -42,6 +39,17 @@ public class DoctorsAppointment {
 
     @SerializedName("DoctorVisitRsnID")
     String DoctorVisitRsnID;
+
+    public String getSendSMS() {
+        return SendSMS;
+    }
+
+    public void setSendSMS(String sendSMS) {
+        SendSMS = sendSMS;
+    }
+
+    @SerializedName("SendSMS")
+    String SendSMS;
 
     public int getmDoctorIDId() {
         return mDoctorIDId;
@@ -99,11 +107,11 @@ public class DoctorsAppointment {
         AddressConsultID = addressConsultID;
     }
 
-    public long getPatientID() {
+    public Number getPatientID() {
         return PatientID;
     }
 
-    public void setPatientID(long patientID) {
+    public void setPatientID(Number patientID) {
         PatientID = patientID;
     }
 

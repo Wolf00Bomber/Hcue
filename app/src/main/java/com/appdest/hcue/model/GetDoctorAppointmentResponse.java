@@ -68,7 +68,7 @@ public class GetDoctorAppointmentResponse {
         @SerializedName("DoctorID")
         public int DoctorID;
         @SerializedName("ConsultationDate")
-        public long ConsultationDate;
+        public Number ConsultationDate;
         @SerializedName("DayCD")
         public String DayCD;
         @SerializedName("StartTime")
@@ -114,11 +114,11 @@ public class GetDoctorAppointmentResponse {
             DoctorID = doctorID;
         }
 
-        public long getConsultationDate() {
+        public Number getConsultationDate() {
             return ConsultationDate;
         }
 
-        public void setConsultationDate(long consultationDate) {
+        public void setConsultationDate(Number consultationDate) {
             ConsultationDate = consultationDate;
         }
 

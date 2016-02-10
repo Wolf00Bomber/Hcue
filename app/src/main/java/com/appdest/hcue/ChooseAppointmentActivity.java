@@ -2,6 +2,7 @@ package com.appdest.hcue;
 
 import android.content.Intent;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,9 +18,11 @@ import com.appdest.hcue.model.DoctorsAppointment;
 import com.appdest.hcue.model.DoctorsAppointmentResponse;
 import com.appdest.hcue.model.GetDoctorAppointmentRequest;
 import com.appdest.hcue.model.GetDoctorAppointmentResponse;
+import com.appdest.hcue.model.GetHospitalsResponse;
 import com.appdest.hcue.services.RestCallback;
 import com.appdest.hcue.services.RestClient;
 import com.appdest.hcue.services.RestError;
+import com.appdest.hcue.utils.AppointmentTimeInterface;
 import com.appdest.hcue.utils.Connectivity;
 import com.appdest.hcue.utils.CustomCalendarView;
 import com.appdest.hcue.utils.EventHandler;
@@ -38,42 +41,65 @@ public class ChooseAppointmentActivity extends BaseActivity {
     private CustomCalendarView customCalendarView;
     private ViewPager mViewPager;
     private ProgressBar pBar;
-    private TextView tvNoSlots;
+    private TextView tvNoSlots, tvTime;
     private Button btnProvideDetails;
     private ImageView ivLeftTime, ivRightTime;
     private CustomAppointmentAdapter mCustomPagerAdapter;
 
+    private GetHospitalsResponse.DoctorDetail selectedDoctorDetails;
+    private Number phNumber;
+    boolean isActivityNeedsFinish = false;
 
     @Override
     public void initializeControls()
     {
+        Intent i = getIntent();
+        if(i.hasExtra("DoctorDetails") && i.hasExtra("PhoneNumber"))
+        {
+            selectedDoctorDetails = (GetHospitalsResponse.DoctorDetail) i.getSerializableExtra("DoctorDetails");
+            phNumber = (Number) i.getSerializableExtra("PhoneNumber");
+        }
+        else
+        {
+            isActivityNeedsFinish = true;
+            finish();
+            return;
+        }
+
         llAppointment = (LinearLayout) inflater.inflate(R.layout.choose_date_time_of_appointment, null);
         llBody.addView(llAppointment);
 
         customCalendarView  = (CustomCalendarView) llAppointment.findViewById(R.id.calendar_view);
         mViewPager          = (ViewPager) llAppointment.findViewById(R.id.viewPager);
         tvNoSlots           = (TextView) llAppointment.findViewById(R.id.tvNoSlots);
+        tvTime              = (TextView) llAppointment.findViewById(R.id.tvTime);
         pBar                = (ProgressBar) llAppointment.findViewById(R.id.pBar);
         btnProvideDetails   = (Button) llAppointment.findViewById(R.id.btnProvideDetails);
         ivLeftTime          = (ImageView) llAppointment.findViewById(R.id.ivLeftTime);
         ivRightTime         = (ImageView) llAppointment.findViewById(R.id.ivRightTime);
         mCustomPagerAdapter = new CustomAppointmentAdapter(this);
+        mCustomPagerAdapter.setViewPager(mViewPager);
+        mCustomPagerAdapter.setAppointmentTimeInterface(new AppointmentTimeInterface() {
+            @Override
+            public void updateAppointmentText(String appointmentString) {
+                tvTime.setText(appointmentString);
+            }
+        });
         mViewPager.setAdapter(mCustomPagerAdapter);
 
         customCalendarView.updateCalendar();
         if (Connectivity.isConnected(ChooseAppointmentActivity.this)) {
-            populateTimeSlots();
+            populateTimeSlots(new Date());
         } else {
             Toast.makeText(ChooseAppointmentActivity.this, "No Internet Connection", Toast.LENGTH_SHORT).show();
         }
         customCalendarView.setEventHandler(new EventHandler() {
             @Override
             public void onDayClicked(Date date) {
-
                 DateFormat df = SimpleDateFormat.getDateInstance();
-                Toast.makeText(ChooseAppointmentActivity.this, df.format(date), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(ChooseAppointmentActivity.this, df.format(date), Toast.LENGTH_SHORT).show();
                 if (Connectivity.isConnected(ChooseAppointmentActivity.this)) {
-                    populateTimeSlots();
+                    populateTimeSlots(date);
                 } else {
                     Toast.makeText(ChooseAppointmentActivity.this, "No Internet Connection", Toast.LENGTH_SHORT).show();
                 }
@@ -130,45 +156,64 @@ public class ChooseAppointmentActivity extends BaseActivity {
         doctorsAppointment.setUSRType("KIOSK");
         doctorsAppointment.setVisitUserTypeID("OPATIENT");
         doctorsAppointment.setEndTime(TimeUtils.format2hhmm(selectedTimeSlot.getEndTime())/*"11:50"*/);
-        doctorsAppointment.setConsultationDt(TimeUtils.format2Date(selectedPageItem.getConsultationDate())/*"2016-01-05"*/);
+        doctorsAppointment.setConsultationDt(TimeUtils.format2Date(selectedPageItem.getConsultationDate().longValue())/*"2016-01-05"*/);
         doctorsAppointment.setAddressConsultID(selectedPageItem.getAddressConsultID()/*2106*/);
-        doctorsAppointment.setPatientID(9944208696001l);
+        doctorsAppointment.setPatientID(/*phNumber*/9944208696001l);
         doctorsAppointment.setStartTime(TimeUtils.format2hhmm(selectedTimeSlot.getStartTime())/*"11:40"*/);
         doctorsAppointment.setAppointmentStatus("B");
-        doctorsAppointment.setUSRId(7);
+        doctorsAppointment.setUSRId(0);
         doctorsAppointment.setDoctorVisitRsnID("ALLMRDRR");
+        doctorsAppointment.setSendSMS("Y");
         String url = "http://dct4avjn1lfw.cloudfront.net";
 
         RestClient.getAPI(url).addDoctorsAppointment(doctorsAppointment, new RestCallback<DoctorsAppointmentResponse>() {
             @Override
             public void failure(RestError restError) {
-                Log.e("Doctor Appointement", ""+restError.getErrorMessage());
+                Log.e("Doctor Appointment", ""+restError.getErrorMessage());
                 Toast.makeText(ChooseAppointmentActivity.this, "Couldn't book appointment for the selected slot.", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void success(DoctorsAppointmentResponse doctorsAppointmentResponse, Response response) {
-                if (doctorsAppointmentResponse != null) {
+                if(doctorsAppointmentResponse == null)
+                {
+                    Toast.makeText(ChooseAppointmentActivity.this, "Booking Doctor Appointment Failed", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(doctorsAppointmentResponse.getExceptionType())) {
                     Intent i = new Intent(ChooseAppointmentActivity.this, ConfirmationSummaryActivity.class);
                     i.putExtra("BookingDetails", doctorsAppointmentResponse);
                     startActivity(i);
                 } else {
-                    Log.i("Response", "" + response.getReason());
+
+                    if(!TextUtils.isEmpty(response.getReason()) && response.getStatus() != 200)
+                    {
+                        Log.i("Response", "" + response.getReason());
+                        Toast.makeText(ChooseAppointmentActivity.this, "Appointment Failed : "+doctorsAppointmentResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                    if(!TextUtils.isEmpty(doctorsAppointmentResponse.getExceptionType()))
+                    {
+                        Log.i("ExceptionType", "" + doctorsAppointmentResponse.getExceptionType());
+                        Log.i("Message", "" + doctorsAppointmentResponse.getMessage());
+                        Toast.makeText(ChooseAppointmentActivity.this, "Appointment Failed : "+doctorsAppointmentResponse.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+
+
                 }
             }
         });
     }
 
-    private void populateTimeSlots()
+    private void populateTimeSlots(Date date)
     {
         tvNoSlots.setVisibility(View.GONE);
         pBar.setVisibility(View.VISIBLE);
         mViewPager.setVisibility(View.INVISIBLE);
 
         GetDoctorAppointmentRequest doctorAppointmentRequest = new GetDoctorAppointmentRequest();
-        doctorAppointmentRequest.setDoctorID(487);
-        doctorAppointmentRequest.setFilterByDate("2016-01-29");
-        doctorAppointmentRequest.setAddressID(341);
+        doctorAppointmentRequest.setDoctorID(selectedDoctorDetails.DoctorID/*487*/);
+        doctorAppointmentRequest.setFilterByDate(TimeUtils.format2Date(date)/*"2016-01-29"*/);
+        doctorAppointmentRequest.setAddressID(selectedDoctorDetails.AddressID/*341*/);
         String url = "http://dct4avjn1lfw.cloudfront.net";
         RestClient.getAPI(url).getDoctorAppointment(doctorAppointmentRequest, new RestCallback<GetDoctorAppointmentResponse>() {
             @Override

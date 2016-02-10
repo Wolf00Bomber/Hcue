@@ -51,7 +51,8 @@ public class ConfirmationFullViewActivity extends BaseActivity implements OnClic
 		switch(v.getId())
 		{
 		case R.id.btnOk:
-			Intent intent = new Intent(ConfirmationFullViewActivity.this,SelectDoctorForFeedbackActivity.class);
+			Intent intent = new Intent(ConfirmationFullViewActivity.this,SelectDoctorActivity.class);
+			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(intent);
 			break;
 		}

@@ -16,7 +16,6 @@ import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,9 +25,9 @@ public class MainActivity extends Activity implements OnClickListener{
 	
 	EditText edtFirstName, edtLastName, edtAge;
 	Button btnConfirm;
-	TextView tvMale,tvFeMale;
+//	TextView tvMale,tvFeMale;
 	LinearLayout llUserDetails, llKeyboard;
-	ImageView ivMale,ivFeMale;
+//	ImageView ivMale,ivFeMale;
 	View focusedView;
 	InputMethodManager im;
 	Handler h;
@@ -56,12 +55,12 @@ public class MainActivity extends Activity implements OnClickListener{
 		edtLastName 	= 	(EditText) 		findViewById(R.id.edtLastName);
 		
 		
-		tvMale			=	(TextView)		findViewById(R.id.tvMale);
-		tvFeMale		=	(TextView)		findViewById(R.id.tvFeMale);
+//		tvMale			=	(TextView)		findViewById(R.id.tvMale);
+//		tvFeMale		=	(TextView)		findViewById(R.id.tvFeMale);
 		edtAge 			= 	(EditText) 		findViewById(R.id.edtAge);
 		btnConfirm 		= 	(Button) 		findViewById(R.id.btnConfirm);
-		ivMale 			= 	(ImageView) 	findViewById(R.id.ivMale);
-		ivFeMale 		= 	(ImageView) 	findViewById(R.id.ivFeMale);
+//		ivMale 			= 	(ImageView) 	findViewById(R.id.ivMale);
+//		ivFeMale 		= 	(ImageView) 	findViewById(R.id.ivFeMale);
 
 		
 		
@@ -74,13 +73,6 @@ public class MainActivity extends Activity implements OnClickListener{
 		edtLastName.setTypeface(typethree);
 		btnConfirm.setTypeface(type);
 		
-		ivMale.setTag(true);
-		ivFeMale.setTag(false);
-		
-		ivMale.setOnClickListener(this);
-		ivFeMale.setOnClickListener(this);
-		tvFeMale.setOnClickListener(this);
-		tvMale.setOnClickListener(this);
 		edtAge.setOnClickListener(this);
 		edtFirstName.setOnClickListener(this);
 		edtLastName.setOnClickListener(this);
@@ -232,7 +224,6 @@ public class MainActivity extends Activity implements OnClickListener{
 					
 					llKeyboard.setVisibility(View.GONE);
 				}
-//				Toast.makeText(MainActivity.this, "Need To Implement.", Toast.LENGTH_SHORT).show();
 			}
 			else if(button.getText().toString().equalsIgnoreCase("Done"))
 			{
@@ -263,33 +254,14 @@ public class MainActivity extends Activity implements OnClickListener{
 	            ((TextView) v).setTypeface(Typeface.createFromAsset(getAssets(), "Lato-Regular.ttf"));
 	        }
 	    } catch (Exception e) {
-	 }
+			e.printStackTrace();
+	 	}
 	 }
 
 	@Override
 	public void onClick(final View v) 
 	{
 		switch (v.getId()) {
-		case R.id.tvMale:
-		case R.id.ivMale:
-			if((Boolean) ivFeMale.getTag())
-			{
-				ivFeMale.setBackgroundResource(R.drawable.un_check_icon);
-				ivFeMale.setTag(false);
-			}
-			ivMale.setBackgroundResource(R.drawable.check_icon);
-			ivMale.setTag(true);
-			break;
-		case R.id.tvFeMale:
-		case R.id.ivFeMale:
-			if((Boolean) ivMale.getTag())
-			{
-				ivMale.setBackgroundResource(R.drawable.un_check_icon);
-				ivMale.setTag(false);
-			}
-			ivFeMale.setBackgroundResource(R.drawable.check_icon);
-			ivFeMale.setTag(true);
-			break;
 		case R.id.edtFirstName:
 		case R.id.edtAge:
 		case R.id.edtLastName:
@@ -308,10 +280,6 @@ public class MainActivity extends Activity implements OnClickListener{
 				llKeyboard.startAnimation(slide_up);
 			
 			llKeyboard.setVisibility(View.VISIBLE);
-			if(v.getId() == R.id.edtAge)
-			{
-
-			}
 			break;
 
 		default:

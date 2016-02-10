@@ -64,6 +64,7 @@ public class EnterMailActivity extends BaseActivity implements OnClickListener
 				break;
 			case R.id.btnSkip:
 				Intent skip = new Intent(EnterMailActivity.this,SelectDoctorActivity.class);
+				skip.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(skip);
 				break;
 				

@@ -80,6 +80,7 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 				break;
 			case R.id.btnAskMe:
 				Intent askme = new Intent(ConfirmationSummaryActivity.this,SelectDoctorActivity.class);
+				askme.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(askme);
 				break;
 		}

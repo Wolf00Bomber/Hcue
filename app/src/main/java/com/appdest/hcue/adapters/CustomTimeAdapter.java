@@ -1,14 +1,11 @@
 package com.appdest.hcue.adapters;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsoluteLayout;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
@@ -17,17 +14,8 @@ import com.appdest.hcue.BaseActivity;
 import com.appdest.hcue.R;
 import com.appdest.hcue.common.AppConstants;
 import com.appdest.hcue.model.GetDoctorAppointmentResponse;
-import com.appdest.hcue.model.TimeObject;
 import com.appdest.hcue.utils.TimeUtils;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-
-/**
- * Created by cvlhyd on 26-01-2016.
- */
 public class CustomTimeAdapter extends BaseAdapter
 {
     private Context context;
@@ -87,20 +75,21 @@ public class CustomTimeAdapter extends BaseAdapter
 
         TextView tvCell = (TextView) view.findViewById(R.id.tvCell);
         tvCell.setTypeface(null, Typeface.NORMAL);
+
         if("Y".equalsIgnoreCase(timeSlot.Available))
         {
-            tvCell.setTextColor(Color.WHITE);
-            tvCell.setBackgroundResource(R.drawable.selected_time_gcol_bg);
+            view.setEnabled(true);
             tvCell.setEnabled(true);
         }
         else
         {
-            tvCell.setTextColor(Color.LTGRAY);
-            tvCell.setBackgroundResource(R.drawable.selected_time_bg);
+            view.setEnabled(false);
             tvCell.setEnabled(false);
         }
+        view.setBackgroundResource(R.drawable.appointment_time);
+        tvCell.setTextColor(context.getResources().getColorStateList(R.color.text_pressed));
 
-        ((BaseActivity)context).setSpecificTypeFace((ViewGroup)view, AppConstants.WALSHEIM_MEDIUM);
+        ((BaseActivity)context).setSpecificTypeFace((ViewGroup) view, AppConstants.WALSHEIM_MEDIUM);
 
         // set text
         tvCell.setText(TimeUtils.format2hhmm(timeSlot.getStartTime()));

@@ -11,12 +11,10 @@ import com.appdest.hcue.model.GetHospitalsRequest;
 import com.appdest.hcue.model.GetHospitalsResponse;
 
 import retrofit.http.Body;
-import retrofit.http.Header;
+import retrofit.http.GET;
 import retrofit.http.Headers;
 import retrofit.http.POST;
-import retrofit.http.Part;
-import retrofit.mime.TypedFile;
-import retrofit.mime.TypedString;
+import retrofit.http.Path;
 
 public interface WebAPI {
 
@@ -55,5 +53,13 @@ public interface WebAPI {
     })
     @POST("/platformPartners/getHospitals")
     void getHospitalDetails(@Body GetHospitalsRequest doctorsAppointment, RestCallback<GetHospitalsResponse> callback);
+
+    @Headers({
+            "Content-Type: application/json",
+            "User-Agent: Hcue"
+    })
+    @GET("/{DoctorID}/getDoctor")
+    void getDoctorDetails(@Path("DoctorID") int doctorId, RestCallback<GetHospitalsResponse> callback);
+
 
 }
