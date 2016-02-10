@@ -127,7 +127,7 @@
             android:layout_marginRight="25dp"
             android:background="@drawable/next_btn"
             android:gravity="center"
-            android:text="Next"
+            android:text="Done"
             android:textColor="#FFFFFF"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -135,18 +135,7 @@
 
 </LinearLayout>
 
-    <Button
-        android:id="@+id/btnConfirm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/confirm_number_btn"
-        android:gravity="center"
-        android:text="Confirm Patient Details"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+
 
     <View
         android:layout_width="match_parent"

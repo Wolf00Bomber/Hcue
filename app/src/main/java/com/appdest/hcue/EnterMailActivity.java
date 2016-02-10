@@ -13,20 +13,19 @@ import android.widget.TextView;
 public class EnterMailActivity extends BaseActivity implements OnClickListener
 {
 	private LinearLayout llEmail;
-	private EditText edtEnterAddress,edtLandmark;
+	private EditText edtEmail;
 	private Button btnConfirm,btnSkip;
 
 
 	@Override
 	public void initializeControls() 
 	{
-		llEmail = (LinearLayout) inflater.inflate(R.layout.mail_more_details, null);
+		llEmail = (LinearLayout) inflater.inflate(R.layout.enter_mail, null);
 		llBody.addView(llEmail);
 
 
 
-		edtEnterAddress	=	(EditText)		llEmail.findViewById(R.id.edtEnterAddress);
-		edtLandmark		=	(EditText)		llEmail.findViewById(R.id.edtLandmark);
+		edtEmail		=	(EditText)		llEmail.findViewById(R.id.edtEmail);
 
 
 
@@ -60,10 +59,12 @@ public class EnterMailActivity extends BaseActivity implements OnClickListener
 		{
 
 			case R.id.btnConfirm:
-				Intent intent = new Intent(EnterMailActivity.this,ConfirmationFullViewActivity.class);
+				Intent intent = new Intent(EnterMailActivity.this,EnterAddressActivity.class);
 				startActivity(intent);
 				break;
 			case R.id.btnSkip:
+				Intent skip = new Intent(EnterMailActivity.this,SelectDoctorActivity.class);
+				startActivity(skip);
 				break;
 				
 		}

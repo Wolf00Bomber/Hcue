@@ -23,7 +23,8 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
 {
     private LinearLayout llComments,llKeyboard,llSpecilaKeyboard;
     private EditText edtEnterComments;
-    private Button btnSubmit;
+    private Button btnSubmit,btnCancel;
+    private TextView tvDoctorName;
     private View focusedView;
     private InputMethodManager im;
     private Handler h;
@@ -38,14 +39,21 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
         edtEnterComments    =   (EditText)  llComments.findViewById(R.id.edtEnterComments);
 
         btnSubmit           =   (Button)    llComments.findViewById(R.id.btnSubmit);
+        btnCancel           =   (Button)    llComments.findViewById(R.id.btnCancel);
+
+        tvDoctorName        =   (TextView)  llComments.findViewById(R.id.tvDoctorName);
 
         llKeyboard          =   (LinearLayout) llComments.findViewById(R.id.llKeyBoard);
         llSpecilaKeyboard   =   (LinearLayout) llComments.findViewById(R.id.llSpecialKeyBoard);
 
         btnSubmit.setOnClickListener(this);
+        btnCancel.setOnClickListener(this);
         llKeyboard.setVisibility(View.GONE);
         llSpecilaKeyboard.setVisibility(View.GONE);
-        setSpecificTypeFace(llComments, AppConstants.WALSHEIM_BOLD);
+        setSpecificTypeFace(llComments, AppConstants.WALSHEIM_LIGHT);
+        tvDoctorName.setTypeface(AppConstants.WALSHEIM_MEDIUM);
+        btnSubmit.setTypeface(AppConstants.WALSHEIM_MEDIUM);
+        btnCancel.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 
         tvTitle.setText("Thanks for using hCue");
 
