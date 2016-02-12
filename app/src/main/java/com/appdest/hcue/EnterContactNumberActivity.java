@@ -246,18 +246,20 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 				startActivity(intent);
 				break;
 				
-				case R.id.tvMobile:
-					tvMobile.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check_icon, 0, R.drawable.mobile_icon, 0);
-					tvLandLine.setCompoundDrawablesWithIntrinsicBounds(R.drawable.un_check_icon, 0, R.drawable.landline_icon, 0);
-					isMobile = true;
-					isLandline = false;
-					break;
-				case R.id.tvLandLine:
-					tvMobile.setCompoundDrawablesWithIntrinsicBounds(R.drawable.un_check_icon, 0, R.drawable.mobile_icon, 0);
-					tvLandLine.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check_icon, 0, R.drawable.landline_icon, 0);
-					isMobile = false;
-					isLandline = true;
-					break;
+			case R.id.tvMobile:
+				tvMobile.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check_icon, 0, R.drawable.mobile_icon, 0);
+				tvLandLine.setCompoundDrawablesWithIntrinsicBounds(R.drawable.un_check_icon, 0, R.drawable.landline_icon, 0);
+				isMobile = true;
+				isLandline = false;
+				edtCode.setVisibility(View.VISIBLE);
+				break;
+			case R.id.tvLandLine:
+				tvMobile.setCompoundDrawablesWithIntrinsicBounds(R.drawable.un_check_icon, 0, R.drawable.mobile_icon, 0);
+				tvLandLine.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check_icon, 0, R.drawable.landline_icon, 0);
+				isMobile = false;
+				isLandline = true;
+				edtCode.setVisibility(View.GONE);
+				break;
 					
 			case R.id.edtCode:
 			case R.id.edtNumber:
