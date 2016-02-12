@@ -1,5 +1,6 @@
 package com.appdest.hcue;
 
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.appdest.hcue.adapters.CustomTimeAdapter;
+import com.appdest.hcue.common.AppConstants;
 import com.github.siyamed.shapeimageview.CircularImageView;
 
 import java.util.ArrayList;
@@ -23,7 +25,7 @@ import java.util.ArrayList;
 public class AdminChooseHospital extends BaseActivity implements View.OnClickListener{
     private LinearLayout layout;
     private CircularImageView imageView;
-    private TextView tvDoctorName, tvDesgAndSpeciality, tvEmail, tvMobile;
+    private TextView tvDoctorName, tvDesgAndSpeciality, tvEmail, tvMobile, tvHeading;
     private ImageView ivLeft, ivRight;
     private Button btnCancel, btnNext;
     private ViewPager viewPager;
@@ -39,11 +41,20 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
         tvDesgAndSpeciality    = (TextView) layout.findViewById(R.id.tvDesgAndSpeciality);
         tvEmail    = (TextView) layout.findViewById(R.id.tvEmail);
         tvMobile    = (TextView) layout.findViewById(R.id.tvMobile);
+        tvHeading   = (TextView) layout.findViewById(R.id.tvHeading);
         ivLeft    = (ImageView) layout.findViewById(R.id.ivLeft);
         ivRight    = (ImageView) layout.findViewById(R.id.ivRight);
         btnCancel    = (Button) layout.findViewById(R.id.btnCancel);
         btnNext    = (Button) layout.findViewById(R.id.btnNext);
         viewPager    = (ViewPager) layout.findViewById(R.id.viewPager);
+
+        tvDoctorName.setTypeface(AppConstants.WALSHEIM_MEDIUM);
+        tvDesgAndSpeciality.setTypeface(AppConstants.WALSHEIM_LIGHT);
+        tvEmail.setTypeface(AppConstants.WALSHEIM_LIGHT);
+        tvMobile.setTypeface(AppConstants.WALSHEIM_MEDIUM);
+        tvHeading.setTypeface(AppConstants.WALSHEIM_LIGHT);
+        btnCancel.setTypeface(AppConstants.WALSHEIM_MEDIUM);
+        btnNext.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 
         ivLeft.setOnClickListener(this);
         ivRight.setOnClickListener(this);
@@ -108,6 +119,8 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
         case R.id.btnCancel :
             break;
         case R.id.btnNext :
+            Intent intent = new Intent(AdminChooseHospital.this, AdminChooseDoctors.class);
+            startActivity(intent);
             break;
         case R.id.tvBack :
             finish();

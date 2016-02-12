@@ -221,35 +221,10 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b6cfe82-ac61-41a4-af9e-d3910da41b1f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-sw720dp-mdpi/List of Hospitals.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-sw720dp-mdpi/arrow_left_admin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-sw720dp-mdpi/arrow_right_admin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-sw720dp-mdpi/back_btn_modify.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-sw720dp-mdpi/border_clinic_admin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-sw720dp-mdpi/cancel_btn_admin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-sw720dp-mdpi/check_box_admin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-sw720dp-mdpi/check_box_sq_admin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-sw720dp-mdpi/defult_profile_pic_admin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-sw720dp-mdpi/logout_admin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-sw720dp-mdpi/next_btn_admin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-sw720dp-mdpi/profile_pic_admin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-sw720dp-mdpi/un_check_admin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-sw720dp-mdpi/un_check_box_admin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-sw720dp-mdpi/you_red.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminChooseDoctors.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminChooseHospital.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/admin_choose_doctors_grid_cell.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/admin_choose_doctors_main.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/admin_choose_hospital_grid_cell.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/admin_choose_hospital_main.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/admin_confirmation.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/admin_pager_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminLoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminLoginActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/BaseActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/BaseActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/admin_login.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/admin_login.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/choose_date_time_of_appointment.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/choose_date_time_of_appointment.xml" />
+    <list default="true" id="5b6cfe82-ac61-41a4-af9e-d3910da41b1f" name="Default" comment="#Admin Module:&#10;1.AdminLogin&#10;2.AdminChooseHospital&#10;3.AdminChooseDoctors&#10;4.AdminConfirmation&#10;&#10;Tags: Design, Coding, resources &amp; Manifest">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminConfirmation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminChooseHospital.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminChooseHospital.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/admin_confirmation.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/admin_confirmation.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Hcue.iws" />
@@ -302,46 +277,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AdminChooseHospital.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminChooseHospital.java">
+      <file leaf-file-name="AdminConfirmation.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminConfirmation.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="105" column="64" selection-start-line="105" selection-start-column="64" selection-end-line="105" selection-end-column="64" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4171#4172#0" expanded="true" />
-                <element signature="e#4222#4223#0" expanded="true" />
-                <element signature="e#4272#4273#0" expanded="true" />
-                <element signature="e#4359#4360#0" expanded="true" />
-                <element signature="e#4446#4447#0" expanded="true" />
-                <element signature="e#4482#4483#0" expanded="true" />
-                <element signature="e#5029#5030#0" expanded="true" />
-                <element signature="e#5073#5074#0" expanded="true" />
-                <element signature="e#5418#5419#0" expanded="true" />
-                <element signature="e#5472#5473#0" expanded="true" />
-                <element signature="e#5522#5523#0" expanded="true" />
-                <element signature="e#5554#5555#0" expanded="true" />
-                <element signature="e#5619#5620#0" expanded="true" />
-                <element signature="e#5654#5655#0" expanded="true" />
-                <element signature="e#5719#5720#0" expanded="true" />
-                <element signature="e#5751#5752#0" expanded="true" />
-                <element signature="e#6876#7517#0" expanded="true" />
-                <element signature="e#7516#7517#0" expanded="true" />
-              </folding>
+              <caret line="32" column="65" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="65" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin_choose_doctors_main.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/admin_choose_doctors_main.xml">
+      <file leaf-file-name="AdminLoginActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminLoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="40.551723">
-              <caret line="33" column="38" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="68" column="38" selection-start-line="68" selection-start-column="38" selection-end-line="68" selection-end-column="38" />
               <folding />
             </state>
           </provider>
-          <provider editor-type-id="android-designer">
-            <state />
+        </entry>
+      </file>
+      <file leaf-file-name="AdminChooseHospital.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminChooseHospital.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="2.505263">
+              <caret line="118" column="29" selection-start-line="118" selection-start-column="29" selection-end-line="118" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -349,122 +313,44 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminChooseDoctors.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="197" column="44" selection-start-line="197" selection-start-column="24" selection-end-line="197" selection-end-column="44" />
+              <caret line="111" column="34" selection-start-line="110" selection-start-column="12" selection-end-line="111" selection-end-column="34" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin_choose_doctors_main.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/admin_choose_doctors_main.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.62069">
+              <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin_choose_hospital_main.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/admin_choose_hospital_main.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.034483">
+              <caret line="81" column="34" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="admin_confirmation.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/admin_confirmation.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-24.034483">
-              <caret line="41" column="44" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin_choose_doctors_grid_cell.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/admin_choose_doctors_grid_cell.xml">
-          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-15.24138">
-              <caret line="59" column="38" selection-start-line="59" selection-start-column="33" selection-end-line="59" selection-end-column="38" />
-              <folding>
-                <element signature="e#219#237#0" expanded="true" />
-                <element signature="e#618#636#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="feedback.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/feedback.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.1724138">
-              <caret line="2" column="55" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="55" />
+              <caret line="41" column="43" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="43" />
               <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="choose_date_time_of_appointment.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/choose_date_time_of_appointment.xml">
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="65" column="48" selection-start-line="65" selection-start-column="48" selection-end-line="65" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7017544">
-              <caret line="116" column="62" selection-start-line="116" selection-start-column="62" selection-end-line="116" selection-end-column="62" />
-              <folding>
-                <element signature="e#555#573#0" expanded="true" />
-                <element signature="e#791#809#0" expanded="true" />
-                <element signature="e#1195#1213#0" expanded="true" />
-                <element signature="e#1395#1413#0" expanded="true" />
-                <element signature="e#1590#1608#0" expanded="true" />
-                <element signature="e#1850#1868#0" expanded="true" />
-                <element signature="e#2051#2069#0" expanded="true" />
-                <element signature="e#2258#2276#0" expanded="true" />
-                <element signature="e#2455#2473#0" expanded="true" />
-                <element signature="e#2666#2684#0" expanded="true" />
-                <element signature="e#2862#2880#0" expanded="true" />
-                <element signature="e#3070#3088#0" expanded="true" />
-                <element signature="e#3276#3294#0" expanded="true" />
-                <element signature="e#3481#3499#0" expanded="true" />
-                <element signature="e#3687#3705#0" expanded="true" />
-                <element signature="e#3893#3911#0" expanded="true" />
-                <element signature="e#4099#4117#0" expanded="true" />
-                <element signature="e#4299#4317#0" expanded="true" />
-                <element signature="e#4497#4515#0" expanded="true" />
-                <element signature="e#4696#4714#0" expanded="true" />
-                <element signature="e#4894#4912#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="appointments_history_cell.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/appointments_history_cell.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.793103">
-              <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin_choose_hospital_grid_cell.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/admin_choose_hospital_grid_cell.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.310345">
-              <caret line="21" column="38" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="38" />
-              <folding>
-                <element signature="e#219#237#0" expanded="true" />
-                <element signature="e#645#663#0" expanded="true" />
-                <element signature="e#1164#1182#0" expanded="true" />
-              </folding>
             </state>
           </provider>
           <provider editor-type-id="android-designer">
@@ -2151,7 +2037,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/feedback_keyboard.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/mail_more_details.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/AdditionalCommentsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/GetPatientDetailsRequest.java" />
@@ -2190,17 +2075,18 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/grid_cell.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/SelectDoctorActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/admin_login.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminLoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/BaseActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/choose_date_time_of_appointment.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/admin_choose_hospital_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/admin_choose_hospital_grid_cell.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/admin_pager_item.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminChooseHospital.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/admin_choose_doctors_grid_cell.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/admin_confirmation.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminConfirmation.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/admin_choose_hospital_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/admin_choose_doctors_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminChooseDoctors.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/admin_confirmation.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminChooseHospital.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminLoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       </list>
     </option>
@@ -2367,11 +2253,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="hcue" />
+              <option name="myItemId" value="layout" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2402,10 +2288,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="hcue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adapters" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2913,7 +2795,13 @@
       <option name="project" value="LOCAL" />
       <updated>1455280150934</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="#Admin Module:&#10;1.AdminLogin&#10;2.AdminChooseHospital&#10;3.AdminChooseDoctors&#10;4.AdminConfirmation&#10;&#10;Tags: Design, Coding, resources &amp; Manifest">
+      <created>1455305444035</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1455305444035</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3018,7 +2906,8 @@
     <MESSAGE value="feedback" />
     <MESSAGE value="addPatientdetails service" />
     <MESSAGE value="#Rate your visit screen&#10;1.Reduce font size of 'Additional Comments'&#10;2.Leave some space above Dr. Name and Smileys&#10;3.Doctor photo should be in square with rounded corners&#10;&#10;#Additional Comments Page&#10;1.Increase Text Box width as in design&#10;2.Change &quot;Submit&quot; to &quot;Done&quot;&#10;3.Change &quot;Enter Address&quot; to &quot;Type your feedback here&quot;&#10;4.Cancel button is very dull&#10;5.Thank you page is missing&#10;&#10;#others&#10;1.Legends are missing which shows availbility and nonavailbility&#10;2.Photos should be inside a square with rounded corners, corner layouts with dark grey color&#10;3.Check font styles / font weight / colors etc" />
-    <option name="LAST_COMMIT_MESSAGE" value="#Rate your visit screen&#10;1.Reduce font size of 'Additional Comments'&#10;2.Leave some space above Dr. Name and Smileys&#10;3.Doctor photo should be in square with rounded corners&#10;&#10;#Additional Comments Page&#10;1.Increase Text Box width as in design&#10;2.Change &quot;Submit&quot; to &quot;Done&quot;&#10;3.Change &quot;Enter Address&quot; to &quot;Type your feedback here&quot;&#10;4.Cancel button is very dull&#10;5.Thank you page is missing&#10;&#10;#others&#10;1.Legends are missing which shows availbility and nonavailbility&#10;2.Photos should be inside a square with rounded corners, corner layouts with dark grey color&#10;3.Check font styles / font weight / colors etc" />
+    <MESSAGE value="#Admin Module:&#10;1.AdminLogin&#10;2.AdminChooseHospital&#10;3.AdminChooseDoctors&#10;4.AdminConfirmation&#10;&#10;Tags: Design, Coding, resources &amp; Manifest" />
+    <option name="LAST_COMMIT_MESSAGE" value="#Admin Module:&#10;1.AdminLogin&#10;2.AdminChooseHospital&#10;3.AdminChooseDoctors&#10;4.AdminConfirmation&#10;&#10;Tags: Design, Coding, resources &amp; Manifest" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3059,16 +2948,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/enter_mail.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.586207">
-          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ConfirmCancelationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.76404494">
@@ -3381,25 +3260,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/admin_choose_hospital_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="14.655172">
-          <caret line="68" column="41" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminLoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="32" selection-start-line="24" selection-start-column="7" selection-end-line="25" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/base.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -3476,10 +3336,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="91" column="72" selection-start-line="88" selection-start-column="8" selection-end-line="91" selection-end-column="72" />
           <folding>
-            <element signature="e#1689#1690#0" expanded="true" />
-            <element signature="e#1731#1732#0" expanded="true" />
-            <element signature="e#5343#5344#0" expanded="true" />
-            <element signature="e#5379#5380#0" expanded="true" />
+            <element signature="e#1689#1690#0" expanded="false" />
+            <element signature="e#1731#1732#0" expanded="false" />
+            <element signature="e#5343#5344#0" expanded="false" />
+            <element signature="e#5379#5380#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3510,45 +3370,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminChooseHospital.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="105" column="64" selection-start-line="105" selection-start-column="64" selection-end-line="105" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4171#4172#0" expanded="true" />
-            <element signature="e#4222#4223#0" expanded="true" />
-            <element signature="e#4272#4273#0" expanded="true" />
-            <element signature="e#4359#4360#0" expanded="true" />
-            <element signature="e#4446#4447#0" expanded="true" />
-            <element signature="e#4482#4483#0" expanded="true" />
-            <element signature="e#5029#5030#0" expanded="true" />
-            <element signature="e#5073#5074#0" expanded="true" />
-            <element signature="e#5418#5419#0" expanded="true" />
-            <element signature="e#5472#5473#0" expanded="true" />
-            <element signature="e#5522#5523#0" expanded="true" />
-            <element signature="e#5554#5555#0" expanded="true" />
-            <element signature="e#5619#5620#0" expanded="true" />
-            <element signature="e#5654#5655#0" expanded="true" />
-            <element signature="e#5719#5720#0" expanded="true" />
-            <element signature="e#5751#5752#0" expanded="true" />
-            <element signature="e#6876#7517#0" expanded="true" />
-            <element signature="e#7516#7517#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/admin_choose_doctors_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="40.551723">
-          <caret line="33" column="38" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/admin_choose_doctors_grid_cell.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.24138">
@@ -3557,25 +3378,6 @@
             <element signature="e#219#237#0" expanded="true" />
             <element signature="e#618#636#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminChooseDoctors.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="197" column="44" selection-start-line="197" selection-start-column="24" selection-end-line="197" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/admin_confirmation.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.034483">
-          <caret line="41" column="44" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer">
@@ -3604,32 +3406,77 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/admin_confirmation.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.24138">
+          <caret line="41" column="43" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminConfirmation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="65" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/admin_choose_hospital_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.034483">
+          <caret line="81" column="34" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/admin_choose_doctors_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.62069">
+          <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminChooseDoctors.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="111" column="34" selection-start-line="110" selection-start-column="12" selection-end-line="111" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminLoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="68" column="38" selection-start-line="68" selection-start-column="38" selection-end-line="68" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7017544">
-          <caret line="116" column="62" selection-start-line="116" selection-start-column="62" selection-end-line="116" selection-end-column="62" />
+        <state vertical-scroll-proportion="0.56666666">
+          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminChooseHospital.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.505263">
+          <caret line="118" column="29" selection-start-line="118" selection-start-column="29" selection-end-line="118" selection-end-column="29" />
           <folding>
-            <element signature="e#555#573#0" expanded="true" />
-            <element signature="e#791#809#0" expanded="true" />
-            <element signature="e#1195#1213#0" expanded="true" />
-            <element signature="e#1395#1413#0" expanded="true" />
-            <element signature="e#1590#1608#0" expanded="true" />
-            <element signature="e#1850#1868#0" expanded="true" />
-            <element signature="e#2051#2069#0" expanded="true" />
-            <element signature="e#2258#2276#0" expanded="true" />
-            <element signature="e#2455#2473#0" expanded="true" />
-            <element signature="e#2666#2684#0" expanded="true" />
-            <element signature="e#2862#2880#0" expanded="true" />
-            <element signature="e#3070#3088#0" expanded="true" />
-            <element signature="e#3276#3294#0" expanded="true" />
-            <element signature="e#3481#3499#0" expanded="true" />
-            <element signature="e#3687#3705#0" expanded="true" />
-            <element signature="e#3893#3911#0" expanded="true" />
-            <element signature="e#4099#4117#0" expanded="true" />
-            <element signature="e#4299#4317#0" expanded="true" />
-            <element signature="e#4497#4515#0" expanded="true" />
-            <element signature="e#4696#4714#0" expanded="true" />
-            <element signature="e#4894#4912#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
