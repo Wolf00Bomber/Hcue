@@ -73,7 +73,22 @@
 
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp">
+
+        <include layout="@layout/alphabet_keyboard" />
+
+        <include layout="@layout/special_keyboard" />
+
+
+    </FrameLayout>
 
 
 </LinearLayout>

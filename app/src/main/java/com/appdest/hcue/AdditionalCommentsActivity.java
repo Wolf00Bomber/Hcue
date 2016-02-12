@@ -29,6 +29,7 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
     private InputMethodManager im;
     private Handler h;
     private Animation slide_up, slide_down;
+    boolean isActivityNeedsFinish = false;
     @Override
     public void initializeControls()
     {
@@ -65,6 +66,8 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
     @Override
     public void bindControls()
     {
+        if(isActivityNeedsFinish)
+            return;
         h = new Handler(Looper.getMainLooper());
 
         edtEnterComments.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -93,7 +96,7 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
 
         hideKeyBoard(edtEnterComments);
 
-//        edtEnterComments.clearFocus();
+        edtEnterComments.clearFocus();
 
     }
     public void keyboardClick(View v)
@@ -185,15 +188,13 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
         switch (v.getId())
         {
             case R.id.btnSubmit:
-                Intent intent = new Intent(AdditionalCommentsActivity.this,SelectDoctorActivity.class);
+                Intent intent = new Intent(AdditionalCommentsActivity.this,EnterMailActivity.class);
                 startActivity(intent);
                 break;
 
             case R.id.edtEnterComments:
                 v.requestFocus();
                 hideKeyBoard(v);
-
-
 
                 if(llKeyboard.getVisibility() == View.GONE)
                     llSpecilaKeyboard.setVisibility(View.GONE);
@@ -205,7 +206,7 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
                     public void run() {
                         hideKeyBoard(v);
                     }
-                }, 50);
+                }, 30);
 
                 break;
 

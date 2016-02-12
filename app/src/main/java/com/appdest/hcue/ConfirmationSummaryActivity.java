@@ -15,7 +15,7 @@ import android.widget.TextView;
 public class ConfirmationSummaryActivity extends BaseActivity implements OnClickListener
 {
 	private LinearLayout llConfirm;
-	private TextView tvTime,tvToken;
+	private TextView tvTime,tvToken,tvDoctorName;
 	private Button btnProvideDetails,btnAskMe;
 	private DoctorsAppointmentResponse bookingDetails;
 
@@ -36,6 +36,7 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 		
 		tvTime				=	(TextView)	llConfirm.findViewById(R.id.tvTime);
 		tvToken				=	(TextView)	llConfirm.findViewById(R.id.tvToken);
+		tvDoctorName		=	(TextView)	llConfirm.findViewById(R.id.tvDoctorName);
 		
 		btnProvideDetails	=	(Button)	llConfirm.findViewById(R.id.btnProvideDetails);
 		btnAskMe			=	(Button)	llConfirm.findViewById(R.id.btnAskMe);
@@ -45,12 +46,13 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 		
 		setSpecificTypeFace(llConfirm, AppConstants.WALSHEIM_LIGHT);
 		
-		tvTime.setTypeface(AppConstants.WALSHEIM_BOLD);
-		tvToken.setTypeface(AppConstants.WALSHEIM_BOLD);
+		tvTime.setTypeface(AppConstants.WALSHEIM_MEDIUM);
+		tvToken.setTypeface(AppConstants.WALSHEIM_MEDIUM);
+		tvDoctorName.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 		btnProvideDetails.setTypeface(AppConstants.WALSHEIM_BOLD);
 		btnAskMe.setTypeface(AppConstants.WALSHEIM_BOLD);
 		
-		tvTitle.setText("Confirmation Summary");
+		tvTitle.setText("Booking Confirmation");
 
 		String dateString =
 		DateUtils.isToday(bookingDetails.getConsultationDt())
