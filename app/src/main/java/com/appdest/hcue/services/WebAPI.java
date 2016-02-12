@@ -9,6 +9,9 @@ import com.appdest.hcue.model.GetPatientDetailsRequest;
 import com.appdest.hcue.model.GetPatientDetailsResponse;
 import com.appdest.hcue.model.GetHospitalsRequest;
 import com.appdest.hcue.model.GetHospitalsResponse;
+import com.appdest.hcue.model.Speciality;
+
+import java.util.List;
 
 import retrofit.http.Body;
 import retrofit.http.GET;
@@ -61,5 +64,11 @@ public interface WebAPI {
     @GET("/{DoctorID}/getDoctor")
     void getDoctorDetails(@Path("DoctorID") int doctorId, RestCallback<GetHospitalsResponse> callback);
 
+    @Headers({
+            "Content-Type: application/json",
+            "User-Agent: Hcue"
+    })
+    @GET("/doctor/readSpecialityType/ALL")
+    void getSpecialityMap(RestCallback<List<Speciality>> callback);
 
 }

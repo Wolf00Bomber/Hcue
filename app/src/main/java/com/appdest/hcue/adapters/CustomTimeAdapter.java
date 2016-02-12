@@ -1,6 +1,7 @@
 package com.appdest.hcue.adapters;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -76,6 +77,13 @@ public class CustomTimeAdapter extends BaseAdapter
         TextView tvCell = (TextView) view.findViewById(R.id.tvCell);
         tvCell.setTypeface(null, Typeface.NORMAL);
 
+        view.setBackgroundResource(R.drawable.appointment_time);
+        tvCell.setTextColor(context.getResources().getColorStateList(R.color.text_pressed));
+        ((BaseActivity)context).setSpecificTypeFace((ViewGroup) view, AppConstants.WALSHEIM_MEDIUM);
+
+        // set text
+        tvCell.setText(TimeUtils.format2hhmm(timeSlot.getStartTime()));
+
         if("Y".equalsIgnoreCase(timeSlot.Available))
         {
             view.setEnabled(true);
@@ -85,14 +93,9 @@ public class CustomTimeAdapter extends BaseAdapter
         {
             view.setEnabled(false);
             tvCell.setEnabled(false);
+            tvCell.setTypeface(AppConstants.WALSHEIM_BOLD);
+            tvCell.setPaintFlags(tvCell.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         }
-        view.setBackgroundResource(R.drawable.appointment_time);
-        tvCell.setTextColor(context.getResources().getColorStateList(R.color.text_pressed));
-
-        ((BaseActivity)context).setSpecificTypeFace((ViewGroup) view, AppConstants.WALSHEIM_MEDIUM);
-
-        // set text
-        tvCell.setText(TimeUtils.format2hhmm(timeSlot.getStartTime()));
 
         return view;
     }

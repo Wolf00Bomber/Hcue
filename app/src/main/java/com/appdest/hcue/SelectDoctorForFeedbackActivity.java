@@ -87,12 +87,12 @@ public class SelectDoctorForFeedbackActivity extends BaseActivity
 				view = LayoutInflater.from(SelectDoctorForFeedbackActivity.this).inflate(R.layout.grid_cell,null);
 				holder = new ViewHolder();
 				holder.tvDoctorName = (TextView) view.findViewById(R.id.tvDoctorName);
-				holder.tvDesignation = (TextView) view.findViewById(R.id.tvDesignation);
+//				holder.tvDesignation = (TextView) view.findViewById(R.id.tvDesignation);
 				holder.tvSpecality = (TextView) view.findViewById(R.id.tvSpecality);
 				holder.iv = (ImageView) view.findViewById(R.id.imageView);
 				
 				holder.tvDoctorName.setTypeface(AppConstants.WALSHEIM_MEDIUM);
-				holder.tvDesignation.setTypeface(AppConstants.WALSHEIM_MEDIUM);
+//				holder.tvDesignation.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 				holder.tvSpecality.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 
 				view.setTag(holder);
@@ -101,7 +101,7 @@ public class SelectDoctorForFeedbackActivity extends BaseActivity
 			}
 
 			holder.tvDoctorName.setText("Dr.P. Venkatakrishna");
-			holder.tvDesignation.setText("BPT");
+//			holder.tvDesignation.setText("BPT");
 			holder.tvSpecality.setText("Physiotherapist");
 
 			return view;
@@ -110,7 +110,7 @@ public class SelectDoctorForFeedbackActivity extends BaseActivity
 	}
 
 	static class ViewHolder {
-		TextView tvDoctorName, tvDesignation, tvSpecality;
+		TextView tvDoctorName, /*tvDesignation,*/ tvSpecality;
 		ImageView iv;
 	}
 

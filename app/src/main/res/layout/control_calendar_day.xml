@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="@color/text_pressed"
-        android:textAppearance="@android:style/TextAppearance.Large"/>
+        android:textAppearance="@android:style/TextAppearance.Medium"/>
 </LinearLayout>
 
 

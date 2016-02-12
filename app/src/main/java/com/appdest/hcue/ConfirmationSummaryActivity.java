@@ -5,6 +5,7 @@ import com.appdest.hcue.model.DoctorsAppointmentResponse;
 import com.appdest.hcue.utils.TimeUtils;
 
 import android.content.Intent;
+import android.text.Html;
 import android.text.format.DateUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,7 +16,7 @@ import android.widget.TextView;
 public class ConfirmationSummaryActivity extends BaseActivity implements OnClickListener
 {
 	private LinearLayout llConfirm;
-	private TextView tvTime,tvToken,tvDoctorName;
+	private TextView tvTime,tvToken,tvDoctorName, tvDownloadFooter;
 	private Button btnProvideDetails,btnAskMe;
 	private DoctorsAppointmentResponse bookingDetails;
 
@@ -37,7 +38,7 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 		tvTime				=	(TextView)	llConfirm.findViewById(R.id.tvTime);
 		tvToken				=	(TextView)	llConfirm.findViewById(R.id.tvToken);
 		tvDoctorName		=	(TextView)	llConfirm.findViewById(R.id.tvDoctorName);
-		
+        tvDownloadFooter    =   (TextView)  llConfirm.findViewById(R.id.tvDownloadFooter);
 		btnProvideDetails	=	(Button)	llConfirm.findViewById(R.id.btnProvideDetails);
 		btnAskMe			=	(Button)	llConfirm.findViewById(R.id.btnAskMe);
 		
@@ -53,14 +54,10 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 		btnAskMe.setTypeface(AppConstants.WALSHEIM_BOLD);
 		
 		tvTitle.setText("Booking Confirmation");
-
-		String dateString =
-		DateUtils.isToday(bookingDetails.getConsultationDt())
-				? "Today"
-				: TimeUtils.format2DateProper(bookingDetails.getConsultationDt());
-		dateString = dateString +" "+ TimeUtils.format2hhmm(bookingDetails.getStartTime());
-
-		tvTime.setText(dateString);
+        tvDownloadFooter.setText(Html.fromHtml("Download our <font color=\"#F57103\">hCue Patient App</font> from Google play store"));
+        String dateString = DateUtils.isToday(bookingDetails.getConsultationDt()) ? "Today" : TimeUtils.format2DateProper(bookingDetails.getConsultationDt());
+        String footer = "<b>" + dateString + ", " + TimeUtils.format2hhmmaa(bookingDetails.getStartTime()) + "</b>" + " with";
+		tvTime.setText(Html.fromHtml(footer));
 		tvToken.setText(bookingDetails.getTokenNumber());
 	}
 

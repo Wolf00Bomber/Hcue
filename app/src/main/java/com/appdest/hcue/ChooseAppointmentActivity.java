@@ -2,6 +2,7 @@ package com.appdest.hcue;
 
 import android.content.Intent;
 import android.support.v4.view.ViewPager;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -41,7 +42,7 @@ public class ChooseAppointmentActivity extends BaseActivity {
     private CustomCalendarView customCalendarView;
     private ViewPager mViewPager;
     private ProgressBar pBar;
-    private TextView tvNoSlots, tvTime;
+    private TextView tvNoSlots, tvTime, tvDoctorName;
     private Button btnProvideDetails;
     private ImageView ivLeftTime, ivRightTime;
     private CustomAppointmentAdapter mCustomPagerAdapter;
@@ -73,6 +74,7 @@ public class ChooseAppointmentActivity extends BaseActivity {
         mViewPager          = (ViewPager) llAppointment.findViewById(R.id.viewPager);
         tvNoSlots           = (TextView) llAppointment.findViewById(R.id.tvNoSlots);
         tvTime              = (TextView) llAppointment.findViewById(R.id.tvTime);
+        tvDoctorName              = (TextView) llAppointment.findViewById(R.id.tvDoctorName);
         pBar                = (ProgressBar) llAppointment.findViewById(R.id.pBar);
         btnProvideDetails   = (Button) llAppointment.findViewById(R.id.btnProvideDetails);
         ivLeftTime          = (ImageView) llAppointment.findViewById(R.id.ivLeftTime);
@@ -81,7 +83,7 @@ public class ChooseAppointmentActivity extends BaseActivity {
         mCustomPagerAdapter.setViewPager(mViewPager);
         mCustomPagerAdapter.setAppointmentTimeInterface(new AppointmentTimeInterface() {
             @Override
-            public void updateAppointmentText(String appointmentString) {
+            public void updateAppointmentText(Spanned appointmentString) {
                 tvTime.setText(appointmentString);
             }
         });
@@ -97,7 +99,6 @@ public class ChooseAppointmentActivity extends BaseActivity {
             @Override
             public void onDayClicked(Date date) {
                 DateFormat df = SimpleDateFormat.getDateInstance();
-//                Toast.makeText(ChooseAppointmentActivity.this, df.format(date), Toast.LENGTH_SHORT).show();
                 if (Connectivity.isConnected(ChooseAppointmentActivity.this)) {
                     populateTimeSlots(date);
                 } else {
@@ -107,6 +108,7 @@ public class ChooseAppointmentActivity extends BaseActivity {
         });
         setSpecificTypeFace(llAppointment, AppConstants.WALSHEIM_MEDIUM);
         tvTitle.setText("Choose Date & Time of your Appointment");
+        tvDoctorName.setText(selectedDoctorDetails.FullName);
         btnProvideDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

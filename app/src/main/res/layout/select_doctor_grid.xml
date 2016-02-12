@@ -24,13 +24,14 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/ivLeft"
+        <ImageButton
+            android:id="@+id/ibLeft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginRight="@dimen/margin_15"
-            android:src="@drawable/left_scrole_welcome" />
+            android:background="@null"
+            android:src="@drawable/left_scroll_welcome" />
 
         <GridView
             android:id="@+id/gridView1"
@@ -45,13 +46,14 @@
 
         <!--<include layout="@layout/time_selection_grid_for_appointment" />-->
 
-        <ImageView
-            android:id="@+id/ivRight"
+        <ImageButton
+            android:id="@+id/ibRight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/margin_15"
-            android:src="@drawable/right_scrole_welcome" />
+            android:background="@null"
+            android:src="@drawable/right_scroll_welcome" />
 
     </LinearLayout>
 

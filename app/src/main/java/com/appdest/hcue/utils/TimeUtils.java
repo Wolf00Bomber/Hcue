@@ -8,7 +8,19 @@ import static com.google.gson.internal.$Gson$Preconditions.checkArgument;
 
 public class TimeUtils {
 
-    private static SimpleDateFormat hhmmss, hhmm, normalDate, properDate;
+    private static SimpleDateFormat hhmmss, hhmm, hhmma, normalDate, properDate;
+
+    public static String getDay(long mils)
+    {
+        return new SimpleDateFormat("EEEE").format(new Date(mils));
+    }
+
+    private static SimpleDateFormat getSDFHHMMA()
+    {
+        if(hhmma == null)
+            hhmma = new SimpleDateFormat("HH:mm a");
+        return hhmma;
+    }
 
     private static SimpleDateFormat getSDFHHMMSS()
     {
@@ -46,6 +58,17 @@ public class TimeUtils {
             e.printStackTrace();
         }
         return hhmmss;
+    }
+
+    public static String format2hhmmaa(String hhmm)
+    {
+        try {
+            Date d = getSDFHHMM().parse(hhmm);
+            return getSDFHHMMA().format(d);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return hhmm;
     }
 
     public static long getLongForHHMMSS(String hhmmss)

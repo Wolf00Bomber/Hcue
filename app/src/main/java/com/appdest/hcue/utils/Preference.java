@@ -10,6 +10,7 @@ public class Preference {
 
 	private SharedPreferences preferences;
 	private SharedPreferences.Editor edit;
+	public static String SPECIALITIES_MAP = "Specialities";
 	public static String IS_INSTALLED = "isInstalled";
 	public static String SYNC_STATUS = "SYNCSTATUS";
 	public static String USER_ROLE = "user_role";

@@ -13,6 +13,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -21,14 +22,23 @@ import android.widget.Toast;
 import com.appdest.hcue.common.AppConstants;
 import com.appdest.hcue.model.GetHospitalsRequest;
 import com.appdest.hcue.model.GetHospitalsResponse;
+import com.appdest.hcue.model.Speciality;
 import com.appdest.hcue.services.RestCallback;
 import com.appdest.hcue.services.RestClient;
 import com.appdest.hcue.services.RestError;
 import com.appdest.hcue.utils.Connectivity;
+import com.appdest.hcue.utils.Preference;
 import com.appdest.hcue.utils.TimeUtils;
+import com.github.siyamed.shapeimageview.CircularImageView;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
 
 import retrofit.client.Response;
 
@@ -41,7 +51,8 @@ public class SelectDoctorActivity extends BaseActivity
     private ViewPager mViewPager;
 	private GridView gridView;
 	private Button btnBookAppointment,btnCancelAppointment;
-	private ImageView ivLeftTime,ivRightTime, ivLeft,ivRight;
+	private ImageView ivLeftTime,ivRightTime;
+    private ImageButton ibLeft, ibRight;
 	private GridAdapter gridAdapter;
     private int hospitalId;
     private GetHospitalsResponse.DoctorDetail selectedDoctorDetails;
@@ -56,8 +67,11 @@ public class SelectDoctorActivity extends BaseActivity
 		tvHeading  				= (TextView)	llMain.findViewById(R.id.tvHeading);
 		tvRateYourVisit  		= (TextView)	llMain.findViewById(R.id.tvRateYourVisit);
 
-        ivLeft  				= (ImageView)	llMain.findViewById(R.id.ivLeft);
-        ivRight  				= (ImageView)	llMain.findViewById(R.id.ivRight);
+        ibLeft  				= (ImageButton)	llMain.findViewById(R.id.ibLeft);
+        ibRight  				= (ImageButton)	llMain.findViewById(R.id.ibRight);
+
+        ibLeft.setEnabled(false);
+        ibRight.setEnabled(false);
 
 		btnBookAppointment 		= (Button)		llMain.findViewById(R.id.btnBookAppointment);
 		btnCancelAppointment 	= (Button)		llMain.findViewById(R.id.btnCancelAppointment);
@@ -169,6 +183,28 @@ public class SelectDoctorActivity extends BaseActivity
 
         private int mHeight, mWidth;
 		private ArrayList<GetHospitalsResponse.DoctorDetail> doctorDetails;
+        private HashMap<String,Speciality> hmSpecialities;
+
+		public GridAdapter()
+		{
+			initMap();
+		}
+
+		private void initMap()
+		{
+			Preference preference = new Preference(SelectDoctorActivity.this);
+			String specialitiesInString = preference.getStringFromPreference(Preference.SPECIALITIES_MAP, "");
+            if(!TextUtils.isEmpty(specialitiesInString))
+            {
+                Gson gson = new Gson();
+                ArrayList<Speciality> list = gson.fromJson(specialitiesInString, new TypeToken<List<Speciality>>(){}.getType());
+                Collections.sort(list);
+                hmSpecialities = new HashMap<>();
+                for (Speciality speciality : list) {
+                    hmSpecialities.put(speciality.DoctorSpecialityID, speciality);
+                }
+            }
+		}
 
 		public void refresh(ArrayList<GetHospitalsResponse.DoctorDetail> doctorDetails)
 		{
@@ -203,20 +239,18 @@ public class SelectDoctorActivity extends BaseActivity
 				view = LayoutInflater.from(SelectDoctorActivity.this).inflate(R.layout.grid_cell,null);
 				holder = new ViewHolder();
 				holder.tvDoctorName = (TextView) view.findViewById(R.id.tvDoctorName);
-				holder.tvDesignation = (TextView) view.findViewById(R.id.tvDesignation);
 				holder.tvSpecality = (TextView) view.findViewById(R.id.tvSpecality);
 				holder.tvStatus		=	(TextView)view.findViewById(R.id.tvStatus);
-				holder.iv = (ImageView) view.findViewById(R.id.imageView);
+				holder.iv = (CircularImageView) view.findViewById(R.id.imageView);
 				
 				holder.tvDoctorName.setTypeface(AppConstants.WALSHEIM_MEDIUM);
-				holder.tvDesignation.setTypeface(AppConstants.WALSHEIM_LIGHT);
-				holder.tvSpecality.setTypeface(AppConstants.WALSHEIM_LIGHT);
-				holder.tvStatus.setTypeface(AppConstants.WALSHEIM_LIGHT);
+				holder.tvSpecality.setTypeface(AppConstants.WALSHEIM_MEDIUM);
+				holder.tvStatus.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 
                 holder.tvDoctorName.setTextColor(context.getResources().getColorStateList(R.color.text_pressed_doctors));
-//                holder.tvDesignation.setTextColor(context.getResources().getColorStateList(R.color.text_pressed_doctors));
-//                holder.tvSpecality.setTextColor(context.getResources().getColorStateList(R.color.text_pressed_doctors));
-                holder.tvStatus.setTextColor(context.getResources().getColorStateList(R.color.green));
+                holder.tvSpecality.setTextColor(context.getResources().getColorStateList(R.color.text_pressed_doctors));
+                holder.tvStatus.setTextColor(context.getResources().getColorStateList(R.color.text_pressed_doctors_availability));
+//                holder.tvStatus.setTextColor(context.getResources().getColorStateList(R.color.text_pressed_doctors_unavailability));
 
 				view.setTag(holder);
 			} else {
@@ -225,25 +259,31 @@ public class SelectDoctorActivity extends BaseActivity
 			GetHospitalsResponse.DoctorDetail doctorDetail = doctorDetails.get(pos);
             view.setTag(R.string.app_name, doctorDetail);
 			holder.tvDoctorName.setText(doctorDetail.FullName/*"Dr.P. Venkatakrishna"*/);
-			holder.tvDesignation.setText("Doctor Id : "+doctorDetail.DoctorID/*"BPT"*/);
-			holder.tvSpecality.setText(TextUtils.join(",", doctorDetail.specialityCD.values()) /*"Physiotherapist"*/);
+            if(hmSpecialities != null && hmSpecialities.size() > 0)
+            {
+                ArrayList<String> list = new ArrayList<>(doctorDetail.specialityCD.values());
+                for(int i = 0; i < list.size(); i++)
+                {
+                    list.set(i, hmSpecialities.get(list.get(i)).DoctorSpecialityDesc);
+                }
+                holder.tvSpecality.setText(TextUtils.join(",", list) /*"Physiotherapist"*/);
+            }
+
             if(!TextUtils.isEmpty(doctorDetail.ImageURL))
             Picasso.with(context)
                     .load(doctorDetail.ImageURL)
                     .resize(mWidth, mHeight)
                     .placeholder(R.drawable.doctor_img_bg)
                     .centerInside()
-                    .into(holder.iv)
-                    ;
-
+                    .into(holder.iv);
             return view;
 		}
 
 	}
 
 	static class ViewHolder {
-		TextView tvDoctorName, tvDesignation, tvSpecality,tvStatus;
-		ImageView iv;
+		TextView tvDoctorName, /*tvDesignation,*/ tvSpecality,tvStatus;
+        CircularImageView iv;
 	}
 	
 }
