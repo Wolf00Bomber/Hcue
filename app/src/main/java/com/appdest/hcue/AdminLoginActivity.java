@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.appdest.hcue.common.AppConstants;
 
@@ -14,9 +15,9 @@ import com.appdest.hcue.common.AppConstants;
 public class AdminLoginActivity extends BaseActivity implements View.OnClickListener
 {
     private LinearLayout llLogin;
-    private EditText edtENterEmailID,edtEnterPassword;
+    private EditText edtEnterEmailID,edtEnterPassword;
     private Button btnSubmit;
-
+    private TextView tvFailureMessage;
 
     @Override
     public void initializeControls()
@@ -24,16 +25,17 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
         llLogin = (LinearLayout) inflater.inflate(R.layout.admin_login, null);
         llBody.addView(llLogin);
 
-        edtENterEmailID     =   (EditText)  llLogin.findViewById(R.id.edtENterEmailID);
-        edtEnterPassword    =   (EditText)  llLogin.findViewById(R.id.edtEnterPassword);
-
-        btnSubmit           =   (Button)    llLogin.findViewById(R.id.btnSubmit);
+        edtEnterEmailID     = (EditText) llLogin.findViewById(R.id.edtEnterEmailID);
+        edtEnterPassword    = (EditText) llLogin.findViewById(R.id.edtEnterPassword);
+        btnSubmit           = (Button) llLogin.findViewById(R.id.btnSubmit);
+        tvFailureMessage    = (TextView) llLogin.findViewById(R.id.tvFailureMessage);
 
         btnSubmit.setOnClickListener(this);
 
         setSpecificTypeFace(llLogin, AppConstants.WALSHEIM_MEDIUM);
-        edtENterEmailID.setTypeface(AppConstants.WALSHEIM_LIGHT);
+        edtEnterEmailID.setTypeface(AppConstants.WALSHEIM_LIGHT);
         edtEnterPassword.setTypeface(AppConstants.WALSHEIM_LIGHT);
+        tvFailureMessage.setTypeface(AppConstants.WALSHEIM_LIGHT);
 
         llTop.setVisibility(View.GONE);
     }
@@ -50,9 +52,23 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
         switch (v.getId())
         {
             case R.id.btnSubmit:
-                Intent intent = new Intent(AdminLoginActivity.this,SelectDoctorActivity.class);
-                startActivity(intent);
+                validateSignIn();
                 break;
+        }
+    }
+
+    private void validateSignIn() {
+        String email = edtEnterEmailID.getText().toString().trim();
+        String password = edtEnterPassword.getText().toString().trim();
+
+        if(email == null || password == null || email.isEmpty() || password.isEmpty()) {
+            showToast("All fields are mandatory.");
+        } else if(!isValidEmail(email)) {
+            showToast("Please enter valid email ID.");
+        } else {
+            showToast("Login success.");
+            Intent intent = new Intent(AdminLoginActivity.this,SelectDoctorActivity.class);
+            startActivity(intent);
         }
     }
 }

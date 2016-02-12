@@ -7,23 +7,23 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_margin="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
 
         <TextView
-            android:gravity="center"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="Choose Date"
             android:textSize="26sp" />
 
         <TextView
-            android:gravity="center"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="Choose Time"
             android:textSize="26sp" />
 
@@ -36,10 +36,10 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:src="@drawable/vertical_shade_line_calendar"
             android:visibility="invisible" />
 
@@ -50,10 +50,10 @@
             calendarNS:dateFormat="MMMM, yyyy" />
 
         <ImageView
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:src="@drawable/vertical_shade_line_calendar" />
 
         <LinearLayout
@@ -61,74 +61,82 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical">
-            <include layout="@layout/time_selection_grid_for_appointment"
-                android:layout_weight="1"
+
+            <include
+                layout="@layout/time_selection_grid_for_appointment"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"/>
+                android:layout_height="0dp"
+                android:layout_weight="1" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:orientation="horizontal">
+                android:paddingTop="10dp">
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
+                    android:gravity="center"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_width="50dp"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/selected_time_col_bg"/>
+                        android:background="@drawable/selected_time_col_bg" />
+
                     <TextView
-                        android:layout_marginLeft="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
                         android:gravity="center"
                         android:text="Available"
                         android:textSize="20sp" />
 
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
+                    android:gravity="center"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_width="50dp"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/selected_time_bg"/>
+                        android:background="@drawable/selected_time_bg" />
+
                     <TextView
-                        android:layout_marginLeft="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
                         android:gravity="center"
                         android:text="Unavailable"
                         android:textSize="20sp" />
 
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
+                    android:gravity="center"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_width="50dp"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/selected_time_gcol_bg"/>
+                        android:background="@drawable/selected_time_gcol_bg" />
+
                     <TextView
-                        android:layout_marginLeft="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
                         android:gravity="center"
                         android:text="Selected"
                         android:textSize="20sp" />
@@ -140,12 +148,11 @@
         </LinearLayout>
 
 
-
         <ImageView
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:src="@drawable/vertical_shade_line_calendar"
             android:visibility="invisible" />
 
@@ -154,12 +161,12 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/line_calendar"/>
+        android:src="@drawable/line_calendar" />
 
     <LinearLayout
-        android:layout_margin="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="30dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 

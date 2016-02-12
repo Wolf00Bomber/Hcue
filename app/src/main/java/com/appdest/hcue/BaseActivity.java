@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -157,4 +158,12 @@ public abstract class BaseActivity extends Activity
                 setSpecificTypeFace((ViewGroup)v, typeface);
         }
     }
+
+	/**This method validates the given email is in valid format or not?
+	 * @param email : Email id in String format*/
+	public boolean isValidEmail(String email) {
+		if(email == null || email.isEmpty())
+			return false;
+		return Patterns.EMAIL_ADDRESS.matcher(email).matches();
+	}
 }

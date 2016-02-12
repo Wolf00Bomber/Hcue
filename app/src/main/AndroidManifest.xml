@@ -104,12 +104,22 @@
             android:label="@string/app_name" >
         </activity>
         <activity
+            android:name="com.appdest.hcue.EnterAddressActivity"
+            android:screenOrientation="landscape"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
             android:name="com.appdest.hcue.AdminLoginActivity"
             android:screenOrientation="landscape"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.appdest.hcue.EnterAddressActivity"
+            android:name="com.appdest.hcue.AdminChooseHospital"
+            android:screenOrientation="landscape"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.appdest.hcue.AdminChooseDoctors"
             android:screenOrientation="landscape"
             android:label="@string/app_name" >
         </activity>

@@ -1,46 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llLogin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/llLogin"
     android:gravity="center_horizontal"
     android:orientation="vertical">
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/admin_logo"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/margin_20"/>
+        android:layout_marginTop="60dp"
+        android:background="@drawable/admin_logo" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_20"
         android:gravity="center"
-        android:textSize="40sp"
+        android:text="Configure your Hospital/Clinic and Doctors"
         android:textColor="#F37122"
-        android:layout_marginTop="@dimen/margin_20"
-        android:text="Configure your Hospital/Clinic and Doctors"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="25sp"
-        android:textColor="#767676"
-        android:layout_marginTop="@dimen/margin_20"
-        android:text="Please enter the Hospital/Clinic ID provided by hCue"/>
+        android:textSize="40sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="10dp"
+        android:layout_marginTop="40dp"
         android:gravity="center"
-        android:layout_margin="@dimen/margin_20"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Please enter the Hospital/Clinic ID provided by "
+            android:textColor="#767676"
+            android:textSize="25sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="hCue"
+            android:textColor="#F37122"
+
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:paddingLeft="30dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginTop="@dimen/margin_20"
         android:background="@drawable/login_bg"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingLeft="30dp"
         android:paddingRight="30dp"
-        android:paddingTop="10dp" >
+        android:paddingTop="10dp">
 
         <EditText
-            android:id="@+id/edtENterEmailID"
+            android:id="@+id/edtEnterEmailID"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="15dp"
@@ -48,12 +70,12 @@
             android:background="@drawable/login_txt_field"
             android:hint="Enter Email ID"
             android:imeOptions="actionNext"
-            android:maxLength="30"
             android:inputType="textEmailAddress"
+            android:maxLength="30"
             android:minEms="10"
             android:paddingLeft="15dp"
             android:singleLine="true"
-            android:textSize="25sp" />
+            android:textSize="28sp" />
 
         <EditText
             android:id="@+id/edtEnterPassword"
@@ -69,7 +91,8 @@
             android:minEms="10"
             android:paddingLeft="15dp"
             android:singleLine="true"
-            android:textSize="25sp" />
+            android:textSize="28sp" />
+
         <Button
             android:id="@+id/btnSubmit"
             android:layout_width="wrap_content"
@@ -80,21 +103,34 @@
             android:gravity="center"
             android:text="Submit"
             android:textColor="#FFFFFF"
-            android:textSize="24sp"
+            android:textSize="30sp"
             android:textStyle="bold" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvFailureMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="You have entered an invalid Email ID and Password. Please try again."
+        android:textColor="#FF5858"
+        android:textSize="25sp"
+        android:visibility="gone" />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
     </View>
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/logo"
-        android:layout_marginBottom="@dimen/margin_20"
         android:layout_gravity="center|left"
-        android:layout_marginTop="@dimen/margin_20"/>
+        android:layout_marginBottom="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_20"
+        android:background="@drawable/logo" />
 
 </LinearLayout>
