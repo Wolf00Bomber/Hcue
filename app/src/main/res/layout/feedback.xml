@@ -34,6 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
             android:gravity="center"
             android:text="Dr P.Venkata Krishna"
             android:textColor="@android:color/black"
@@ -45,7 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:gravity="center_vertical"
             android:text="Physiotherapist"
             android:textColor="@android:color/black"
@@ -66,9 +67,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
             android:gravity="center"
             android:text="RATE YOUR VISIT"
-            android:textColor="@android:color/black"
+            android:textColor="#737373"
             android:textSize="30sp" />
 
         <LinearLayout
@@ -91,6 +93,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Excellent"
+                    android:textColor="#737373"
                     android:layout_marginTop="@dimen/margin_5"
                     android:textSize="20sp"/>
 
@@ -112,6 +115,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Good"
+                    android:textColor="#737373"
                     android:layout_marginTop="@dimen/margin_5"
                     android:textSize="20sp"/>
 
@@ -131,6 +135,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Average"
+                    android:textColor="#737373"
                     android:layout_marginTop="@dimen/margin_5"
                     android:textSize="20sp"/>
 
@@ -150,6 +155,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Poor"
+                    android:textColor="#737373"
                     android:layout_marginTop="@dimen/margin_5"
                     android:textSize="20sp"/>
 
@@ -165,15 +171,15 @@
         android:layout_width="match_parent"
         android:gravity="center"
         android:layout_height="wrap_content"
-        android:textColor="#4EAF9F"
+        android:textColor="#48B09E"
         android:text="@string/additional_comments"
-        android:layout_marginTop="35dp"
-        android:textSize="40sp"/>
+        android:layout_marginTop="45dp"
+        android:textSize="35sp"/>
     <Button
         android:id="@+id/btnDone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="45dp"
         android:layout_gravity="center"
         android:background="@drawable/quickappointment_btn"
         android:text="Done"

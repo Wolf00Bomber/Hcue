@@ -11,8 +11,18 @@
         android:layout_height="wrap_content"
         android:paddingBottom="10dp"
         android:paddingLeft="30dp"
+        android:gravity="center_vertical"
         android:paddingRight="30dp"
         android:paddingTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="40dp"
+            android:text="Name : "
+            android:visibility="visible"/>
 
         <EditText
             android:id="@+id/edtFirstName"
@@ -21,13 +31,14 @@
             android:layout_marginRight="15dp"
             android:layout_weight="1"
             android:background="@drawable/enter_email_text_feild"
-            android:hint="First Name"
+            android:hint="Name"
             android:imeOptions="actionNext"
+            android:inputType="textCapWords"
             android:maxLength="30"
             android:minEms="10"
             android:paddingLeft="15dp"
             android:singleLine="true"
-            android:textSize="25sp" />
+            android:textSize="30sp" />
 
         <EditText
             android:id="@+id/edtLastName"
@@ -42,7 +53,8 @@
             android:minEms="10"
             android:paddingLeft="15dp"
             android:singleLine="true"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:visibility="gone"/>
     </LinearLayout>
 
     <LinearLayout
@@ -82,7 +94,7 @@
                 android:layout_gravity="bottom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="30sp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="45dp"
                 android:text="Male"/>
@@ -91,7 +103,7 @@
                 android:layout_gravity="bottom|end"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="30sp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginRight="40dp"
                 android:text="Female"/>
@@ -111,7 +123,7 @@
             android:maxLength="3"
             android:padding="5dp"
             android:singleLine="true"
-            android:textSize="26sp" />
+            android:textSize="30sp" />
 
         <TextView
             android:layout_width="0dp"
@@ -120,7 +132,7 @@
             android:layout_weight="1"
             android:padding="5dp"
             android:text="Years"
-            android:textSize="25sp" />
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/btnClearFields"
@@ -131,8 +143,8 @@
             android:background="@drawable/clear_field_btn"
             android:gravity="center"
             android:text="Clear Fields"
-            android:textColor="#000000"
-            android:textSize="24sp"
+            android:textColor="#848484"
+            android:textSize="25sp"
             android:textStyle="bold" />
 
         <Button
@@ -145,7 +157,7 @@
             android:gravity="center"
             android:text="Done"
             android:textColor="#FFFFFF"
-            android:textSize="24sp"
+            android:textSize="28sp"
             android:textStyle="bold" />
 
 
@@ -158,6 +170,7 @@
         android:layout_weight="1" />
 
     <FrameLayout
+        android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="10dp">

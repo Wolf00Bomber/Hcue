@@ -259,22 +259,22 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 					isLandline = true;
 					break;
 					
-				case R.id.edtCode:
-				case R.id.edtNumber:
-					v.requestFocus();
-					hideKeyBoard(v);
-					h.postDelayed(new Runnable() {
+			case R.id.edtCode:
+			case R.id.edtNumber:
+				v.requestFocus();
+				hideKeyBoard(v);
+				h.postDelayed(new Runnable() {
 
-						@Override
-						public void run() {
-							hideKeyBoard(v);
-						}
-					}, 50);
+					@Override
+					public void run() {
+						hideKeyBoard(v);
+					}
+				}, 50);
 
 
-					if(llNumbers.getVisibility() == View.GONE)
-						llNumbers.startAnimation(slide_up);
-					break;
+				if(llNumbers.getVisibility() == View.GONE)
+					llNumbers.startAnimation(slide_up);
+				break;
 				
 		}
 		
