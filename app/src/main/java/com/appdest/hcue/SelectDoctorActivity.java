@@ -209,14 +209,14 @@ public class SelectDoctorActivity extends BaseActivity
 				holder.iv = (ImageView) view.findViewById(R.id.imageView);
 				
 				holder.tvDoctorName.setTypeface(AppConstants.WALSHEIM_MEDIUM);
-				holder.tvDesignation.setTypeface(AppConstants.WALSHEIM_MEDIUM);
-				holder.tvSpecality.setTypeface(AppConstants.WALSHEIM_MEDIUM);
-				holder.tvStatus.setTypeface(AppConstants.WALSHEIM_MEDIUM);
+				holder.tvDesignation.setTypeface(AppConstants.WALSHEIM_LIGHT);
+				holder.tvSpecality.setTypeface(AppConstants.WALSHEIM_LIGHT);
+				holder.tvStatus.setTypeface(AppConstants.WALSHEIM_LIGHT);
 
                 holder.tvDoctorName.setTextColor(context.getResources().getColorStateList(R.color.text_pressed_doctors));
-                holder.tvDesignation.setTextColor(context.getResources().getColorStateList(R.color.text_pressed_doctors));
-                holder.tvSpecality.setTextColor(context.getResources().getColorStateList(R.color.text_pressed_doctors));
-                holder.tvStatus.setTextColor(context.getResources().getColorStateList(R.color.text_pressed_doctors));
+//                holder.tvDesignation.setTextColor(context.getResources().getColorStateList(R.color.text_pressed_doctors));
+//                holder.tvSpecality.setTextColor(context.getResources().getColorStateList(R.color.text_pressed_doctors));
+                holder.tvStatus.setTextColor(context.getResources().getColorStateList(R.color.green));
 
 				view.setTag(holder);
 			} else {

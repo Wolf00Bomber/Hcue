@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/margin_20"
-    android:layout_marginLeft="25dp"
+    android:layout_marginLeft="60dp"
     android:orientation="horizontal">
     <TextView
         android:layout_width="wrap_content"
@@ -22,23 +22,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_20"
+        android:layout_marginLeft="5dp"
         android:gravity="center"
+        android:textStyle="bold"
         android:text="Dr P.Venkatakrishna"
         android:textSize="30sp" />
 </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="60dp"
         android:orientation="horizontal">
 
         <EditText
             android:id="@+id/edtEnterComments"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:background="@drawable/feed_back_text_field"
             android:gravity="left"
-            android:hint="Enter Address"
+            android:hint="Type your feedback here"
             android:imeOptions="actionNext"
             android:maxLength="150"
             android:maxLines="4"
@@ -52,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="50dp"
             android:layout_gravity="center"
             android:orientation="vertical">
 
@@ -63,9 +68,9 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/done"
-                android:text="Submit"
+                android:text="Done"
                 android:textColor="#FFFFFF"
-                android:textSize="30sp"
+                android:textSize="34sp"
                 android:textStyle="bold" />
 
             <Button
@@ -73,10 +78,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/skip"
                 android:text="Cancel"
-                android:textColor="#FFFFFF"
+                android:textColor="#848484"
                 android:textSize="30sp"
                 android:textStyle="bold" />
         </LinearLayout>

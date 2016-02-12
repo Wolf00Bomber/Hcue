@@ -1,18 +1,29 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rlTab"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/doctor"
     android:padding="5dp" >
 
-    <ImageView
+    <com.github.siyamed.shapeimageview.CircularImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
-        android:src="@drawable/doctor_img_bg" />
+        android:src="@drawable/doctor_img_bg"
+        app:siBorderWidth="2dp"
+        app:siBorderColor="#000000"/>
+    <!--<ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/doctor_img_bg" />-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,6 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
+            android:textColor="#646464"
             android:text="BPT" />
         
         <TextView
@@ -44,6 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
+            android:textColor="#646464"
             android:text="Physiotherapist" />
         <TextView
             android:id="@+id/tvStatus"

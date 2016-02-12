@@ -132,7 +132,7 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 				}
 			}
 		});
-		
+
 
 		hideKeyBoard(edtCode);
 		hideKeyBoard(edtNumber);

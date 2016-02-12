@@ -36,6 +36,7 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp:2.0.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.github.ademar111190:android-phased-seek-bar:0.1.1'
+    compile 'com.github.siyamed:android-shape-imageview:0.9.+@aar'
 }
 
 buildscript {
