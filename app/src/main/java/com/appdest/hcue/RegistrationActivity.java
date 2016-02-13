@@ -18,7 +18,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.appdest.hcue.common.AppConstants;
-import com.appdest.hcue.model.GetHospitalsResponse;
+import com.appdest.hcue.model.GetDoctorsResponse;
 
 import ademar.phasedseekbar.PhasedInteractionListener;
 import ademar.phasedseekbar.PhasedListener;
@@ -34,7 +34,7 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 	InputMethodManager im;
 	Handler h;
 	Animation slide_up, slide_down;
-    private GetHospitalsResponse.DoctorDetail selectedDoctorDetails;
+    private GetDoctorsResponse.DoctorDetail selectedDoctorDetails;
     private Number phNumber;
     boolean isActivityNeedsFinish = false;
 
@@ -45,7 +45,7 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
         Intent i = getIntent();
         if(i.hasExtra("DoctorDetails") && i.hasExtra("PhoneNumber"))
         {
-            selectedDoctorDetails = (GetHospitalsResponse.DoctorDetail) i.getSerializableExtra("DoctorDetails");
+            selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail) i.getSerializableExtra("DoctorDetails");
             phNumber = (Number) i.getSerializableExtra("PhoneNumber");
         }
         else

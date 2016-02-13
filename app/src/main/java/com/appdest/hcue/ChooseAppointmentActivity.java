@@ -19,7 +19,7 @@ import com.appdest.hcue.model.DoctorsAppointment;
 import com.appdest.hcue.model.DoctorsAppointmentResponse;
 import com.appdest.hcue.model.GetDoctorAppointmentRequest;
 import com.appdest.hcue.model.GetDoctorAppointmentResponse;
-import com.appdest.hcue.model.GetHospitalsResponse;
+import com.appdest.hcue.model.GetDoctorsResponse;
 import com.appdest.hcue.services.RestCallback;
 import com.appdest.hcue.services.RestClient;
 import com.appdest.hcue.services.RestError;
@@ -47,7 +47,7 @@ public class ChooseAppointmentActivity extends BaseActivity {
     private ImageView ivLeftTime, ivRightTime;
     private CustomAppointmentAdapter mCustomPagerAdapter;
 
-    private GetHospitalsResponse.DoctorDetail selectedDoctorDetails;
+    private GetDoctorsResponse.DoctorDetail selectedDoctorDetails;
     private Number phNumber;
     boolean isActivityNeedsFinish = false;
 
@@ -57,7 +57,7 @@ public class ChooseAppointmentActivity extends BaseActivity {
         Intent i = getIntent();
         if(i.hasExtra("DoctorDetails") && i.hasExtra("PhoneNumber"))
         {
-            selectedDoctorDetails = (GetHospitalsResponse.DoctorDetail) i.getSerializableExtra("DoctorDetails");
+            selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail) i.getSerializableExtra("DoctorDetails");
             phNumber = (Number) i.getSerializableExtra("PhoneNumber");
         }
         else
@@ -99,6 +99,7 @@ public class ChooseAppointmentActivity extends BaseActivity {
             @Override
             public void onDayClicked(Date date) {
                 DateFormat df = SimpleDateFormat.getDateInstance();
+//                Toast.makeText(ChooseAppointmentActivity.this, df.format(date), Toast.LENGTH_SHORT).show();
                 if (Connectivity.isConnected(ChooseAppointmentActivity.this)) {
                     populateTimeSlots(date);
                 } else {

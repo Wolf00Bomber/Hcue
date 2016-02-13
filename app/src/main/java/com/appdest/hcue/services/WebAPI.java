@@ -5,10 +5,10 @@ import com.appdest.hcue.model.DoctorsAppointment;
 import com.appdest.hcue.model.DoctorsAppointmentResponse;
 import com.appdest.hcue.model.GetDoctorAppointmentRequest;
 import com.appdest.hcue.model.GetDoctorAppointmentResponse;
+import com.appdest.hcue.model.GetDoctors;
+import com.appdest.hcue.model.GetDoctorsResponse;
 import com.appdest.hcue.model.GetPatientDetailsRequest;
 import com.appdest.hcue.model.GetPatientDetailsResponse;
-import com.appdest.hcue.model.GetHospitalsRequest;
-import com.appdest.hcue.model.GetHospitalsResponse;
 import com.appdest.hcue.model.Speciality;
 
 import java.util.List;
@@ -54,15 +54,15 @@ public interface WebAPI {
             "Content-Type: application/json",
             "User-Agent: Hcue"
     })
-    @POST("/platformPartners/getHospitals")
-    void getHospitalDetails(@Body GetHospitalsRequest doctorsAppointment, RestCallback<GetHospitalsResponse> callback);
+    @POST("/doctors/getDoctors")
+    void getDoctors(@Body GetDoctors listDoctorsRequest, RestCallback<GetDoctorsResponse> callback);
 
-    @Headers({
+    /*@Headers({
             "Content-Type: application/json",
             "User-Agent: Hcue"
     })
     @GET("/{DoctorID}/getDoctor")
-    void getDoctorDetails(@Path("DoctorID") int doctorId, RestCallback<GetHospitalsResponse> callback);
+    void getDoctorDetails(@Path("DoctorID") int doctorId, RestCallback<GetHospitalsResponse> callback);*/
 
     @Headers({
             "Content-Type: application/json",

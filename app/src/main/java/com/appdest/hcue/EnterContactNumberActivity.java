@@ -18,7 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appdest.hcue.common.AppConstants;
-import com.appdest.hcue.model.GetHospitalsResponse;
+import com.appdest.hcue.model.GetDoctorsResponse;
 
 import java.math.BigDecimal;
 
@@ -35,7 +35,7 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 	private InputMethodManager im;
 	private Handler h;
 	private Animation slide_up, slide_down;
-	private GetHospitalsResponse.DoctorDetail selectedDoctorDetails;
+	private GetDoctorsResponse.DoctorDetail selectedDoctorDetails;
     private Number phNumber;
 	boolean isActivityNeedsFinish = false;
 	
@@ -45,7 +45,7 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 		Intent i = getIntent();
 		if(i.hasExtra("DoctorDetails"))
 		{
-			selectedDoctorDetails = (GetHospitalsResponse.DoctorDetail) i.getSerializableExtra("DoctorDetails");
+			selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail) i.getSerializableExtra("DoctorDetails");
 		}
 		else
 		{

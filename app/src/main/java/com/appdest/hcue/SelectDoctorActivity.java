@@ -20,8 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appdest.hcue.common.AppConstants;
-import com.appdest.hcue.model.GetHospitalsRequest;
-import com.appdest.hcue.model.GetHospitalsResponse;
+import com.appdest.hcue.model.GetDoctors;
+import com.appdest.hcue.model.GetDoctorsResponse;
 import com.appdest.hcue.model.Speciality;
 import com.appdest.hcue.services.RestCallback;
 import com.appdest.hcue.services.RestClient;
@@ -55,7 +55,7 @@ public class SelectDoctorActivity extends BaseActivity
     private ImageButton ibLeft, ibRight;
 	private GridAdapter gridAdapter;
     private int hospitalId;
-    private GetHospitalsResponse.DoctorDetail selectedDoctorDetails;
+    private GetDoctorsResponse.DoctorDetail selectedDoctorDetails;
 
 	@Override
 	public void initializeControls() 
@@ -95,14 +95,14 @@ public class SelectDoctorActivity extends BaseActivity
 
 	private void getHospitalDetails()
 	{
-		final GetHospitalsRequest getHospitalsRequest = new GetHospitalsRequest();
-		getHospitalsRequest.setHospitalID(19);
-		getHospitalsRequest.setPageNumber(1);
-		getHospitalsRequest.setPageSize(6);
+		final GetDoctors getDoctorsRequest = new GetDoctors();
+		getDoctorsRequest.setHospitalID(19);
+		getDoctorsRequest.setPageNumber(1);
+		getDoctorsRequest.setPageSize(6);
 
-		String url = "http://d318m5cseah7np.cloudfront.net";
-
-		RestClient.getAPI(url).getHospitalDetails(getHospitalsRequest, new RestCallback<GetHospitalsResponse>() {
+//		String url = "http://d318m5cseah7np.cloudfront.net";
+		String url = "http://dct4avjn1lfw.cloudfront.net";
+		RestClient.getAPI(url).getDoctors(getDoctorsRequest, new RestCallback<GetDoctorsResponse>() {
 			@Override
 			public void failure(RestError restError) {
 				Log.e("Doctor Appointement", "" + restError.getErrorMessage());
@@ -110,11 +110,11 @@ public class SelectDoctorActivity extends BaseActivity
 			}
 
 			@Override
-			public void success(GetHospitalsResponse getHospitalsResponse, Response response) {
-				if (getHospitalsResponse != null) {
-					gridAdapter.refresh(getHospitalsResponse.hospitalInfo.arrDoctorDetails);
-					tvTitle.setText("Welcome to " + getHospitalsResponse.hospitalInfo.hospitalInfoInner.hospitalDetails.HospitalName);
-					hospitalId = getHospitalsResponse.hospitalInfo.hospitalInfoInner.hospitalDetails.HospitalID;
+			public void success(GetDoctorsResponse listDoctorsRequest, Response response) {
+				if (listDoctorsRequest != null) {
+					gridAdapter.refresh(listDoctorsRequest.arrDoctorDetails);
+					tvTitle.setText("Welcome to " + listDoctorsRequest.hospitalInfo.hospitalDetails.HospitalName);
+					hospitalId = listDoctorsRequest.hospitalInfo.hospitalDetails.HospitalID;
 				} else {
 					Log.i("Response", "" + response.getReason());
 				}
@@ -132,8 +132,14 @@ public class SelectDoctorActivity extends BaseActivity
 
             @Override
             public void onItemClick(AdapterView<?> arg0, View v, int pos, long arg3) {
+                selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail) gridAdapter.getItem(pos);
+                if(!"Y".equalsIgnoreCase(selectedDoctorDetails.Avaialble))
+                {
+                    selectedDoctorDetails = null;
+                    return;
+                }
                 v.setSelected(true);
-                selectedDoctorDetails = (GetHospitalsResponse.DoctorDetail) gridAdapter.getItem(pos);
+
             }
 
         });
@@ -182,7 +188,7 @@ public class SelectDoctorActivity extends BaseActivity
 	private class GridAdapter extends BaseAdapter {
 
         private int mHeight, mWidth;
-		private ArrayList<GetHospitalsResponse.DoctorDetail> doctorDetails;
+		private ArrayList<GetDoctorsResponse.DoctorDetail> doctorDetails;
         private HashMap<String,Speciality> hmSpecialities;
 
 		public GridAdapter()
@@ -206,7 +212,7 @@ public class SelectDoctorActivity extends BaseActivity
             }
 		}
 
-		public void refresh(ArrayList<GetHospitalsResponse.DoctorDetail> doctorDetails)
+		public void refresh(ArrayList<GetDoctorsResponse.DoctorDetail> doctorDetails)
 		{
 			this.doctorDetails = doctorDetails;
 			notifyDataSetChanged();
@@ -249,15 +255,32 @@ public class SelectDoctorActivity extends BaseActivity
 
                 holder.tvDoctorName.setTextColor(context.getResources().getColorStateList(R.color.text_pressed_doctors));
                 holder.tvSpecality.setTextColor(context.getResources().getColorStateList(R.color.text_pressed_doctors));
-                holder.tvStatus.setTextColor(context.getResources().getColorStateList(R.color.text_pressed_doctors_availability));
-//                holder.tvStatus.setTextColor(context.getResources().getColorStateList(R.color.text_pressed_doctors_unavailability));
 
 				view.setTag(holder);
 			} else {
 				holder = (ViewHolder) view.getTag();
 			}
-			GetHospitalsResponse.DoctorDetail doctorDetail = doctorDetails.get(pos);
-            view.setTag(R.string.app_name, doctorDetail);
+			GetDoctorsResponse.DoctorDetail doctorDetail = doctorDetails.get(pos);
+            holder.tvStatus.setTextColor(context.getResources().getColorStateList(R.color.text_pressed_doctors_availability));
+
+			if("Y".equalsIgnoreCase(doctorDetail.Avaialble))
+			{
+                view.setEnabled(true);
+				holder.tvStatus.setEnabled(true);
+                holder.tvDoctorName.setEnabled(true);
+                holder.tvSpecality.setEnabled(true);
+                holder.tvStatus.setText("Available");
+			}
+			else
+			{
+                view.setEnabled(false);
+                holder.tvStatus.setEnabled(false);
+                holder.tvDoctorName.setEnabled(false);
+                holder.tvSpecality.setEnabled(false);
+                holder.tvStatus.setText("Not available");
+			}
+
+			view.setTag(R.string.app_name, doctorDetail);
 			holder.tvDoctorName.setText(doctorDetail.FullName/*"Dr.P. Venkatakrishna"*/);
             if(hmSpecialities != null && hmSpecialities.size() > 0)
             {

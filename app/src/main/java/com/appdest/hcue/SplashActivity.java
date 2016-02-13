@@ -11,8 +11,6 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.appdest.hcue.common.AppConstants;
-import com.appdest.hcue.model.GetHospitalsRequest;
-import com.appdest.hcue.model.GetHospitalsResponse;
 import com.appdest.hcue.model.Speciality;
 import com.appdest.hcue.services.RestCallback;
 import com.appdest.hcue.services.RestClient;
@@ -60,7 +58,7 @@ public class SplashActivity extends Activity
 
     }
 
-    private void getHospitalDetails()
+    private void getSpecialityDetails()
     {
 
         String url = "http://dct4avjn1lfw.cloudfront.net";
@@ -93,7 +91,7 @@ public class SplashActivity extends Activity
         super.onResume();
         if(Connectivity.isConnected(SplashActivity.this))
         {
-            getHospitalDetails();
+            getSpecialityDetails();
         }
         else
         {
@@ -114,7 +112,7 @@ public class SplashActivity extends Activity
                 startActivity(splashActivity);
                 finish();
             }
-        }, SPLASH_TIME);
+        }, SPLASH_TIME/2);
           // New User
     }
 
