@@ -14,7 +14,7 @@ import com.appdest.hcue.common.AppConstants;
 public class CancelationSummaryActivity extends BaseActivity implements View.OnClickListener
 {
     private LinearLayout llCancel;
-    private TextView tvPatientName,tvDateTime,tvDoctorName;
+    private TextView tvPatientName,tvDateTime,tvDoctorName,tvHeading;
     private Button btnOk;
     @Override
     public void initializeControls()
@@ -25,11 +25,13 @@ public class CancelationSummaryActivity extends BaseActivity implements View.OnC
         tvPatientName   =   (TextView)  llCancel.findViewById(R.id.tvPatientName);
         tvDoctorName    =   (TextView)  llCancel.findViewById(R.id.tvDoctorName);
         tvDateTime      =   (TextView)  llCancel.findViewById(R.id.tvDateTime);
+        tvHeading       =   (TextView)  llCancel.findViewById(R.id.tvHeading);
 
         btnOk      =   (Button)    llCancel.findViewById(R.id.btnOk);
 
         btnOk.setOnClickListener(this);
-        setSpecificTypeFace(llCancel, AppConstants.WALSHEIM_BOLD);
+        setSpecificTypeFace(llCancel, AppConstants.WALSHEIM_LIGHT);
+        tvHeading.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 
         tvTitle.setText("Cancellation Summary");
     }

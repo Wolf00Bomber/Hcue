@@ -62,11 +62,11 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
         String email = edtEnterEmailID.getText().toString().trim();
         String password = edtEnterPassword.getText().toString().trim();
 
-        /*if(email == null || password == null || email.isEmpty() || password.isEmpty()) {
+        if(email == null || password == null || email.isEmpty() || password.isEmpty()) {
             showToast("All fields are mandatory.");
         } else if(!isValidEmail(email)) {
             showToast("Please enter valid email ID.");
-        } else */
+        } else
         {
             //need to call Web Service
             showToast("Login success.");

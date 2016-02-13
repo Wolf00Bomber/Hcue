@@ -32,7 +32,7 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 
 
 		llConfirm = (LinearLayout) inflater.inflate(R.layout.confirmation_summary, null);
-		llBody.addView(llConfirm);
+		llBody.addView(llConfirm,layoutParams);
 		
 		tvTime				=	(TextView)	llConfirm.findViewById(R.id.tvTime);
 		tvToken				=	(TextView)	llConfirm.findViewById(R.id.tvToken);
