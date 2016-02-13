@@ -5,32 +5,46 @@ import com.appdest.hcue.model.DoctorsAppointmentResponse;
 import com.appdest.hcue.utils.TimeUtils;
 
 import android.content.Intent;
+import android.os.Handler;
+import android.speech.tts.TextToSpeech;
 import android.text.Html;
+import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class ConfirmationSummaryActivity extends BaseActivity implements OnClickListener
+import java.util.Locale;
+
+public class ConfirmationSummaryActivity extends BaseActivity implements OnClickListener, TextToSpeech.OnInitListener
 {
 	private LinearLayout llConfirm;
 	private TextView tvTime,tvToken,tvDoctorName, tvDownloadFooter;
 	private Button btnProvideDetails,btnAskMe;
 	private DoctorsAppointmentResponse bookingDetails;
+    //TTS object
+    private TextToSpeech myTTS;
+    //status check code
+    private int MY_DATA_CHECK_CODE = 0;
 
 	@Override
 	public void initializeControls() 
 	{
-		Intent i = getIntent();
+        //check for TTS data
+        Intent checkTTSIntent = new Intent();
+        checkTTSIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
+        startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);
+
+        Intent i = getIntent();
 		if(!i.hasExtra("BookingDetails"))
 		{
 			finish();
 			return;
 		}
 		bookingDetails = (DoctorsAppointmentResponse) i.getSerializableExtra("BookingDetails");
-
 
 		llConfirm = (LinearLayout) inflater.inflate(R.layout.confirmation_summary, null);
 		llBody.addView(llConfirm,layoutParams);
@@ -61,6 +75,38 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 		tvToken.setText(bookingDetails.getTokenNumber());
 	}
 
+    //act on result of TTS data check
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == MY_DATA_CHECK_CODE) {
+            if (resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
+                //the user has the necessary data - create the TTS
+                myTTS = new TextToSpeech(this, this);
+                if(bookingDetails != null && !TextUtils.isEmpty(bookingDetails.getTokenNumber()))
+                    speakWords("Your token number is " + bookingDetails.getTokenNumber());
+            }
+            else {
+                //no data - install it now
+                Intent installTTSIntent = new Intent();
+                installTTSIntent.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
+                startActivity(installTTSIntent);
+            }
+        }
+    }
+
+    //speak the user text
+    private void speakWords(final String speech) {
+
+        //speak straight away
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                myTTS.speak(speech, TextToSpeech.QUEUE_FLUSH, null);
+            }
+        }, 400);
+
+    }
+
 	@Override
 	public void bindControls() 
 	{
@@ -85,4 +131,14 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 		}
 	}
 
+    @Override
+    public void onInit(int initStatus) {
+        if (initStatus == TextToSpeech.SUCCESS) {
+            if(myTTS.isLanguageAvailable(Locale.US)==TextToSpeech.LANG_AVAILABLE)
+                myTTS.setLanguage(Locale.US);
+        }
+        else if (initStatus == TextToSpeech.ERROR) {
+            Toast.makeText(this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show();
+        }
+    }
 }

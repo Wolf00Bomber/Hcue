@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,14 +17,27 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.appdest.hcue.common.AppConstants;
+import com.appdest.hcue.model.AddPatientRequest;
+import com.appdest.hcue.model.AddPatientResponse;
 import com.appdest.hcue.model.GetDoctorsResponse;
+import com.appdest.hcue.model.GetPatientDetailsResponse;
+import com.appdest.hcue.model.GetPatientRequest;
+import com.appdest.hcue.model.GetPatientResponse;
+import com.appdest.hcue.services.RestCallback;
+import com.appdest.hcue.services.RestClient;
+import com.appdest.hcue.services.RestError;
+import com.appdest.hcue.utils.Connectivity;
+
+import java.util.ArrayList;
 
 import ademar.phasedseekbar.PhasedInteractionListener;
 import ademar.phasedseekbar.PhasedListener;
 import ademar.phasedseekbar.PhasedSeekBar;
 import ademar.phasedseekbar.SimplePhasedAdapter;
+import retrofit.client.Response;
 
 public class RegistrationActivity extends BaseActivity implements OnClickListener
 {
@@ -36,7 +50,11 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 	Animation slide_up, slide_down;
     private GetDoctorsResponse.DoctorDetail selectedDoctorDetails;
     private Number phNumber;
+    private String PhoneCode;
+    private GetPatientResponse getPatientResponse;
     boolean isActivityNeedsFinish = false;
+    private PhasedSeekBar psbHorizontal;
+    private boolean isNoMobile;
 
 
 	@Override
@@ -47,6 +65,13 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
         {
             selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail) i.getSerializableExtra("DoctorDetails");
             phNumber = (Number) i.getSerializableExtra("PhoneNumber");
+            PhoneCode = i.getStringExtra("PhoneCode");
+            if(i.hasExtra("GetPatientResponse"))
+                getPatientResponse = (GetPatientResponse) i.getSerializableExtra("GetPatientResponse");
+            if(i.hasExtra("NoMobile"))
+            {
+                isNoMobile = true;
+            }
         }
         else
         {
@@ -86,7 +111,7 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 		btnClearFields.setOnClickListener(this);
 		btnDone.setOnClickListener(this);
 
-        PhasedSeekBar psbHorizontal = (PhasedSeekBar) findViewById(R.id.psb_hor);
+        psbHorizontal = (PhasedSeekBar) findViewById(R.id.psb_hor);
 
         final Resources resources = getResources();
 
@@ -329,10 +354,23 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 
 				break;
 			case R.id.btnDone:
-				Intent intent = new Intent(RegistrationActivity.this,ChooseAppointmentActivity.class);
-				intent.putExtra("DoctorDetails", selectedDoctorDetails);
-                intent.putExtra("PhoneNumber", phNumber);
-				startActivity(intent);
+                if(TextUtils.isEmpty(edtFirstName.getText().toString().trim()))
+                {
+                    showToast("Please enter Name.");
+                }
+                else if(TextUtils.isEmpty(edtAge.getText().toString().trim()))
+                {
+                    showToast("Please enter Age.");
+                }
+                else if(!TextUtils.isDigitsOnly(edtAge.getText().toString().trim()))
+                {
+                    showToast("Please enter a number for Age.");
+                }
+                else
+                {
+                    callService();
+                }
+
 				break;
 			case R.id.btnClearFields:
 				edtFirstName.getText().clear();
@@ -342,12 +380,91 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 			default:
 				break;
 		}
-
-
-
 	}
 
+    private void callService()
+    {
+        if (Connectivity.isConnected(RegistrationActivity.this)) {
+            registerNewPatient();
+        } else {
+            Toast.makeText(RegistrationActivity.this, "No Internet Connection", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+	private void registerNewPatient()
+	{
+        showLoader("Please wait...");
+        try
+        {
+            AddPatientRequest addPatientRequest = new AddPatientRequest();
+            addPatientRequest.setUSRType("KIOSK");
+            addPatientRequest.setUSRId(0);
+
+            String firstName = edtFirstName.getText().toString();
+            String lastName = edtLastName.getText().toString();
+            addPatientRequest.patientDetails.setFirstName(firstName);
+            addPatientRequest.patientDetails.setLastName(lastName);
+            addPatientRequest.patientDetails.setAge(Integer.parseInt(edtAge.getText().toString()));
+            addPatientRequest.patientDetails.setTermsAccepted("Y");
+            addPatientRequest.patientDetails.setFullName(firstName + " " + lastName);
+            addPatientRequest.patientDetails.setGender(psbHorizontal.getCurrentItem() == 0 ? "M" : "Y");
+            addPatientRequest.patientDetails.setMobileID(phNumber);
+
+            if(isNoMobile)
+            {
+                addPatientRequest.patientDetails.setUSRId(0);
+            }
+            else
+            {
+                AddPatientRequest.PatientPhone patientPhone = addPatientRequest.getEmptypatientPhone();
+                String phoneNumber = phNumber.toString();
+                patientPhone.setPhAreaCD(Integer.parseInt(phoneNumber.substring(4, 9)));
+                patientPhone.setPhStateCD(Integer.parseInt(phoneNumber.substring(0, 3)));
+                patientPhone.setPhNumber(phNumber);
+                patientPhone.setPhType("M");
+                patientPhone.setPrimaryIND("Y");
+                int IntPhoneCode = Integer.parseInt(PhoneCode != null ? PhoneCode.replace("+","") : "");
+                patientPhone.setPhCntryCD(IntPhoneCode);
+
+                addPatientRequest.addPatientPhone(patientPhone);
+            }
 
 
+            String url = "http://d1lmwj8jm5d3bc.cloudfront.net";
+            RestClient.getAPI(url).addPatient(addPatientRequest, new RestCallback<AddPatientResponse>() {
+                @Override
+                public void failure(RestError restError) {
+                    Log.e("Patient Registration", "" + restError.getErrorMessage());
+                    Toast.makeText(RegistrationActivity.this, "Couldn't get the List of Patients, Try again later...", Toast.LENGTH_LONG).show();
+                    hideLoader();
+                }
+
+                @Override
+                public void success(AddPatientResponse addPatientResponse, Response response) {
+                    if (addPatientResponse != null) {
+                        goToNextActivity(addPatientResponse);
+                    } else {
+                        // Patient Doesn't Exist.
+                    }
+                    hideLoader();
+                }
+            });
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            Toast.makeText(RegistrationActivity.this, "Patient Registration Failed...", Toast.LENGTH_LONG).show();
+        }
+	}
+
+    private void goToNextActivity(AddPatientResponse addPatientResponse)
+    {
+        Intent intent = new Intent(RegistrationActivity.this, ChooseAppointmentActivity.class);
+        intent.putExtra("DoctorDetails", selectedDoctorDetails);
+        intent.putExtra("PhoneNumber", phNumber);
+        intent.putExtra("PatientInfo", addPatientResponse);
+        intent.putExtra("isNoMobile", isNoMobile);
+        startActivity(intent);
+    }
 }
 

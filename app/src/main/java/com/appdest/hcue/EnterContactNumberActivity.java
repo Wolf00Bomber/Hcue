@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
@@ -19,8 +20,16 @@ import android.widget.Toast;
 
 import com.appdest.hcue.common.AppConstants;
 import com.appdest.hcue.model.GetDoctorsResponse;
+import com.appdest.hcue.model.GetPatientRequest;
+import com.appdest.hcue.model.GetPatientResponse;
+import com.appdest.hcue.services.RestCallback;
+import com.appdest.hcue.services.RestClient;
+import com.appdest.hcue.services.RestError;
+import com.appdest.hcue.utils.Connectivity;
 
 import java.math.BigDecimal;
+
+import retrofit.client.Response;
 
 
 public class EnterContactNumberActivity extends BaseActivity implements OnClickListener
@@ -209,11 +218,11 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 
 		h.postDelayed(new Runnable() {
 
-			@Override
-			public void run() {
-				llNumbers.setVisibility(View.GONE);
-			}
-		}, 50);
+            @Override
+            public void run() {
+                llNumbers.setVisibility(View.GONE);
+            }
+        }, 50);
 	}
 
 	public void hideKeyBoard(View view)
@@ -221,6 +230,7 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 		im = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
 		im.hideSoftInputFromWindow(view.getWindowToken(), 0);
 	}
+
 
 	@Override
 	public void onClick(final View v) 
@@ -234,15 +244,17 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 				}
 				else
 				{
+					showLoader("Please wait...");
                     phNumber = new BigDecimal(edtNumber.getText().toString().trim());
-					Intent intent	= new Intent(EnterContactNumberActivity.this,RegistrationActivity.class);
-                    intent.putExtra("PhoneNumber", phNumber);
-					intent.putExtra("DoctorDetails", selectedDoctorDetails);
-					startActivity(intent);
+                    callService(phNumber);
 				}
 				break;
 			case R.id.btnNoNumber:
 				Intent intent	= new Intent(EnterContactNumberActivity.this,RegistrationActivity.class);
+                intent.putExtra("PhoneNumber", selectedDoctorDetails.DoctorID);
+                intent.putExtra("PhoneCode", edtCode.getVisibility() == View.VISIBLE ?  getPhoneCode() : "");
+                intent.putExtra("DoctorDetails", selectedDoctorDetails);
+                intent.putExtra("NoMobile", true);
 				startActivity(intent);
 				break;
 				
@@ -282,5 +294,74 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 		
 		
 	}
+
+    private String getPhoneCode()
+    {
+        String text = edtCode.getText().toString();
+        if(TextUtils.isEmpty(text))
+        {
+            text = edtCode.getHint().toString();
+        }
+        return text;
+    }
+
+    private void goToRegistrationActivity()
+    {
+        Intent intent	= new Intent(EnterContactNumberActivity.this,RegistrationActivity.class);
+        intent.putExtra("PhoneNumber", phNumber);
+        intent.putExtra("PhoneCode", edtCode.getVisibility() == View.VISIBLE ?  getPhoneCode() : "");
+        intent.putExtra("DoctorDetails", selectedDoctorDetails);
+        startActivity(intent);
+    }
+
+    private void goToPatientListActivity(GetPatientResponse getPatientResponse)
+    {
+        Intent intent	= new Intent(EnterContactNumberActivity.this, ChoosePatientActivity.class);
+        intent.putExtra("PhoneNumber", phNumber);
+        intent.putExtra("PhoneCode", edtCode.getVisibility() == View.VISIBLE ? getPhoneCode() : "");
+        intent.putExtra("DoctorDetails", selectedDoctorDetails);
+        intent.putExtra("GetPatientResponse", getPatientResponse);
+        startActivity(intent);
+    }
+
+    private void callService(Number phNumber)
+    {
+        if (Connectivity.isConnected(EnterContactNumberActivity.this)) {
+            searchForPatient(phNumber);
+        } else {
+            Toast.makeText(EnterContactNumberActivity.this, "No Internet Connection", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void searchForPatient(Number phNumber)
+    {
+        final GetPatientRequest getDoctorsRequest = new GetPatientRequest();
+        getDoctorsRequest.setPageNumber(1);
+        getDoctorsRequest.setPageSize(10);
+        getDoctorsRequest.setPhoneNumber(phNumber.toString());
+        getDoctorsRequest.setSort("asc");
+
+        String url = "http://d1lmwj8jm5d3bc.cloudfront.net";
+        RestClient.getAPI(url).getPatients(getDoctorsRequest, new RestCallback<GetPatientResponse>() {
+            @Override
+            public void failure(RestError restError) {
+                Log.e("Doctor Appointement", "" + restError.getErrorMessage());
+                Toast.makeText(EnterContactNumberActivity.this, "Couldn't get the List of Patients, Try again later...", Toast.LENGTH_LONG).show();
+                hideLoader();
+            }
+
+            @Override
+            public void success(GetPatientResponse getPatientResponse, Response response) {
+                if (getPatientResponse != null && getPatientResponse.count > 0) {
+                    // Patient Exists.
+                    goToPatientListActivity(getPatientResponse);
+                } else {
+                     //Patient Doesn't Exist.
+                    goToRegistrationActivity();
+                }
+                hideLoader();
+            }
+        });
+    }
 	
 }

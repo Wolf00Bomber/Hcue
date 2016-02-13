@@ -15,11 +15,13 @@ import android.widget.Toast;
 
 import com.appdest.hcue.adapters.CustomAppointmentAdapter;
 import com.appdest.hcue.common.AppConstants;
+import com.appdest.hcue.model.AddPatientResponse;
 import com.appdest.hcue.model.DoctorsAppointment;
 import com.appdest.hcue.model.DoctorsAppointmentResponse;
 import com.appdest.hcue.model.GetDoctorAppointmentRequest;
 import com.appdest.hcue.model.GetDoctorAppointmentResponse;
 import com.appdest.hcue.model.GetDoctorsResponse;
+import com.appdest.hcue.model.GetPatientResponse;
 import com.appdest.hcue.services.RestCallback;
 import com.appdest.hcue.services.RestClient;
 import com.appdest.hcue.services.RestError;
@@ -49,16 +51,54 @@ public class ChooseAppointmentActivity extends BaseActivity {
 
     private GetDoctorsResponse.DoctorDetail selectedDoctorDetails;
     private Number phNumber;
+    private AddPatientResponse addPatientResponse;
+    private GetPatientResponse.PatientInfo getPatientInfo;
+    private Number patientId;
+
     boolean isActivityNeedsFinish = false;
+
+    private Number getPatientId(AddPatientResponse addPatientResponse)
+    {
+        ArrayList<AddPatientResponse.PatientPhone> patientPhones = addPatientResponse.arrPatientPhone;
+        if(patientPhones == null || patientPhones.size() == 0)
+            return null;
+        else
+        {
+            for(int j = 0; j < patientPhones.size(); j++) {
+                AddPatientResponse.PatientPhone patientPhone = patientPhones.get(j);
+                if (patientPhone.PhNumber.longValue() == phNumber.longValue()) {
+                    return addPatientResponse.arrPatients.get(j).PatientID;
+                }
+            }
+            return null;
+        }
+    }
+
 
     @Override
     public void initializeControls()
     {
         Intent i = getIntent();
-        if(i.hasExtra("DoctorDetails") && i.hasExtra("PhoneNumber"))
+        if(i.hasExtra("DoctorDetails") && i.hasExtra("PhoneNumber") && i.hasExtra("PatientInfo"))
         {
             selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail) i.getSerializableExtra("DoctorDetails");
             phNumber = (Number) i.getSerializableExtra("PhoneNumber");
+            Object patientInfo = i.getSerializableExtra("PatientInfo");
+            boolean isNoMobile = i.getBooleanExtra("isNoMobile", false);
+            if(patientInfo instanceof AddPatientResponse)
+            {
+                addPatientResponse = (AddPatientResponse) patientInfo;
+                patientId = getPatientId(addPatientResponse);
+                if(isNoMobile)
+                {
+                    patientId = addPatientResponse.arrPatients.get(0).PatientID;
+                }
+            }
+            else if(patientInfo instanceof GetPatientResponse.PatientInfo)
+            {
+                getPatientInfo = (GetPatientResponse.PatientInfo) patientInfo;
+                patientId = ((GetPatientResponse.PatientInfo) patientInfo).patients.get(0).PatientID;
+            }
         }
         else
         {
@@ -99,7 +139,6 @@ public class ChooseAppointmentActivity extends BaseActivity {
             @Override
             public void onDayClicked(Date date) {
                 DateFormat df = SimpleDateFormat.getDateInstance();
-//                Toast.makeText(ChooseAppointmentActivity.this, df.format(date), Toast.LENGTH_SHORT).show();
                 if (Connectivity.isConnected(ChooseAppointmentActivity.this)) {
                     populateTimeSlots(date);
                 } else {
@@ -161,7 +200,7 @@ public class ChooseAppointmentActivity extends BaseActivity {
         doctorsAppointment.setEndTime(TimeUtils.format2hhmm(selectedTimeSlot.getEndTime())/*"11:50"*/);
         doctorsAppointment.setConsultationDt(TimeUtils.format2Date(selectedPageItem.getConsultationDate().longValue())/*"2016-01-05"*/);
         doctorsAppointment.setAddressConsultID(selectedPageItem.getAddressConsultID()/*2106*/);
-        doctorsAppointment.setPatientID(/*phNumber*/9944208696001l);
+        doctorsAppointment.setPatientID(patientId/*9944208696001l*/);
         doctorsAppointment.setStartTime(TimeUtils.format2hhmm(selectedTimeSlot.getStartTime())/*"11:40"*/);
         doctorsAppointment.setAppointmentStatus("B");
         doctorsAppointment.setUSRId(0);

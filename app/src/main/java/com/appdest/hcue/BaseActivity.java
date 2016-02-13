@@ -109,6 +109,19 @@ public abstract class BaseActivity extends Activity
 	public void showLoader(String str) {
 		runOnUiThread(new RunShowLoader(str));
 	}
+
+	public void hideLoader()
+	{
+		runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				if(progressdialog != null && progressdialog.isShowing())
+				{
+					progressdialog.dismiss();
+				}
+			}
+		});
+	}
 	
 	/**
 	 * Name:         RunShowLoader
@@ -126,7 +139,7 @@ public abstract class BaseActivity extends Activity
 			try {
 				if(progressdialog == null ||(progressdialog != null && !progressdialog.isShowing())) {
 					progressdialog = ProgressDialog.show(BaseActivity.this, "", strMsg);
-					progressdialog.setContentView(R.layout.progress_dialog);
+//					progressdialog.setContentView(R.layout.progress_dialog);
 					progressdialog.setCancelable(false);
 				} else {
 				}

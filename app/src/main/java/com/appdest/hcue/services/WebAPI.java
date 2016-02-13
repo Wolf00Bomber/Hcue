@@ -1,5 +1,7 @@
 package com.appdest.hcue.services;
 
+import com.appdest.hcue.model.AddPatientRequest;
+import com.appdest.hcue.model.AddPatientResponse;
 import com.appdest.hcue.model.AdminLogin;
 import com.appdest.hcue.model.DoctorsAppointment;
 import com.appdest.hcue.model.DoctorsAppointmentResponse;
@@ -9,6 +11,8 @@ import com.appdest.hcue.model.GetDoctors;
 import com.appdest.hcue.model.GetDoctorsResponse;
 import com.appdest.hcue.model.GetPatientDetailsRequest;
 import com.appdest.hcue.model.GetPatientDetailsResponse;
+import com.appdest.hcue.model.GetPatientRequest;
+import com.appdest.hcue.model.GetPatientResponse;
 import com.appdest.hcue.model.Speciality;
 
 import java.util.List;
@@ -25,10 +29,6 @@ public interface WebAPI {
     @POST("http://d318m5cseah7np.cloudfront.net/platformPartners/validate/adminLogin")
     void adminLogin(@Body AdminLogin adminLogin, RestCallback<String> callback);
 
-
-    @POST("http://d1lmwj8jm5d3bc.cloudfront.net/patients/addPatient")
-    void addPatient(@Body Object addPatient, RestCallback<Object> callback);
-
     @Headers({
             "Content-Type: application/json",
             "User-Agent: Hcue"
@@ -43,12 +43,12 @@ public interface WebAPI {
     @POST("/doctors/addDoctorsAppointments")
     void addDoctorsAppointment(@Body DoctorsAppointment doctorsAppointment, RestCallback<DoctorsAppointmentResponse> callback);
 
-    @Headers({
+    /*@Headers({
             "Content-Type: application/json",
             "User-Agent: Hcue"
     })
     @POST("/patients/addPatient")
-    void addPatient(@Body GetPatientDetailsRequest getPatientDetailsRequest, RestCallback<GetPatientDetailsResponse> callback);
+    void addPatient(@Body GetPatientDetailsRequest getPatientDetailsRequest, RestCallback<GetPatientDetailsResponse> callback);*/
 
     @Headers({
             "Content-Type: application/json",
@@ -70,5 +70,22 @@ public interface WebAPI {
     })
     @GET("/doctor/readSpecialityType/ALL")
     void getSpecialityMap(RestCallback<List<Speciality>> callback);
+
+    @Headers({
+            "Content-Type: application/json",
+            "User-Agent: Hcue"
+    })
+    @POST("/patients/addPatient")
+    void addPatient(@Body AddPatientRequest listDoctorsRequest, RestCallback<AddPatientResponse> callback);
+
+    @Headers({
+            "Content-Type: application/json",
+            "User-Agent: Hcue"
+    })
+    @POST("/patients/getPatients")
+    void getPatients(@Body GetPatientRequest getPatientRequest, RestCallback<GetPatientResponse> callback);
+
+
+
 
 }
