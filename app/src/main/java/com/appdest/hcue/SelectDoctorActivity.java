@@ -56,6 +56,9 @@ public class SelectDoctorActivity extends BaseActivity
 	private GridAdapter gridAdapter;
     private int hospitalId;
     private GetDoctorsResponse.DoctorDetail selectedDoctorDetails;
+    public static final int PAGE_SIZE = 6;
+    private int pageCount = 1;
+    int maxDoctors;
 
 	@Override
 	public void initializeControls() 
@@ -86,39 +89,61 @@ public class SelectDoctorActivity extends BaseActivity
 		tvTitle.setText("Welcome to VHSL PhysioPoint");
 		tvTitle.setTypeface(AppConstants.MYRAIDPRO_REGULAR);
 
-		if (Connectivity.isConnected(SelectDoctorActivity.this)) {
-			getHospitalDetails();
-		} else {
-			Toast.makeText(SelectDoctorActivity.this, "No Internet Connection", Toast.LENGTH_SHORT).show();
-		}
+        callService(19, pageCount);
+
+        ibLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                callService(19, pageCount);
+            }
+        });
+
+        ibRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                callService(19, pageCount);
+            }
+        });
 	}
 
-	private void getHospitalDetails()
+    private void callService(int hospitalId, int pageNumber)
+    {
+        if (Connectivity.isConnected(SelectDoctorActivity.this)) {
+            getHospitalDetails(hospitalId, pageNumber);
+        } else {
+            Toast.makeText(SelectDoctorActivity.this, "No Internet Connection", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+	private void getHospitalDetails(int hospitalId, int pageNumber)
 	{
 		final GetDoctors getDoctorsRequest = new GetDoctors();
-		getDoctorsRequest.setHospitalID(19);
-		getDoctorsRequest.setPageNumber(1);
-		getDoctorsRequest.setPageSize(6);
+		getDoctorsRequest.setHospitalID(hospitalId);
+		getDoctorsRequest.setPageNumber(pageNumber);
+		getDoctorsRequest.setPageSize(PAGE_SIZE);
 
 //		String url = "http://d318m5cseah7np.cloudfront.net";
 		String url = "http://dct4avjn1lfw.cloudfront.net";
 		RestClient.getAPI(url).getDoctors(getDoctorsRequest, new RestCallback<GetDoctorsResponse>() {
-			@Override
-			public void failure(RestError restError) {
-				Log.e("Doctor Appointement", "" + restError.getErrorMessage());
-				Toast.makeText(SelectDoctorActivity.this, "Couldn't get the List of Doctors.", Toast.LENGTH_SHORT).show();
-			}
+            @Override
+            public void failure(RestError restError) {
+                Log.e("Doctor Appointement", "" + restError.getErrorMessage());
+                Toast.makeText(SelectDoctorActivity.this, "Couldn't get the List of Doctors.", Toast.LENGTH_SHORT).show();
+            }
 
-			@Override
-			public void success(GetDoctorsResponse listDoctorsRequest, Response response) {
-				if (listDoctorsRequest != null) {
-					gridAdapter.refresh(listDoctorsRequest.arrDoctorDetails);
-					tvTitle.setText("Welcome to " + listDoctorsRequest.hospitalInfo.hospitalDetails.HospitalName);
-					hospitalId = listDoctorsRequest.hospitalInfo.hospitalDetails.HospitalID;
-				} else {
-					Log.i("Response", "" + response.getReason());
-				}
-			}
+            @Override
+            public void success(GetDoctorsResponse listDoctorsRequest, Response response) {
+                if (listDoctorsRequest != null) {
+                    pageCount++;
+                    if(maxDoctors == 0)
+                        maxDoctors = listDoctorsRequest.DoctorCount;
+                    gridAdapter.refresh(listDoctorsRequest.arrDoctorDetails);
+                    tvTitle.setText("Welcome to " + listDoctorsRequest.hospitalInfo.hospitalDetails.HospitalName);
+//                    hospitalId = listDoctorsRequest.hospitalInfo.hospitalDetails.HospitalID;
+                } else {
+                    Log.i("Response", "" + response.getReason());
+                }
+            }
 		});
 	}
 
