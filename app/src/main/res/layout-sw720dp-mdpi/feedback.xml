@@ -20,13 +20,21 @@
         android:gravity="center"
         android:orientation="horizontal" >
 
-        <com.github.siyamed.shapeimageview.CircularImageView
+        <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
+            android:id="@+id/ivImage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:siShape="@drawable/rounded_rect_shape"
+            android:src="@drawable/profile_doctor_bg_male"
+            app:siSquare="true"/>
+
+        <!--<com.github.siyamed.shapeimageview.CircularImageView
             android:id="@+id/ivImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/doctor_defult"
             app:siBorderWidth="2dp"
-            app:siBorderColor="#000000"/>
+            app:siBorderColor="#000000"/>-->
 
         <!--<ImageView
             android:id="@+id/ivImage"

@@ -7,6 +7,17 @@
     android:padding="5dp">
 
     <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/margin_15"
+        android:text="Welcome to Venus Global Multi Speciality Clinic"
+        android:textColor="#848484"
+        android:textSize="35sp"
+        android:textStyle="normal" />
+
+    <TextView
         android:id="@+id/tvHeading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,7 +44,15 @@
             android:background="@null"
             android:src="@drawable/left_scroll_welcome" />
 
-        <GridView
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="1100dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_weight="1"></android.support.v4.view.ViewPager>
+
+       <!-- <GridView
             android:id="@+id/gridView1"
             android:layout_width="1100dp"
             android:layout_height="wrap_content"
@@ -42,7 +61,7 @@
             android:listSelector="@android:color/transparent"
             android:numColumns="2"
             android:scrollbars="none"
-            android:verticalSpacing="@dimen/margin_5" />
+            android:verticalSpacing="@dimen/margin_5" />-->
 
         <!--<include layout="@layout/time_selection_grid_for_appointment" />-->
 

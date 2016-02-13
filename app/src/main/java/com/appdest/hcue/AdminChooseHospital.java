@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.appdest.hcue.adapters.CustomTimeAdapter;
 import com.appdest.hcue.common.AppConstants;
 import com.github.siyamed.shapeimageview.CircularImageView;
+import com.github.siyamed.shapeimageview.mask.PorterShapeImageView;
 
 import java.util.ArrayList;
 
@@ -25,7 +26,7 @@ import java.util.ArrayList;
  */
 public class AdminChooseHospital extends BaseActivity implements View.OnClickListener{
     private LinearLayout layout;
-    private CircularImageView imageView;
+    private PorterShapeImageView imageView;
     private TextView tvDoctorName, tvDesgAndSpeciality, tvEmail, tvMobile, tvHeading;
     private ImageView ivLeft, ivRight;
     private Button btnCancel, btnNext;
@@ -37,7 +38,7 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
         layout = (LinearLayout) inflater.inflate(R.layout.admin_choose_hospital_main, null);
         llBody.addView(layout);
 
-        imageView   = (CircularImageView) layout.findViewById(R.id.imageView);
+        imageView   = (PorterShapeImageView) layout.findViewById(R.id.imageView);
         tvDoctorName    = (TextView) layout.findViewById(R.id.tvDoctorName);
         tvDesgAndSpeciality    = (TextView) layout.findViewById(R.id.tvDesgAndSpeciality);
         tvEmail    = (TextView) layout.findViewById(R.id.tvEmail);

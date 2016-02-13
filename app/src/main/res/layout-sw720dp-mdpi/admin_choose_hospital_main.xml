@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
 
@@ -16,13 +17,23 @@
         android:paddingRight="30dp"
         android:paddingTop="5dp">
 
-        <com.github.siyamed.shapeimageview.CircularImageView
+        <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/profile_doctor_bg_male" />
+            app:siShape="@drawable/rounded_rect_shape"
+            android:src="@drawable/profile_doctor_bg_male"
+            app:siSquare="true"/>
+
+        <!--<com.github.siyamed.shapeimageview.CircularImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/profile_doctor_bg_male" />-->
 
         <TextView
             android:id="@+id/tvDoctorName"
