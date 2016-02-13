@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -165,5 +166,13 @@ public abstract class BaseActivity extends Activity
 		if(email == null || email.isEmpty())
 			return false;
 		return Patterns.EMAIL_ADDRESS.matcher(email).matches();
+	}
+
+	/**This method hides the soft keyboard*/
+	public void hideKeyBoard(View view){
+		if(view != null){
+			InputMethodManager im = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+			im.hideSoftInputFromWindow(view.getWindowToken(), 0);
+		}
 	}
 }

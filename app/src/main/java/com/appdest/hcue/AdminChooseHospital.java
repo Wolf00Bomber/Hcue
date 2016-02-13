@@ -3,6 +3,7 @@ package com.appdest.hcue;
 import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,12 +66,13 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
 
     @Override
     public void bindControls() {
+        prepareData();
         tvBack.setText("Previous Page");
         tvTitle.setText("Choose Hospital / Clinic");
-        tvDoctorName.setText("");
+        /*tvDoctorName.setText("");
         tvDesgAndSpeciality.setText("");
         tvEmail.setText("");
-        tvMobile.setText("");
+        tvMobile.setText("");*/
 
         hospitalPagerAdapter = new HospitalPagerAdapter();
         viewPager.setAdapter(hospitalPagerAdapter);
@@ -89,7 +91,7 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
                 if(position == 0){
                     ivLeft.setAlpha(0.25f);
                     ivLeft.setEnabled(false);
-                } else if(position == hospitalList.size()) {
+                } else if(position == hospitalList.size()/6+(hospitalList.size()%6 == 0 ?0:1)-1) {
                     ivRight.setAlpha(0.25f);
                     ivRight.setEnabled(false);
                 } else {
@@ -136,12 +138,14 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
         }
         @Override
         public int getCount() {
-            return hospitalList.size()/6 + (hospitalList.size()%6==0 ? 0:1);
+            int count = hospitalList.size()/6 + (hospitalList.size()%6==0 ? 0:1);
+            Log.e("Count :", ""+count);
+            return count;
         }
 
         @Override
         public boolean isViewFromObject(View view, Object object) {
-            return false;
+            return view==object;
         }
 
         @Override
@@ -151,6 +155,7 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
             GridView gridView = (GridView) itemView.findViewById(R.id.gridView);
             GridAdapter gridAdapter = new GridAdapter(position);
             gridView.setAdapter(gridAdapter);
+            container.addView(itemView);
             return itemView;
         }
 
@@ -169,7 +174,8 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
     private class GridAdapter extends BaseAdapter {
         private int pageNumber;
         public GridAdapter(final int pageNumber){
-            this.pageNumber = pageNumber+1;
+            this.pageNumber = pageNumber;
+            Log.e("Page : ", ""+pageNumber);
         }
         @Override
         public int getCount() {
@@ -193,12 +199,14 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
             TextView tvHospital = (TextView) convertView.findViewById(R.id.tvHospital);
             TextView tvLocation = (TextView) convertView.findViewById(R.id.tvLocation);
 
-            int gridItemPos = pageNumber*6+position-1;
+            int gridItemPos = pageNumber*6+position;
             ivCheck.setTag(R.id.ivCheck, gridItemPos);
-            if(gridItemPos>hospitalList.size())
+            Log.e("GRID ITEM POSITION :", ""+gridItemPos);
+            if(gridItemPos>=hospitalList.size())
                 convertView.setVisibility(View.INVISIBLE);
             else {
                 HospitalData hospitalData = hospitalList.get(gridItemPos);
+                tvHospital.setText(hospitalData.name);
                 if(hospitalData.isSelected){
                     ivCheck.setBackgroundResource(R.drawable.check_box_admin);
                 } else {
@@ -209,6 +217,7 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
                     @Override
                     public void onClick(View v) {
                         int pos = (int) ivCheck.getTag(R.id.ivCheck);
+                        Log.e("Radio Check at : ", ""+pos);
                         if(hospitalList.get(pos).isSelected) {
 //                            hospitalList.get(pos).isSelected = false;
                             setData(pos, false);
@@ -235,8 +244,9 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
     private ArrayList<HospitalData> hospitalList;
     private void prepareData() {
         hospitalList = new ArrayList<>();
-        for(int i=0; i<24; i++) {
+        for(int i=0; i<21; i++) {
             HospitalData hospitalData = new HospitalData();
+            hospitalData.name = (i+1)+". BHS Hospital";
             hospitalList.add(hospitalData);
         }
     }

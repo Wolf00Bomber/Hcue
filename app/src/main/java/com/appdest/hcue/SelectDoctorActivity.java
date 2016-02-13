@@ -231,7 +231,7 @@ public class SelectDoctorActivity extends BaseActivity
             Picasso.with(context)
                     .load(doctorDetail.ImageURL)
                     .resize(mWidth, mHeight)
-                    .placeholder(R.drawable.doctor_img_bg)
+                    .placeholder(R.drawable.profile_doctor_bg_male)
                     .centerInside()
                     .into(holder.iv)
                     ;
