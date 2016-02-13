@@ -21,7 +21,7 @@ public class AdminConfirmation extends BaseActivity implements View.OnClickListe
     public void initializeControls()
     {
         layout = (LinearLayout) inflater.inflate(R.layout.admin_confirmation, null);
-        llBody.addView(layout);
+        llBody.addView(layout,layoutParams);
 
         btnGoBack           = (Button) layout.findViewById(R.id.btnGoBack);
         btnConfirm           = (Button) layout.findViewById(R.id.btnConfirm);

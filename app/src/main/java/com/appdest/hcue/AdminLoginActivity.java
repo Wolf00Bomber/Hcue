@@ -52,6 +52,7 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
         switch (v.getId())
         {
             case R.id.btnSubmit:
+                hideKeyBoard(btnSubmit);
                 validateSignIn();
                 break;
         }
@@ -65,9 +66,11 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
             showToast("All fields are mandatory.");
         } else if(!isValidEmail(email)) {
             showToast("Please enter valid email ID.");
-        } else {
+        } else
+        {
+            //need to call Web Service
             showToast("Login success.");
-            Intent intent = new Intent(AdminLoginActivity.this,SelectDoctorActivity.class);
+            Intent intent = new Intent(AdminLoginActivity.this,AdminChooseHospital.class);
             startActivity(intent);
         }
     }
