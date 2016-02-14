@@ -2,6 +2,7 @@ package com.appdest.hcue;
 
 import com.appdest.hcue.common.AppConstants;
 import com.appdest.hcue.model.DoctorsAppointmentResponse;
+import com.appdest.hcue.model.GetDoctorsResponse;
 import com.appdest.hcue.utils.TimeUtils;
 
 import android.content.Intent;
@@ -25,10 +26,14 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 	private TextView tvTime,tvToken,tvDoctorName, tvDownloadFooter;
 	private Button btnProvideDetails,btnAskMe;
 	private DoctorsAppointmentResponse bookingDetails;
+    private GetDoctorsResponse.DoctorDetail selectedDoctorDetails;
+
     //TTS object
     private TextToSpeech myTTS;
     //status check code
     private int MY_DATA_CHECK_CODE = 0;
+
+    boolean isActivityNeedsFinish = false;
 
 	@Override
 	public void initializeControls() 
@@ -39,11 +44,13 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
         startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);
 
         Intent i = getIntent();
-		if(!i.hasExtra("BookingDetails"))
+		if(!i.hasExtra("BookingDetails") || !i.hasExtra("DoctorDetails"))
 		{
+            isActivityNeedsFinish = true;
 			finish();
 			return;
 		}
+        selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail) i.getSerializableExtra("DoctorDetails");
 		bookingDetails = (DoctorsAppointmentResponse) i.getSerializableExtra("BookingDetails");
 
 		llConfirm = (LinearLayout) inflater.inflate(R.layout.confirmation_summary, null);
@@ -68,6 +75,7 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 		btnAskMe.setTypeface(AppConstants.WALSHEIM_BOLD);
 		
 		tvTitle.setText("Booking Confirmation");
+        tvDoctorName.setText(selectedDoctorDetails.FullName);
         tvDownloadFooter.setText(Html.fromHtml("Download our <font color=\"#F57103\">hCue Patient App</font> from Google play store"));
         String dateString = DateUtils.isToday(bookingDetails.getConsultationDt()) ? "Today" : TimeUtils.format2DateProper(bookingDetails.getConsultationDt());
         String footer = "<b>" + dateString + ", " + TimeUtils.format2hhmmaa(bookingDetails.getStartTime()) + "</b>" + " with";
@@ -110,7 +118,8 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 	@Override
 	public void bindControls() 
 	{
-		
+        if(isActivityNeedsFinish)
+            return;
 	}
 
 	@Override

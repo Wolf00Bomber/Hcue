@@ -22,6 +22,7 @@ import com.appdest.hcue.model.GetDoctorAppointmentRequest;
 import com.appdest.hcue.model.GetDoctorAppointmentResponse;
 import com.appdest.hcue.model.GetDoctorsResponse;
 import com.appdest.hcue.model.GetPatientResponse;
+import com.appdest.hcue.model.Speciality;
 import com.appdest.hcue.services.RestCallback;
 import com.appdest.hcue.services.RestClient;
 import com.appdest.hcue.services.RestError;
@@ -29,12 +30,19 @@ import com.appdest.hcue.utils.AppointmentTimeInterface;
 import com.appdest.hcue.utils.Connectivity;
 import com.appdest.hcue.utils.CustomCalendarView;
 import com.appdest.hcue.utils.EventHandler;
+import com.appdest.hcue.utils.Preference;
 import com.appdest.hcue.utils.TimeUtils;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
 
 import retrofit.client.Response;
 
@@ -44,7 +52,7 @@ public class ChooseAppointmentActivity extends BaseActivity {
     private CustomCalendarView customCalendarView;
     private ViewPager mViewPager;
     private ProgressBar pBar;
-    private TextView tvNoSlots, tvTime, tvDoctorName;
+    private TextView tvNoSlots, tvTime;
     private Button btnProvideDetails;
     private ImageView ivLeftTime, ivRightTime;
     private CustomAppointmentAdapter mCustomPagerAdapter;
@@ -74,6 +82,22 @@ public class ChooseAppointmentActivity extends BaseActivity {
         }
     }
 
+    private HashMap<String,Speciality> hmSpecialities;
+    private void initMap()
+    {
+        Preference preference = new Preference(ChooseAppointmentActivity.this);
+        String specialitiesInString = preference.getStringFromPreference(Preference.SPECIALITIES_MAP, "");
+        if(!TextUtils.isEmpty(specialitiesInString))
+        {
+            Gson gson = new Gson();
+            ArrayList<Speciality> list = gson.fromJson(specialitiesInString, new TypeToken<List<Speciality>>(){}.getType());
+            Collections.sort(list);
+            hmSpecialities = new HashMap<>();
+            for (Speciality speciality : list) {
+                hmSpecialities.put(speciality.DoctorSpecialityID, speciality);
+            }
+        }
+    }
 
     @Override
     public void initializeControls()
@@ -114,7 +138,6 @@ public class ChooseAppointmentActivity extends BaseActivity {
         mViewPager          = (ViewPager) llAppointment.findViewById(R.id.viewPager);
         tvNoSlots           = (TextView) llAppointment.findViewById(R.id.tvNoSlots);
         tvTime              = (TextView) llAppointment.findViewById(R.id.tvTime);
-        tvDoctorName              = (TextView) llAppointment.findViewById(R.id.tvDoctorName);
         pBar                = (ProgressBar) llAppointment.findViewById(R.id.pBar);
         btnProvideDetails   = (Button) llAppointment.findViewById(R.id.btnProvideDetails);
         ivLeftTime          = (ImageView) llAppointment.findViewById(R.id.ivLeftTime);
@@ -147,8 +170,15 @@ public class ChooseAppointmentActivity extends BaseActivity {
             }
         });
         setSpecificTypeFace(llAppointment, AppConstants.WALSHEIM_MEDIUM);
-        tvTitle.setText("Choose Date & Time of your Appointment");
-        tvDoctorName.setText(selectedDoctorDetails.FullName);
+        initMap();
+        String TitleFormat = "%s, %s";
+        ArrayList<String> list = new ArrayList<>(selectedDoctorDetails.specialityCD.values());
+        for (int j = 0; j < list.size(); j++) {
+            list.set(j, hmSpecialities.get(list.get(j)).DoctorSpecialityDesc);
+        }
+        String specializationDesc = (list != null && list.size() > 0) ? list.get(0)/*TextUtils.join(",", list)*/ : "NA";
+        String Title = String.format(Locale.US, TitleFormat, selectedDoctorDetails.FullName, specializationDesc);
+        tvTitle.setText(Title);
         btnProvideDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -225,6 +255,7 @@ public class ChooseAppointmentActivity extends BaseActivity {
                 if (TextUtils.isEmpty(doctorsAppointmentResponse.getExceptionType())) {
                     Intent i = new Intent(ChooseAppointmentActivity.this, ConfirmationSummaryActivity.class);
                     i.putExtra("BookingDetails", doctorsAppointmentResponse);
+                    i.putExtra("DoctorDetails", selectedDoctorDetails);
                     startActivity(i);
                 } else {
 
@@ -287,6 +318,7 @@ public class ChooseAppointmentActivity extends BaseActivity {
 
     @Override
     public void bindControls() {
-
+        if(isActivityNeedsFinish)
+            return;
     }
 }
