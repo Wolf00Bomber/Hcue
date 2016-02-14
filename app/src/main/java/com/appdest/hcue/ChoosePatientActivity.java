@@ -3,6 +3,7 @@ package com.appdest.hcue;
 import com.appdest.hcue.common.AppConstants;
 import com.appdest.hcue.model.GetDoctorsResponse;
 import com.appdest.hcue.model.GetPatientResponse;
+import com.appdest.hcue.utils.TimeUtils;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.Date;
 public class ChoosePatientActivity extends BaseActivity implements OnClickListener
 {
 	private LinearLayout llPatient,llAddPatient;
@@ -146,7 +148,10 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
             }
             else
                 sex = "NA";
-            tvGenderAndAge.setText(String.format(AGE_SEX_FORMAT, sex, patient.getDOB().longValue()/YEAR));
+
+            int age = TimeUtils.getDiffYears(new Date(patient.getDOB().longValue()), new Date());
+
+            tvGenderAndAge.setText(String.format(AGE_SEX_FORMAT, sex, age));
             tvPatientName.setText(patient.FullName);
             return convertView;
 		}

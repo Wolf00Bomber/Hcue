@@ -50,7 +50,8 @@ public class GetPatientResponse implements Serializable{
 
     }
 
-    class FamilyMenbers{}
+    public class FamilyMenbers implements Serializable
+    {}
 
     public class PatientAddress implements Serializable
     {
@@ -62,12 +63,12 @@ public class GetPatientResponse implements Serializable{
         public String PrimaryIND;
     }
 
-    class PatientEmail
+    public class PatientEmail implements Serializable
     {
 
     }
 
-    class PatientOtherIds
+    public class PatientOtherIds implements Serializable
     {
 
     }
