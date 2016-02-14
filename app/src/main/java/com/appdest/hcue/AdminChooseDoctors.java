@@ -79,13 +79,17 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
                 if(position == 0){
                     ivLeft.setAlpha(0.25f);
                     ivLeft.setEnabled(false);
+                    ivRight.setAlpha(1.0f);
+                    ivRight.setEnabled(true);
                 } else if(position == hospitalList.size()/6+(hospitalList.size()%6==0?0:1)-1) {
                     ivRight.setAlpha(0.25f);
                     ivRight.setEnabled(false);
+                    ivLeft.setAlpha(1.0f);
+                    ivLeft.setEnabled(true);
                 } else {
                     ivLeft.setAlpha(1.0f);
-                    ivRight.setAlpha(1.0f);
                     ivLeft.setEnabled(true);
+                    ivRight.setAlpha(1.0f);
                     ivRight.setEnabled(true);
                 }
             }
@@ -126,7 +130,14 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
         }
         @Override
         public int getCount() {
-            return hospitalList.size()/6 + (hospitalList.size()%6==0 ? 0:1);
+            int count = hospitalList.size()/6 + (hospitalList.size()%6==0 ? 0:1);
+            if(count<=1) {
+                ivRight.setAlpha(0.25f);
+                ivRight.setEnabled(false);
+                ivLeft.setAlpha(0.25f);
+                ivLeft.setEnabled(false);
+            }
+            return count;
         }
 
         @Override

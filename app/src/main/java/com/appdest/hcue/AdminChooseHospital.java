@@ -92,13 +92,17 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
                 if(position == 0){
                     ivLeft.setAlpha(0.25f);
                     ivLeft.setEnabled(false);
+                    ivRight.setAlpha(1.0f);
+                    ivRight.setEnabled(true);
                 } else if(position == hospitalList.size()/6+(hospitalList.size()%6 == 0 ?0:1)-1) {
                     ivRight.setAlpha(0.25f);
                     ivRight.setEnabled(false);
+                    ivLeft.setAlpha(1.0f);
+                    ivLeft.setEnabled(true);
                 } else {
                     ivLeft.setAlpha(1.0f);
-                    ivRight.setAlpha(1.0f);
                     ivLeft.setEnabled(true);
+                    ivRight.setAlpha(1.0f);
                     ivRight.setEnabled(true);
                 }
             }
@@ -141,6 +145,12 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
         public int getCount() {
             int count = hospitalList.size()/6 + (hospitalList.size()%6==0 ? 0:1);
             Log.e("Count :", ""+count);
+            if(count<=1) {
+                ivRight.setAlpha(0.25f);
+                ivRight.setEnabled(false);
+                ivLeft.setAlpha(0.25f);
+                ivLeft.setEnabled(false);
+            }
             return count;
         }
 
@@ -161,7 +171,7 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
         }
 
         @Override
-        public int getItemPosition(Object object){
+        public int getItemPosition(Object object) {
             return POSITION_NONE;
         }
 
@@ -245,7 +255,7 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
     private ArrayList<HospitalData> hospitalList;
     private void prepareData() {
         hospitalList = new ArrayList<>();
-        for(int i=0; i<21; i++) {
+        for(int i=0; i<5; i++) {
             HospitalData hospitalData = new HospitalData();
             hospitalData.name = (i+1)+". BHS Hospital";
             hospitalList.add(hospitalData);

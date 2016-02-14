@@ -101,13 +101,13 @@ public class SelectDoctorActivity extends BaseActivity
             @Override
             public void onClick(View v) {
                 int page = viewPager.getCurrentItem();
-                Log.e("ibLeft : ","Page: "+page);
+                /*Log.e("ibLeft : ","Page: "+page);
                 if(!listCalledPos.get(page-1)) {
                     callService(19, page);
                     listCalledPos.set(page - 1, true);
                 }
-                else
-                    viewPager.setCurrentItem(page-1);
+                else*/
+                    viewPager.setCurrentItem(page - 1);
             }
         });
 
@@ -115,13 +115,14 @@ public class SelectDoctorActivity extends BaseActivity
             @Override
             public void onClick(View v) {
                 int page = viewPager.getCurrentItem();
-                Log.e("ibRight : ","Page: "+page);
+                Log.e("ibRight : ","CurrentPage: "+page);
                 if(!listCalledPos.get(page+1)) {
-                    callService(19, page + 1);
+                    Log.e("Service called : ","PageNumber: "+page);
+                    callService(19, page + 2);
                     listCalledPos.set(page+1, true);
                 }
-                else
-                    viewPager.setCurrentItem(page+1);
+
+                viewPager.setCurrentItem(page + 1);
             }
         });
 
@@ -140,12 +141,17 @@ public class SelectDoctorActivity extends BaseActivity
 
             @Override
             public void onPageSelected(int position) {
+                Log.e("onPageSelected",""+position);
                 if (position == 0) {
                     ibLeft.setAlpha(0.25f);
                     ibLeft.setEnabled(false);
+                    ibRight.setAlpha(1.0f);
+                    ibRight.setEnabled(true);
                 } else if (position == maxDoctors / 6 + (maxDoctors % 6 == 0 ? 0 : 1) - 1) {
                     ibRight.setAlpha(0.25f);
                     ibRight.setEnabled(false);
+                    ibLeft.setAlpha(1.0f);
+                    ibLeft.setEnabled(true);
                 } else {
                     ibLeft.setAlpha(1.0f);
                     ibRight.setAlpha(1.0f);
@@ -199,13 +205,20 @@ public class SelectDoctorActivity extends BaseActivity
                         maxDoctors = listDoctorsRequest.DoctorCount;
                         Log.e("maxDoctors : ",""+maxDoctors);
                         int pages = maxDoctors/6+(maxDoctors%6==0?0:1);
+                        if(pages<=1) {//No left right swipe
+
+                            ibRight.setAlpha(0.25f);
+                            ibRight.setEnabled(false);
+                            ibLeft.setAlpha(0.25f);
+                            ibLeft.setEnabled(false);
+                        }
                         for (int i=0; i<pages; i++) {
                             listCalledPos.add(false);
                         }
                         listCalledPos.set(0,true);
                     }
                     listDoctors.addAll(listDoctorsRequest.arrDoctorDetails);
-                    Log.e("List size : ", "");
+                    Log.e("List size : ", ""+listDoctors.size());
                     if(doctorsPagerAdapter==null) {
                         doctorsPagerAdapter = new DoctorsPagerAdapter();
                         viewPager.setAdapter(doctorsPagerAdapter);
