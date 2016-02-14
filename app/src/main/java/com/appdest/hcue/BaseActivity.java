@@ -45,10 +45,14 @@ public abstract class BaseActivity extends Activity
 		initializeControls();
 		bindControls();
 
-		tvHome.setOnClickListener(new OnClickListener() {
+		tvHome.setOnClickListener(new OnClickListener()
+		{
 
 			@Override
-			public void onClick(View view) {
+			public void onClick(View view)
+			{
+				Intent intent = new Intent(BaseActivity.this,SelectDoctorActivity.class);
+				startActivity(intent);
 
 			}
 		});
