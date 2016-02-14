@@ -3,6 +3,8 @@ package com.appdest.hcue.services;
 import com.appdest.hcue.model.AddPatientRequest;
 import com.appdest.hcue.model.AddPatientResponse;
 import com.appdest.hcue.model.AdminLogin;
+import com.appdest.hcue.model.AdminLoginRequest;
+import com.appdest.hcue.model.AdminLoginResponse;
 import com.appdest.hcue.model.DoctorsAppointment;
 import com.appdest.hcue.model.DoctorsAppointmentResponse;
 import com.appdest.hcue.model.GetDoctorAppointmentRequest;
@@ -85,7 +87,10 @@ public interface WebAPI {
     @POST("/patients/getPatients")
     void getPatients(@Body GetPatientRequest getPatientRequest, RestCallback<GetPatientResponse> callback);
 
-
-
-
+    @Headers({
+            "Content-Type: application/json",
+            "User-Agent: Hcue"
+    })
+    @POST("/doctors/validate/doctorLogin")
+    void adminLogin(@Body AdminLoginRequest adminLoginRequest, RestCallback<AdminLoginResponse> callback);
 }
