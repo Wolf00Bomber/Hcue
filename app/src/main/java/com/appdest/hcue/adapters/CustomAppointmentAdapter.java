@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.Html;
 import android.text.format.DateUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -98,8 +99,12 @@ public class CustomAppointmentAdapter extends PagerAdapter {
         gvTime.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                view.setSelected(true);
                 selectedTimeSlot = ((CustomTimeAdapter) parent.getAdapter()).getSelectedItem(position);
+                if(!"Y".equalsIgnoreCase(selectedTimeSlot.Available))
+                    return;
+
+                view.setSelected(true);
+
                 if(appointmentTimeInterface != null)
                 {
                     GetDoctorAppointmentResponse.AppointmentRow selectedPageItem = getSelectedPageItem(viewPager.getCurrentItem());
@@ -107,11 +112,14 @@ public class CustomAppointmentAdapter extends PagerAdapter {
                     long timeInstance = TimeUtils.getLongForHHMMSS(selectedTimeSlot.getStartTime());
                     long totalInstance = dayInstance + timeInstance;
                     StringBuilder sb = new StringBuilder();
-                    sb.append(DateUtils.isToday(totalInstance) ? "Today, " : "")
+                    sb.append(DateUtils.isToday(totalInstance) ? "Today" : TimeUtils.getDay(totalInstance))
+                            .append(", ")
                             .append(TimeUtils.format2DateProper(totalInstance))
                             .append(" @ ")
-                            .append(TimeUtils.format2hhmm(selectedTimeSlot.getStartTime()));
-                    appointmentTimeInterface.updateAppointmentText(sb.toString());
+                            .append("<font color=\"#48B09E\">" + TimeUtils.format2hhmm(selectedTimeSlot.getStartTime()) + " hrs</font>")
+
+                    ;
+                    appointmentTimeInterface.updateAppointmentText(Html.fromHtml(sb.toString()));
                 }
             }
         });

@@ -111,6 +111,7 @@
         <activity
             android:name="com.appdest.hcue.AdminLoginActivity"
             android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:label="@string/app_name" >
         </activity>
         <activity
@@ -120,6 +121,11 @@
         </activity>
         <activity
             android:name="com.appdest.hcue.AdminChooseDoctors"
+            android:screenOrientation="landscape"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.appdest.hcue.AdminConfirmation"
             android:screenOrientation="landscape"
             android:label="@string/app_name" >
         </activity>

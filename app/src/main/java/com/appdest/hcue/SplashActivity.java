@@ -2,12 +2,26 @@ package com.appdest.hcue;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.appdest.hcue.common.AppConstants;
+import com.appdest.hcue.model.Speciality;
+import com.appdest.hcue.services.RestCallback;
+import com.appdest.hcue.services.RestClient;
+import com.appdest.hcue.services.RestError;
+import com.appdest.hcue.utils.Connectivity;
 import com.appdest.hcue.utils.Preference;
+import com.google.gson.Gson;
+
+import java.util.List;
+
+import retrofit.client.Response;
 
 
 public class SplashActivity extends Activity
@@ -44,27 +58,62 @@ public class SplashActivity extends Activity
 
     }
 
+    private void getSpecialityDetails()
+    {
+
+        String url = "http://dct4avjn1lfw.cloudfront.net";
+
+        RestClient.getAPI(url).getSpecialityMap(new RestCallback<List<Speciality>>() {
+
+            @Override
+            public void success(List<Speciality> specialities, Response response) {
+
+                String json = new Gson().toJson(specialities);
+                if (!TextUtils.isEmpty(json)) {
+                    Preference preference = new Preference(SplashActivity.this);
+                    preference.saveStringInPreference(Preference.SPECIALITIES_MAP, json);
+                    preference.commitPreference();
+                }
+                moveToNextScreen();
+            }
+
+            @Override
+            public void failure(RestError restError) {
+                Log.e("Specialities", "" + restError.getErrorMessage());
+                Toast.makeText(SplashActivity.this, "Couldn't update the List of Specialities.", Toast.LENGTH_SHORT).show();
+                moveToNextScreen();
+            }
+        });
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
-        new Handler().postDelayed(new Runnable() {
+        if(Connectivity.isConnected(SplashActivity.this))
+        {
+            getSpecialityDetails();
+        }
+        else
+        {
+            Toast.makeText(SplashActivity.this, getString(R.string.internet_unavailable), Toast.LENGTH_SHORT).show();
+            moveToNextScreen();
+        }
 
-            @Override
-            public void run() {
-                moveToNextScreen();
-            }
-        }, SPLASH_TIME);
     }
 
 
     public void moveToNextScreen() 
     {
-          // New User
-            Intent splashActivty = new Intent(getApplicationContext(), SelectDoctorActivity.class);
-            startActivity(splashActivty);
-        
-        finish();
+        new Handler().postDelayed(new Runnable() {
 
+            @Override
+            public void run() {
+                Intent splashActivity = new Intent(getApplicationContext(), SelectDoctorActivity.class);
+                startActivity(splashActivity);
+                finish();
+            }
+        }, SPLASH_TIME/2);
+          // New User
     }
 
 }

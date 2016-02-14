@@ -2,6 +2,7 @@ package com.appdest.hcue.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,18 +11,64 @@ import java.util.List;
 public class AddPatientRequest {
 
     @SerializedName("USRType")
-    int USRType;
+    public String USRType;
 
     @SerializedName("patientDetails")
-    PatientDetails patientDetails;
+    public PatientDetails patientDetails = new PatientDetails();
 
     @SerializedName("USRId")
-    int USRId;
+    public int USRId;
 
     @SerializedName("patientPhone")
-    List<PatientPhone> listPatientPhone;
+    public ArrayList<PatientPhone> listPatientPhone = new ArrayList<>();
 
-    class PatientDetails
+    public void addPatientPhone(PatientPhone patientPhone)
+    {
+        listPatientPhone.add(patientPhone);
+    }
+
+    public void addAllPatientPhone(ArrayList<PatientPhone> arrPatientPhone)
+    {
+        listPatientPhone.addAll(arrPatientPhone);
+    }
+
+    public PatientPhone getEmptypatientPhone(){
+        return new PatientPhone();
+    }
+
+    public String getUSRType() {
+        return USRType;
+    }
+
+    public void setUSRType(String USRType) {
+        this.USRType = USRType;
+    }
+
+    public PatientDetails getPatientDetails() {
+        return patientDetails;
+    }
+
+    public void setPatientDetails(PatientDetails patientDetails) {
+        this.patientDetails = patientDetails;
+    }
+
+    public int getUSRId() {
+        return USRId;
+    }
+
+    public void setUSRId(int USRId) {
+        this.USRId = USRId;
+    }
+
+    public ArrayList<PatientPhone> getListPatientPhone() {
+        return listPatientPhone;
+    }
+
+    public void setListPatientPhone(ArrayList<PatientPhone> listPatientPhone) {
+        this.listPatientPhone = listPatientPhone;
+    }
+
+    public class PatientDetails
     {
         public String getFirstName() {
             return FirstName;
@@ -63,11 +110,11 @@ public class AddPatientRequest {
             Gender = gender;
         }
 
-        public String getMobileID() {
+        public Number getMobileID() {
             return MobileID;
         }
 
-        public void setMobileID(String mobileID) {
+        public void setMobileID(Number mobileID) {
             MobileID = mobileID;
         }
 
@@ -77,6 +124,14 @@ public class AddPatientRequest {
 
         public void setAge(int age) {
             Age = age;
+        }
+
+        public int getUSRId() {
+            return USRId;
+        }
+
+        public void setUSRId(int USRId) {
+            this.USRId = USRId;
         }
 
         @SerializedName("FirstName")
@@ -90,35 +145,38 @@ public class AddPatientRequest {
         @SerializedName("Gender")
         public String Gender;
         @SerializedName("MobileID")
-        public String MobileID;
+        public Number MobileID;
         @SerializedName("Age")
         public int Age;
+        @SerializedName("USRId")
+        public int USRId;
+
 
     }
 
-    class PatientPhone
+    public class PatientPhone
     {
-        public String getPhAreaCD() {
+        public int getPhAreaCD() {
             return PhAreaCD;
         }
 
-        public void setPhAreaCD(String phAreaCD) {
+        public void setPhAreaCD(int phAreaCD) {
             PhAreaCD = phAreaCD;
         }
 
-        public String getPhCntryCD() {
+        public int getPhCntryCD() {
             return PhCntryCD;
         }
 
-        public void setPhCntryCD(String phCntryCD) {
+        public void setPhCntryCD(int phCntryCD) {
             PhCntryCD = phCntryCD;
         }
 
-        public String getPhNumber() {
+        public Number getPhNumber() {
             return PhNumber;
         }
 
-        public void setPhNumber(String phNumber) {
+        public void setPhNumber(Number phNumber) {
             PhNumber = phNumber;
         }
 
@@ -138,26 +196,26 @@ public class AddPatientRequest {
             PrimaryIND = primaryIND;
         }
 
-        public String getPhStateCD() {
+        public int getPhStateCD() {
             return PhStateCD;
         }
 
-        public void setPhStateCD(String phStateCD) {
+        public void setPhStateCD(int phStateCD) {
             PhStateCD = phStateCD;
         }
 
         @SerializedName("PhAreaCD")
-        public String PhAreaCD;
+        public int PhAreaCD;
         @SerializedName("PhCntryCD")
-        public String PhCntryCD;
+        public int PhCntryCD;
         @SerializedName("PhNumber")
-        public String PhNumber;
+        public Number PhNumber;
         @SerializedName("PhType")
         public String PhType;
         @SerializedName("PrimaryIND")
         public String PrimaryIND;
         @SerializedName("PhStateCD")
-        public String PhStateCD;
+        public int PhStateCD;
     }
 
 }

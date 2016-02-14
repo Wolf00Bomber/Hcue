@@ -237,18 +237,21 @@ public class CustomCalendarView extends LinearLayout
             {
                 // if this day is past Date, grey it out
                 view.setEnabled(false);
+                tvCell.setEnabled(false);
                 tvCell.setTextColor(getResources().getColor(R.color.greyed_out));
                 tvCell.setBackgroundResource(0);
             }
             else if(date.getDate() == selectedDate.getDate())
             {
                 view.setEnabled(true);
+                tvCell.setEnabled(true);
                 tvCell.setTextColor(getResources().getColor(R.color.white));
                 tvCell.setBackgroundResource(R.drawable.selected_date_icon);
             }
             else
             {
                 view.setEnabled(true);
+                tvCell.setEnabled(true);
                 tvCell.setTextColor(Color.BLACK);
                 tvCell.setBackgroundResource(0);
             }

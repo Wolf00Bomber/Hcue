@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -44,10 +45,14 @@ public abstract class BaseActivity extends Activity
 		initializeControls();
 		bindControls();
 
-		tvHome.setOnClickListener(new OnClickListener() {
+		tvHome.setOnClickListener(new OnClickListener()
+		{
 
 			@Override
-			public void onClick(View view) {
+			public void onClick(View view)
+			{
+				Intent intent = new Intent(BaseActivity.this,SelectDoctorActivity.class);
+				startActivity(intent);
 
 			}
 		});
@@ -108,6 +113,19 @@ public abstract class BaseActivity extends Activity
 	public void showLoader(String str) {
 		runOnUiThread(new RunShowLoader(str));
 	}
+
+	public void hideLoader()
+	{
+		runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				if(progressdialog != null && progressdialog.isShowing())
+				{
+					progressdialog.dismiss();
+				}
+			}
+		});
+	}
 	
 	/**
 	 * Name:         RunShowLoader
@@ -125,7 +143,7 @@ public abstract class BaseActivity extends Activity
 			try {
 				if(progressdialog == null ||(progressdialog != null && !progressdialog.isShowing())) {
 					progressdialog = ProgressDialog.show(BaseActivity.this, "", strMsg);
-					progressdialog.setContentView(R.layout.progress_dialog);
+//					progressdialog.setContentView(R.layout.progress_dialog);
 					progressdialog.setCancelable(false);
 				} else {
 				}
@@ -165,5 +183,13 @@ public abstract class BaseActivity extends Activity
 		if(email == null || email.isEmpty())
 			return false;
 		return Patterns.EMAIL_ADDRESS.matcher(email).matches();
+	}
+
+	/**This method hides the soft keyboard*/
+	public void hideKeyBoard(View view){
+		if(view != null){
+			InputMethodManager im = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+			im.hideSoftInputFromWindow(view.getWindowToken(), 0);
+		}
 	}
 }

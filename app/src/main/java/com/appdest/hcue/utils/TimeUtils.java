@@ -2,13 +2,27 @@ package com.appdest.hcue.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 import static com.google.gson.internal.$Gson$Preconditions.checkArgument;
 
 public class TimeUtils {
 
-    private static SimpleDateFormat hhmmss, hhmm, normalDate, properDate;
+    private static SimpleDateFormat hhmmss, hhmm, hhmma, normalDate, properDate;
+
+    public static String getDay(long mils)
+    {
+        return new SimpleDateFormat("EEEE").format(new Date(mils));
+    }
+
+    private static SimpleDateFormat getSDFHHMMA()
+    {
+        if(hhmma == null)
+            hhmma = new SimpleDateFormat("HH:mm a");
+        return hhmma;
+    }
 
     private static SimpleDateFormat getSDFHHMMSS()
     {
@@ -48,6 +62,17 @@ public class TimeUtils {
         return hhmmss;
     }
 
+    public static String format2hhmmaa(String hhmm)
+    {
+        try {
+            Date d = getSDFHHMM().parse(hhmm);
+            return getSDFHHMMA().format(d);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return hhmm;
+    }
+
     public static long getLongForHHMMSS(String hhmmss)
     {
         try {
@@ -62,6 +87,23 @@ public class TimeUtils {
     public static String format2Date(Date date)
     {
         return getSDNormalDate().format(date);
+    }
+
+    public static int getDiffYears(Date first, Date last) {
+        Calendar a = getCalendar(first);
+        Calendar b = getCalendar(last);
+        int diff = b.get(Calendar.YEAR) - a.get(Calendar.YEAR);
+        if (a.get(Calendar.MONTH) > b.get(Calendar.MONTH) ||
+                (a.get(Calendar.MONTH) == b.get(Calendar.MONTH) && a.get(Calendar.DATE) > b.get(Calendar.DATE))) {
+            diff--;
+        }
+        return diff;
+    }
+
+    public static Calendar getCalendar(Date date) {
+        Calendar cal = Calendar.getInstance(Locale.US);
+        cal.setTime(date);
+        return cal;
     }
 
     public static String format2Date(long milliseconds)

@@ -1,5 +1,6 @@
 package com.appdest.hcue;
 
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.appdest.hcue.common.AppConstants;
 import com.github.siyamed.shapeimageview.CircularImageView;
 
 import java.util.ArrayList;
@@ -21,7 +23,7 @@ import java.util.ArrayList;
  */
 public class AdminChooseDoctors extends BaseActivity implements View.OnClickListener{
     private LinearLayout layout;
-    private TextView tvHospitalName, tvAddress;
+    private TextView tvHospitalName, tvAddress, tvHeading;
     private ImageView ivLeft, ivRight;
     private Button btnCancel, btnNext;
     private ViewPager viewPager;
@@ -33,11 +35,19 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
         llBody.addView(layout);
 
         tvHospitalName    = (TextView) layout.findViewById(R.id.tvHospitalName);
+        tvAddress = (TextView) layout.findViewById(R.id.tvAddress);
+        tvHeading   = (TextView) layout.findViewById(R.id.tvHeading);
         ivLeft    = (ImageView) layout.findViewById(R.id.ivLeft);
         ivRight    = (ImageView) layout.findViewById(R.id.ivRight);
         btnCancel    = (Button) layout.findViewById(R.id.btnCancel);
         btnNext    = (Button) layout.findViewById(R.id.btnNext);
         viewPager    = (ViewPager) layout.findViewById(R.id.viewPager);
+
+        tvHospitalName.setTypeface(AppConstants.WALSHEIM_MEDIUM);
+        tvAddress.setTypeface(AppConstants.WALSHEIM_LIGHT);
+        tvHeading.setTypeface(AppConstants.WALSHEIM_LIGHT);
+        btnCancel.setTypeface(AppConstants.WALSHEIM_MEDIUM);
+        btnNext.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 
         ivLeft.setOnClickListener(this);
         ivRight.setOnClickListener(this);
@@ -48,6 +58,7 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
 
     @Override
     public void bindControls() {
+        prepareData();
         tvBack.setText("Previous Page");
         tvTitle.setText("Choose Doctor(s)");
 
@@ -68,13 +79,17 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
                 if(position == 0){
                     ivLeft.setAlpha(0.25f);
                     ivLeft.setEnabled(false);
-                } else if(position == hospitalList.size()) {
+                    ivRight.setAlpha(1.0f);
+                    ivRight.setEnabled(true);
+                } else if(position == hospitalList.size()/6+(hospitalList.size()%6==0?0:1)-1) {
                     ivRight.setAlpha(0.25f);
                     ivRight.setEnabled(false);
+                    ivLeft.setAlpha(1.0f);
+                    ivLeft.setEnabled(true);
                 } else {
                     ivLeft.setAlpha(1.0f);
-                    ivRight.setAlpha(1.0f);
                     ivLeft.setEnabled(true);
+                    ivRight.setAlpha(1.0f);
                     ivRight.setEnabled(true);
                 }
             }
@@ -98,6 +113,8 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
         case R.id.btnCancel :
             break;
         case R.id.btnNext :
+            Intent intent = new Intent(AdminChooseDoctors.this, AdminConfirmation.class);
+            startActivity(intent);
             break;
         case R.id.tvBack :
             finish();
@@ -113,12 +130,19 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
         }
         @Override
         public int getCount() {
-            return hospitalList.size()/6 + (hospitalList.size()%6==0 ? 0:1);
+            int count = hospitalList.size()/6 + (hospitalList.size()%6==0 ? 0:1);
+            if(count<=1) {
+                ivRight.setAlpha(0.25f);
+                ivRight.setEnabled(false);
+                ivLeft.setAlpha(0.25f);
+                ivLeft.setEnabled(false);
+            }
+            return count;
         }
 
         @Override
         public boolean isViewFromObject(View view, Object object) {
-            return false;
+            return view==object;
         }
 
         @Override
@@ -128,6 +152,7 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
             GridView gridView = (GridView) itemView.findViewById(R.id.gridView);
             GridAdapter gridAdapter = new GridAdapter(position);
             gridView.setAdapter(gridAdapter);
+            container.addView(itemView);
             return itemView;
         }
 
@@ -146,7 +171,7 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
     private class GridAdapter extends BaseAdapter {
         private int pageNumber;
         public GridAdapter(final int pageNumber){
-            this.pageNumber = pageNumber+1;
+            this.pageNumber = pageNumber;
         }
         @Override
         public int getCount() {
@@ -172,9 +197,9 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
             TextView tvSpeciality = (TextView) convertView.findViewById(R.id.tvSpeciality);
             TextView tvYou = (TextView) convertView.findViewById(R.id.tvYou);
 
-            int gridItemPos = pageNumber*6+position-1;
+            int gridItemPos = pageNumber*6+position;
             ivCheck.setTag(R.id.ivCheck, gridItemPos);
-            if(gridItemPos>hospitalList.size())
+            if(gridItemPos>=hospitalList.size())
                 convertView.setVisibility(View.INVISIBLE);
             else {
                 HospitalData hospitalData = hospitalList.get(gridItemPos);
