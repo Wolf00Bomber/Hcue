@@ -4,11 +4,76 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 
 /**
  * Created by Vinsan on 2/14/2016.
  */
 public class AdminLoginResponse implements Serializable {
+
+    public ArrayList<Doctor> getArrDoctor() {
+        return arrDoctor;
+    }
+
+    public void setArrDoctor(ArrayList<Doctor> arrDoctor) {
+        this.arrDoctor = arrDoctor;
+    }
+
+    public ArrayList<DoctorPhone> getArrDoctorPhone() {
+        return arrDoctorPhone;
+    }
+
+    public void setArrDoctorPhone(ArrayList<DoctorPhone> arrDoctorPhone) {
+        this.arrDoctorPhone = arrDoctorPhone;
+    }
+
+    public ArrayList<DoctorAddress> getArrDoctorAddress() {
+        return arrDoctorAddress;
+    }
+
+    public void setArrDoctorAddress(ArrayList<DoctorAddress> arrDoctorAddress) {
+        this.arrDoctorAddress = arrDoctorAddress;
+    }
+
+    public ArrayList<DoctorEmail> getArrDoctorEmail() {
+        return arrDoctorEmail;
+    }
+
+    public void setArrDoctorEmail(ArrayList<DoctorEmail> arrDoctorEmail) {
+        this.arrDoctorEmail = arrDoctorEmail;
+    }
+
+    public ArrayList<DoctorConsultation> getArrDoctorConsultation() {
+        return arrDoctorConsultation;
+    }
+
+    public void setArrDoctorConsultation(ArrayList<DoctorConsultation> arrDoctorConsultation) {
+        this.arrDoctorConsultation = arrDoctorConsultation;
+    }
+
+    public ArrayList<DoctorEducation> getArrDoctorEducation() {
+        return arrDoctorEducation;
+    }
+
+    public void setArrDoctorEducation(ArrayList<DoctorEducation> arrDoctorEducation) {
+        this.arrDoctorEducation = arrDoctorEducation;
+    }
+
+    public ArrayList<DoctorPublishing> getArrDoctorPublishing() {
+        return arrDoctorPublishing;
+    }
+
+    public void setArrDoctorPublishing(ArrayList<DoctorPublishing> arrDoctorPublishing) {
+        this.arrDoctorPublishing = arrDoctorPublishing;
+    }
+
+    public ArrayList<DoctorAchievements> getArrDoctorAchievements() {
+        return arrDoctorAchievements;
+    }
+
+    public void setArrDoctorAchievements(ArrayList<DoctorAchievements> arrDoctorAchievements) {
+        this.arrDoctorAchievements = arrDoctorAchievements;
+    }
 
     @SerializedName("doctor")
     public ArrayList<Doctor> arrDoctor;
@@ -22,8 +87,8 @@ public class AdminLoginResponse implements Serializable {
     @SerializedName("doctorEmail")
     public ArrayList<DoctorEmail> arrDoctorEmail;
 
-   /* @SerializedName("doctorConsultation")
-    public ArrayList<DoctorConsultation> arrDoctorConsultation;*/
+    @SerializedName("doctorConsultation")
+    public ArrayList<DoctorConsultation> arrDoctorConsultation;
 
     @SerializedName("doctorEducation")
     public ArrayList<DoctorEducation> arrDoctorEducation;
@@ -50,13 +115,95 @@ public class AdminLoginResponse implements Serializable {
         @SerializedName("Exp")
         public Number Exp;
         @SerializedName("DoctorLoginID")
-        public Number DoctorLoginID;
+        public String DoctorLoginID;
         @SerializedName("HcueScore")
         public Number HcueScore;
         @SerializedName("Prospect")
         public String Prospect;
         @SerializedName("TermsAccepted")
         public String TermsAccepted;
+
+        public LinkedHashMap<String, String> getSpecialityCD() {
+            return specialityCD;
+        }
+
+        public void setSpecialityCD(LinkedHashMap<String, String> specialityCD) {
+            this.specialityCD = specialityCD;
+        }
+
+        @SerializedName("SpecialityCD")
+        public LinkedHashMap<String,String> specialityCD;
+
+        public LinkedHashMap<String, String> getMemberID() {
+            return MemberID;
+        }
+
+        public void setMemberID(LinkedHashMap<String, String> memberID) {
+            MemberID = memberID;
+        }
+
+        public LinkedHashMap<String, String> getQualification() {
+            return Qualification;
+        }
+
+        public void setQualification(LinkedHashMap<String, String> qualification) {
+            Qualification = qualification;
+        }
+
+        public LinkedHashMap<String, String> getAbout() {
+            return About;
+        }
+
+        public void setAbout(LinkedHashMap<String, String> about) {
+            About = about;
+        }
+
+        public LinkedHashMap<String, String> getAwards() {
+            return Awards;
+        }
+
+        public void setAwards(LinkedHashMap<String, String> awards) {
+            Awards = awards;
+        }
+
+        public LinkedHashMap<String, String> getPractice() {
+            return Practice;
+        }
+
+        public void setPractice(LinkedHashMap<String, String> practice) {
+            Practice = practice;
+        }
+
+        public LinkedHashMap<String, String> getMembership() {
+            return Membership;
+        }
+
+        public void setMembership(LinkedHashMap<String, String> membership) {
+            Membership = membership;
+        }
+
+        public LinkedHashMap<String, String> getServices() {
+            return Services;
+        }
+
+        public void setServices(LinkedHashMap<String, String> services) {
+            Services = services;
+        }
+
+        @SerializedName("MemberID")
+        public LinkedHashMap<String,String> MemberID;
+        @SerializedName("Qualification")
+        public LinkedHashMap<String,String> Qualification;
+        @SerializedName("About")
+        public LinkedHashMap<String,String> About;
+        @SerializedName("Awards")
+        public LinkedHashMap<String,String> Awards;
+        @SerializedName("Practice")
+        public LinkedHashMap<String,String> Practice;
+        @SerializedName("Membership")
+        public LinkedHashMap<String,String> Membership;
+        @SerializedName("Services")
+        public LinkedHashMap<String,String> Services;
 
         public String getFirstName() {
             return FirstName;
@@ -114,11 +261,11 @@ public class AdminLoginResponse implements Serializable {
             Exp = exp;
         }
 
-        public Number getDoctorLoginID() {
+        public String getDoctorLoginID() {
             return DoctorLoginID;
         }
 
-        public void setDoctorLoginID(Number doctorLoginID) {
+        public void setDoctorLoginID(String doctorLoginID) {
             DoctorLoginID = doctorLoginID;
         }
 
@@ -430,6 +577,96 @@ public class AdminLoginResponse implements Serializable {
     }
 
     public class DoctorConsultation implements Serializable{
+        public int getAddressConsultID() {
+            return AddressConsultID;
+        }
+
+        public void setAddressConsultID(int addressConsultID) {
+            AddressConsultID = addressConsultID;
+        }
+
+        public int getAddressID() {
+            return AddressID;
+        }
+
+        public void setAddressID(int addressID) {
+            AddressID = addressID;
+        }
+
+        public int getDoctorID() {
+            return DoctorID;
+        }
+
+        public void setDoctorID(int doctorID) {
+            DoctorID = doctorID;
+        }
+
+        public String getDayCD() {
+            return DayCD;
+        }
+
+        public void setDayCD(String dayCD) {
+            DayCD = dayCD;
+        }
+
+        public int getStartTime() {
+            return StartTime;
+        }
+
+        public void setStartTime(int startTime) {
+            StartTime = startTime;
+        }
+
+        public String getEndTime() {
+            return EndTime;
+        }
+
+        public void setEndTime(String endTime) {
+            EndTime = endTime;
+        }
+
+        public int getMinPerCase() {
+            return MinPerCase;
+        }
+
+        public void setMinPerCase(int minPerCase) {
+            MinPerCase = minPerCase;
+        }
+
+        public int getFees() {
+            return Fees;
+        }
+
+        public void setFees(int fees) {
+            Fees = fees;
+        }
+
+        public String getActive() {
+            return Active;
+        }
+
+        public void setActive(String active) {
+            Active = active;
+        }
+
+        @SerializedName("AddressConsultID")
+        public int AddressConsultID;
+        @SerializedName("AddressID")
+        public int AddressID;
+        @SerializedName("DoctorID")
+        public int DoctorID;
+        @SerializedName("DayCD")
+        public String DayCD;
+        @SerializedName("StartTime")
+        public int StartTime;
+        @SerializedName("EndTime")
+        public String EndTime;
+        @SerializedName("MinPerCase")
+        public int MinPerCase;
+        @SerializedName("Fees")
+        public int Fees;
+        @SerializedName("Active")
+        public String Active;
     }
 
     public class DoctorEducation implements Serializable{
@@ -440,7 +677,7 @@ public class AdminLoginResponse implements Serializable {
         @SerializedName("InstituteName")
         public String InstituteName;
         @SerializedName("FullName")
-        public int FullName;
+        public String FullName;
 
         public int getRowID() {
             return RowID;
@@ -466,11 +703,11 @@ public class AdminLoginResponse implements Serializable {
             InstituteName = instituteName;
         }
 
-        public int getFullName() {
+        public String getFullName() {
             return FullName;
         }
 
-        public void setFullName(int fullName) {
+        public void setFullName(String fullName) {
             FullName = fullName;
         }
     }

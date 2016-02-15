@@ -91,6 +91,14 @@ public interface WebAPI {
             "Content-Type: application/json",
             "User-Agent: Hcue"
     })
+    @POST("/patient/appointment/getPatientAppointments")
+    void cancelAppointment(@Body GetPatientRequest getPatientRequest, RestCallback<GetPatientResponse> callback);
+
+
+    @Headers({
+            "Content-Type: application/json",
+            "User-Agent: Hcue"
+    })
     @POST("/doctors/validate/doctorLogin")
     void adminLogin(@Body AdminLoginRequest adminLoginRequest, RestCallback<AdminLoginResponse> callback);
 }

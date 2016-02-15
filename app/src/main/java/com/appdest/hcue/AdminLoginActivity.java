@@ -1,6 +1,7 @@
 package com.appdest.hcue;
 
 import android.content.Intent;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -75,13 +76,13 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
         String email = edtEnterEmailID.getText().toString().trim();
         String password = edtEnterPassword.getText().toString().trim();
 
-        if(email == null || password == null || email.isEmpty() || password.isEmpty()) {
+        if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
             showToast("All fields are mandatory.");
         } else if(!isValidEmail(email)) {
             showToast("Please enter valid email ID.");
         } else {
             //need to call Web Service
-
+            callService(email, password);
         }
     }
 
@@ -98,7 +99,6 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
         adminLoginRequest.setDoctorLoginID(email);
         adminLoginRequest.setDoctorPassword(password);
 
-//		String url = "http://d318m5cseah7np.cloudfront.net";
         String url = "http://dct4avjn1lfw.cloudfront.net";
         RestClient.getAPI(url).adminLogin(adminLoginRequest, new RestCallback<AdminLoginResponse>() {
             @Override
