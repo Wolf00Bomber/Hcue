@@ -358,6 +358,7 @@ public class AdminLoginResponse implements Serializable {
     }
 
     public class DoctorAddress implements Serializable {
+        public boolean isSelected; //kvk
         @SerializedName("AddressID")
         public int AddressID;
         @SerializedName("ClinicName")
