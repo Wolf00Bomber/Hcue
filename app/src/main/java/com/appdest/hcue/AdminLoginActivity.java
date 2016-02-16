@@ -11,11 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appdest.hcue.common.AppConstants;
-import com.appdest.hcue.model.AdminLogin;
 import com.appdest.hcue.model.AdminLoginRequest;
 import com.appdest.hcue.model.AdminLoginResponse;
-import com.appdest.hcue.model.GetDoctors;
-import com.appdest.hcue.model.GetDoctorsResponse;
 import com.appdest.hcue.services.RestCallback;
 import com.appdest.hcue.services.RestClient;
 import com.appdest.hcue.services.RestError;
@@ -104,7 +101,7 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
             @Override
             public void failure(RestError restError) {
                 Log.e("Doctor Login", "" + restError.getErrorMessage());
-               tvFailureMessage.setVisibility(View.VISIBLE);
+                tvFailureMessage.setVisibility(View.VISIBLE);
             }
 
             @Override
@@ -112,6 +109,7 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
                 if (adminLoginResponse != null) {
                     tvFailureMessage.setVisibility(View.GONE);
                     Intent intent = new Intent(AdminLoginActivity.this, AdminChooseHospital.class);
+                    intent.putExtra("hospitals", adminLoginResponse.getArrDoctorAddress());
                     startActivity(intent);
                     finish();
                 } else {

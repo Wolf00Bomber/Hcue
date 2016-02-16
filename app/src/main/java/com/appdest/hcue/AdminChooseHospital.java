@@ -14,9 +14,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.appdest.hcue.adapters.CustomTimeAdapter;
 import com.appdest.hcue.common.AppConstants;
-import com.github.siyamed.shapeimageview.CircularImageView;
+import com.appdest.hcue.model.AdminLoginResponse;
 import com.github.siyamed.shapeimageview.mask.PorterShapeImageView;
 
 import java.util.ArrayList;
@@ -32,6 +31,8 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
     private Button btnCancel, btnNext;
     private ViewPager viewPager;
     private HospitalPagerAdapter hospitalPagerAdapter;
+    private ArrayList<AdminLoginResponse.DoctorAddress> hospitalList;
+    private AdminLoginResponse.DoctorAddress hospitalData;
 
     @Override
     public void initializeControls() {
@@ -67,7 +68,11 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
 
     @Override
     public void bindControls() {
-        prepareData();
+//        prepareData();
+        hospitalList = (ArrayList<AdminLoginResponse.DoctorAddress>)getIntent().getSerializableExtra("hospitals");
+
+
+
         tvBack.setText("Previous Page");
         tvTitle.setText("Choose Hospital / Clinic");
         /*tvDoctorName.setText("");
@@ -116,23 +121,24 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-    switch (v.getId()) {
-        case R.id.ivLeft :
-            viewPager.setCurrentItem(viewPager.getCurrentItem()-1);
-            break;
-        case R.id.ivRight :
-            viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
-            break;
-        case R.id.btnCancel :
-            break;
-        case R.id.btnNext :
-            Intent intent = new Intent(AdminChooseHospital.this, AdminChooseDoctors.class);
-            startActivity(intent);
-            break;
-        case R.id.tvBack :
-            finish();
-            break;
-    }
+        switch (v.getId()) {
+            case R.id.ivLeft :
+                viewPager.setCurrentItem(viewPager.getCurrentItem()-1);
+                break;
+            case R.id.ivRight :
+                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                break;
+            case R.id.btnCancel :
+                break;
+            case R.id.btnNext :
+                Intent intent = new Intent(AdminChooseHospital.this, AdminChooseDoctors.class);
+                intent.putExtra("hospitalData", this.hospitalData);
+                startActivity(intent);
+                break;
+            case R.id.tvBack :
+                finish();
+                break;
+        }
     }
 
     //Custom Pager Adapter with GridView as its page item
@@ -216,8 +222,9 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
             if(gridItemPos>=hospitalList.size())
                 convertView.setVisibility(View.INVISIBLE);
             else {
-                HospitalData hospitalData = hospitalList.get(gridItemPos);
-                tvHospital.setText(hospitalData.name);
+                AdminLoginResponse.DoctorAddress hospitalData = hospitalList.get(gridItemPos);
+                tvHospital.setText(hospitalData.getClinicName());
+                tvLocation.setText(hospitalData.getAddress1()+","+hospitalData.getCityTown());
                 if(hospitalData.isSelected){
                     ivCheck.setBackgroundResource(R.drawable.check_box_admin);
                 } else {
@@ -246,7 +253,7 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
     }
 
     //Temperory class for Holding data
-    private class HospitalData {
+    /*private class HospitalData {
         public boolean isSelected;
         public String name = "BHS Hospital";
         public String location = "T Nagar, Chennai";
@@ -260,14 +267,31 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
             hospitalData.name = (i+1)+". BHS Hospital";
             hospitalList.add(hospitalData);
         }
-    }
+    }*/
 
-    private void setData(int pos, boolean selection) {
+    /*private void setData(int pos, boolean selection) {
         ArrayList<HospitalData> list = new ArrayList<>();
         for(int i=0; i<hospitalList.size(); i++) {
             HospitalData hospitalData = hospitalList.get(i);
             if(i==pos)
                 hospitalData.isSelected = selection;
+            else
+                hospitalData.isSelected = false;
+            list.add(hospitalData);
+        }
+        hospitalList.clear();
+        hospitalList.addAll(list);
+    }*/
+
+    private void setData(int pos, boolean selection) {
+        ArrayList<AdminLoginResponse.DoctorAddress> list = new ArrayList<>();
+        for(int i=0; i<hospitalList.size(); i++) {
+            AdminLoginResponse.DoctorAddress hospitalData = hospitalList.get(i);
+            if(i==pos) {
+                hospitalData.isSelected = selection;
+                if(selection)
+                    this.hospitalData = hospitalData;
+            }
             else
                 hospitalData.isSelected = false;
             list.add(hospitalData);

@@ -92,10 +92,8 @@ public class SelectDoctorActivity extends BaseActivity
         tvTitle.setTypeface(AppConstants.MYRAIDPRO_REGULAR);
 
         listDoctors = new ArrayList<>();
-        callService(19, pageCount);
-
         listCalledPos = new ArrayList<>();
-
+        callService(19, pageCount);
 
         ibLeft.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,7 +105,7 @@ public class SelectDoctorActivity extends BaseActivity
                     listCalledPos.set(page - 1, true);
                 }
                 else*/
-                    viewPager.setCurrentItem(page - 1);
+                viewPager.setCurrentItem(page - 1);
             }
         });
 
@@ -434,27 +432,27 @@ public class SelectDoctorActivity extends BaseActivity
     {
 
         public void refreshPager() {
-        this.notifyDataSetChanged();
-    }
+            this.notifyDataSetChanged();
+        }
         @Override
         public int getCount() {
-        int count = maxDoctors/6 + (maxDoctors%6==0 ? 0:1);
-        Log.e("Count :", ""+count);
-        return count;
-    }
+            int count = maxDoctors/6 + (maxDoctors%6==0 ? 0:1);
+            Log.e("Count :", ""+count);
+            return count;
+        }
 
         @Override
         public boolean isViewFromObject(View view, Object object) {
-        return view==object;
-    }
+            return view==object;
+        }
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
-        LinearLayout itemView = (LinearLayout) LayoutInflater.from(SelectDoctorActivity.this).inflate(R.layout.select_doctor_pager_item, container, false);
+            LinearLayout itemView = (LinearLayout) LayoutInflater.from(SelectDoctorActivity.this).inflate(R.layout.select_doctor_pager_item, container, false);
 
-        GridView gridView = (GridView) itemView.findViewById(R.id.gridView1);
-        final GridAdapter gridAdapter = new GridAdapter(position);
-        gridView.setAdapter(gridAdapter);
+            GridView gridView = (GridView) itemView.findViewById(R.id.gridView1);
+            final GridAdapter gridAdapter = new GridAdapter(position);
+            gridView.setAdapter(gridAdapter);
             gridView.setSelector(R.drawable.doctor);
             gridView.setOnItemClickListener(new OnItemClickListener() {
 
@@ -472,20 +470,20 @@ public class SelectDoctorActivity extends BaseActivity
                 }
 
             });
-        container.addView(itemView);
+            container.addView(itemView);
 
-        return itemView;
-    }
+            return itemView;
+        }
 
         @Override
         public int getItemPosition(Object object){
-        return POSITION_NONE;
-    }
+            return POSITION_NONE;
+        }
 
         @Override
         public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeView((LinearLayout) object);
-    }
+            container.removeView((LinearLayout) object);
+        }
     }
 
 }

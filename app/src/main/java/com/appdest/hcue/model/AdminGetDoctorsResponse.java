@@ -267,6 +267,7 @@ public class AdminGetDoctorsResponse {
 	}
 
 	public class DoctorDetails {
+		public boolean isSelected;
 		@SerializedName("DoctorID")
 		private int DoctorID;
 		@SerializedName("FullName")
