@@ -169,7 +169,6 @@ public class SelectDoctorActivity extends BaseActivity
 
             }
         });
-
     }
 
     private void callService(int hospitalId, int pageNumber )
@@ -188,7 +187,6 @@ public class SelectDoctorActivity extends BaseActivity
         getDoctorsRequest.setPageNumber(pageNumber);
         getDoctorsRequest.setPageSize(PAGE_SIZE);
 
-//		String url = "http://d318m5cseah7np.cloudfront.net";
         String url = "http://dct4avjn1lfw.cloudfront.net";
         RestClient.getAPI(url).getDoctors(getDoctorsRequest, new RestCallback<GetDoctorsResponse>() {
             @Override
@@ -238,23 +236,6 @@ public class SelectDoctorActivity extends BaseActivity
     @Override
     public void bindControls()
     {
-        /*gridView.setAdapter(gridAdapter);
-        gridView.setSelector(R.drawable.doctor);
-        gridView.setOnItemClickListener(new OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View v, int pos, long arg3) {
-                selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail) gridAdapter.getItem(pos);
-                if(!"Y".equalsIgnoreCase(selectedDoctorDetails.Avaialble))
-                {
-                    selectedDoctorDetails = null;
-                    return;
-                }
-                v.setSelected(true);
-
-            }
-
-        });*/
         btnBookAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

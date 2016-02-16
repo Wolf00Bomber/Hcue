@@ -111,7 +111,7 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
             public void run() {
                 myTTS.speak(speech, TextToSpeech.QUEUE_FLUSH, null);
             }
-        }, 400);
+        }, 200);
 
     }
 

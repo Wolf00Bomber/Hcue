@@ -63,11 +63,6 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.appdest.hcue.SelectDoctorForFeedbackActivity"
-            android:screenOrientation="landscape"
-            android:label="@string/app_name" >
-        </activity>
-        <activity
             android:name="com.appdest.hcue.FeedbackActivity"
             android:screenOrientation="landscape"
             android:label="@string/app_name" >
@@ -126,6 +121,12 @@
         </activity>
         <activity
             android:name="com.appdest.hcue.AdminConfirmation"
+            android:screenOrientation="landscape"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
+            android:name="com.appdest.hcue.FeedbackConfirmationActivity"
             android:screenOrientation="landscape"
             android:label="@string/app_name" >
         </activity>
