@@ -3,6 +3,7 @@ package com.appdest.hcue;
 import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +13,22 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.appdest.hcue.common.AppConstants;
+import com.appdest.hcue.model.AdminGetDoctorsRequest;
+import com.appdest.hcue.model.AdminGetDoctorsResponse;
+import com.appdest.hcue.model.AdminLoginRequest;
+import com.appdest.hcue.model.AdminLoginResponse;
+import com.appdest.hcue.services.RestCallback;
+import com.appdest.hcue.services.RestClient;
+import com.appdest.hcue.services.RestError;
+import com.appdest.hcue.utils.Connectivity;
 import com.github.siyamed.shapeimageview.CircularImageView;
 
 import java.util.ArrayList;
+
+import retrofit.client.Response;
 
 /**
  * Created by Vinsan on 2/12/2016.
@@ -257,5 +269,39 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
         }
         hospitalList.clear();
         hospitalList.addAll(list);
+    }
+
+    private void callService(String email, String password) {
+        if (Connectivity.isConnected(AdminChooseDoctors.this)) {
+            getDoctors(6,1,19);
+        } else {
+            Toast.makeText(AdminChooseDoctors.this, "No Internet Connection", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void getDoctors(int pageSize, int pageNumber, int hospitalId) {
+        final AdminGetDoctorsRequest adminGetDoctorsRequest = new AdminGetDoctorsRequest();
+        adminGetDoctorsRequest.setPageSize(pageSize);
+        adminGetDoctorsRequest.setPageNumber(pageNumber);
+        adminGetDoctorsRequest.setHospitalID(hospitalId);
+
+        String url = "http://dct4avjn1lfw.cloudfront.net";
+        RestClient.getAPI(url).getDoctors(adminGetDoctorsRequest, new RestCallback<AdminGetDoctorsResponse>() {
+            @Override
+            public void failure(RestError restError) {
+                Log.e("Doctor Login", "" + restError.getErrorMessage());
+            }
+
+            @Override
+            public void success(AdminGetDoctorsResponse adminGetDoctorsResponse, Response response) {
+                if (adminGetDoctorsResponse != null) {
+                    Intent intent = new Intent(AdminChooseDoctors.this, AdminConfirmation.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Log.i("Response", "" + response.getReason());
+                }
+            }
+        });
     }
 }
