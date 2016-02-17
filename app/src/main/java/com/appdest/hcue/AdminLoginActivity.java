@@ -54,7 +54,7 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
     @Override
     public void bindControls()
     {
-
+        tvLogin.setEnabled(false);
     }
 
     @Override
@@ -110,6 +110,8 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
                     tvFailureMessage.setVisibility(View.GONE);
                     Intent intent = new Intent(AdminLoginActivity.this, AdminChooseHospital.class);
                     intent.putExtra("hospitals", adminLoginResponse.getArrDoctorAddress());
+                    intent.putExtra("doctorId", adminLoginResponse.getArrDoctor().get(0).DoctorID);
+                    intent.putExtra("doctor", adminLoginResponse.getArrDoctor().get(0));
                     startActivity(intent);
                     finish();
                 } else {

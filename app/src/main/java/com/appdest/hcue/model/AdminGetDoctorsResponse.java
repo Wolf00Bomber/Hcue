@@ -70,7 +70,7 @@ public class AdminGetDoctorsResponse {
 		@SerializedName("TINNumber")
 		private String TINNumber;
 		@SerializedName("MobileNumber")
-		private int MobileNumber;
+		private Number MobileNumber;
 		@SerializedName("EmailAddress")
 		private String EmailAddress;
 		@SerializedName("WebSite")
@@ -78,7 +78,7 @@ public class AdminGetDoctorsResponse {
 		@SerializedName("About")
 		private String About;
 		@SerializedName("RegsistrationDate")
-		private int RegsistrationDate;
+		private Number RegsistrationDate;
 		@SerializedName("LicenseNumber")
 		private String LicenseNumber;
 		@SerializedName("ActiveIND")
@@ -116,10 +116,10 @@ public class AdminGetDoctorsResponse {
 		public void setTINNumber(String TINNumber) {
 			this.TINNumber = TINNumber;
 		}
-		public int getMobileNumber() {
+		public Number getMobileNumber() {
 			return MobileNumber;
 		}
-		public void setMobileNumber(int MobileNumber) {
+		public void setMobileNumber(Number MobileNumber) {
 			this.MobileNumber = MobileNumber;
 		}
 		public String getEmailAddress() {
@@ -140,10 +140,10 @@ public class AdminGetDoctorsResponse {
 		public void setAbout(String About) {
 			this.About = About;
 		}
-		public int getRegsistrationDate() {
+		public Number getRegsistrationDate() {
 			return RegsistrationDate;
 		}
-		public void setRegsistrationDate(int RegsistrationDate) {
+		public void setRegsistrationDate(Number RegsistrationDate) {
 			this.RegsistrationDate = RegsistrationDate;
 		}
 		public String getLicenseNumber() {

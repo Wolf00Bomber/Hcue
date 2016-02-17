@@ -33,6 +33,7 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
     private HospitalPagerAdapter hospitalPagerAdapter;
     private ArrayList<AdminLoginResponse.DoctorAddress> hospitalList;
     private AdminLoginResponse.DoctorAddress hospitalData;
+    private int doctorId;
 
     @Override
     public void initializeControls() {
@@ -70,15 +71,15 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
     public void bindControls() {
 //        prepareData();
         hospitalList = (ArrayList<AdminLoginResponse.DoctorAddress>)getIntent().getSerializableExtra("hospitals");
-
-
-
+        doctorId = getIntent().getIntExtra("doctorId",0);
+        AdminLoginResponse.Doctor doctor = (AdminLoginResponse.Doctor) getIntent().getSerializableExtra("doctor");
+        tvLogin.setEnabled(false);
         tvBack.setText("Previous Page");
         tvTitle.setText("Choose Hospital / Clinic");
-        /*tvDoctorName.setText("");
+        tvDoctorName.setText(doctor.getFullName());
         tvDesgAndSpeciality.setText("");
-        tvEmail.setText("");
-        tvMobile.setText("");*/
+        tvEmail.setText(doctor.getDoctorLoginID());
+        tvMobile.setText("9848978789");
 
         hospitalPagerAdapter = new HospitalPagerAdapter();
         viewPager.setAdapter(hospitalPagerAdapter);
@@ -129,11 +130,17 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
                 viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
                 break;
             case R.id.btnCancel :
+                finish();
                 break;
             case R.id.btnNext :
-                Intent intent = new Intent(AdminChooseHospital.this, AdminChooseDoctors.class);
-                intent.putExtra("hospitalData", this.hospitalData);
-                startActivity(intent);
+                if(this.hospitalData != null) {
+                    Intent intent = new Intent(AdminChooseHospital.this, AdminChooseDoctors.class);
+                    intent.putExtra("hospitalData", this.hospitalData);
+                    intent.putExtra("doctorId", doctorId);
+                    startActivity(intent);
+                } else {
+                    showToast("Please select a hospital.");
+                }
                 break;
             case R.id.tvBack :
                 finish();
@@ -224,7 +231,7 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
             else {
                 AdminLoginResponse.DoctorAddress hospitalData = hospitalList.get(gridItemPos);
                 tvHospital.setText(hospitalData.getClinicName());
-                tvLocation.setText(hospitalData.getAddress1()+","+hospitalData.getCityTown());
+                tvLocation.setText(hospitalData.getAddress2());
                 if(hospitalData.isSelected){
                     ivCheck.setBackgroundResource(R.drawable.check_box_admin);
                 } else {
@@ -244,6 +251,13 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
                             setData(pos, true);
                         }
                         hospitalPagerAdapter.refreshPager();
+                    }
+                });
+
+                convertView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ivCheck.performClick();
                     }
                 });
             }
@@ -291,6 +305,8 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
                 hospitalData.isSelected = selection;
                 if(selection)
                     this.hospitalData = hospitalData;
+                else
+                    this.hospitalData = null;
             }
             else
                 hospitalData.isSelected = false;

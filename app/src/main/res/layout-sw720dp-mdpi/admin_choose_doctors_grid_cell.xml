@@ -38,7 +38,8 @@
                 android:id="@+id/tvDesignation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" BPT"
+                android:paddingLeft="5dp"
+                android:text="BPT"
                 android:textColor="#7E7E7E"
                 android:textSize="24sp" />
         </LinearLayout>

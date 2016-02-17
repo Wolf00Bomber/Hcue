@@ -36,6 +36,7 @@ public class AdminConfirmation extends BaseActivity implements View.OnClickListe
     @Override
     public void bindControls()
     {
+        tvLogin.setEnabled(false);
         tvBack.setText("Previous Page");
         tvTitle.setText("Configuration confirmation");
     }
@@ -51,6 +52,10 @@ public class AdminConfirmation extends BaseActivity implements View.OnClickListe
                 break;
             case R.id.btnConfirm:
                 showToast("Configuration successful.");
+                Intent intent = new Intent(AdminConfirmation.this, SelectDoctorActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
                 break;
         }
     }

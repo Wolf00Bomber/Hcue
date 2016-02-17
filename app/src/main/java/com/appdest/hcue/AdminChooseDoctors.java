@@ -3,6 +3,7 @@ package com.appdest.hcue;
 import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,12 +20,19 @@ import com.appdest.hcue.common.AppConstants;
 import com.appdest.hcue.model.AdminGetDoctorsRequest;
 import com.appdest.hcue.model.AdminGetDoctorsResponse;
 import com.appdest.hcue.model.AdminLoginResponse;
+import com.appdest.hcue.model.Speciality;
 import com.appdest.hcue.services.RestCallback;
 import com.appdest.hcue.services.RestClient;
 import com.appdest.hcue.services.RestError;
 import com.appdest.hcue.utils.Connectivity;
+import com.appdest.hcue.utils.Preference;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
 
 import retrofit.client.Response;
 
@@ -44,7 +52,8 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
     private int selectedDoctorPos = -1; //Not selected yet
     private ArrayList<Boolean> listCalledPos;
     private ArrayList<AdminGetDoctorsResponse.DoctorDetails> listDoctors;
-
+    private int doctorId;
+    private int count = 0;
 
     @Override
     public void initializeControls() {
@@ -77,7 +86,8 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
     public void bindControls() {
 //        prepareData();
         hospitalData = (AdminLoginResponse.DoctorAddress) getIntent().getSerializableExtra("hospitalData");
-
+        doctorId = getIntent().getIntExtra("doctorId",0);
+        tvLogin.setEnabled(false);
         tvBack.setText("Previous Page");
         tvTitle.setText("Choose Doctor(s)");
 
@@ -85,7 +95,7 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
         tvAddress.setText(hospitalData.getAddress1());
         listDoctors = new ArrayList<>();
         listCalledPos = new ArrayList<>();
-        callService(PAGE_SIZE, 1, hospitalData.getExtDetails().getHospitalID());
+        callService(PAGE_SIZE, 1, /*hospitalData.getExtDetails().getHospitalID()*/19);
 
         viewPager.setCurrentItem(0);
         ivLeft.setAlpha(0.25f);
@@ -144,10 +154,15 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
             }
             break;
             case R.id.btnCancel :
+                finish();
                 break;
             case R.id.btnNext :
-                Intent intent = new Intent(AdminChooseDoctors.this, AdminConfirmation.class);
-                startActivity(intent);
+                if(count > 0) {
+                    Intent intent = new Intent(AdminChooseDoctors.this, AdminConfirmation.class);
+                    startActivity(intent);
+                } else {
+                    showToast("Please select at least one doctor.");
+                }
                 break;
             case R.id.tvBack :
                 finish();
@@ -202,10 +217,31 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
 
     //Custom Adapter for GridView
     private class GridAdapter extends BaseAdapter {
+
+        private HashMap<String,Speciality> hmSpecialities;
+
+        private void initMap()
+        {
+            Preference preference = new Preference(AdminChooseDoctors.this);
+            String specialitiesInString = preference.getStringFromPreference(Preference.SPECIALITIES_MAP, "");
+            if(!TextUtils.isEmpty(specialitiesInString))
+            {
+                Gson gson = new Gson();
+                ArrayList<Speciality> list = gson.fromJson(specialitiesInString, new TypeToken<List<Speciality>>(){}.getType());
+                Collections.sort(list);
+                hmSpecialities = new HashMap<>();
+                for (Speciality speciality : list) {
+                    hmSpecialities.put(speciality.DoctorSpecialityID, speciality);
+                }
+            }
+        }
+
         private int pageNumber;
         public GridAdapter(final int pageNumber){
             this.pageNumber = pageNumber;
+            initMap();
         }
+
         @Override
         public int getCount() {
             return 6;
@@ -223,12 +259,14 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            convertView = (LinearLayout) LayoutInflater.from(AdminChooseDoctors.this).inflate(R.layout.admin_choose_doctors_grid_cell, parent, false);
+            convertView = LayoutInflater.from(AdminChooseDoctors.this).inflate(R.layout.admin_choose_doctors_grid_cell, parent, false);
             final ImageView ivCheck = (ImageView) convertView.findViewById(R.id.ivCheck);
             TextView tvDoctor = (TextView) convertView.findViewById(R.id.tvDoctor);
             TextView tvDesignation = (TextView) convertView.findViewById(R.id.tvDesignation);
             TextView tvSpeciality = (TextView) convertView.findViewById(R.id.tvSpeciality);
             TextView tvYou = (TextView) convertView.findViewById(R.id.tvYou);
+
+
 
             int gridItemPos = pageNumber*6+position;
             ivCheck.setTag(R.id.ivCheck, gridItemPos);
@@ -236,6 +274,25 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
                 convertView.setVisibility(View.INVISIBLE);
             else {
                 AdminGetDoctorsResponse.DoctorDetails doctorData = listDoctors.get(gridItemPos);
+                ArrayList<String> list = new ArrayList<>(doctorData.getMapSpecialityCD().values());
+                tvDoctor.setText(doctorData.getFullName());
+                tvDesignation.setText(TextUtils.join(",", list));
+                if (hmSpecialities != null && hmSpecialities.size() > 0) {
+
+                    for (int i = 0; i < list.size(); i++) {
+                        list.set(i, hmSpecialities.get(list.get(i)).DoctorSpecialityDesc);
+                    }
+                    tvSpeciality.setText(TextUtils.join(",", list) /*"Physiotherapist"*/);
+                }
+
+                tvDoctor.setText(doctorData.getFullName()+",");
+
+                if(doctorData.getDoctorID() == doctorId) {
+                    tvYou.setVisibility(View.VISIBLE);
+                } else {
+                    tvYou.setVisibility(View.GONE);
+                }
+
                 if(doctorData.isSelected){
                     ivCheck.setBackgroundResource(R.drawable.check_box_sq_admin);
                 } else {
@@ -248,12 +305,20 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
                         int pos = (int) ivCheck.getTag(R.id.ivCheck);
                         if(listDoctors.get(pos).isSelected) {
                             listDoctors.get(pos).isSelected = false;
+                            count--;
 //                            setData(pos, false);
                         } else {
                             listDoctors.get(pos).isSelected = true;
+                            count++;
 //                            setData(pos, true);
                         }
                         doctorsPagerAdapter.refreshPager();
+                    }
+                });
+                convertView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ivCheck.performClick();
                     }
                 });
             }
