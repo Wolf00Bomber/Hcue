@@ -50,6 +50,7 @@ public class ChoosePatientAppointmentActivity extends BaseActivity
     private GetPatientAppointmentsResponse.AppointmentRow selectedPatientAppointment;
     private GetDoctorsResponse.DoctorDetail selectedDoctorDetails;
     private int pageCount;
+    private String fromActivity;
 
     @Override
     public void initializeControls()
@@ -85,6 +86,7 @@ public class ChoosePatientAppointmentActivity extends BaseActivity
         {
             patientInfo = (GetPatientResponse.PatientInfo) i.getSerializableExtra("PatientInfo");
             selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail)i.getSerializableExtra("DoctorDetails");
+            fromActivity = i.hasExtra("From") ? i.getStringExtra("From") : "";
         }
         if(patientInfo == null)
         {
@@ -158,7 +160,7 @@ public class ChoosePatientAppointmentActivity extends BaseActivity
             @Override
             public void failure(RestError restError) {
                 Log.e("Doctor Appointement", "" + restError.getErrorMessage());
-                Toast.makeText(ChoosePatientAppointmentActivity.this, "Couldn't get the List of Doctors.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ChoosePatientAppointmentActivity.this, "Couldn't get the List of Appointments", Toast.LENGTH_SHORT).show();
             }
 
             @Override

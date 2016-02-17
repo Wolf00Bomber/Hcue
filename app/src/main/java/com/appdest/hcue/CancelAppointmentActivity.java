@@ -1,6 +1,7 @@
 package com.appdest.hcue;
 
 import android.content.Intent;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,10 +13,25 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.appdest.hcue.common.AppConstants;
+import com.appdest.hcue.model.CancelAppointmentRequest;
+import com.appdest.hcue.model.FeedbackRequest;
+import com.appdest.hcue.model.GetDoctorsResponse;
+import com.appdest.hcue.model.GetPatientAppointmentsRequest;
+import com.appdest.hcue.model.GetPatientAppointmentsResponse;
+import com.appdest.hcue.model.GetPatientResponse;
+import com.appdest.hcue.services.RestCallback;
+import com.appdest.hcue.services.RestClient;
+import com.appdest.hcue.services.RestError;
+import com.appdest.hcue.utils.Connectivity;
+import com.appdest.hcue.utils.TimeUtils;
 
 import java.util.ArrayList;
+import java.util.Date;
+
+import retrofit.client.Response;
 
 /**
  * Created by shyamprasadg on 30/01/16.
@@ -24,8 +40,14 @@ public class CancelAppointmentActivity extends BaseActivity
 {
     private LinearLayout llCancelAppointment;
     private TextView tvHeading,tvPatientName;
-    private GridView gvAppointments = null;
+    private GridView gvAppointments;
+    private GridAdapter gridAdapter;
     private Button btnCancelAppointment;
+    private GetPatientResponse.PatientInfo patientInfo;
+    private GetPatientAppointmentsResponse.AppointmentRow selectedPatientAppointment;
+    private GetDoctorsResponse.DoctorDetail selectedDoctorDetails;
+    private int pageCount;
+
     @Override
     public void initializeControls()
     {
@@ -38,7 +60,6 @@ public class CancelAppointmentActivity extends BaseActivity
 
         btnCancelAppointment 		= (Button)		llCancelAppointment.findViewById(R.id.btnCancelAppointment);
 
-
         tvBack.setVisibility(View.GONE);
         tvHome.setVisibility(View.GONE);
 
@@ -49,7 +70,6 @@ public class CancelAppointmentActivity extends BaseActivity
         tvHeading.setTypeface(AppConstants.WALSHEIM_LIGHT);
         btnCancelAppointment.setTypeface(AppConstants.WALSHEIM_BOLD);
 
-
         tvTitle.setText("Cancel Your Appointment");
 
     }
@@ -57,134 +77,180 @@ public class CancelAppointmentActivity extends BaseActivity
     @Override
     public void bindControls()
     {
-        prepareData();
-        gvAppointments.setAdapter(new GridAdapter());
-
+        Intent i = getIntent();
+        if(i.hasExtra("PatientInfo") && i.hasExtra("DoctorDetails"))
+        {
+            patientInfo = (GetPatientResponse.PatientInfo) i.getSerializableExtra("PatientInfo");
+            selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail)i.getSerializableExtra("DoctorDetails");
+        }
+        if(patientInfo == null)
+        {
+            finish();
+            return;
+        }
+        gridAdapter = new GridAdapter();
+        gvAppointments.setAdapter(gridAdapter);
         gvAppointments.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> arg0, View v, int pos, long arg3) {
-
+                selectedPatientAppointment = (GetPatientAppointmentsResponse.AppointmentRow) gridAdapter.getItem(pos);
             }
-
         });
 
-        btnCancelAppointment.setOnClickListener(new View.OnClickListener()
-        {
+        btnCancelAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-                Intent intent = new Intent(CancelAppointmentActivity.this,ConfirmCancelationActivity.class);
+            public void onClick(View v) {
+                if (selectedPatientAppointment == null) {
+                    Toast.makeText(CancelAppointmentActivity.this,
+                            "Select an appointment for Cancellation",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                Intent intent = new Intent(CancelAppointmentActivity.this, ConfirmCancelationActivity.class);
+                intent.putExtra("Appointment", selectedPatientAppointment);
+                intent.putExtra("PatientInfo", patientInfo);
+                intent.putExtra("DoctorDetails", selectedDoctorDetails);
                 startActivity(intent);
             }
         });
 
+        pageCount++;
+        callService();
+
     }
 
+    private void callService()
+    {
+        if (Connectivity.isConnected(CancelAppointmentActivity.this)) {
+            getPatientAppointments(pageCount);
+        } else {
+            Toast.makeText(CancelAppointmentActivity.this, "No Internet Connection", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void getPatientAppointments(int pageNumber)
+    {
+        final GetPatientAppointmentsRequest getPatientAppointmentsRequest = new GetPatientAppointmentsRequest();
+        getPatientAppointmentsRequest.setFamilyHdID(patientInfo.patients.get(0).getFamilyHdID());
+        getPatientAppointmentsRequest.setPageNumber(pageNumber);
+        getPatientAppointmentsRequest.setPageSize(30);
+        getPatientAppointmentsRequest.setPatientID(patientInfo.patients.get(0).PatientID/*selectedPatientAppointment.appointmentDetails.PatientID*/);
+        getPatientAppointmentsRequest.setSort("asc");
+        String baseDate = TimeUtils.format2Date(new Date()/*selectedPatientAppointment.appointmentDetails.ConsultationDt.longValue()*/);
+        getPatientAppointmentsRequest.setBaseDate(baseDate);
+        getPatientAppointmentsRequest.setCount(0);
+        getPatientAppointmentsRequest.setIndicator("F");
+
+        String url = "http://d1lmwj8jm5d3bc.cloudfront.net";
+        RestClient.getAPI(url).getPatientAppointment(getPatientAppointmentsRequest, new RestCallback<GetPatientAppointmentsResponse>() {
+            @Override
+            public void failure(RestError restError) {
+                Log.e("Doctor Appointement", "" + restError.getErrorMessage());
+                Toast.makeText(CancelAppointmentActivity.this, "Couldn't get the List of Appointments.", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void success(GetPatientAppointmentsResponse getPatientAppointmentsResponse, Response response) {
+                if (getPatientAppointmentsResponse != null && getPatientAppointmentsResponse.count > 0) {
+                    pageCount++;
+                    gridAdapter.refresh(getPatientAppointmentsResponse.rows);
+                } else {
+                    Log.i("Response", "" + response.getReason());
+                    Toast.makeText(CancelAppointmentActivity.this, "No Appointments Found", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+
     private class GridAdapter extends BaseAdapter {
-//        private ViewHolder holder;
+
+        private ArrayList<GetPatientAppointmentsResponse.AppointmentRow> patientAppointments;
+
         @Override
         public int getCount() {
-            return 6;
-        }
-
-        @Override
-        public Object getItem(int arg0) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int arg0) {
+            if(patientAppointments != null && patientAppointments.size() > 0)
+                return patientAppointments.size();
             return 0;
         }
 
         @Override
+        public Object getItem(int arg0) {
+            return patientAppointments.get(arg0);
+        }
+
+        @Override
+        public long getItemId(int arg0) {
+            return arg0;
+        }
+
+        public void refresh(ArrayList<GetPatientAppointmentsResponse.AppointmentRow> patientAppointments)
+        {
+            this.patientAppointments = patientAppointments;
+            notifyDataSetChanged();
+        }
+
+        @Override
         public View getView(int pos, View view, ViewGroup parent) {
-//            if (view == null) {
-                view = LayoutInflater.from(CancelAppointmentActivity.this).inflate(R.layout.appointments_history_cell,null);
-//                holder = new ViewHolder();
-                TextView tvDoctorName = (TextView) view.findViewById(R.id.tvDoctorName);
+            view = LayoutInflater.from(CancelAppointmentActivity.this).inflate(R.layout.appointments_history_cell,null);
+            TextView tvDoctorName = (TextView) view.findViewById(R.id.tvDoctorName);
             TextView tvDateTime = (TextView) view.findViewById(R.id.tvDateTime);
 
 
             final ImageView ivCheck = (ImageView) view.findViewById(R.id.ivCheck);
 
-                tvDateTime.setTypeface(AppConstants.WALSHEIM_LIGHT);
-                tvDoctorName.setTypeface(AppConstants.WALSHEIM_LIGHT);
+            tvDateTime.setTypeface(AppConstants.WALSHEIM_LIGHT);
+            tvDoctorName.setTypeface(AppConstants.WALSHEIM_LIGHT);
+
+            final GetPatientAppointmentsResponse.AppointmentRow data = patientAppointments.get(pos);
+
+            long dayInstance = data.appointmentDetails.ConsultationDt.longValue();
+            long timeInstance = TimeUtils.getLongForHHMMSS(data.appointmentDetails.StartTime+":00");
+            long totalInstance = dayInstance + timeInstance;
+            StringBuilder sb = new StringBuilder();
+            sb.append(DateUtils.isToday(totalInstance) ? "Today" : TimeUtils.getDay(totalInstance))
+                    .append(" - ")
+                    .append(TimeUtils.format2DateProper(totalInstance));
 
 
-//                view.setTag(holder);
-//            } else {
-//                holder = (ViewHolder) view.getTag();
-//            }
-
-            AppointmentsData data = hospitalList.get(pos);
-            tvDoctorName.setText(data.doctorName);
-            tvDateTime.setText(data.time);
+            tvDoctorName.setText(data.doctorDetail.doctorFullName);
+            tvDateTime.setText(sb.toString());
 
             ivCheck.setTag(R.id.ivCheck, pos);
 
-                if(data.isSelected){
-                    ivCheck.setBackgroundResource(R.drawable.check_box_sq_admin);
-                } else {
-                    ivCheck.setBackgroundResource(R.drawable.un_check_admin);
-                }
+            if(data.isSelected){
+                ivCheck.setBackgroundResource(R.drawable.check_box_sq_admin);
+            } else {
+                ivCheck.setBackgroundResource(R.drawable.un_check_admin);
+            }
 
             ivCheck.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        int pos = (int) ivCheck.getTag(R.id.ivCheck);
-                        Log.e("clicked at : ",""+pos);
-                        if(hospitalList.get(pos).isSelected) {
-                            hospitalList.get(pos).isSelected = false;
-//                            setData(pos, false);
-                        } else {
-                            hospitalList.get(pos).isSelected = true;
-//                            setData(pos, true);
-                        }
-                        notifyDataSetChanged();
+                @Override
+                public void onClick(View v) {
+                    int pos = (int) ivCheck.getTag(R.id.ivCheck);
+                    Log.e("clicked at : ",""+pos);
+                    for(GetPatientAppointmentsResponse.AppointmentRow data : patientAppointments)
+                        data.isSelected = false;
+                    if(patientAppointments.get(pos).isSelected) {
+                        patientAppointments.get(pos).isSelected = false;
+                    } else {
+                        patientAppointments.get(pos).isSelected = true;
                     }
-                });
-
+                    selectedPatientAppointment = data;
+                    notifyDataSetChanged();
+                }
+            });
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ivCheck.performClick();
+                }
+            });
 
             return view;
         }
 
-    }
-
-    /*static class ViewHolder {
-        TextView tvDateTime,tvDoctorName;
-        ImageView ivCheck;
-    }*/
-
-    //Temperory class for Holding data
-    private class AppointmentsData {
-        public boolean isSelected;
-        public String doctorName = "Dr.P.VenkataKrishna";
-        public String time = "14th Feb 2016 - 10:30 AM";
-    }
-
-    private ArrayList<AppointmentsData> hospitalList;
-    private void prepareData() {
-        hospitalList = new ArrayList<>();
-        for(int i=0; i<24; i++) {
-            AppointmentsData data = new AppointmentsData();
-            data.doctorName = "Dr.P.VenkataKrishna";
-            hospitalList.add(data);
-        }
-    }
-
-    private void setData(int pos, boolean selection) {
-        ArrayList<AppointmentsData> list = new ArrayList<>();
-        for(int i=0; i<hospitalList.size(); i++) {
-            AppointmentsData hospitalData = hospitalList.get(i);
-            if(i==pos)
-                hospitalData.isSelected = selection;
-            else
-//                hospitalData.isSelected = false;
-                list.add(hospitalData);
-        }
-        hospitalList.clear();
-        hospitalList.addAll(list);
     }
 }

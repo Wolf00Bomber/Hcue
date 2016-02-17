@@ -27,7 +27,7 @@
         android:gravity="center"
         android:layout_marginTop="@dimen/margin_20"
         android:layout_height="wrap_content"
-        android:text="Choose appointment(s) to cancel"
+        android:text="Choose appointment to cancel"
         android:textSize="40sp"/>
     <GridView
         android:layout_width="match_parent"

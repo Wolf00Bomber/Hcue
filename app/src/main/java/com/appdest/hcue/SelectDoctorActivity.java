@@ -255,7 +255,8 @@ public class SelectDoctorActivity extends BaseActivity
                     Toast.makeText(context, "Please select a doctor!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Intent intent = new Intent(SelectDoctorActivity.this,CancelAppointmentActivity.class);
+                Intent intent = new Intent(SelectDoctorActivity.this,EnterContactNumberActivity.class);
+                intent.putExtra("From", "CancelAppointment");
                 intent.putExtra("DoctorDetails", selectedDoctorDetails);
                 startActivity(intent);
             }

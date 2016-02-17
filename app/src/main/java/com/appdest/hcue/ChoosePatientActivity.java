@@ -66,7 +66,7 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
 
 		tvTitle.setText("Book Appointment for");
 
-        if("Feedback".equalsIgnoreCase(fromActivity))
+        if("Feedback".equalsIgnoreCase(fromActivity) || "CancelAppointment".equalsIgnoreCase(fromActivity))
         {
             llAddPatient.setVisibility(View.INVISIBLE);
         }
@@ -82,7 +82,27 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if("Feedback".equalsIgnoreCase("fromActivity"))
+                if("Feedback".equalsIgnoreCase(fromActivity) || "CancelAppointment".equalsIgnoreCase(fromActivity))
+                {
+                    GetPatientResponse.PatientInfo patientInfo = getPatientResponse.rows.get(position);
+                    Intent summary = null;
+                    if("Feedback".equalsIgnoreCase(fromActivity))
+                    {
+                        summary = new Intent(ChoosePatientActivity.this, ChoosePatientAppointmentActivity.class);
+                    }
+                    else if("CancelAppointment".equalsIgnoreCase(fromActivity))
+                    {
+                        summary = new Intent(ChoosePatientActivity.this, CancelAppointmentActivity.class);
+                    }
+
+                    if(summary != null){
+                        summary.putExtra("From", fromActivity);
+                        summary.putExtra("PatientInfo", patientInfo);
+                        summary.putExtra("DoctorDetails", selectedDoctorDetails);
+                        startActivity(summary);
+                    }
+                }
+                else
                 {
                     GetPatientResponse.PatientInfo patientInfo = getPatientResponse.rows.get(position);
                     Intent summary = new Intent(ChoosePatientActivity.this, ChooseAppointmentActivity.class);
@@ -90,15 +110,6 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
                     summary.putExtra("PhoneCode", PhoneCode);
                     summary.putExtra("DoctorDetails", selectedDoctorDetails);
                     summary.putExtra("PatientInfo", patientInfo);
-                    startActivity(summary);
-                }
-                else
-                {
-                    GetPatientResponse.PatientInfo patientInfo = getPatientResponse.rows.get(position);
-                    Intent summary = new Intent(ChoosePatientActivity.this, ChoosePatientAppointmentActivity.class);
-                    summary.putExtra("From", fromActivity);
-                    summary.putExtra("PatientInfo", patientInfo);
-                    summary.putExtra("DoctorDetails", selectedDoctorDetails);
                     startActivity(summary);
                 }
 

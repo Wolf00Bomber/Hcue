@@ -7,6 +7,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.appdest.hcue.common.AppConstants;
+import com.appdest.hcue.model.GetDoctorsResponse;
+import com.appdest.hcue.model.GetPatientAppointmentsResponse;
+import com.appdest.hcue.model.GetPatientResponse;
 
 /**
  * Created by shyamprasadg on 31/01/16.
@@ -16,6 +19,8 @@ public class CancelationSummaryActivity extends BaseActivity implements View.OnC
     private LinearLayout llCancel;
     private TextView tvPatientName,tvDateTime,tvDoctorName,tvHeading;
     private Button btnOk;
+    private String PatientName, DoctorName, chosenTime;
+
     @Override
     public void initializeControls()
     {
@@ -39,7 +44,21 @@ public class CancelationSummaryActivity extends BaseActivity implements View.OnC
 
     @Override
     public void bindControls() {
-
+        Intent i = getIntent();
+        if(i.hasExtra("PatientInfo") && i.hasExtra("DoctorDetails"))
+        {
+            PatientName = i.getStringExtra("Appointment");
+            DoctorName = i.getStringExtra("DoctorName");
+            chosenTime = i.getStringExtra("chosenTime");
+        }
+        else
+        {
+            finish();
+            return;
+        }
+        tvDoctorName.setText(DoctorName);
+        tvPatientName.setText(PatientName);
+        tvDateTime.setText(chosenTime);
     }
 
     @Override
@@ -49,6 +68,7 @@ public class CancelationSummaryActivity extends BaseActivity implements View.OnC
         {
             case R.id.btnOk:
                 Intent intent   = new Intent(CancelationSummaryActivity.this,SelectDoctorActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 break;
         }
