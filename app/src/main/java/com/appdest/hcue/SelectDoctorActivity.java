@@ -222,7 +222,6 @@ public class SelectDoctorActivity extends BaseActivity
                     }
 
                     tvTitle.setText("Welcome to " + listDoctorsRequest.hospitalInfo.hospitalDetails.HospitalName);
-//                    hospitalId = listDoctorsRequest.hospitalInfo.hospitalDetails.HospitalID;
                 } else {
                     Log.i("Response", "" + response.getReason());
                 }
@@ -266,7 +265,14 @@ public class SelectDoctorActivity extends BaseActivity
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(SelectDoctorActivity.this,FeedbackActivity.class);
+                if(selectedDoctorDetails == null)
+                {
+                    Toast.makeText(context, "Please select a doctor!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                Intent intent = new Intent(SelectDoctorActivity.this,EnterContactNumberActivity.class);
+                intent.putExtra("From", "Feedback");
+                intent.putExtra("DoctorDetails", selectedDoctorDetails);
                 startActivity(intent);
             }
         });

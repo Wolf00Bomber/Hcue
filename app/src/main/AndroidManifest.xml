@@ -130,6 +130,13 @@
             android:screenOrientation="landscape"
             android:label="@string/app_name" >
         </activity>
+
+        <activity
+            android:name="com.appdest.hcue.ChoosePatientAppointmentActivity"
+            android:screenOrientation="landscape"
+            android:label="@string/app_name" >
+        </activity>
+
        
     </application>
 

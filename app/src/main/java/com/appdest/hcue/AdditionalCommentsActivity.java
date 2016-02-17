@@ -257,6 +257,7 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
 
     private void sendFeedback(FeedbackRequest feedbackRequest)
     {
+        feedbackRequest.setRatingComments("Y");
         String url = "http://d1lmwj8jm5d3bc.cloudfront.net";
         RestClient.getAPI(url).postFeedback(feedbackRequest, new RestCallback<String>() {
             @Override

@@ -47,6 +47,7 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 	private GetDoctorsResponse.DoctorDetail selectedDoctorDetails;
     private Number phNumber;
 	boolean isActivityNeedsFinish = false;
+	private String fromActivity;
 	
 	@Override
 	public void initializeControls() 
@@ -55,6 +56,7 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 		if(i.hasExtra("DoctorDetails"))
 		{
 			selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail) i.getSerializableExtra("DoctorDetails");
+			fromActivity = i.hasExtra("From") ? i.getStringExtra("From") : "";
 		}
 		else
 		{
@@ -321,6 +323,7 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
         intent.putExtra("PhoneCode", edtCode.getVisibility() == View.VISIBLE ? getPhoneCode() : "");
         intent.putExtra("DoctorDetails", selectedDoctorDetails);
         intent.putExtra("GetPatientResponse", getPatientResponse);
+        intent.putExtra("From", fromActivity);
         startActivity(intent);
     }
 

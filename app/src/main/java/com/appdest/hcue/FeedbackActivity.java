@@ -114,13 +114,7 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
 
 	private void sendFeedback(FeedbackRequest feedbackRequest)
 	{
-        /*feedbackRequest.setAppointmentID(AppointmentID);
-        feedbackRequest.setDoctorID(DoctorID);
-        feedbackRequest.setPatientID(PatientID);
-        feedbackRequest.setRatingComments(RatingComment);
-        feedbackRequest.setStarValue(StarValue);
-        feedbackRequest.setUSRId(UserID);*/
-
+        feedbackRequest.setRatingComments("N");
 		String url = "http://d1lmwj8jm5d3bc.cloudfront.net";
 		RestClient.getAPI(url).postFeedback(feedbackRequest, new RestCallback<String>() {
             @Override
@@ -224,10 +218,8 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
                     Toast.makeText(context, "Please select a rating!", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                feedbackRequest.setStarValue(StarValue);
                 callService(feedbackRequest);
-				Intent intent = new Intent(FeedbackActivity.this,SelectDoctorActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-				startActivity(intent);
 				break;
 			case R.id.tvAdditionalComments:
                 if(StarValue == 0f)

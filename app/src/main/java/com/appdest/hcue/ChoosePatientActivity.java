@@ -28,6 +28,7 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
 	private TextView tvAdd;
 	private GridView gridView;
 	private GridAdapter adapter;
+	private String fromActivity;
 
 	@Override
 	public void initializeControls() 
@@ -39,6 +40,7 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
 			phNumber = (Number) i.getSerializableExtra("PhoneNumber");
 			PhoneCode = i.getStringExtra("PhoneCode");
             getPatientResponse = (GetPatientResponse) i.getSerializableExtra("GetPatientResponse");
+            fromActivity = i.hasExtra("From") ? i.getStringExtra("From") : "";
 		}
 		else
 		{
@@ -63,6 +65,11 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
 		llAddPatient.setOnClickListener(this);
 
 		tvTitle.setText("Book Appointment for");
+
+        if("Feedback".equalsIgnoreCase(fromActivity))
+        {
+            llAddPatient.setVisibility(View.INVISIBLE);
+        }
 	}
 
 	@Override
@@ -75,13 +82,26 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                GetPatientResponse.PatientInfo patientInfo = getPatientResponse.rows.get(position);
-                Intent summary = new Intent(ChoosePatientActivity.this, ChooseAppointmentActivity.class);
-                summary.putExtra("PhoneNumber", phNumber);
-                summary.putExtra("PhoneCode", PhoneCode);
-                summary.putExtra("DoctorDetails", selectedDoctorDetails);
-                summary.putExtra("PatientInfo", patientInfo);
-                startActivity(summary);
+                if("Feedback".equalsIgnoreCase("fromActivity"))
+                {
+                    GetPatientResponse.PatientInfo patientInfo = getPatientResponse.rows.get(position);
+                    Intent summary = new Intent(ChoosePatientActivity.this, ChooseAppointmentActivity.class);
+                    summary.putExtra("PhoneNumber", phNumber);
+                    summary.putExtra("PhoneCode", PhoneCode);
+                    summary.putExtra("DoctorDetails", selectedDoctorDetails);
+                    summary.putExtra("PatientInfo", patientInfo);
+                    startActivity(summary);
+                }
+                else
+                {
+                    GetPatientResponse.PatientInfo patientInfo = getPatientResponse.rows.get(position);
+                    Intent summary = new Intent(ChoosePatientActivity.this, ChoosePatientAppointmentActivity.class);
+                    summary.putExtra("From", fromActivity);
+                    summary.putExtra("PatientInfo", patientInfo);
+                    summary.putExtra("DoctorDetails", selectedDoctorDetails);
+                    startActivity(summary);
+                }
+
             }
         });
 	}
