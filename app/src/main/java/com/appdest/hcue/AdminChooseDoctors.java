@@ -159,6 +159,7 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
             case R.id.btnNext :
                 if(count > 0) {
                     Intent intent = new Intent(AdminChooseDoctors.this, AdminConfirmation.class);
+                    intent.putExtra("HospitalID", hospitalData.getExtDetails().getHospitalID());
                     startActivity(intent);
                 } else {
                     showToast("Please select at least one doctor.");

@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.appdest.hcue.common.AppConstants;
+import com.appdest.hcue.utils.Preference;
 
 /**
  * Created by Vinsan on 13/02/16.
@@ -16,6 +17,7 @@ public class AdminConfirmation extends BaseActivity implements View.OnClickListe
 {
     private LinearLayout layout;
     private Button btnGoBack, btnConfirm;
+    private int HospitalID;
 
     @Override
     public void initializeControls()
@@ -36,6 +38,7 @@ public class AdminConfirmation extends BaseActivity implements View.OnClickListe
     @Override
     public void bindControls()
     {
+        HospitalID = getIntent().getIntExtra("HospitalID", 19);
         tvLogin.setEnabled(false);
         tvBack.setText("Previous Page");
         tvTitle.setText("Configuration confirmation");
@@ -51,7 +54,12 @@ public class AdminConfirmation extends BaseActivity implements View.OnClickListe
                 finish();
                 break;
             case R.id.btnConfirm:
-                showToast("Configuration successful.");
+                // Saving the Hospital ID of the Login.
+                Preference preference = new Preference(AdminConfirmation.this);
+                preference.saveIntInPreference("HospitalID", HospitalID);
+                preference.commitPreference();
+
+                showToast("Configuration is successfully updated.");
                 Intent intent = new Intent(AdminConfirmation.this, SelectDoctorActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY|Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);

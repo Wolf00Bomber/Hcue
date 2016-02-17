@@ -107,7 +107,7 @@ public class AdminLoginResponse implements Serializable {
         @SerializedName("FullName")
         public String FullName;
         @SerializedName("DoctorID")
-        public Number DoctorID;
+        public int DoctorID;
         @SerializedName("Gender")
         public String Gender;
         @SerializedName("DOB")
@@ -229,11 +229,11 @@ public class AdminLoginResponse implements Serializable {
             FullName = fullName;
         }
 
-        public Number getDoctorID() {
+        public int getDoctorID() {
             return DoctorID;
         }
 
-        public void setDoctorID(Number doctorID) {
+        public void setDoctorID(int doctorID) {
             DoctorID = doctorID;
         }
 

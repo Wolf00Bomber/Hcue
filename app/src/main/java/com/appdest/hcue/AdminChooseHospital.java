@@ -69,7 +69,6 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
 
     @Override
     public void bindControls() {
-//        prepareData();
         hospitalList = (ArrayList<AdminLoginResponse.DoctorAddress>)getIntent().getSerializableExtra("hospitals");
         doctorId = getIntent().getIntExtra("doctorId",0);
         AdminLoginResponse.Doctor doctor = (AdminLoginResponse.Doctor) getIntent().getSerializableExtra("doctor");
@@ -218,7 +217,7 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            convertView = (LinearLayout) LayoutInflater.from(AdminChooseHospital.this).inflate(R.layout.admin_choose_hospital_grid_cell, parent, false);
+            convertView = LayoutInflater.from(AdminChooseHospital.this).inflate(R.layout.admin_choose_hospital_grid_cell, parent, false);
             final ImageView ivCheck = (ImageView) convertView.findViewById(R.id.ivCheck);
             TextView tvHospital = (TextView) convertView.findViewById(R.id.tvHospital);
             TextView tvLocation = (TextView) convertView.findViewById(R.id.tvLocation);
@@ -265,37 +264,6 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
             return convertView;
         }
     }
-
-    //Temperory class for Holding data
-    /*private class HospitalData {
-        public boolean isSelected;
-        public String name = "BHS Hospital";
-        public String location = "T Nagar, Chennai";
-    }
-
-    private ArrayList<HospitalData> hospitalList;
-    private void prepareData() {
-        hospitalList = new ArrayList<>();
-        for(int i=0; i<5; i++) {
-            HospitalData hospitalData = new HospitalData();
-            hospitalData.name = (i+1)+". BHS Hospital";
-            hospitalList.add(hospitalData);
-        }
-    }*/
-
-    /*private void setData(int pos, boolean selection) {
-        ArrayList<HospitalData> list = new ArrayList<>();
-        for(int i=0; i<hospitalList.size(); i++) {
-            HospitalData hospitalData = hospitalList.get(i);
-            if(i==pos)
-                hospitalData.isSelected = selection;
-            else
-                hospitalData.isSelected = false;
-            list.add(hospitalData);
-        }
-        hospitalList.clear();
-        hospitalList.addAll(list);
-    }*/
 
     private void setData(int pos, boolean selection) {
         ArrayList<AdminLoginResponse.DoctorAddress> list = new ArrayList<>();

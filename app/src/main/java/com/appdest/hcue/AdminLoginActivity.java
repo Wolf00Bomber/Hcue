@@ -92,6 +92,8 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
     }
 
     private void adminLogin(String email, String password) {
+        showLoader("Loading...");
+
         final AdminLoginRequest adminLoginRequest = new AdminLoginRequest();
         adminLoginRequest.setDoctorLoginID(email);
         adminLoginRequest.setDoctorPassword(password);
@@ -100,12 +102,14 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
         RestClient.getAPI(url).adminLogin(adminLoginRequest, new RestCallback<AdminLoginResponse>() {
             @Override
             public void failure(RestError restError) {
+                hideLoader();
                 Log.e("Doctor Login", "" + restError.getErrorMessage());
                 tvFailureMessage.setVisibility(View.VISIBLE);
             }
 
             @Override
             public void success(AdminLoginResponse adminLoginResponse, Response response) {
+                hideLoader();
                 if (adminLoginResponse != null) {
                     tvFailureMessage.setVisibility(View.GONE);
                     Intent intent = new Intent(AdminLoginActivity.this, AdminChooseHospital.class);
@@ -117,6 +121,7 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
                 } else {
                     Log.i("Response", "" + response.getReason());
                 }
+
             }
         });
     }

@@ -93,18 +93,17 @@ public class SelectDoctorActivity extends BaseActivity
 
         listDoctors = new ArrayList<>();
         listCalledPos = new ArrayList<>();
-        callService(19, pageCount);
+
+        Preference preference = new Preference(SelectDoctorActivity.this);
+        int hospitalID = preference.getIntFromPreference("HospitalID", 19);
+        preference.commitPreference();
+
+        callService(hospitalID, pageCount);
 
         ibLeft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int page = viewPager.getCurrentItem();
-                /*Log.e("ibLeft : ","Page: "+page);
-                if(!listCalledPos.get(page-1)) {
-                    callService(19, page);
-                    listCalledPos.set(page - 1, true);
-                }
-                else*/
                 viewPager.setCurrentItem(page - 1);
             }
         });
