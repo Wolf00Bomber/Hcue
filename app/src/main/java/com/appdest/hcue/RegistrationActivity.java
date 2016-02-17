@@ -423,7 +423,8 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
                 patientPhone.setPhNumber(phNumber);
                 patientPhone.setPhType("M");
                 patientPhone.setPrimaryIND("Y");
-                int IntPhoneCode = Integer.parseInt(PhoneCode != null ? PhoneCode.replace("+","") : "");
+                String phoneCodeString = PhoneCode != null ? PhoneCode.replace("+","") : "0";
+                int IntPhoneCode = Integer.parseInt(phoneCodeString);
                 patientPhone.setPhCntryCD(IntPhoneCode);
 
                 addPatientRequest.addPatientPhone(patientPhone);

@@ -33,7 +33,7 @@ public abstract class BaseActivity extends Activity
 	public ProgressDialog progressdialog;
 	public TextView tvBack,tvTitle,tvHome,tvLogin;
 
-	
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
