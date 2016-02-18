@@ -45,7 +45,7 @@ public class CancelationSummaryActivity extends BaseActivity implements View.OnC
     @Override
     public void bindControls() {
         Intent i = getIntent();
-        if(i.hasExtra("PatientInfo") && i.hasExtra("DoctorDetails"))
+        if(i.hasExtra("Appointment") && i.hasExtra("DoctorName") && i.hasExtra("chosenTime"))
         {
             PatientName = i.getStringExtra("Appointment");
             DoctorName = i.getStringExtra("DoctorName");

@@ -116,7 +116,6 @@ public class CancelAppointmentActivity extends BaseActivity
             }
         });
 
-        pageCount++;
         callService();
 
     }
