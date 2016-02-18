@@ -88,6 +88,9 @@ public class CancelAppointmentActivity extends BaseActivity
             finish();
             return;
         }
+
+        tvPatientName.setText(patientInfo.patients.get(0).FullName);
+
         gridAdapter = new GridAdapter();
         gvAppointments.setAdapter(gridAdapter);
         gvAppointments.setOnItemClickListener(new AdapterView.OnItemClickListener() {
