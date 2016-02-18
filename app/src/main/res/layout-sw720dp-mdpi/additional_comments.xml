@@ -39,6 +39,7 @@
         <EditText
             android:id="@+id/edtEnterComments"
             android:layout_width="0dp"
+            android:inputType="textCapWords"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:background="@drawable/feed_back_text_field"

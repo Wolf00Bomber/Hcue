@@ -64,10 +64,8 @@ public class ChoosePatientAppointmentActivity extends BaseActivity
 
         btnFeedbackAppointment 		= (Button)		llFeedbackAppointment.findViewById(R.id.btnFeedbackAppointment);
 
-
         tvBack.setVisibility(View.GONE);
         tvHome.setVisibility(View.GONE);
-
 
         gvAppointments = (GridView) llFeedbackAppointment.findViewById(R.id.gvAppointments);
 
@@ -75,7 +73,6 @@ public class ChoosePatientAppointmentActivity extends BaseActivity
         tvHeading.setTypeface(AppConstants.WALSHEIM_LIGHT);
         btnFeedbackAppointment.setTypeface(AppConstants.WALSHEIM_BOLD);
         tvTitle.setText("Choose appointment to give feedback");
-
     }
 
     @Override
@@ -128,7 +125,6 @@ public class ChoosePatientAppointmentActivity extends BaseActivity
                 startActivity(intent);
             }
         });
-        pageCount++;
         callService();
 
     }

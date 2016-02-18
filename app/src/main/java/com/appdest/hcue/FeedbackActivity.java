@@ -4,12 +4,19 @@ import com.appdest.hcue.common.AppConstants;
 import com.appdest.hcue.model.FeedbackRequest;
 import com.appdest.hcue.model.GetDoctors;
 import com.appdest.hcue.model.GetDoctorsResponse;
+import com.appdest.hcue.model.Speciality;
 import com.appdest.hcue.services.RestCallback;
 import com.appdest.hcue.services.RestClient;
 import com.appdest.hcue.services.RestError;
 import com.appdest.hcue.utils.Connectivity;
+import com.appdest.hcue.utils.Preference;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.squareup.picasso.Picasso;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -20,13 +27,18 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+
 import retrofit.client.Response;
 
 public class FeedbackActivity extends BaseActivity implements OnClickListener
 {
 	private LinearLayout llFeedback;
 	private ImageView ivImage,ivExcellent,ivGood,ivAverage,ivPoor;
-	private TextView tvName, tvSpecality, tvAdditionalComments;
+	private TextView tvDoctorName, tvSpecality, tvAdditionalComments;
 	private Button btnDone;
 	private EditText edtFeedback;
 
@@ -39,6 +51,7 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
     private GetDoctorsResponse.DoctorDetail selectedDoctorDetails;
     boolean isActivityNeedsFinish = false;
     private final float MAX_VALUE = 10f;
+    private HashMap<String,Speciality> hmSpecialities;
 
 	@Override
 	public void initializeControls() 
@@ -69,7 +82,7 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
 		ivAverage 				= 	(ImageView)	llFeedback.findViewById(R.id.ivAverage);
 		ivPoor 					= 	(ImageView)	llFeedback.findViewById(R.id.ivPoor);
 
-		tvName 					= 	(TextView) 	llFeedback.findViewById(R.id.tvName);
+		tvDoctorName 					= 	(TextView) 	llFeedback.findViewById(R.id.tvDoctorName);
 		tvSpecality				= 	(TextView) 	llFeedback.findViewById(R.id.tvSpecality);
 		tvAdditionalComments	= 	(TextView) 	llFeedback.findViewById(R.id.tvAdditionalComments);
 
@@ -77,10 +90,9 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
 		
 		setSpecificTypeFace(llFeedback, AppConstants.WALSHEIM_LIGHT);
 		
-		tvName.setTypeface(AppConstants.WALSHEIM_MEDIUM);
+		tvDoctorName.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 		btnDone.setTypeface(AppConstants.WALSHEIM_BOLD);
-		tvName.setTypeface(AppConstants.WALSHEIM_MEDIUM);
-		
+
 		tvTitle.setText("Thanks for using hCue");
 
 		ivExcellent.setOnClickListener(this);
@@ -96,11 +108,46 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
 		ivPoor.setTag("0");
 	}
 
+    private void initMap()
+    {
+        Preference preference = new Preference(FeedbackActivity.this);
+        String specialitiesInString = preference.getStringFromPreference(Preference.SPECIALITIES_MAP, "");
+        if(!TextUtils.isEmpty(specialitiesInString))
+        {
+            Gson gson = new Gson();
+            ArrayList<Speciality> list = gson.fromJson(specialitiesInString, new TypeToken<List<Speciality>>(){}.getType());
+            Collections.sort(list);
+            hmSpecialities = new HashMap<>();
+            for (Speciality speciality : list) {
+                hmSpecialities.put(speciality.DoctorSpecialityID, speciality);
+            }
+        }
+    }
+
 	@Override
 	public void bindControls() 
 	{
         if(isActivityNeedsFinish)
             return;
+        initMap();
+		tvDoctorName.setText(selectedDoctorDetails.FullName);
+        if (hmSpecialities != null && hmSpecialities.size() > 0) {
+            ArrayList<String> list = new ArrayList<>(selectedDoctorDetails.specialityCD.values());
+            for (int i = 0; i < list.size(); i++) {
+                list.set(i, hmSpecialities.get(list.get(i)).DoctorSpecialityDesc);
+            }
+            tvSpecality.setText(TextUtils.join(",", list) /*"Physiotherapist"*/);
+        }
+        Drawable d = getResources().getDrawable(R.drawable.profile_doctor_bg_male);
+        int mHeight = d.getIntrinsicHeight();
+        int mWidth = d.getIntrinsicWidth();
+        if (!TextUtils.isEmpty(selectedDoctorDetails.ImageURL))
+            Picasso.with(context)
+                    .load(selectedDoctorDetails.ImageURL)
+                    .resize(mWidth, mHeight)
+                    .placeholder(R.drawable.profile_doctor_bg_male)
+                    .centerInside()
+                    .into(ivImage);
 	}
 
 	private void callService(FeedbackRequest feedbackRequest)
