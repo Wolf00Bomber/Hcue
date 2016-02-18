@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,7 +24,7 @@ import android.widget.Toast;
 
 import com.appdest.hcue.common.AppConstants;
 
-public abstract class BaseActivity extends Activity 
+public abstract class BaseActivity extends FragmentActivity
 {
 	
 	public LinearLayout llTop, llBody, llBottom;
@@ -32,13 +33,14 @@ public abstract class BaseActivity extends Activity
 	public LayoutParams layoutParams;
 	public ProgressDialog progressdialog;
 	public TextView tvBack,tvTitle,tvHome,tvLogin;
-
+	public Bundle savedInstanceState;
 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
+		this.savedInstanceState = savedInstanceState;
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.base);
 		initLocal();
