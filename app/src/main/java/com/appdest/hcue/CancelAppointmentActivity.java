@@ -45,7 +45,6 @@ public class CancelAppointmentActivity extends BaseActivity
     private Button btnCancelAppointment;
     private GetPatientResponse.PatientInfo patientInfo;
     private GetPatientAppointmentsResponse.AppointmentRow selectedPatientAppointment;
-    private GetDoctorsResponse.DoctorDetail selectedDoctorDetails;
     private int pageCount;
 
     @Override
@@ -79,10 +78,9 @@ public class CancelAppointmentActivity extends BaseActivity
     {
         tvLogin.setEnabled(false);
         Intent i = getIntent();
-        if(i.hasExtra("PatientInfo") && i.hasExtra("DoctorDetails"))
+        if(i.hasExtra("PatientInfo"))
         {
             patientInfo = (GetPatientResponse.PatientInfo) i.getSerializableExtra("PatientInfo");
-            selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail)i.getSerializableExtra("DoctorDetails");
         }
         if(patientInfo == null)
         {
@@ -115,7 +113,6 @@ public class CancelAppointmentActivity extends BaseActivity
                 Intent intent = new Intent(CancelAppointmentActivity.this, ConfirmCancelationActivity.class);
                 intent.putExtra("Appointment", selectedPatientAppointment);
                 intent.putExtra("PatientInfo", patientInfo);
-                intent.putExtra("DoctorDetails", selectedDoctorDetails);
                 startActivity(intent);
             }
         });

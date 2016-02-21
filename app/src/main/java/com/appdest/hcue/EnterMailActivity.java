@@ -1,6 +1,8 @@
 package com.appdest.hcue;
 
 import com.appdest.hcue.common.AppConstants;
+import com.appdest.hcue.model.DoctorsAppointmentResponse;
+import com.appdest.hcue.model.GetDoctorsResponse;
 
 import android.content.Context;
 import android.content.Intent;
@@ -26,6 +28,8 @@ public class EnterMailActivity extends BaseActivity implements OnClickListener
 	private Animation slide_up, slide_down;
 	private View focusedView;
 	boolean isActivityNeedsFinish = false;
+    private DoctorsAppointmentResponse bookingDetails;
+    private GetDoctorsResponse.DoctorDetail selectedDoctorDetails;
 
 
 	@Override
@@ -33,22 +37,14 @@ public class EnterMailActivity extends BaseActivity implements OnClickListener
 	{
 		llEmail = (LinearLayout) inflater.inflate(R.layout.enter_mail, null);
 		llBody.addView(llEmail);
-
-
-
 		edtEmail		=	(EditText)		llEmail.findViewById(R.id.edtEmail);
-
-
-
 		btnConfirm		=	(Button)		llEmail.findViewById(R.id.btnConfirm);
 		btnSkip			=	(Button)		llEmail.findViewById(R.id.btnSkip);
-
         llKeyboard          =   (LinearLayout) llEmail.findViewById(R.id.llKeyBoard);
         llSpecilaKeyboard   =   (LinearLayout) llEmail.findViewById(R.id.llSpecialKeyBoard);
 
         llKeyboard.setVisibility(View.VISIBLE);
         llSpecilaKeyboard.setVisibility(View.GONE);
-		
 
 		btnConfirm.setOnClickListener(this);
 		btnSkip.setOnClickListener(this);
@@ -61,14 +57,20 @@ public class EnterMailActivity extends BaseActivity implements OnClickListener
 
         slide_up 	= AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up);
         slide_down  = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_down);
-
-		
-		
 	}
 
 	@Override
 	public void bindControls() 
 	{
+        Intent i = getIntent();
+        if(!i.hasExtra("BookingDetails") || !i.hasExtra("DoctorDetails"))
+        {
+            isActivityNeedsFinish = true;
+            finish();
+            return;
+        }
+        selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail) i.getSerializableExtra("DoctorDetails");
+        bookingDetails = (DoctorsAppointmentResponse) i.getSerializableExtra("BookingDetails");
         tvLogin.setEnabled(false);
         if(isActivityNeedsFinish)
             return;
@@ -210,6 +212,8 @@ public class EnterMailActivity extends BaseActivity implements OnClickListener
 
 			case R.id.btnConfirm:
 				Intent intent = new Intent(EnterMailActivity.this,EnterAddressActivity.class);
+                intent.putExtra("BookingDetails", bookingDetails);
+                intent.putExtra("DoctorDetails", selectedDoctorDetails);
 				startActivity(intent);
 				break;
 			case R.id.btnSkip:

@@ -46,9 +46,9 @@ public class CancelationSummaryActivity extends BaseActivity implements View.OnC
     public void bindControls() {
         tvLogin.setEnabled(false);
         Intent i = getIntent();
-        if(i.hasExtra("Appointment") && i.hasExtra("DoctorName") && i.hasExtra("chosenTime"))
+        if(i.hasExtra("PatientName") && i.hasExtra("chosenTime") && i.hasExtra("DoctorName"))
         {
-            PatientName = i.getStringExtra("Appointment");
+            PatientName = i.getStringExtra("PatientName");
             DoctorName = i.getStringExtra("DoctorName");
             chosenTime = i.getStringExtra("chosenTime");
         }

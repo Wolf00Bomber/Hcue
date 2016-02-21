@@ -324,7 +324,15 @@ public class SelectDoctorActivity extends BaseActivity
                         doctorsPagerAdapter.refreshPager();
                     }
 
-                    tvTitle.setText("Welcome to " + listDoctorsRequest.hospitalInfo.hospitalDetails.HospitalName);
+                    String hospitalName = "NA";
+                    try{
+                        hospitalName = listDoctorsRequest.hospitalInfo.hospitalDetails.HospitalName;
+                    }
+                    catch(Exception e)
+                    {
+                        e.printStackTrace();
+                    }
+                    tvTitle.setText("Welcome to " + hospitalName);
                 } else {
                     Log.i("Response", "" + response.getReason());
                     viewPager.setVisibility(View.GONE);
@@ -358,14 +366,8 @@ public class SelectDoctorActivity extends BaseActivity
             @Override
             public void onClick(View v)
             {
-                if(selectedDoctorDetails == null)
-                {
-                    Toast.makeText(context, "Please select a doctor!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                Intent intent = new Intent(SelectDoctorActivity.this,EnterContactNumberActivity.class);
+                Intent intent = new Intent(SelectDoctorActivity.this, EnterContactNumberActivity.class);
                 intent.putExtra("From", "CancelAppointment");
-                intent.putExtra("DoctorDetails", selectedDoctorDetails);
                 startActivity(intent);
             }
         });
@@ -379,7 +381,7 @@ public class SelectDoctorActivity extends BaseActivity
                     Toast.makeText(context, "Please select a doctor!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Intent intent = new Intent(SelectDoctorActivity.this,EnterContactNumberActivity.class);
+                Intent intent = new Intent(SelectDoctorActivity.this, EnterContactNumberActivity.class);
                 intent.putExtra("From", "Feedback");
                 intent.putExtra("DoctorDetails", selectedDoctorDetails);
                 startActivity(intent);

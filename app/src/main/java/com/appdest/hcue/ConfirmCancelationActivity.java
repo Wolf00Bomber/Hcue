@@ -22,6 +22,7 @@ import com.appdest.hcue.services.RestError;
 import com.appdest.hcue.utils.Connectivity;
 import com.appdest.hcue.utils.TimeUtils;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import retrofit.client.Response;
@@ -34,10 +35,9 @@ public class ConfirmCancelationActivity extends BaseActivity implements View.OnC
     private LinearLayout llCancel;
     private TextView tvPatientName,tvAppointmentTime,tvDoctorName,tvHeading;
     private Button btnConfirm;
-    private GetDoctorsResponse.DoctorDetail selectedDoctorDetails;
     private GetPatientAppointmentsResponse.AppointmentRow Appointment;
     private GetPatientResponse.PatientInfo patientInfo;
-
+    private GetPatientResponse.Patient patient = null;
     private String chosenTime;
 
     @Override
@@ -66,16 +66,13 @@ public class ConfirmCancelationActivity extends BaseActivity implements View.OnC
     {
         tvLogin.setEnabled(false);
         Intent i = getIntent();
-        if(i.hasExtra("PatientInfo") && i.hasExtra("DoctorDetails") && i.hasExtra("PatientInfo"))
+        if(i.hasExtra("PatientInfo") && i.hasExtra("Appointment"))
         {
             Appointment = (GetPatientAppointmentsResponse.AppointmentRow) i.getSerializableExtra("Appointment");
-            selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail)i.getSerializableExtra("DoctorDetails");
             patientInfo = (GetPatientResponse.PatientInfo) i.getSerializableExtra("PatientInfo");
         }
-        else
-        {
-            finish();
-            return;
+        else{
+            finish(); return;
         }
 
         long dayInstance = Appointment.appointmentDetails.ConsultationDt.longValue();
@@ -86,10 +83,19 @@ public class ConfirmCancelationActivity extends BaseActivity implements View.OnC
                 .append(" - ")
                 .append(TimeUtils.format2DateProper(totalInstance));
         chosenTime = sb.toString();
-        tvDoctorName.setText(selectedDoctorDetails.FullName);
+        tvDoctorName.setText(Appointment.doctorDetail.doctorFullName);
         tvAppointmentTime.setText(chosenTime);
-        tvPatientName.setText(patientInfo.patients.get(0).FullName);
+        ArrayList<GetPatientResponse.Patient> patients = patientInfo.patients;
 
+        if(patients != null)
+        {
+            for(int j = 0; j < patients.size(); j++ )
+            {
+                if(patients.get(j).getPatientID().longValue() == Appointment.appointmentDetails.PatientID.longValue())
+                    patient = patients.get(j);
+            }
+        }
+        tvPatientName.setText(patient != null ? patient.FullName : "NA");
     }
 
     @Override
@@ -133,8 +139,8 @@ public class ConfirmCancelationActivity extends BaseActivity implements View.OnC
                 Toast.makeText(ConfirmCancelationActivity.this, responseString, Toast.LENGTH_SHORT).show();
                 if ("-Success-".equalsIgnoreCase(responseString)) {
                     Intent intent = new Intent(ConfirmCancelationActivity.this, CancelationSummaryActivity.class);
-                    intent.putExtra("PatientName", patientInfo.patients.get(0).FullName);
-                    intent.putExtra("DoctorName", selectedDoctorDetails.FullName);
+                    intent.putExtra("PatientName", patient.FullName);
+                    intent.putExtra("DoctorName", Appointment.doctorDetail.doctorFullName);
                     intent.putExtra("chosenTime", chosenTime);
                     startActivity(intent);
                 } else {

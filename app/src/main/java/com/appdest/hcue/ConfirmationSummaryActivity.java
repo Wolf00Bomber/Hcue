@@ -111,7 +111,7 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
             public void run() {
                 myTTS.speak(speech, TextToSpeech.QUEUE_FLUSH, null);
             }
-        }, 200);
+        }, 50);
 
     }
 
@@ -131,6 +131,7 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 			case R.id.btnProvideDetails:
 				Intent intent = new Intent(ConfirmationSummaryActivity.this,EnterMailActivity.class);
 				intent.putExtra("BookingDetails", bookingDetails);
+				intent.putExtra("DoctorDetails", selectedDoctorDetails);
 				startActivity(intent);
 				break;
 			case R.id.btnAskMe:

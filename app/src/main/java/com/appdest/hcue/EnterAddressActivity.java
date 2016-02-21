@@ -19,6 +19,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.appdest.hcue.common.AppConstants;
+import com.appdest.hcue.model.DoctorsAppointmentResponse;
+import com.appdest.hcue.model.GetDoctorsResponse;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
@@ -51,6 +53,8 @@ public class EnterAddressActivity extends BaseActivity implements View.OnClickLi
     private static final String STATE_RESOLVING_ERROR = "resolving_error";
     private static final int  PLACE_AUTOCOMPLETE_REQUEST_CODE_FOR_FULL_ADDRESS = 1000;
     private static final int  PLACE_AUTOCOMPLETE_REQUEST_CODE_FOR_LANDMARK = 1001;
+    private DoctorsAppointmentResponse bookingDetails;
+    private GetDoctorsResponse.DoctorDetail selectedDoctorDetails;
 
 
 
@@ -96,6 +100,21 @@ public class EnterAddressActivity extends BaseActivity implements View.OnClickLi
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
                 .build();
+        edtEnterAddress.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus)
+                    v.performClick();
+            }
+        });
+
+        edtLandmark.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus)
+                    v.performClick();
+            }
+        });
     }
 
     @Override
@@ -151,27 +170,24 @@ public class EnterAddressActivity extends BaseActivity implements View.OnClickLi
     // A place has been received; use requestCode to track the request.
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == PLACE_AUTOCOMPLETE_REQUEST_CODE_FOR_FULL_ADDRESS || resultCode == PLACE_AUTOCOMPLETE_REQUEST_CODE_FOR_LANDMARK) {
+        if (requestCode == PLACE_AUTOCOMPLETE_REQUEST_CODE_FOR_FULL_ADDRESS || requestCode ==  PLACE_AUTOCOMPLETE_REQUEST_CODE_FOR_LANDMARK) {
             if (resultCode == RESULT_OK) {
                 Place place = PlaceAutocomplete.getPlace(this, data);
                 Log.i(TAG, "Place: " + place.getName());
-                if(requestCode == PLACE_AUTOCOMPLETE_REQUEST_CODE_FOR_LANDMARK)
-                {
+                if (requestCode == PLACE_AUTOCOMPLETE_REQUEST_CODE_FOR_LANDMARK) {
                     edtLandmark.setText(place.getName());
-                }
-                else
-                {
+                } else {
                     edtEnterAddress.setText(place.getName());
                 }
-
-            } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
-                Status status = PlaceAutocomplete.getStatus(this, data);
-                // TODO: Handle the error.
-                Log.i(TAG, status.getStatusMessage());
-
-            } else if (resultCode == RESULT_CANCELED) {
-                // The user canceled the operation.
             }
+        }
+        else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
+            Status status = PlaceAutocomplete.getStatus(this, data);
+            // TODO: Handle the error.
+            Log.i(TAG, status.getStatusMessage());
+
+        } else if (resultCode == RESULT_CANCELED) {
+            // The user canceled the operation.
         }
         else if (requestCode == REQUEST_RESOLVE_ERROR) {
             mResolvingError = false;
@@ -194,8 +210,16 @@ public class EnterAddressActivity extends BaseActivity implements View.OnClickLi
     @Override
     public void bindControls() {
         tvLogin.setEnabled(false);
-        if (isActivityNeedsFinish)
+        Intent i = getIntent();
+        if(!i.hasExtra("BookingDetails") || !i.hasExtra("DoctorDetails"))
+        {
+            isActivityNeedsFinish = true;
+            finish();
             return;
+        }
+        selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail) i.getSerializableExtra("DoctorDetails");
+        bookingDetails = (DoctorsAppointmentResponse) i.getSerializableExtra("BookingDetails");
+
         h = new Handler(Looper.getMainLooper());
 
         edtEnterAddress.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -336,6 +360,8 @@ public class EnterAddressActivity extends BaseActivity implements View.OnClickLi
 
             case R.id.btnConfirm:
                 Intent intent = new Intent(EnterAddressActivity.this, ConfirmationFullViewActivity.class);
+                intent.putExtra("BookingDetails", bookingDetails);
+                intent.putExtra("DoctorDetails", selectedDoctorDetails);
                 startActivity(intent);
                 break;
             case R.id.btnSkip:

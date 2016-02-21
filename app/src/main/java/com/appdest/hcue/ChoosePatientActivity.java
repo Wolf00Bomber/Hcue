@@ -24,7 +24,6 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
 	private Number phNumber;
 	private String PhoneCode;
     private GetPatientResponse getPatientResponse;
-	boolean isActivityNeedsFinish = false;
 	private TextView tvAdd;
 	private GridView gridView;
 	private GridAdapter adapter;
@@ -33,22 +32,6 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
 	@Override
 	public void initializeControls() 
 	{
-		Intent i = getIntent();
-		if(i.hasExtra("DoctorDetails") && i.hasExtra("PhoneNumber") && i.hasExtra("GetPatientResponse"))
-		{
-			selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail) i.getSerializableExtra("DoctorDetails");
-			phNumber = (Number) i.getSerializableExtra("PhoneNumber");
-			PhoneCode = i.getStringExtra("PhoneCode");
-            getPatientResponse = (GetPatientResponse) i.getSerializableExtra("GetPatientResponse");
-            fromActivity = i.hasExtra("From") ? i.getStringExtra("From") : "";
-		}
-		else
-		{
-			isActivityNeedsFinish = true;
-			finish();
-			return;
-		}
-
 		llPatient = (LinearLayout) inflater.inflate(R.layout.choose_patitent, null);
 		llBody.addView(llPatient);
 
@@ -72,12 +55,37 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
         }
 	}
 
+    private boolean extractInfoFromIntent()
+    {
+        boolean isValid = false;
+        Intent i = getIntent();
+
+        if(i.hasExtra("PhoneNumber") && i.hasExtra("GetPatientResponse"))
+        {
+            phNumber = (Number) i.getSerializableExtra("PhoneNumber");
+            PhoneCode = i.getStringExtra("PhoneCode");
+            getPatientResponse = (GetPatientResponse) i.getSerializableExtra("GetPatientResponse");
+            fromActivity = i.hasExtra("From") ? i.getStringExtra("From") : "";
+            isValid = true;
+        }
+
+        if(!"CancelAppointment".equalsIgnoreCase(fromActivity))
+        {
+            if(i.hasExtra("DoctorDetails"))
+                selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail) i.getSerializableExtra("DoctorDetails");
+            else
+                isValid = false;
+        }
+        return isValid;
+    }
+
 	@Override
 	public void bindControls() 
 	{
 		tvLogin.setEnabled(false);
-		if(isActivityNeedsFinish)
-			return;
+        if(!extractInfoFromIntent()){
+            finish();  return;
+        }
 		adapter = new GridAdapter();
 		gridView.setAdapter(adapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -86,22 +94,20 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
                 if("Feedback".equalsIgnoreCase(fromActivity) || "CancelAppointment".equalsIgnoreCase(fromActivity))
                 {
                     GetPatientResponse.PatientInfo patientInfo = getPatientResponse.rows.get(position);
-                    Intent summary = null;
+                    Intent summary;
                     if("Feedback".equalsIgnoreCase(fromActivity))
                     {
                         summary = new Intent(ChoosePatientActivity.this, ChoosePatientAppointmentActivity.class);
+                        summary.putExtra("DoctorDetails", selectedDoctorDetails);
                     }
-                    else if("CancelAppointment".equalsIgnoreCase(fromActivity))
+                    else
                     {
                         summary = new Intent(ChoosePatientActivity.this, CancelAppointmentActivity.class);
                     }
 
-                    if(summary != null){
-                        summary.putExtra("From", fromActivity);
-                        summary.putExtra("PatientInfo", patientInfo);
-                        summary.putExtra("DoctorDetails", selectedDoctorDetails);
-                        startActivity(summary);
-                    }
+                    summary.putExtra("From", fromActivity);
+                    summary.putExtra("PatientInfo", patientInfo);
+                    startActivity(summary);
                 }
                 else
                 {
@@ -138,7 +144,6 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
 	private class GridAdapter extends BaseAdapter {
 
         private String AGE_SEX_FORMAT = "%s, %d years";
-        private long YEAR = 365 * 24 * 60 * 60 * 1000;
 
 		@Override
 		public int getCount() {

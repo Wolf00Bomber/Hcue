@@ -54,19 +54,6 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 	@Override
 	public void initializeControls() 
 	{
-		Intent i = getIntent();
-		if(i.hasExtra("DoctorDetails"))
-		{
-			selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail) i.getSerializableExtra("DoctorDetails");
-			fromActivity = i.hasExtra("From") ? i.getStringExtra("From") : "";
-		}
-		else
-		{
-			isActivityNeedsFinish = true;
-			finish();
-			return;
-		}
-
 		llMain = (LinearLayout) inflater.inflate(R.layout.enter_contact_number, null);
 		
 		llBody.addView(llMain);
@@ -101,8 +88,19 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 	public void bindControls() 
 	{
 		tvLogin.setEnabled(false);
-		if(isActivityNeedsFinish)
-			return;
+
+        Intent i = getIntent();
+        fromActivity = i.hasExtra("From") ? i.getStringExtra("From") : "";
+		if(!"CancelAppointment".equalsIgnoreCase(fromActivity))
+        {
+            if(i.hasExtra("DoctorDetails"))
+                selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail) i.getSerializableExtra("DoctorDetails");
+            else{
+                finish();
+                return;
+            }
+        }
+
 		h = new Handler(Looper.getMainLooper());
 
 		edtCode.setOnFocusChangeListener(new OnFocusChangeListener() {
@@ -170,7 +168,7 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 		edtNumber.setOnTouchListener(new View.OnTouchListener() {
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
-				edtNumber.clearFocus();
+                v.clearFocus();
 				hideKeyBoard(v);
 				return false;
 			}
@@ -243,6 +241,7 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 		}
 
 	}
+
 	@Override
 	protected void onResume() 
 	{
@@ -360,7 +359,8 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
         Intent intent	= new Intent(EnterContactNumberActivity.this, ChoosePatientActivity.class);
         intent.putExtra("PhoneNumber", phNumber);
         intent.putExtra("PhoneCode", edtCode.getVisibility() == View.VISIBLE ? getPhoneCode() : "");
-        intent.putExtra("DoctorDetails", selectedDoctorDetails);
+        if(!"CancelAppointment".equalsIgnoreCase(fromActivity))
+            intent.putExtra("DoctorDetails", selectedDoctorDetails);
         intent.putExtra("GetPatientResponse", getPatientResponse);
         intent.putExtra("From", fromActivity);
         startActivity(intent);
