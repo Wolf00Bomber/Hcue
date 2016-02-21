@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appdest.hcue.common.AppConstants;
+import com.appdest.hcue.model.ClinicResponse;
 import com.appdest.hcue.model.GetDoctorRequest;
 import com.appdest.hcue.model.GetDoctors;
 import com.appdest.hcue.model.GetDoctorsResponse;
@@ -185,19 +186,21 @@ public class SelectDoctorActivity extends BaseActivity
             if(isClinic) {
                 GetDoctorRequest getDoctorRequest = new GetDoctorRequest();
                 /*{
-				"DoctorID": 85,
-				"USRType": "KIOSK",
-				"USRId": 0,
-				"AddressID": [269]
-              }*/
+                 "DoctorID":[85],
+                 "PageSize":6,
+                 "PageNumber":1,
+                 "AddressID":[269]
+                 }*/
+                List<Integer> doctorID = new ArrayList<>();
+                doctorID.add(loginDoctorId);
                 List<Integer> addressID = new ArrayList<>();
                 addressID.add(clinicAddressId);
-                getDoctorRequest.setDoctorID(loginDoctorId);
-                getDoctorRequest.setUSRType("KIOSK");
-                getDoctorRequest.setUSRId(0);
+                getDoctorRequest.setDoctorID(doctorID);
+                getDoctorRequest.setPageSize(PAGE_SIZE);
+                getDoctorRequest.setPageNumber(pageNumber);
                 getDoctorRequest.setAddressID(addressID);
 
-                getDoctorClinics(getDoctorRequest, pageNumber);
+                getDoctorClinics(getDoctorRequest);
 
             } else {
                 final GetDoctors getDoctorsRequest = new GetDoctors();
@@ -277,9 +280,9 @@ public class SelectDoctorActivity extends BaseActivity
         });
     }
 
-    private void getDoctorClinics(GetDoctorRequest getDoctorsRequest, int pageNumber) {
+    private void getDoctorClinics(GetDoctorRequest getDoctorRequest) {
         String url = "http://dct4avjn1lfw.cloudfront.net";
-        RestClient.getAPI(url).getDoctor(getDoctorsRequest, new RestCallback<GetDoctorsResponse>() {
+        RestClient.getAPI(url).getDoctor(getDoctorRequest, new RestCallback<ClinicResponse>() {
             @Override
             public void failure(RestError restError) {
                 viewPager.setVisibility(View.GONE);
@@ -293,12 +296,12 @@ public class SelectDoctorActivity extends BaseActivity
             }
 
             @Override
-            public void success(GetDoctorsResponse listDoctorsRequest, Response response) {
-                if (listDoctorsRequest != null) {
+            public void success(ClinicResponse clinicResponse, Response response) {
+                if (clinicResponse != null) {
                     viewPager.setVisibility(View.VISIBLE);
                     pageCount++;
                     if(maxDoctors == 0) {
-                        maxDoctors = listDoctorsRequest.DoctorCount;
+                        maxDoctors = clinicResponse.getCount();
                         Log.e("maxDoctors : ",""+maxDoctors);
                         int pages = maxDoctors/6+(maxDoctors%6==0?0:1);
                         if(pages<=1) {//No left right swipe
@@ -314,8 +317,8 @@ public class SelectDoctorActivity extends BaseActivity
                         if(pages>0)
                         listCalledPos.set(0,true);
                     }
-                    if(listDoctorsRequest.arrDoctorDetails != null)
-                        listDoctors.addAll(listDoctorsRequest.arrDoctorDetails);
+                    if(clinicResponse.listDoctorDetails != null)
+                        listDoctors.addAll(clinicResponse.listDoctorDetails);
                     Log.e("List size : ", ""+listDoctors.size());
                     if(doctorsPagerAdapter==null) {
                         doctorsPagerAdapter = new DoctorsPagerAdapter();
@@ -326,7 +329,7 @@ public class SelectDoctorActivity extends BaseActivity
 
                     String hospitalName = "NA";
                     try{
-                        hospitalName = listDoctorsRequest.hospitalInfo.hospitalDetails.HospitalName;
+//                        hospitalName = clinicResponse.XXXXXXXXXXXXXXXX;
                     }
                     catch(Exception e)
                     {

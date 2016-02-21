@@ -9,6 +9,7 @@ import com.appdest.hcue.model.AdminLoginRequest;
 import com.appdest.hcue.model.AdminLoginResponse;
 import com.appdest.hcue.model.CancelAppointmentRequest;
 import com.appdest.hcue.model.CancelAppointmentResponse;
+import com.appdest.hcue.model.ClinicResponse;
 import com.appdest.hcue.model.ConfirmCancellationRequest;
 import com.appdest.hcue.model.DoctorsAppointment;
 import com.appdest.hcue.model.DoctorsAppointmentResponse;
@@ -146,6 +147,6 @@ public interface WebAPI {
             "Content-Type: application/json",
             "User-Agent: Hcue"
     })
-    @POST("/doctors/getDoctor")
-    void getDoctor(@Body GetDoctorRequest getDoctorRequest, RestCallback<GetDoctorsResponse> callback);
+    @POST("/doctors/getDoctors")
+    void getDoctor(@Body GetDoctorRequest getDoctorRequest, RestCallback<ClinicResponse> callback);
 }

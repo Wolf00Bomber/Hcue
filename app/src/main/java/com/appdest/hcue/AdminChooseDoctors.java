@@ -99,7 +99,7 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
         listDoctors = new ArrayList<>();
         listCalledPos = new ArrayList<>();
         listSelectedDoctorIDs = new ArrayList<>();
-        callService(PAGE_SIZE, 1, /*hospitalData.getExtDetails().getHospitalID()*/19);
+        callService(PAGE_SIZE, 1, hospitalData.getExtDetails().getHospitalID());
 
         viewPager.setCurrentItem(0);
         ivLeft.setAlpha(0.25f);

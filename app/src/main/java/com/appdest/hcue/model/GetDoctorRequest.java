@@ -9,32 +9,37 @@ import com.google.gson.annotations.SerializedName;
  */
 public class GetDoctorRequest {
     @SerializedName("DoctorID")
-    private Integer DoctorID;
-    @SerializedName("USRType")
-    private String USRType;
-    @SerializedName("USRId")
-    private Integer USRId;
+    private List<Integer> DoctorID = new ArrayList<Integer>();
+    @SerializedName("PageSize")
+    public int PageSize;
+    @SerializedName("PageNumber")
+    public int PageNumber;
     @SerializedName("AddressID")
     private List<Integer> AddressID = new ArrayList<Integer>();
 
-    public Integer getDoctorID() {
+    public List<Integer> getDoctorID() {
         return DoctorID;
     }
-    public void setDoctorID(Integer DoctorID) {
+    public void setDoctorID(List<Integer> DoctorID) {
         this.DoctorID = DoctorID;
     }
-    public String getUSRType() {
-        return USRType;
+
+    public int getPageSize() {
+        return PageSize;
     }
-    public void setUSRType(String USRType) {
-        this.USRType = USRType;
+
+    public void setPageSize(int pageSize) {
+        PageSize = pageSize;
     }
-    public Integer getUSRId() {
-        return USRId;
+
+    public int getPageNumber() {
+        return PageNumber;
     }
-    public void setUSRId(Integer USRId) {
-        this.USRId = USRId;
+
+    public void setPageNumber(int pageNumber) {
+        PageNumber = pageNumber;
     }
+
     public List<Integer> getAddressID() {
         return AddressID;
     }
