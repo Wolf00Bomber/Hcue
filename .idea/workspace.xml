@@ -54,7 +54,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b6cfe82-ac61-41a4-af9e-d3910da41b1f" name="Default" comment="#Admin Module:&#10;1.AdminLogin&#10;2.AdminChooseHospital&#10;3.AdminChooseDoctors&#10;&#10;Services and UI binding completed.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/GetDoctorRequest.java" />
       <change type="DELETED" beforePath="C:\Users\Vinsan\Desktop\hCue WS\Hcue\.idea\libraries\android_phased_seek_bar_0_1_1.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\Vinsan\Desktop\hCue WS\Hcue\.idea\libraries\android_shape_imageview_0_9_3.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\Vinsan\Desktop\hCue WS\Hcue\.idea\libraries\appcompat_v7_23_1_1.xml" afterPath="" />
@@ -66,40 +65,8 @@
       <change type="DELETED" beforePath="C:\Users\Vinsan\Desktop\hCue WS\Hcue\.idea\libraries\retrofit_1_9_0.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\Vinsan\Desktop\hCue WS\Hcue\.idea\libraries\support_annotations_23_1_1.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\Vinsan\Desktop\hCue WS\Hcue\.idea\libraries\support_v4_23_1_1.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdditionalCommentsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdditionalCommentsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminChooseDoctors.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminChooseDoctors.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminChooseHospital.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminChooseHospital.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminConfirmation.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminConfirmation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/AdminGetDoctorsRequest.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/AdminGetDoctorsRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminLoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminLoginActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/AdminLoginResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/AdminLoginResponse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/CancelAppointmentActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/CancelAppointmentActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/CancelationSummaryActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/CancelationSummaryActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ChooseAppointmentActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ChooseAppointmentActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ChoosePatientActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ChoosePatientActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ChoosePatientAppointmentActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ChoosePatientAppointmentActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ConfirmCancelationActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ConfirmCancelationActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ConfirmationFullViewActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ConfirmationFullViewActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ConfirmationSummaryActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ConfirmationSummaryActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/EnterAddressActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/EnterAddressActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/EnterContactNumberActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/EnterContactNumberActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/EnterMailActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/EnterMailActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/FeedbackActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/FeedbackActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/FeedbackConfirmationActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/FeedbackConfirmationActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/GetDoctors.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/GetDoctors.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/utils/Preference.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/utils/Preference.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/RegistrationActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/RegistrationActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/SelectDoctorActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/SelectDoctorActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/SplashActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/SplashActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/services/WebAPI.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/services/WebAPI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/WelcomeActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/WelcomeActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/enter_contact_number.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/enter_contact_number.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/select_doctor_grid.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/select_doctor_grid.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/user_details_activity.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/user_details_activity.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Hcue.iws" />
@@ -258,21 +225,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SelectDoctorActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SelectDoctorActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/SelectDoctorActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="280" column="87" selection-start-line="280" selection-start-column="87" selection-end-line="280" selection-end-column="87" />
+            <state vertical-scroll-proportion="0.53157896">
+              <caret line="317" column="24" selection-start-line="317" selection-start-column="24" selection-end-line="317" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GetDoctorsResponse.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GetDoctorsResponse.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/GetDoctorsResponse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.11929824">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -2311,9 +2278,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/EnterContactNumberActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/AdminGetDoctorsRequest.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminChooseDoctors.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/SelectDoctorActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/RegistrationActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/dfg.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/SelectDoctorActivity.java" />
       </list>
     </option>
   </component>
@@ -2452,6 +2419,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hcue" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hcue" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hcue" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2831,7 +2828,13 @@
       <option name="project" value="LOCAL" />
       <updated>1455639961036</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="#Admin Module:&#10;1.AdminLogin&#10;2.AdminChooseHospital&#10;3.AdminChooseDoctors&#10;&#10;getDoctor service added, flow changed&#10;Services and UI binding completed.">
+      <created>1456040509508</created>
+      <option name="number" value="00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1456040509508</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2907,7 +2910,8 @@
     <MESSAGE value="#Admin Module:&#10;1.AdminLogin&#10;2.AdminChooseHospital&#10;3.AdminChooseDoctors&#10;4.AdminConfirmation&#10;&#10;Tags: Design, Coding, resources &amp; Manifest" />
     <MESSAGE value="#Admin Module:&#10;@AdminLogin Web service integrated&#10;&#10;1.AdminLoginRequest&#10;2.AdminLoginResponse&#10;" />
     <MESSAGE value="#Admin Module:&#10;1.AdminChooseDoctors Web service integration done.&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="#Admin Module:&#10;1.AdminChooseDoctors Web service integration done.&#10;" />
+    <MESSAGE value="#Admin Module:&#10;1.AdminLogin&#10;2.AdminChooseHospital&#10;3.AdminChooseDoctors&#10;&#10;getDoctor service added, flow changed&#10;Services and UI binding completed." />
+    <option name="LAST_COMMIT_MESSAGE" value="#Admin Module:&#10;1.AdminLogin&#10;2.AdminChooseHospital&#10;3.AdminChooseDoctors&#10;&#10;getDoctor service added, flow changed&#10;Services and UI binding completed." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3467,18 +3471,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/SelectDoctorActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/GetDoctorsResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="280" column="87" selection-start-line="280" selection-start-column="87" selection-end-line="280" selection-end-column="87" />
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/GetDoctorsResponse.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/SelectDoctorActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11929824">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.53157896">
+          <caret line="317" column="24" selection-start-line="317" selection-start-column="24" selection-end-line="317" selection-end-column="24" />
           <folding />
         </state>
       </provider>

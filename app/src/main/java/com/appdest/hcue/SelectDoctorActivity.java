@@ -254,7 +254,8 @@ public class SelectDoctorActivity extends BaseActivity
                         }
                         listCalledPos.set(0,true);
                     }
-                    listDoctors.addAll(listDoctorsRequest.arrDoctorDetails);
+                    if(listDoctorsRequest.arrDoctorDetails != null)
+                        listDoctors.addAll(listDoctorsRequest.arrDoctorDetails);
                     Log.e("List size : ", ""+listDoctors.size());
                     if(doctorsPagerAdapter==null) {
                         doctorsPagerAdapter = new DoctorsPagerAdapter();
@@ -313,7 +314,8 @@ public class SelectDoctorActivity extends BaseActivity
                         if(pages>0)
                         listCalledPos.set(0,true);
                     }
-                    listDoctors.addAll(listDoctorsRequest.arrDoctorDetails);
+                    if(listDoctorsRequest.arrDoctorDetails != null)
+                        listDoctors.addAll(listDoctorsRequest.arrDoctorDetails);
                     Log.e("List size : ", ""+listDoctors.size());
                     if(doctorsPagerAdapter==null) {
                         doctorsPagerAdapter = new DoctorsPagerAdapter();
