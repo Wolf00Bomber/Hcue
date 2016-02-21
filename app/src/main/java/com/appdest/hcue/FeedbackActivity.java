@@ -91,7 +91,7 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
 		setSpecificTypeFace(llFeedback, AppConstants.WALSHEIM_LIGHT);
 		
 		tvDoctorName.setTypeface(AppConstants.WALSHEIM_MEDIUM);
-		btnDone.setTypeface(AppConstants.WALSHEIM_BOLD);
+		btnDone.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 
 		tvTitle.setText("Thanks for using hCue");
 

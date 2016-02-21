@@ -67,7 +67,7 @@ public class CancelAppointmentActivity extends BaseActivity
 
         setSpecificTypeFace(llCancelAppointment, AppConstants.WALSHEIM_MEDIUM);
         tvHeading.setTypeface(AppConstants.WALSHEIM_LIGHT);
-        btnCancelAppointment.setTypeface(AppConstants.WALSHEIM_BOLD);
+        btnCancelAppointment.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 
         tvTitle.setText("Cancel Your Appointment");
 

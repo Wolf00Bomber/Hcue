@@ -41,7 +41,7 @@ public class ConfirmationFullViewActivity extends BaseActivity implements OnClic
 
 		tvTime.setTypeface(AppConstants.WALSHEIM_BOLD);
 		tvTokenNumber.setTypeface(AppConstants.WALSHEIM_BOLD);
-		btnOk.setTypeface(AppConstants.WALSHEIM_BOLD);
+		btnOk.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 		tvDoctorName.setTypeface(AppConstants.WALSHEIM_BOLD);
 
 		tvTitle.setText("Confirmation Summary");

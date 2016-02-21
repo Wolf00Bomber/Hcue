@@ -71,7 +71,7 @@ public class ChoosePatientAppointmentActivity extends BaseActivity
 
         setSpecificTypeFace(llFeedbackAppointment, AppConstants.WALSHEIM_MEDIUM);
         tvHeading.setTypeface(AppConstants.WALSHEIM_LIGHT);
-        btnFeedbackAppointment.setTypeface(AppConstants.WALSHEIM_BOLD);
+        btnFeedbackAppointment.setTypeface(AppConstants.WALSHEIM_MEDIUM);
         tvTitle.setText("Choose appointment to give feedback");
     }
 

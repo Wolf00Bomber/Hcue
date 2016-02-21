@@ -50,8 +50,8 @@ public class EnterMailActivity extends BaseActivity implements OnClickListener
 		btnSkip.setOnClickListener(this);
 		
 		setSpecificTypeFace(llEmail, AppConstants.WALSHEIM_LIGHT);
-		btnConfirm.setTypeface(AppConstants.WALSHEIM_BOLD);
-		btnSkip.setTypeface(AppConstants.WALSHEIM_BOLD);
+		btnConfirm.setTypeface(AppConstants.WALSHEIM_MEDIUM);
+		btnSkip.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 		
 		tvTitle.setText("Enter Email Address");
 

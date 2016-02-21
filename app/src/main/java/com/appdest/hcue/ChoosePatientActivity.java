@@ -43,7 +43,7 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
 
 		setSpecificTypeFace(llPatient, AppConstants.WALSHEIM_LIGHT);
 
-        tvAdd.setTypeface(AppConstants.WALSHEIM_BOLD);
+        tvAdd.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 		
 		llAddPatient.setOnClickListener(this);
 
@@ -190,6 +190,8 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
 
             tvGenderAndAge.setText(String.format(AGE_SEX_FORMAT, sex, age));
             tvPatientName.setText(patient.FullName);
+            tvPatientName.setTypeface(AppConstants.WALSHEIM_BOLD);
+            tvGenderAndAge.setTypeface(AppConstants.WALSHEIM_LIGHT);
             return convertView;
 		}
 	}

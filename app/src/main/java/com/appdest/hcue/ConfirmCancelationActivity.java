@@ -56,7 +56,7 @@ public class ConfirmCancelationActivity extends BaseActivity implements View.OnC
 
         setSpecificTypeFace(llCancel, AppConstants.WALSHEIM_LIGHT);
         tvHeading.setTypeface(AppConstants.WALSHEIM_MEDIUM);
-        btnConfirm.setTypeface(AppConstants.WALSHEIM_BOLD);
+        btnConfirm.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 
         tvTitle.setText("Confirm Cancellation");
     }

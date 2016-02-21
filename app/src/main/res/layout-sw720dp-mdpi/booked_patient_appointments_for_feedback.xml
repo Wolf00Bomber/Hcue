@@ -57,6 +57,6 @@
         android:background="@drawable/confirm_number_btn"
         android:text="Give Feedback"
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:textStyle="bold" />
 </LinearLayout>

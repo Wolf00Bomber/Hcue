@@ -41,8 +41,8 @@ public class WelcomeActivity extends BaseActivity
 		setSpecificTypeFace(llMain, AppConstants.WALSHEIM_LIGHT);
 		
 		tvName.setTypeface(AppConstants.WALSHEIM_MEDIUM);
-		btnQuickAppointment.setTypeface(AppConstants.WALSHEIM_BOLD);
-		btnLaterAppointment.setTypeface(AppConstants.WALSHEIM_BOLD);
+		btnQuickAppointment.setTypeface(AppConstants.WALSHEIM_MEDIUM);
+		btnLaterAppointment.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 		tvTime.setTypeface(AppConstants.WALSHEIM_BOLD);
 		tvName.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 		

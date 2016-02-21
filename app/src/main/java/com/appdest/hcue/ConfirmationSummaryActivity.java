@@ -71,8 +71,8 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 		tvTime.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 		tvToken.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 		tvDoctorName.setTypeface(AppConstants.WALSHEIM_MEDIUM);
-		btnProvideDetails.setTypeface(AppConstants.WALSHEIM_BOLD);
-		btnAskMe.setTypeface(AppConstants.WALSHEIM_BOLD);
+		btnProvideDetails.setTypeface(AppConstants.WALSHEIM_MEDIUM);
+		btnAskMe.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 		
 		tvTitle.setText("Booking Confirmation");
         tvDoctorName.setText(selectedDoctorDetails.FullName);

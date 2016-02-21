@@ -71,7 +71,7 @@
                 android:background="@drawable/done"
                 android:text="Done"
                 android:textColor="#FFFFFF"
-                android:textSize="34sp"
+                android:textSize="30sp"
                 android:textStyle="bold" />
 
             <Button
