@@ -44,10 +44,13 @@ public class Preference {
 	public static String INT_USER_ID 		= "int_user_id";
 
 	public static String IS_APP_FIRSTTIME_LAUNCH 		= "IS_APP_FIRSTTIME_LAUNCH";
-	
 
-
-
+	public static String IS_LOGGEDIN = "IS_LOGGEDIN"; //boolean
+	public static String IS_CLINIC = "IS_CLINIC"; //boolean
+	public static String LOGIN_DOCTOR_ID = "LOGIN_DOCTOR_ID"; //integer
+	public static String SELECTED_CLINIC_ADDRESS_ID = "SELECTED_CLINIC_ADDRESS_ID"; //integer
+	public static String SELECTED_HOSPITAL_ID = "SELECTED_HOSPITAL_ID"; //integer
+	public static String SELECTED_DOCTORS = "SELECTED_DOCTORS"; //string
 
 	
 	public Preference(Context context) {

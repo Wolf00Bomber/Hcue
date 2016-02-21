@@ -4,8 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.InputFilter;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnFocusChangeListener;
@@ -98,6 +100,7 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 	@Override
 	public void bindControls() 
 	{
+		tvLogin.setEnabled(false);
 		if(isActivityNeedsFinish)
 			return;
 		h = new Handler(Looper.getMainLooper());
@@ -150,7 +153,36 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 
 		edtCode.clearFocus();
 		edtNumber.clearFocus();
-		
+
+		edtNumber.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				hideKeyBoard(v);
+			}
+		});
+		edtCode.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				hideKeyBoard(v);
+			}
+		});
+
+		edtNumber.setOnTouchListener(new View.OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				edtNumber.clearFocus();
+				hideKeyBoard(v);
+				return false;
+			}
+		});
+
+		edtCode.setOnTouchListener(new View.OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				hideKeyBoard(v);
+				return false;
+			}
+		});
 	}
 	
 	public void keyboardClick(View v)
@@ -240,12 +272,14 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 		switch(v.getId())
 		{
 			case R.id.btnConfirmNumber:
-				if(TextUtils.isEmpty(edtNumber.getText().toString().trim()))
-				{
+				String number = edtNumber.getText().toString().trim();
+				if(TextUtils.isEmpty(number)) {
 					showToast("Please enter Mobile/Phone number.");
-				}
-				else
-				{
+				} else if(isMobile && number.length()<10){
+					showToast("Please enter 10 digit mobile number.");
+				} else if(isLandline && number.length()<11){
+					showToast("Please enter 11 digit landline number.");
+				} else {
 					showLoader("Please wait...");
                     phNumber = new BigDecimal(edtNumber.getText().toString().trim());
                     callService(phNumber);
@@ -265,6 +299,8 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 				tvLandLine.setCompoundDrawablesWithIntrinsicBounds(R.drawable.un_check_icon, 0, R.drawable.landline_icon, 0);
 				isMobile = true;
 				isLandline = false;
+				edtNumber.setText("");
+				edtNumber.setFilters(new InputFilter[] {new InputFilter.LengthFilter(10)});
 				edtCode.setVisibility(View.VISIBLE);
 				break;
 			case R.id.tvLandLine:
@@ -272,10 +308,13 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 				tvLandLine.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check_icon, 0, R.drawable.landline_icon, 0);
 				isMobile = false;
 				isLandline = true;
+				edtNumber.setText("");
+				edtNumber.setFilters(new InputFilter[] {new InputFilter.LengthFilter(11)});
 				edtCode.setVisibility(View.GONE);
 				break;
 					
 			case R.id.edtCode:
+				break;
 			case R.id.edtNumber:
 				v.requestFocus();
 				hideKeyBoard(v);

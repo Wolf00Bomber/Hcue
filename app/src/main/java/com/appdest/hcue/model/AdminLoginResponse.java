@@ -610,11 +610,11 @@ public class AdminLoginResponse implements Serializable {
             DayCD = dayCD;
         }
 
-        public int getStartTime() {
+        public String getStartTime() {
             return StartTime;
         }
 
-        public void setStartTime(int startTime) {
+        public void setStartTime(String startTime) {
             StartTime = startTime;
         }
 
@@ -650,6 +650,18 @@ public class AdminLoginResponse implements Serializable {
             Active = active;
         }
 
+        /*
+        * {
+      "AddressConsultID": 2145,
+      "AddressID": 267,
+      "DoctorID": 85,
+      "DayCD": "SAT",
+      "StartTime": "00:00",
+      "EndTime": "17:00",
+      "MinPerCase": 15,
+      "Fees": 0,
+      "Active": "Y"
+    }*/
         @SerializedName("AddressConsultID")
         public int AddressConsultID;
         @SerializedName("AddressID")
@@ -659,7 +671,7 @@ public class AdminLoginResponse implements Serializable {
         @SerializedName("DayCD")
         public String DayCD;
         @SerializedName("StartTime")
-        public int StartTime;
+        public String StartTime;
         @SerializedName("EndTime")
         public String EndTime;
         @SerializedName("MinPerCase")

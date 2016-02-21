@@ -127,6 +127,7 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
 	@Override
 	public void bindControls() 
 	{
+		tvLogin.setEnabled(false);
         if(isActivityNeedsFinish)
             return;
         initMap();

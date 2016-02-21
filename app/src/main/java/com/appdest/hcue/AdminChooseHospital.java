@@ -72,13 +72,15 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
         hospitalList = (ArrayList<AdminLoginResponse.DoctorAddress>)getIntent().getSerializableExtra("hospitals");
         doctorId = getIntent().getIntExtra("doctorId",0);
         AdminLoginResponse.Doctor doctor = (AdminLoginResponse.Doctor) getIntent().getSerializableExtra("doctor");
+        tvHome.setVisibility(View.GONE);
+        tvBack.setVisibility(View.GONE);
         tvLogin.setEnabled(false);
         tvBack.setText("Previous Page");
         tvTitle.setText("Choose Hospital / Clinic");
         tvDoctorName.setText(doctor.getFullName());
         tvDesgAndSpeciality.setText("");
         tvEmail.setText(doctor.getDoctorLoginID());
-        tvMobile.setText("9848978789");
+        tvMobile.setText(getIntent().getStringExtra("phone"));
 
         hospitalPagerAdapter = new HospitalPagerAdapter();
         viewPager.setAdapter(hospitalPagerAdapter);
@@ -133,10 +135,23 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
                 break;
             case R.id.btnNext :
                 if(this.hospitalData != null) {
-                    Intent intent = new Intent(AdminChooseHospital.this, AdminChooseDoctors.class);
-                    intent.putExtra("hospitalData", this.hospitalData);
-                    intent.putExtra("doctorId", doctorId);
-                    startActivity(intent);
+                    //if hospital id is present then move to choose doctors activity
+                    //or else
+                    //it is a clinic and no need to go to choose doctors activity
+                    //directly goto confirm and logout screen
+
+                    if(this.hospitalData.getExtDetails().getHospitalID() == 0) { //clinic
+                        Intent intent = new Intent(AdminChooseHospital.this, AdminConfirmation.class);
+                        intent.putExtra("from", "AdminHospital");
+                        intent.putExtra("hospitalData", this.hospitalData);
+                        intent.putExtra("doctorId", doctorId);
+                        startActivity(intent);
+                    } else { //hospital
+                        Intent intent = new Intent(AdminChooseHospital.this, AdminChooseDoctors.class);
+                        intent.putExtra("hospitalData", this.hospitalData);
+                        intent.putExtra("doctorId", doctorId);
+                        startActivity(intent);
+                    }
                 } else {
                     showToast("Please select a hospital.");
                 }

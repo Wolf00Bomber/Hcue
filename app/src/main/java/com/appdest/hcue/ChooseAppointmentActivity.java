@@ -318,6 +318,7 @@ public class ChooseAppointmentActivity extends BaseActivity {
 
     @Override
     public void bindControls() {
+        tvLogin.setEnabled(false);
         if(isActivityNeedsFinish)
             return;
     }

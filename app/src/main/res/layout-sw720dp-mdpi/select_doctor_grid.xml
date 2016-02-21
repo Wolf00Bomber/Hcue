@@ -10,8 +10,8 @@
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginTop="@dimen/margin_15"
+        android:gravity="center"
         android:text="Welcome to Venus Global Multi Speciality Clinic"
         android:textColor="#848484"
         android:textSize="35sp"
@@ -44,13 +44,28 @@
             android:background="@null"
             android:src="@drawable/left_scroll_welcome" />
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/viewPager"
+        <FrameLayout
             android:layout_width="1100dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:layout_weight="1"></android.support.v4.view.ViewPager>
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvNoDoctors"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="No doctors found."
+                android:textColor="@android:color/black"
+                android:textSize="40sp" />
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewPager"
+                android:layout_width="1100dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@color/white"></android.support.v4.view.ViewPager>
+        </FrameLayout>
 
         <ImageButton
             android:id="@+id/ibRight"

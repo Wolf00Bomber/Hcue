@@ -15,6 +15,7 @@ import com.appdest.hcue.model.DoctorsAppointmentResponse;
 import com.appdest.hcue.model.FeedbackRequest;
 import com.appdest.hcue.model.GetDoctorAppointmentRequest;
 import com.appdest.hcue.model.GetDoctorAppointmentResponse;
+import com.appdest.hcue.model.GetDoctorRequest;
 import com.appdest.hcue.model.GetDoctors;
 import com.appdest.hcue.model.GetDoctorsResponse;
 import com.appdest.hcue.model.GetPatientAppointmentsRequest;
@@ -141,5 +142,10 @@ public interface WebAPI {
     void confirmAppointmentCancellation(@Body ConfirmCancellationRequest confirmCancellationRequest,
                                RestCallback<String> callback);
 
-
+    @Headers({
+            "Content-Type: application/json",
+            "User-Agent: Hcue"
+    })
+    @POST("/doctors/getDoctor")
+    void getDoctor(@Body GetDoctorRequest getDoctorRequest, RestCallback<GetDoctorsResponse> callback);
 }

@@ -2,10 +2,15 @@ package com.appdest.hcue.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*Sample Request URL :http://dct4avjn1lfw.cloudfront.net/doctors/getDoctors
 
 Request Method :POST*/
 public class AdminGetDoctorsRequest {
+	/*@SerializedName("DoctorID")
+	private List<Integer> DoctorID = new ArrayList<Integer>();*/
 	@SerializedName("PageSize")
 	private int PageSize;
 	@SerializedName("PageNumber")
@@ -13,6 +18,12 @@ public class AdminGetDoctorsRequest {
 	@SerializedName("HospitalID")
 	private int HospitalID;
 
+	/*public List<Integer> getDoctorID() {
+		return DoctorID;
+	}
+	public void setDoctorID(List<Integer> doctorID) {
+		DoctorID = doctorID;
+	}*/
 	public int getPageSize() {
 		return PageSize;
 	}

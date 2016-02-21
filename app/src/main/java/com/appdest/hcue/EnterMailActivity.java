@@ -69,6 +69,7 @@ public class EnterMailActivity extends BaseActivity implements OnClickListener
 	@Override
 	public void bindControls() 
 	{
+        tvLogin.setEnabled(false);
         if(isActivityNeedsFinish)
             return;
         h = new Handler(Looper.getMainLooper());

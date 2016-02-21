@@ -193,6 +193,7 @@ public class EnterAddressActivity extends BaseActivity implements View.OnClickLi
 
     @Override
     public void bindControls() {
+        tvLogin.setEnabled(false);
         if (isActivityNeedsFinish)
             return;
         h = new Handler(Looper.getMainLooper());

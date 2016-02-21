@@ -64,6 +64,7 @@ public class ConfirmCancelationActivity extends BaseActivity implements View.OnC
     @Override
     public void bindControls()
     {
+        tvLogin.setEnabled(false);
         Intent i = getIntent();
         if(i.hasExtra("PatientInfo") && i.hasExtra("DoctorDetails") && i.hasExtra("PatientInfo"))
         {

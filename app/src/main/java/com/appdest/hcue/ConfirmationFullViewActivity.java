@@ -42,7 +42,7 @@ public class ConfirmationFullViewActivity extends BaseActivity implements OnClic
 	@Override
 	public void bindControls() 
 	{
-
+		tvLogin.setEnabled(false);
 	}
 
 	@Override

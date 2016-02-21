@@ -9,20 +9,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:paddingBottom="10dp"
         android:paddingLeft="30dp"
-        android:gravity="center_vertical"
         android:paddingRight="30dp"
         android:paddingTop="10dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="25sp"
             android:layout_marginBottom="5dp"
             android:layout_marginRight="40dp"
             android:text="Name : "
-            android:visibility="visible"/>
+            android:textSize="25sp"
+            android:visibility="visible" />
 
         <EditText
             android:id="@+id/edtFirstName"
@@ -39,22 +39,6 @@
             android:paddingLeft="15dp"
             android:singleLine="true"
             android:textSize="35sp" />
-
-        <EditText
-            android:id="@+id/edtLastName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="15dp"
-            android:layout_weight="1"
-            android:background="@drawable/enter_email_text_feild"
-            android:hint="Last Name (Optional)"
-            android:imeOptions="actionNext"
-            android:maxLength="30"
-            android:minEms="10"
-            android:paddingLeft="15dp"
-            android:singleLine="true"
-            android:textSize="25sp"
-            android:visibility="gone"/>
     </LinearLayout>
 
     <LinearLayout
@@ -91,22 +75,22 @@
                 app:phased_mode="horizontal" />
 
             <TextView
-                android:layout_gravity="bottom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:layout_marginTop="@dimen/margin_10"
+                android:layout_gravity="bottom"
                 android:layout_marginLeft="45dp"
-                android:text="Male"/>
+                android:layout_marginTop="@dimen/margin_10"
+                android:text="Male"
+                android:textSize="16sp" />
 
             <TextView
-                android:layout_gravity="bottom|end"
                 android:layout_width="wrap_content"
-                android:layout_marginTop="@dimen/margin_10"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:layout_gravity="bottom|end"
                 android:layout_marginRight="40dp"
-                android:text="Female"/>
+                android:layout_marginTop="@dimen/margin_10"
+                android:text="Female"
+                android:textSize="16sp" />
 
         </FrameLayout>
 
@@ -170,10 +154,10 @@
         android:layout_weight="1" />
 
     <FrameLayout
-        android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="10dp">
+        android:layout_marginBottom="10dp"
+        android:visibility="visible">
 
         <include layout="@layout/alphabet_keyboard" />
 

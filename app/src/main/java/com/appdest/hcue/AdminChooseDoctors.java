@@ -54,6 +54,7 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
     private ArrayList<AdminGetDoctorsResponse.DoctorDetails> listDoctors;
     private int doctorId;
     private int count = 0;
+    private ArrayList<Integer> listSelectedDoctorIDs;
 
     @Override
     public void initializeControls() {
@@ -88,13 +89,16 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
         hospitalData = (AdminLoginResponse.DoctorAddress) getIntent().getSerializableExtra("hospitalData");
         doctorId = getIntent().getIntExtra("doctorId",0);
         tvLogin.setEnabled(false);
+        tvHome.setVisibility(View.GONE);
+        tvBack.setVisibility(View.GONE);
         tvBack.setText("Previous Page");
         tvTitle.setText("Choose Doctor(s)");
 
         tvHospitalName.setText(hospitalData.getClinicName());
-        tvAddress.setText(hospitalData.getAddress1());
+        tvAddress.setText(hospitalData.getAddress2());
         listDoctors = new ArrayList<>();
         listCalledPos = new ArrayList<>();
+        listSelectedDoctorIDs = new ArrayList<>();
         callService(PAGE_SIZE, 1, /*hospitalData.getExtDetails().getHospitalID()*/19);
 
         viewPager.setCurrentItem(0);
@@ -159,7 +163,9 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
             case R.id.btnNext :
                 if(count > 0) {
                     Intent intent = new Intent(AdminChooseDoctors.this, AdminConfirmation.class);
-                    intent.putExtra("HospitalID", hospitalData.getExtDetails().getHospitalID());
+                    intent.putExtra("hospitalData", this.hospitalData);
+                    intent.putExtra("from", "AdminDoctor");
+                    intent.putExtra("selectedDoctors", prepareSelectedDoctorsString());
                     startActivity(intent);
                 } else {
                     showToast("Please select at least one doctor.");
@@ -307,10 +313,16 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
                         if(listDoctors.get(pos).isSelected) {
                             listDoctors.get(pos).isSelected = false;
                             count--;
+                            try {
+                                listSelectedDoctorIDs.remove((Integer)listDoctors.get(pos).getDoctorID());
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
 //                            setData(pos, false);
                         } else {
                             listDoctors.get(pos).isSelected = true;
                             count++;
+                            listSelectedDoctorIDs.add((Integer) listDoctors.get(pos).getDoctorID());
 //                            setData(pos, true);
                         }
                         doctorsPagerAdapter.refreshPager();
@@ -385,12 +397,17 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
         adminGetDoctorsRequest.setPageSize(pageSize);
         adminGetDoctorsRequest.setPageNumber(pageNumber);
         adminGetDoctorsRequest.setHospitalID(hospitalId);
+//        adminGetDoctorsRequest.setDoctorID(new ArrayList<Integer>());
 
         String url = "http://dct4avjn1lfw.cloudfront.net";
         RestClient.getAPI(url).getDoctors(adminGetDoctorsRequest, new RestCallback<AdminGetDoctorsResponse>() {
             @Override
             public void failure(RestError restError) {
                 Log.e("Doctor Login", "" + restError.getErrorMessage());
+                ivRight.setAlpha(0.25f);
+                ivRight.setEnabled(false);
+                ivLeft.setAlpha(0.25f);
+                ivLeft.setEnabled(false);
             }
 
             @Override
@@ -411,6 +428,7 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
                         for (int i=0; i<pages; i++) {
                             listCalledPos.add(false);
                         }
+                        if(pages>0)
                         listCalledPos.set(0, true);
                     }
 
@@ -424,8 +442,23 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
                     }
                 } else {
                     Log.i("Response", "" + response.getReason());
+                    ivRight.setAlpha(0.25f);
+                    ivRight.setEnabled(false);
+                    ivLeft.setAlpha(0.25f);
+                    ivLeft.setEnabled(false);
                 }
             }
         });
+    }
+
+    private String prepareSelectedDoctorsString() {
+        String result = "";
+        if(listSelectedDoctorIDs != null) {
+            for(int i=0; i<listSelectedDoctorIDs.size(); i++)
+                result += ","+listSelectedDoctorIDs.get(i);
+            result = result.replaceFirst(",", "");
+        }
+        Log.e("Selected Doctors >>", result);
+        return result;
     }
 }

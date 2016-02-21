@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appdest.hcue.common.AppConstants;
+import com.appdest.hcue.model.GetDoctorRequest;
 import com.appdest.hcue.model.GetDoctors;
 import com.appdest.hcue.model.GetDoctorsResponse;
 import com.appdest.hcue.model.Speciality;
@@ -46,7 +47,7 @@ public class SelectDoctorActivity extends BaseActivity
 {
 
     private LinearLayout llMain;
-    private TextView tvHeading,tvRateYourVisit,tvTitle;
+    private TextView tvHeading,tvRateYourVisit,tvTitle,tvNoDoctors;
     private ViewPager viewPager;
     private Button btnBookAppointment,btnCancelAppointment;
     private ImageView ivLeftTime,ivRightTime;
@@ -61,6 +62,7 @@ public class SelectDoctorActivity extends BaseActivity
     private ArrayList<GetDoctorsResponse.DoctorDetail> listDoctors;
     private int selectedDoctorPos = -1; //Not selected yet
     private ArrayList<Boolean> listCalledPos;
+    private List<Integer> listDoctorIDs;
 
     @Override
     public void initializeControls()
@@ -72,7 +74,7 @@ public class SelectDoctorActivity extends BaseActivity
         tvHeading  				= (TextView)	llMain.findViewById(R.id.tvHeading);
         tvRateYourVisit  		= (TextView)	llMain.findViewById(R.id.tvRateYourVisit);
         tvTitle           		= (TextView)	llMain.findViewById(R.id.tvTitle);
-
+        tvNoDoctors             = (TextView)	llMain.findViewById(R.id.tvNoDoctors);
         ibLeft  				= (ImageButton)	llMain.findViewById(R.id.ibLeft);
         ibRight  				= (ImageButton)	llMain.findViewById(R.id.ibRight);
 
@@ -93,12 +95,9 @@ public class SelectDoctorActivity extends BaseActivity
 
         listDoctors = new ArrayList<>();
         listCalledPos = new ArrayList<>();
+        listDoctorIDs = new ArrayList<>();
 
-        Preference preference = new Preference(SelectDoctorActivity.this);
-        int hospitalID = preference.getIntFromPreference("HospitalID", 19);
-        preference.commitPreference();
-
-        callService(hospitalID, pageCount);
+        callService(pageCount);
 
         ibLeft.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,7 +114,7 @@ public class SelectDoctorActivity extends BaseActivity
                 Log.e("ibRight : ","CurrentPage: "+page);
                 if(!listCalledPos.get(page+1)) {
                     Log.e("Service called : ","PageNumber: "+page);
-                    callService(19, page + 2);
+                    callService(page + 2);
                     listCalledPos.set(page+1, true);
                 }
 
@@ -155,7 +154,7 @@ public class SelectDoctorActivity extends BaseActivity
                     ibLeft.setEnabled(true);
                     ibRight.setEnabled(true);
                     if(!listCalledPos.get(position)) {
-                        callService(19, position);
+                        callService(position);
                         listCalledPos.set(position, true);
                     }
                 }
@@ -168,26 +167,68 @@ public class SelectDoctorActivity extends BaseActivity
         });
     }
 
-    private void callService(int hospitalId, int pageNumber )
-    {
+    private void callService(int pageNumber ) {
+        int hospitalId;
+        int loginDoctorId;
+        int clinicAddressId;
+        boolean isClinic;
+        String selectedDoctors;
+
+        Preference preference = new Preference(SelectDoctorActivity.this);
+        hospitalId = preference.getIntFromPreference(Preference.SELECTED_HOSPITAL_ID, 0);
+        loginDoctorId = preference.getIntFromPreference(Preference.LOGIN_DOCTOR_ID, 0);
+        clinicAddressId = preference.getIntFromPreference(Preference.SELECTED_CLINIC_ADDRESS_ID, 0);
+        isClinic = preference.getbooleanFromPreference(Preference.IS_CLINIC, false);
+        selectedDoctors = preference.getStringFromPreference(Preference.SELECTED_DOCTORS, "");
+
         if (Connectivity.isConnected(SelectDoctorActivity.this)) {
-            getHospitalDetails(hospitalId, pageNumber);
+            if(isClinic) {
+                GetDoctorRequest getDoctorRequest = new GetDoctorRequest();
+                /*{
+				"DoctorID": 85,
+				"USRType": "KIOSK",
+				"USRId": 0,
+				"AddressID": [269]
+              }*/
+                List<Integer> addressID = new ArrayList<>();
+                addressID.add(clinicAddressId);
+                getDoctorRequest.setDoctorID(loginDoctorId);
+                getDoctorRequest.setUSRType("KIOSK");
+                getDoctorRequest.setUSRId(0);
+                getDoctorRequest.setAddressID(addressID);
+
+                getDoctorClinics(getDoctorRequest, pageNumber);
+
+            } else {
+                final GetDoctors getDoctorsRequest = new GetDoctors();
+                getDoctorsRequest.setHospitalID(hospitalId);
+                getDoctorsRequest.setPageNumber(pageNumber);
+                getDoctorsRequest.setPageSize(PAGE_SIZE);
+
+                if (!TextUtils.isEmpty(selectedDoctors)) {
+                    String[] ids = selectedDoctors.split(",");
+                    for (int i = 0; i < ids.length; i++)
+                        listDoctorIDs.add(Integer.parseInt(ids[i]));
+                    getDoctorsRequest.setDoctorID(listDoctorIDs);
+                }
+                getHospitalDetails(getDoctorsRequest, pageNumber);
+            }
         } else {
             Toast.makeText(SelectDoctorActivity.this, "No Internet Connection", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void getHospitalDetails(int hospitalId, int pageNumber)
-    {
-        final GetDoctors getDoctorsRequest = new GetDoctors();
-        getDoctorsRequest.setHospitalID(hospitalId);
-        getDoctorsRequest.setPageNumber(pageNumber);
-        getDoctorsRequest.setPageSize(PAGE_SIZE);
-
+    private void getHospitalDetails(GetDoctors getDoctorsRequest, int pageNumber) {
         String url = "http://dct4avjn1lfw.cloudfront.net";
         RestClient.getAPI(url).getDoctors(getDoctorsRequest, new RestCallback<GetDoctorsResponse>() {
             @Override
             public void failure(RestError restError) {
+                viewPager.setVisibility(View.GONE);
+
+                ibRight.setAlpha(0.25f);
+                ibRight.setEnabled(false);
+                ibLeft.setAlpha(0.25f);
+                ibLeft.setEnabled(false);
                 Log.e("Doctor Appointement", "" + restError.getErrorMessage());
                 Toast.makeText(SelectDoctorActivity.this, "Couldn't get the List of Doctors.", Toast.LENGTH_SHORT).show();
             }
@@ -195,6 +236,7 @@ public class SelectDoctorActivity extends BaseActivity
             @Override
             public void success(GetDoctorsResponse listDoctorsRequest, Response response) {
                 if (listDoctorsRequest != null) {
+                    viewPager.setVisibility(View.VISIBLE);
                     pageCount++;
                     if(maxDoctors == 0) {
                         maxDoctors = listDoctorsRequest.DoctorCount;
@@ -224,6 +266,70 @@ public class SelectDoctorActivity extends BaseActivity
                     tvTitle.setText("Welcome to " + listDoctorsRequest.hospitalInfo.hospitalDetails.HospitalName);
                 } else {
                     Log.i("Response", "" + response.getReason());
+                    viewPager.setVisibility(View.GONE);
+                    ibRight.setAlpha(0.25f);
+                    ibRight.setEnabled(false);
+                    ibLeft.setAlpha(0.25f);
+                    ibLeft.setEnabled(false);
+                }
+            }
+        });
+    }
+
+    private void getDoctorClinics(GetDoctorRequest getDoctorsRequest, int pageNumber) {
+        String url = "http://dct4avjn1lfw.cloudfront.net";
+        RestClient.getAPI(url).getDoctor(getDoctorsRequest, new RestCallback<GetDoctorsResponse>() {
+            @Override
+            public void failure(RestError restError) {
+                viewPager.setVisibility(View.GONE);
+
+                ibRight.setAlpha(0.25f);
+                ibRight.setEnabled(false);
+                ibLeft.setAlpha(0.25f);
+                ibLeft.setEnabled(false);
+                Log.e("Doctor Appointement", "" + restError.getErrorMessage());
+                Toast.makeText(SelectDoctorActivity.this, "Couldn't get the List of Doctors.", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void success(GetDoctorsResponse listDoctorsRequest, Response response) {
+                if (listDoctorsRequest != null) {
+                    viewPager.setVisibility(View.VISIBLE);
+                    pageCount++;
+                    if(maxDoctors == 0) {
+                        maxDoctors = listDoctorsRequest.DoctorCount;
+                        Log.e("maxDoctors : ",""+maxDoctors);
+                        int pages = maxDoctors/6+(maxDoctors%6==0?0:1);
+                        if(pages<=1) {//No left right swipe
+
+                            ibRight.setAlpha(0.25f);
+                            ibRight.setEnabled(false);
+                            ibLeft.setAlpha(0.25f);
+                            ibLeft.setEnabled(false);
+                        }
+                        for (int i=0; i<pages; i++) {
+                            listCalledPos.add(false);
+                        }
+                        if(pages>0)
+                        listCalledPos.set(0,true);
+                    }
+                    listDoctors.addAll(listDoctorsRequest.arrDoctorDetails);
+                    Log.e("List size : ", ""+listDoctors.size());
+                    if(doctorsPagerAdapter==null) {
+                        doctorsPagerAdapter = new DoctorsPagerAdapter();
+                        viewPager.setAdapter(doctorsPagerAdapter);
+                    } else {
+                        doctorsPagerAdapter.refreshPager();
+                    }
+
+                    tvTitle.setText("Welcome to " + listDoctorsRequest.hospitalInfo.hospitalDetails.HospitalName);
+                } else {
+                    Log.i("Response", "" + response.getReason());
+                    viewPager.setVisibility(View.GONE);
+                    ibRight.setAlpha(0.25f);
+                    ibRight.setEnabled(false);
+                    ibLeft.setAlpha(0.25f);
+                    ibLeft.setEnabled(false);
                 }
             }
         });

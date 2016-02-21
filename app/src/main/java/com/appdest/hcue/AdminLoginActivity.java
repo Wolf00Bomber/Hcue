@@ -17,22 +17,21 @@ import com.appdest.hcue.services.RestCallback;
 import com.appdest.hcue.services.RestClient;
 import com.appdest.hcue.services.RestError;
 import com.appdest.hcue.utils.Connectivity;
+import com.appdest.hcue.utils.Preference;
 
 import retrofit.client.Response;
 
 /**
  * Created by shyamprasadg on 06/02/16.
  */
-public class AdminLoginActivity extends BaseActivity implements View.OnClickListener
-{
+public class AdminLoginActivity extends BaseActivity implements View.OnClickListener {
     private LinearLayout llLogin;
     private EditText edtEnterEmailID,edtEnterPassword;
     private Button btnSubmit;
     private TextView tvFailureMessage;
 
     @Override
-    public void initializeControls()
-    {
+    public void initializeControls() {
         llLogin = (LinearLayout) inflater.inflate(R.layout.admin_login, null);
         llBody.addView(llLogin);
 
@@ -47,21 +46,17 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
         edtEnterEmailID.setTypeface(AppConstants.WALSHEIM_LIGHT);
         edtEnterPassword.setTypeface(AppConstants.WALSHEIM_LIGHT);
         tvFailureMessage.setTypeface(AppConstants.WALSHEIM_LIGHT);
+    }
 
+    @Override
+    public void bindControls() {
+        tvLogin.setEnabled(false);
         llTop.setVisibility(View.GONE);
     }
 
     @Override
-    public void bindControls()
-    {
-        tvLogin.setEnabled(false);
-    }
-
-    @Override
-    public void onClick(View v)
-    {
-        switch (v.getId())
-        {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.btnSubmit:
                 hideKeyBoard(btnSubmit);
                 validateSignIn();
@@ -78,7 +73,6 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
         } else if(!isValidEmail(email)) {
             showToast("Please enter valid email ID.");
         } else {
-            //need to call Web Service
             callService(email, password);
         }
     }
@@ -111,17 +105,20 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
             public void success(AdminLoginResponse adminLoginResponse, Response response) {
                 hideLoader();
                 if (adminLoginResponse != null) {
+                    int loginDoctorID = adminLoginResponse.getArrDoctor().get(0).DoctorID;
+                    String phone =  adminLoginResponse.getArrDoctorPhone().get(0).getPhNumber()+"";
+                    Log.e("AdminLoginActivity", "loginDoctorID = "+loginDoctorID);
                     tvFailureMessage.setVisibility(View.GONE);
                     Intent intent = new Intent(AdminLoginActivity.this, AdminChooseHospital.class);
                     intent.putExtra("hospitals", adminLoginResponse.getArrDoctorAddress());
-                    intent.putExtra("doctorId", adminLoginResponse.getArrDoctor().get(0).DoctorID);
+                    intent.putExtra("doctorId", loginDoctorID);
                     intent.putExtra("doctor", adminLoginResponse.getArrDoctor().get(0));
+                    intent.putExtra("phone",phone);
                     startActivity(intent);
                     finish();
                 } else {
                     Log.i("Response", "" + response.getReason());
                 }
-
             }
         });
     }

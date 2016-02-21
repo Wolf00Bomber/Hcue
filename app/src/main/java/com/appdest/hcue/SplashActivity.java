@@ -2,7 +2,6 @@ package com.appdest.hcue;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -24,23 +23,17 @@ import java.util.List;
 import retrofit.client.Response;
 
 
-public class SplashActivity extends Activity
-{
+public class SplashActivity extends Activity {
     private final int SPLASH_TIME = 2000;
-    private Preference preference;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
         initializeFonts();
-        preference = new Preference(this);
-        
     }
 
-    private void initializeFonts()
-    {
+    private void initializeFonts() {
         AppConstants.WALSHEIM_BOLD 				= Typeface.createFromAsset(getApplicationContext().getAssets(), "GT-Walsheim-Bold.ttf");;
         AppConstants.WALSHEIM_BOLD_OBLIQUE 		= Typeface.createFromAsset(getApplicationContext().getAssets(), "GT-Walsheim-Bold-Oblique.ttf");;
         AppConstants.WALSHEIM_LIGHT_OBLIQUE 	= Typeface.createFromAsset(getApplicationContext().getAssets(), "GT-Walsheim-Light-Oblique.ttf");;
@@ -49,18 +42,14 @@ public class SplashActivity extends Activity
         AppConstants.WALSHEIM_MEDIUM			= Typeface.createFromAsset(getApplicationContext().getAssets(), "GT-Walsheim-Medium.ttf");;
         AppConstants.LATO 						= Typeface.createFromAsset(getApplicationContext().getAssets(), "Lato-Regular.ttf");;
         AppConstants.MYRAIDPRO_REGULAR 			= Typeface.createFromAsset(getApplicationContext().getAssets(), "MyriadPro-Regular.otf");;
-
     }
 
     @Override
     public void onPause() {
         super.onPause();
-
     }
 
-    private void getSpecialityDetails()
-    {
-
+    private void getSpecialityDetails() {
         String url = "http://dct4avjn1lfw.cloudfront.net";
 
         RestClient.getAPI(url).getSpecialityMap(new RestCallback<List<Speciality>>() {
@@ -89,31 +78,36 @@ public class SplashActivity extends Activity
     @Override
     protected void onResume() {
         super.onResume();
-        if(Connectivity.isConnected(SplashActivity.this))
-        {
+        if(Connectivity.isConnected(SplashActivity.this)) {
             getSpecialityDetails();
-        }
-        else
-        {
+        } else {
             Toast.makeText(SplashActivity.this, getString(R.string.internet_unavailable), Toast.LENGTH_SHORT).show();
             moveToNextScreen();
         }
-
     }
 
+    public void moveToNextScreen() {
+        Preference preference = new Preference(SplashActivity.this);
+        if(preference.getbooleanFromPreference(Preference.IS_LOGGEDIN, false)) {
+            new Handler().postDelayed(new Runnable() {
 
-    public void moveToNextScreen() 
-    {
-        new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent splashActivity = new Intent(getApplicationContext(), SelectDoctorActivity.class);
+                    startActivity(splashActivity);
+                    finish();
+                }
+            }, SPLASH_TIME/2);
+        } else {
+            new Handler().postDelayed(new Runnable() {
 
-            @Override
-            public void run() {
-                Intent splashActivity = new Intent(getApplicationContext(), SelectDoctorActivity.class);
-                startActivity(splashActivity);
-                finish();
-            }
-        }, SPLASH_TIME/2);
-          // New User
+                @Override
+                public void run() {
+                    Intent splashActivity = new Intent(getApplicationContext(), AdminLoginActivity.class);
+                    startActivity(splashActivity);
+                    finish();
+                }
+            }, SPLASH_TIME/2);
+        }
     }
-
 }

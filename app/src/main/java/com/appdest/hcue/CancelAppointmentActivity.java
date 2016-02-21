@@ -77,6 +77,7 @@ public class CancelAppointmentActivity extends BaseActivity
     @Override
     public void bindControls()
     {
+        tvLogin.setEnabled(false);
         Intent i = getIntent();
         if(i.hasExtra("PatientInfo") && i.hasExtra("DoctorDetails"))
         {

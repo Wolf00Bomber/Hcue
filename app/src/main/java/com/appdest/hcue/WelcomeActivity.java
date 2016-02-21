@@ -53,6 +53,7 @@ public class WelcomeActivity extends BaseActivity
 	@Override
 	public void bindControls() 
 	{
+		tvLogin.setEnabled(false);
 		btnQuickAppointment.setOnClickListener(new OnClickListener() 
 		{
 			

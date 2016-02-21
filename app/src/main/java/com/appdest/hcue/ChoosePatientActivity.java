@@ -68,13 +68,14 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
 
         if("Feedback".equalsIgnoreCase(fromActivity) || "CancelAppointment".equalsIgnoreCase(fromActivity))
         {
-            llAddPatient.setVisibility(View.INVISIBLE);
+            llAddPatient.setVisibility(View.GONE);
         }
 	}
 
 	@Override
 	public void bindControls() 
 	{
+		tvLogin.setEnabled(false);
 		if(isActivityNeedsFinish)
 			return;
 		adapter = new GridAdapter();

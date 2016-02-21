@@ -20,6 +20,6 @@ public class FeedbackConfirmationActivity extends BaseActivity{
 
     @Override
     public void bindControls() {
-
+        tvLogin.setEnabled(false);
     }
 }

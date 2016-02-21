@@ -41,7 +41,7 @@ import retrofit.client.Response;
 
 public class RegistrationActivity extends BaseActivity implements OnClickListener
 {
-	EditText edtFirstName, edtLastName, edtAge;
+	EditText edtFirstName, edtAge;
 	Button  btnDone,btnClearFields;
 	LinearLayout llUserDetails, llKeyboard,llNumbers,llSpecilaKeyboard;
 	View focusedView;
@@ -88,7 +88,6 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 		llKeyboard			=	(LinearLayout)	llUserDetails.findViewById(R.id.llKeyBoard);
 		llSpecilaKeyboard	=	(LinearLayout)	llUserDetails.findViewById(R.id.llSpecialKeyBoard);
 		edtFirstName 		= 	(EditText)		llUserDetails.findViewById(R.id.edtFirstName);
-		edtLastName 		= 	(EditText)		llUserDetails.findViewById(R.id.edtLastName);
 
 		edtAge 				= 	(EditText)		llUserDetails.findViewById(R.id.edtAge);
 		btnDone 			=	(Button)		llUserDetails.findViewById(R.id.btnDone);
@@ -103,11 +102,9 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 		llSpecilaKeyboard.setVisibility(View.GONE);
 		setSpecificTypeFace(llUserDetails, AppConstants.LATO);
 		edtFirstName.setTypeface(AppConstants.WALSHEIM_LIGHT);
-		edtLastName.setTypeface(AppConstants.WALSHEIM_LIGHT);
 
 		edtAge.setOnClickListener(this);
 		edtFirstName.setOnClickListener(this);
-		edtLastName.setOnClickListener(this);
 		btnClearFields.setOnClickListener(this);
 		btnDone.setOnClickListener(this);
 
@@ -142,6 +139,7 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
     @Override
 	public void bindControls()
 	{
+		tvLogin.setEnabled(false);
         if(isActivityNeedsFinish)
             return;
 
@@ -167,25 +165,6 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 				}
 			}
 		});
-		edtLastName.setOnFocusChangeListener(new OnFocusChangeListener() {
-
-			@Override
-			public void onFocusChange(final View v, boolean hasFocus) {
-				hideKeyBoard(v);
-				h.postDelayed(new Runnable() {
-
-					@Override
-					public void run() {
-						hideKeyBoard(v);
-					}
-				}, 50);
-				if(hasFocus){
-					if(llKeyboard.getVisibility() == View.GONE)
-						llNumbers.setVisibility(View.GONE);
-					llKeyboard.setVisibility(View.VISIBLE);
-				}
-			}
-		});
 		edtAge.setOnFocusChangeListener(new OnFocusChangeListener() {
 
 			@Override
@@ -203,9 +182,13 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 					if(llNumbers.getVisibility() == View.GONE)
 						llNumbers.startAnimation(slide_up);
 					llNumbers.setVisibility(View.VISIBLE);
-					llKeyboard.startAnimation(slide_down);
+
+					if(llKeyboard.getVisibility() == View.VISIBLE)
+						llKeyboard.startAnimation(slide_down);
 					llKeyboard.setVisibility(View.GONE);
-					llSpecilaKeyboard.startAnimation(slide_down);
+
+					if(llSpecilaKeyboard.getVisibility() == View.VISIBLE)
+						llSpecilaKeyboard.startAnimation(slide_down);
 					llSpecilaKeyboard.setVisibility(View.GONE);
 
 				}
@@ -214,11 +197,40 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 
 		hideKeyBoard(edtAge);
 		hideKeyBoard(edtFirstName);
-		hideKeyBoard(edtLastName);
 
 		edtAge.clearFocus();
 		edtFirstName.clearFocus();
-		edtLastName.clearFocus();
+
+		edtAge.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				hideKeyBoard(v);
+			}
+		});
+		edtFirstName.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				hideKeyBoard(v);
+			}
+		});
+
+		edtAge.setOnTouchListener(new View.OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				edtAge.clearFocus();
+				hideKeyBoard(v);
+				return false;
+			}
+		});
+
+		edtFirstName.setOnTouchListener(new View.OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				edtFirstName.clearFocus();
+				hideKeyBoard(v);
+				return false;
+			}
+		});
 	}
 
 	public void keyboardClick(View v)
@@ -311,7 +323,6 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 	{
 		switch (v.getId()) {
 			case R.id.edtFirstName:
-			case R.id.edtLastName:
 				v.requestFocus();
 				hideKeyBoard(v);
 				h.postDelayed(new Runnable() {
@@ -374,7 +385,6 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 				break;
 			case R.id.btnClearFields:
 				edtFirstName.getText().clear();
-				edtLastName.getText().clear();
 				edtAge.getText().clear();
 				break;
 			default:
@@ -401,12 +411,10 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
             addPatientRequest.setUSRId(0);
 
             String firstName = edtFirstName.getText().toString();
-            String lastName = edtLastName.getText().toString();
             addPatientRequest.patientDetails.setFirstName(firstName);
-            addPatientRequest.patientDetails.setLastName(lastName);
             addPatientRequest.patientDetails.setAge(Integer.parseInt(edtAge.getText().toString()));
             addPatientRequest.patientDetails.setTermsAccepted("Y");
-            addPatientRequest.patientDetails.setFullName(firstName + " " + lastName);
+            addPatientRequest.patientDetails.setFullName(firstName);
             addPatientRequest.patientDetails.setGender(psbHorizontal.getCurrentItem() == 0 ? "M" : "Y");
             addPatientRequest.patientDetails.setMobileID(phNumber);
 

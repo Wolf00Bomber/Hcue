@@ -118,6 +118,7 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 	@Override
 	public void bindControls() 
 	{
+		tvLogin.setEnabled(false);
         if(isActivityNeedsFinish)
             return;
 	}

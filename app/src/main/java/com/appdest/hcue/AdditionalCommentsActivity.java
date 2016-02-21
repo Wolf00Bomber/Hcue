@@ -95,6 +95,7 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
     @Override
     public void bindControls()
     {
+        tvLogin.setEnabled(false);
         if(isActivityNeedsFinish)
             return;
         h = new Handler(Looper.getMainLooper());
