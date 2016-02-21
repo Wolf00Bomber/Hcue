@@ -52,7 +52,6 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
     private Number phNumber;
     private String PhoneCode;
     private GetPatientResponse getPatientResponse;
-    boolean isActivityNeedsFinish = false;
     private PhasedSeekBar psbHorizontal;
     private boolean isNoMobile;
 
@@ -60,26 +59,6 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 	@Override
 	public void initializeControls()
 	{
-        Intent i = getIntent();
-        if(i.hasExtra("DoctorDetails") && i.hasExtra("PhoneNumber"))
-        {
-            selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail) i.getSerializableExtra("DoctorDetails");
-            phNumber = (Number) i.getSerializableExtra("PhoneNumber");
-            PhoneCode = i.getStringExtra("PhoneCode");
-            if(i.hasExtra("GetPatientResponse"))
-                getPatientResponse = (GetPatientResponse) i.getSerializableExtra("GetPatientResponse");
-            if(i.hasExtra("NoMobile"))
-            {
-                isNoMobile = true;
-            }
-        }
-        else
-        {
-            isActivityNeedsFinish = true;
-            finish();
-            return;
-        }
-
 		llUserDetails = (LinearLayout) inflater.inflate(R.layout.user_details_activity, null);
 		llBody.addView(llUserDetails);
 
@@ -119,11 +98,11 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
         psbHorizontal.setListener(new PhasedListener() {
             @Override
             public void onPositionSelected(int position) {
-                /*if (position == 0) {
+                if (position == 0) {
 
                 } else if (position == 1) {
 
-                }*/
+                }
             }
         });
 
@@ -140,8 +119,22 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 	public void bindControls()
 	{
 		tvLogin.setEnabled(false);
-        if(isActivityNeedsFinish)
-            return;
+		Intent i = getIntent();
+		if(i.hasExtra("DoctorDetails") && i.hasExtra("PhoneNumber"))
+		{
+			selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail) i.getSerializableExtra("DoctorDetails");
+			phNumber = (Number) i.getSerializableExtra("PhoneNumber");
+			PhoneCode = i.getStringExtra("PhoneCode");
+			if(i.hasExtra("GetPatientResponse"))
+				getPatientResponse = (GetPatientResponse) i.getSerializableExtra("GetPatientResponse");
+			if(i.hasExtra("NoMobile"))
+			{
+				isNoMobile = true;
+			}
+		}
+		else{
+            finish(); return;
+		}
 
 		h = new Handler(Looper.getMainLooper());
 
@@ -415,7 +408,7 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
             addPatientRequest.patientDetails.setAge(Integer.parseInt(edtAge.getText().toString()));
             addPatientRequest.patientDetails.setTermsAccepted("Y");
             addPatientRequest.patientDetails.setFullName(firstName);
-            addPatientRequest.patientDetails.setGender(psbHorizontal.getCurrentItem() == 0 ? "M" : "Y");
+            addPatientRequest.patientDetails.setGender(psbHorizontal.getCurrentItem() == 0 ? "M" : "F");
             addPatientRequest.patientDetails.setMobileID(phNumber);
 
             if(isNoMobile)
@@ -463,6 +456,7 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
         {
             e.printStackTrace();
             Toast.makeText(RegistrationActivity.this, "Patient Registration Failed...", Toast.LENGTH_LONG).show();
+            hideLoader();
         }
 	}
 
