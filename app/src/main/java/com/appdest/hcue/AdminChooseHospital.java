@@ -19,6 +19,8 @@ import com.appdest.hcue.model.AdminLoginResponse;
 import com.github.siyamed.shapeimageview.mask.PorterShapeImageView;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by Vinsan on 2/12/2016.
@@ -31,7 +33,7 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
     private Button btnCancel, btnNext;
     private ViewPager viewPager;
     private HospitalPagerAdapter hospitalPagerAdapter;
-    private ArrayList<AdminLoginResponse.DoctorAddress> hospitalList;
+    private List<AdminLoginResponse.DoctorAddress> hospitalList;
     private AdminLoginResponse.DoctorAddress hospitalData;
     private int doctorId;
 
@@ -70,6 +72,15 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
     @Override
     public void bindControls() {
         hospitalList = (ArrayList<AdminLoginResponse.DoctorAddress>)getIntent().getSerializableExtra("hospitals");
+
+        Iterator<AdminLoginResponse.DoctorAddress> iterator =  hospitalList.iterator();
+        while (iterator.hasNext())
+        {
+            if(!iterator.next().getActive().equalsIgnoreCase("Y"))
+            {
+                iterator.remove();
+            }
+        }
         doctorId = getIntent().getIntExtra("doctorId",0);
         AdminLoginResponse.Doctor doctor = (AdminLoginResponse.Doctor) getIntent().getSerializableExtra("doctor");
         tvHome.setVisibility(View.GONE);

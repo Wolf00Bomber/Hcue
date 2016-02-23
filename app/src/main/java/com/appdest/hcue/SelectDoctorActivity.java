@@ -65,6 +65,7 @@ public class SelectDoctorActivity extends BaseActivity
     private ArrayList<Boolean> listCalledPos;
     private List<Integer> listDoctorIDs;
     private boolean isClinic;
+    private String clinic_name ;
     @Override
     public void initializeControls()
     {
@@ -173,7 +174,7 @@ public class SelectDoctorActivity extends BaseActivity
         int loginDoctorId;
         int clinicAddressId;
 //        boolean isClinic;
-        String selectedDoctors;
+        String selectedDoctors ;
 
         Preference preference = new Preference(SelectDoctorActivity.this);
         hospitalId = preference.getIntFromPreference(Preference.SELECTED_HOSPITAL_ID, 0);
@@ -181,6 +182,7 @@ public class SelectDoctorActivity extends BaseActivity
         clinicAddressId = preference.getIntFromPreference(Preference.SELECTED_CLINIC_ADDRESS_ID, 0);
         isClinic = preference.getbooleanFromPreference(Preference.IS_CLINIC, false);
         selectedDoctors = preference.getStringFromPreference(Preference.SELECTED_DOCTORS, "");
+        clinic_name = preference.getStringFromPreference(Preference.CLINIC_NAME, "");
 
         if (Connectivity.isConnected(SelectDoctorActivity.this)) {
             if(isClinic) {
@@ -335,7 +337,10 @@ public class SelectDoctorActivity extends BaseActivity
                     {
                         e.printStackTrace();
                     }
-                    tvTitle.setText("Welcome to " + hospitalName);
+                    if(isClinic)
+                        tvTitle.setText("Welcome to " + clinic_name);
+                    else
+                        tvTitle.setText("Welcome to " + hospitalName);
                 } else {
                     Log.i("Response", "" + response.getReason());
                     viewPager.setVisibility(View.GONE);

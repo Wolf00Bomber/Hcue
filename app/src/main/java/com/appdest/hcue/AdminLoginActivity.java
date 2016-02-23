@@ -114,8 +114,12 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
             public void success(AdminLoginResponse adminLoginResponse, Response response) {
                 hideLoader();
                 if (adminLoginResponse != null) {
+                    String phone = null ;
                     int loginDoctorID = adminLoginResponse.getArrDoctor().get(0).DoctorID;
-                    String phone =  adminLoginResponse.getArrDoctorPhone().get(0).getPhNumber()+"";
+                    if(adminLoginResponse.getArrDoctorPhone() != null && !adminLoginResponse.getArrDoctorPhone().isEmpty())
+                        phone =  adminLoginResponse.getArrDoctorPhone().get(0).getPhNumber()+"";
+                    else
+                        phone = "";
                     Log.e("AdminLoginActivity", "loginDoctorID = "+loginDoctorID);
                     tvFailureMessage.setVisibility(View.GONE);
                     Intent intent = new Intent(AdminLoginActivity.this, AdminChooseHospital.class);

@@ -90,6 +90,7 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
         slide_up 	= AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up);
         slide_down  = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_down);
 
+
     }
 
     @Override

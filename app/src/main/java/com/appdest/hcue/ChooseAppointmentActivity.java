@@ -64,6 +64,7 @@ public class ChooseAppointmentActivity extends BaseActivity {
     private Number patientId;
 
     boolean isActivityNeedsFinish = false;
+    public static Date selected_date ;
 
     private Number getPatientId(AddPatientResponse addPatientResponse)
     {
@@ -102,6 +103,8 @@ public class ChooseAppointmentActivity extends BaseActivity {
     @Override
     public void initializeControls()
     {
+        selected_date = new Date();
+        selected_date.setTime(System.currentTimeMillis());
         Intent i = getIntent();
         if(i.hasExtra("DoctorDetails") && i.hasExtra("PhoneNumber") && i.hasExtra("PatientInfo"))
         {
@@ -280,6 +283,7 @@ public class ChooseAppointmentActivity extends BaseActivity {
 
     private void populateTimeSlots(Date date)
     {
+        selected_date = date ;
         tvNoSlots.setVisibility(View.GONE);
         pBar.setVisibility(View.VISIBLE);
         mViewPager.setVisibility(View.INVISIBLE);

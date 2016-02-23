@@ -107,6 +107,13 @@ public class CustomCalendarView extends LinearLayout
         grid.setAdapter(adapter);
         rvDateTitle.setLayoutParams(new RelativeLayout.LayoutParams(d.getIntrinsicWidth(), d.getIntrinsicHeight()));
 
+        btnNext.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override

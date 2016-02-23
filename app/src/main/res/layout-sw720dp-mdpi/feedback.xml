@@ -40,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
-                    android:gravity="center"
+                    android:gravity="center_vertical"
                     android:text="Dr P.Venkata Krishna"
                     android:textColor="@android:color/black"
                     android:textSize="40sp"

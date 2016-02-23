@@ -51,6 +51,7 @@ public class Preference {
 	public static String SELECTED_CLINIC_ADDRESS_ID = "SELECTED_CLINIC_ADDRESS_ID"; //integer
 	public static String SELECTED_HOSPITAL_ID = "SELECTED_HOSPITAL_ID"; //integer
 	public static String SELECTED_DOCTORS = "SELECTED_DOCTORS"; //string
+	public static String CLINIC_NAME = "CLINIC_NAME"; //string
 
 	
 	public Preference(Context context) {

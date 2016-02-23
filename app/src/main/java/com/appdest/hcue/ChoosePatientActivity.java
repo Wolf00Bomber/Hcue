@@ -51,6 +51,13 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
 
         if("Feedback".equalsIgnoreCase(fromActivity) || "CancelAppointment".equalsIgnoreCase(fromActivity))
         {
+            if("Feedback".equalsIgnoreCase(fromActivity))
+        {
+            tvTitle.setText("Choose patient to give feedback");
+        }else
+        {
+            tvTitle.setText("Choose patient to cacel appointment");
+        }
             llAddPatient.setVisibility(View.GONE);
         }else
         {

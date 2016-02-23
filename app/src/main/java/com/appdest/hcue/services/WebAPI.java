@@ -141,7 +141,7 @@ public interface WebAPI {
     })
     @POST("/doctors/updtDoctorAppointmentsStatus")
     void confirmAppointmentCancellation(@Body ConfirmCancellationRequest confirmCancellationRequest,
-                               RestCallback<String> callback);
+                                        RestCallback<String> callback);
 
     @Headers({
             "Content-Type: application/json",

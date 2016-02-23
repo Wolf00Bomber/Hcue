@@ -22,7 +22,7 @@ public class AdminConfirmation extends BaseActivity implements View.OnClickListe
     private int hospitalID, loginDoctorID, clinicID;
     private AdminLoginResponse.DoctorAddress hospitalData;
     private boolean isClinic;
-    private String selectedDoctors;
+    private String selectedDoctors , selected_clinic_name;
     @Override
     public void initializeControls() {
         layout = (LinearLayout) inflater.inflate(R.layout.admin_confirmation, null);
@@ -50,6 +50,7 @@ public class AdminConfirmation extends BaseActivity implements View.OnClickListe
                 clinicID = hospitalData.getAddressID();
                 hospitalID = 0;
                 isClinic = true;
+                selected_clinic_name = hospitalData.getClinicName();
             } else if(from.equalsIgnoreCase("AdminDoctor")) {
                 hospitalData = (AdminLoginResponse.DoctorAddress) intent.getSerializableExtra("hospitalData");
                 loginDoctorID = intent.getIntExtra("doctorId",0);
@@ -57,6 +58,7 @@ public class AdminConfirmation extends BaseActivity implements View.OnClickListe
                 clinicID = 0;
                 hospitalID = hospitalData.getExtDetails().getHospitalID();
                 isClinic = false;
+                selected_clinic_name = "";
             }
         }
 
@@ -85,6 +87,7 @@ public class AdminConfirmation extends BaseActivity implements View.OnClickListe
                 preference.saveIntInPreference(Preference.SELECTED_CLINIC_ADDRESS_ID, clinicID);
                 preference.saveIntInPreference(Preference.SELECTED_HOSPITAL_ID, hospitalID);
                 preference.saveStringInPreference(Preference.SELECTED_DOCTORS, selectedDoctors);
+                preference.saveStringInPreference(Preference.CLINIC_NAME, selected_clinic_name);
                 preference.commitPreference();
 
                 Log.e("isClinic", ""+isClinic);

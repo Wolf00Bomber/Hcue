@@ -75,7 +75,6 @@
             android:minEms="10"
             android:paddingLeft="15dp"
             android:singleLine="true"
-            android:text="KioskTest@appdest.com"
             android:textSize="28sp" />
 
         <EditText
@@ -92,7 +91,6 @@
             android:minEms="10"
             android:paddingLeft="15dp"
             android:singleLine="true"
-            android:text="123456"
             android:textSize="28sp" />
 
         <Button

@@ -69,6 +69,8 @@
                 android:layout_weight="1" />
 
             <LinearLayout
+                android:gravity="center"
+                android:layout_marginLeft="35dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -83,7 +85,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_width="60dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/selected_time_col_bg" />
 
@@ -106,7 +108,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_width="60dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/selected_time_bg" />
 
@@ -129,7 +131,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
+                        android:layout_width="60dp"
                         android:layout_height="wrap_content"
                         android:background="@drawable/selected_time_gcol_bg" />
 
@@ -194,7 +196,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:gravity="center"
-                android:text="NA"
+                android:text=""
                 android:textSize="20sp" />
 
         </LinearLayout>
