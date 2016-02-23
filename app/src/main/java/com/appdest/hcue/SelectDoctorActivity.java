@@ -64,7 +64,7 @@ public class SelectDoctorActivity extends BaseActivity
     private int selectedDoctorPos = -1; //Not selected yet
     private ArrayList<Boolean> listCalledPos;
     private List<Integer> listDoctorIDs;
-
+    private boolean isClinic;
     @Override
     public void initializeControls()
     {
@@ -172,7 +172,7 @@ public class SelectDoctorActivity extends BaseActivity
         int hospitalId;
         int loginDoctorId;
         int clinicAddressId;
-        boolean isClinic;
+//        boolean isClinic;
         String selectedDoctors;
 
         Preference preference = new Preference(SelectDoctorActivity.this);
@@ -438,8 +438,10 @@ public class SelectDoctorActivity extends BaseActivity
 
         @Override
         public int getCount() {
-            /*if(doctorDetails != null && doctorDetails.size() > 0)
+           /* if(doctorDetails != null && doctorDetails.size() > 0 && doctorDetails.size()<=6)
                 return doctorDetails.size();*/
+            if(maxDoctors == 1 || isClinic)
+                return 1;
             return 6;
         }
 
@@ -479,7 +481,7 @@ public class SelectDoctorActivity extends BaseActivity
             int gridItemPos = pageNumber*6+pos;
             Log.e("GRID ITEM POSITION :", "" + gridItemPos);
             if(gridItemPos>=maxDoctors)
-                view.setVisibility(View.INVISIBLE);
+                view.setVisibility(isClinic?View.GONE:View.INVISIBLE);
             else {
 
                 GetDoctorsResponse.DoctorDetail doctorDetail = listDoctors.get(pos);
@@ -551,6 +553,8 @@ public class SelectDoctorActivity extends BaseActivity
             LinearLayout itemView = (LinearLayout) LayoutInflater.from(SelectDoctorActivity.this).inflate(R.layout.select_doctor_pager_item, container, false);
 
             GridView gridView = (GridView) itemView.findViewById(R.id.gridView1);
+            if(isClinic || maxDoctors==1)
+                gridView.setNumColumns(1);
             final GridAdapter gridAdapter = new GridAdapter(position);
             gridView.setAdapter(gridAdapter);
             gridView.setSelector(R.drawable.doctor);

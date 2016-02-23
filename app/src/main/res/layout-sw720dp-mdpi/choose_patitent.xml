@@ -25,6 +25,7 @@
         android:layout_marginTop="@dimen/margin_20"
         android:background="@drawable/patient_add_new"
         android:gravity="center"
+        android:visibility="gone"
         android:orientation="horizontal">
 
         <TextView

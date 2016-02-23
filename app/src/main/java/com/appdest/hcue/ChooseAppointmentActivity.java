@@ -194,6 +194,7 @@ public class ChooseAppointmentActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 mViewPager.setCurrentItem(mViewPager.getCurrentItem() - 1);
+
             }
         });
 

@@ -1,6 +1,8 @@
 package com.appdest.hcue;
 
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -24,11 +26,13 @@ import retrofit.client.Response;
 /**
  * Created by shyamprasadg on 06/02/16.
  */
+//kvk
 public class AdminLoginActivity extends BaseActivity implements View.OnClickListener {
-    private LinearLayout llLogin;
+    private LinearLayout llLogin ;
     private EditText edtEnterEmailID,edtEnterPassword;
     private Button btnSubmit;
     private TextView tvFailureMessage;
+
 
     @Override
     public void initializeControls() {
@@ -40,18 +44,23 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
         btnSubmit           = (Button) llLogin.findViewById(R.id.btnSubmit);
         tvFailureMessage    = (TextView) llLogin.findViewById(R.id.tvFailureMessage);
 
+
         btnSubmit.setOnClickListener(this);
 
         setSpecificTypeFace(llLogin, AppConstants.WALSHEIM_MEDIUM);
         edtEnterEmailID.setTypeface(AppConstants.WALSHEIM_LIGHT);
         edtEnterPassword.setTypeface(AppConstants.WALSHEIM_LIGHT);
         tvFailureMessage.setTypeface(AppConstants.WALSHEIM_LIGHT);
+
+
     }
 
     @Override
     public void bindControls() {
         tvLogin.setEnabled(false);
         llTop.setVisibility(View.GONE);
+
+
     }
 
     @Override

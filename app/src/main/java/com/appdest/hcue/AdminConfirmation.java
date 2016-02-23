@@ -15,6 +15,7 @@ import com.appdest.hcue.utils.Preference;
 /**
  * Created by Vinsan on 13/02/16.
  */
+//kvk
 public class AdminConfirmation extends BaseActivity implements View.OnClickListener {
     private LinearLayout layout;
     private Button btnGoBack, btnConfirm;
@@ -94,7 +95,7 @@ public class AdminConfirmation extends BaseActivity implements View.OnClickListe
 
                 showToast("Configuration is successfully updated.");
                 Intent intent = new Intent(AdminConfirmation.this, SelectDoctorActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY|Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 finish();
                 break;

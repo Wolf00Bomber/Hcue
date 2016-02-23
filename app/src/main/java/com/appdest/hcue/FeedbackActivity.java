@@ -172,10 +172,11 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
 
             @Override
             public void success(String feedbackResponse, Response response) {
-                Toast.makeText(FeedbackActivity.this, String.valueOf(feedbackResponse), Toast.LENGTH_LONG).show();
+               // Toast.makeText(FeedbackActivity.this, String.valueOf(feedbackResponse), Toast.LENGTH_LONG).show();
                 Intent FeedbackIntent = new Intent(FeedbackActivity.this, FeedbackConfirmationActivity.class);
                 FeedbackIntent.putExtra("DoctorDetails", selectedDoctorDetails);
                 startActivity(FeedbackIntent);
+				finish();
             }
         });
     }

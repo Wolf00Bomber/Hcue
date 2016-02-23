@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginTop="@dimen/margin_25"
-        android:text="Do you want to cancel this appointment?"
+        android:text="Do you want to cancel this appointment:"
         android:textSize="40sp"/>
 
     <LinearLayout

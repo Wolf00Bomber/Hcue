@@ -99,7 +99,10 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
                 finish();
                 return;
             }
-        }
+        }else
+		{
+			btnNoNumber.setVisibility(View.GONE);
+		}
 
 		h = new Handler(Looper.getMainLooper());
 
@@ -243,7 +246,7 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 	}
 
 	@Override
-	protected void onResume() 
+	protected void onResume()
 	{
 		super.onResume();
 		if(isActivityNeedsFinish)
@@ -266,7 +269,7 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 
 
 	@Override
-	public void onClick(final View v) 
+	public void onClick(final View v)
 	{
 		switch(v.getId())
 		{
@@ -292,7 +295,7 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
                 intent.putExtra("NoMobile", true);
 				startActivity(intent);
 				break;
-				
+
 			case R.id.tvMobile:
 				tvMobile.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check_icon, 0, R.drawable.mobile_icon, 0);
 				tvLandLine.setCompoundDrawablesWithIntrinsicBounds(R.drawable.un_check_icon, 0, R.drawable.landline_icon, 0);
@@ -311,7 +314,7 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 				edtNumber.setFilters(new InputFilter[] {new InputFilter.LengthFilter(11)});
 				edtCode.setVisibility(View.GONE);
 				break;
-					
+
 			case R.id.edtCode:
 				break;
 			case R.id.edtNumber:
@@ -329,10 +332,10 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 				if(llNumbers.getVisibility() == View.GONE)
 					llNumbers.startAnimation(slide_up);
 				break;
-				
+
 		}
-		
-		
+
+
 	}
 
     private String getPhoneCode()
@@ -405,5 +408,5 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
             }
         });
     }
-	
+
 }

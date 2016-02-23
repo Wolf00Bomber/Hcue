@@ -1,6 +1,7 @@
 package com.appdest.hcue;
 
 import android.text.Html;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -14,8 +15,11 @@ public class FeedbackConfirmationActivity extends BaseActivity{
 
         llConfirm = (LinearLayout) inflater.inflate(R.layout.feedback_confirmation, null);
         llBody.addView(llConfirm,layoutParams);
+        tvBack.setVisibility(View.GONE);
+        tvTitle.setVisibility(View.GONE);
         tvDownloadFooter    =   (TextView)  llConfirm.findViewById(R.id.tvDownloadFooter);
         tvDownloadFooter.setText(Html.fromHtml("Download our <font color=\"#F57103\">hCue Patient App</font> from Google play store"));
+
     }
 
     @Override

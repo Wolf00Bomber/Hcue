@@ -46,12 +46,15 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
         tvAdd.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 		
 		llAddPatient.setOnClickListener(this);
-
+        extractInfoFromIntent();
 		tvTitle.setText("Book Appointment for");
 
         if("Feedback".equalsIgnoreCase(fromActivity) || "CancelAppointment".equalsIgnoreCase(fromActivity))
         {
             llAddPatient.setVisibility(View.GONE);
+        }else
+        {
+            llAddPatient.setVisibility(View.VISIBLE);
         }
 	}
 
