@@ -28,6 +28,8 @@ import com.appdest.hcue.services.RestError;
 import com.appdest.hcue.utils.Connectivity;
 import com.appdest.hcue.utils.TimeUtils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -39,7 +41,7 @@ import retrofit.client.Response;
 public class CancelAppointmentActivity extends BaseActivity
 {
     private LinearLayout llCancelAppointment;
-    private TextView tvHeading,tvPatientName;
+    private TextView tvHeading,tvPatientName, tvPatient;
     private GridView gvAppointments;
     private GridAdapter gridAdapter;
     private Button btnCancelAppointment;
@@ -56,7 +58,7 @@ public class CancelAppointmentActivity extends BaseActivity
 
         tvHeading  				= (TextView)	llCancelAppointment.findViewById(R.id.tvHeading);
         tvPatientName  			= (TextView)	llCancelAppointment.findViewById(R.id.tvPatientName);
-
+        tvPatient = (TextView)	llCancelAppointment.findViewById(R.id.tvPatient);
         btnCancelAppointment 		= (Button)		llCancelAppointment.findViewById(R.id.btnCancelAppointment);
 
         tvBack.setVisibility(View.GONE);
@@ -65,9 +67,11 @@ public class CancelAppointmentActivity extends BaseActivity
 
         gvAppointments = (GridView) llCancelAppointment.findViewById(R.id.gvAppointments);
 
-        setSpecificTypeFace(llCancelAppointment, AppConstants.WALSHEIM_MEDIUM);
-        tvHeading.setTypeface(AppConstants.WALSHEIM_LIGHT);
+//        setSpecificTypeFace(llCancelAppointment, AppConstants.WALSHEIM_MEDIUM);
+        tvHeading.setTypeface(AppConstants.WALSHEIM_MEDIUM);
         btnCancelAppointment.setTypeface(AppConstants.WALSHEIM_MEDIUM);
+        tvPatientName.setTypeface(AppConstants.WALSHEIM_LIGHT);
+        tvPatient.setTypeface(AppConstants.WALSHEIM_LIGHT);
 
         tvTitle.setText("Cancel Your Appointment");
 
@@ -197,12 +201,14 @@ public class CancelAppointmentActivity extends BaseActivity
             view = LayoutInflater.from(CancelAppointmentActivity.this).inflate(R.layout.appointments_history_cell,null);
             TextView tvDoctorName = (TextView) view.findViewById(R.id.tvDoctorName);
             TextView tvDateTime = (TextView) view.findViewById(R.id.tvDateTime);
+            TextView tvTime = (TextView) view.findViewById(R.id.tvTime);
 
 
             final ImageView ivCheck = (ImageView) view.findViewById(R.id.ivCheck);
 
             tvDateTime.setTypeface(AppConstants.WALSHEIM_LIGHT);
             tvDoctorName.setTypeface(AppConstants.WALSHEIM_LIGHT);
+            tvTime.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 
             final GetPatientAppointmentsResponse.AppointmentRow data = patientAppointments.get(pos);
 
@@ -210,14 +216,12 @@ public class CancelAppointmentActivity extends BaseActivity
             long timeInstance = TimeUtils.getLongForHHMMSS(data.appointmentDetails.StartTime+":00");
             long totalInstance = dayInstance + timeInstance;
             StringBuilder sb = new StringBuilder();
-            sb.append(DateUtils.isToday(totalInstance) ? "Today" : TimeUtils.getDay(totalInstance))
-                    .append(" - ")
-                    .append(TimeUtils.format2DateProper(totalInstance));
+            sb.append(DateUtils.isToday(totalInstance) ? ("Today - ") : (TimeUtils.getDay(totalInstance) + " - " + TimeUtils.format2DateProper(totalInstance)));
 
 
             tvDoctorName.setText(data.doctorDetail.doctorFullName);
             tvDateTime.setText(sb.toString());
-
+            tvTime.setText(getFormattedTime(data.appointmentDetails.StartTime));
             ivCheck.setTag(R.id.ivCheck, pos);
 
             if(data.isSelected){
@@ -252,5 +256,16 @@ public class CancelAppointmentActivity extends BaseActivity
             return view;
         }
 
+        private String getFormattedTime(String time) {
+            String formattedTime = "";
+            try {
+                final SimpleDateFormat sdf = new SimpleDateFormat("H:mm");
+                final Date dateObj = sdf.parse(time);
+                formattedTime = new SimpleDateFormat("hh:mm A").format(dateObj);
+            } catch (final ParseException e) {
+                e.printStackTrace();
+            }
+            return formattedTime;
+        }
     }
 }

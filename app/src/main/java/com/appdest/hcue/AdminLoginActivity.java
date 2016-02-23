@@ -57,10 +57,13 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
 
     @Override
     public void bindControls() {
+        Preference preference = new Preference(AdminLoginActivity.this);
+        String email    = preference.getStringFromPreference(Preference.ADMIN_ID, "");
+        String password = preference.getStringFromPreference(Preference.ADMIN_PASSWORD, "");
+        edtEnterEmailID.setText(email);
+        edtEnterPassword.setText(password);
         tvLogin.setEnabled(false);
         llTop.setVisibility(View.GONE);
-
-
     }
 
     @Override
@@ -82,6 +85,10 @@ public class AdminLoginActivity extends BaseActivity implements View.OnClickList
         } else if(!isValidEmail(email)) {
             showToast("Please enter valid email ID.");
         } else {
+            Preference preference = new Preference(AdminLoginActivity.this);
+            preference.saveStringInPreference(Preference.ADMIN_ID, email);
+            preference.saveStringInPreference(Preference.ADMIN_PASSWORD, password);
+            preference.commitPreference();
             callService(email, password);
         }
     }

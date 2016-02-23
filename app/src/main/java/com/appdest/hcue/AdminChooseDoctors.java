@@ -166,6 +166,7 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
                     intent.putExtra("hospitalData", this.hospitalData);
                     intent.putExtra("from", "AdminDoctor");
                     intent.putExtra("selectedDoctors", prepareSelectedDoctorsString());
+                    intent.putExtra("doctorId", doctorId);
                     startActivity(intent);
                 } else {
                     showToast("Please select at least one doctor.");

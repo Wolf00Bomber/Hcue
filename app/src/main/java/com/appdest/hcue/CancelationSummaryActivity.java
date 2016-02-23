@@ -17,7 +17,7 @@ import com.appdest.hcue.model.GetPatientResponse;
 public class CancelationSummaryActivity extends BaseActivity implements View.OnClickListener
 {
     private LinearLayout llCancel;
-    private TextView tvPatientName,tvDateTime,tvDoctorName,tvHeading;
+    private TextView tvPatientName,tvDateTime,tvDoctorName,tvHeading, tvHeading2;
     private Button btnOk;
     private String PatientName, DoctorName, chosenTime;
 
@@ -31,12 +31,14 @@ public class CancelationSummaryActivity extends BaseActivity implements View.OnC
         tvDoctorName    =   (TextView)  llCancel.findViewById(R.id.tvDoctorName);
         tvDateTime      =   (TextView)  llCancel.findViewById(R.id.tvDateTime);
         tvHeading       =   (TextView)  llCancel.findViewById(R.id.tvHeading);
+        tvHeading2      =   (TextView)  llCancel.findViewById(R.id.tvHeading2);
 
         btnOk      =   (Button)    llCancel.findViewById(R.id.btnOk);
 
         btnOk.setOnClickListener(this);
         setSpecificTypeFace(llCancel, AppConstants.WALSHEIM_LIGHT);
         tvHeading.setTypeface(AppConstants.WALSHEIM_MEDIUM);
+        tvHeading2.setTypeface(AppConstants.WALSHEIM_LIGHT);
         btnOk.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 
         tvTitle.setText("Cancellation Summary");

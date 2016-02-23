@@ -4,51 +4,60 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical">
-    <TextView
 
+    <TextView
+        android:id="@+id/tvPatient"
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/margin_25"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_25"
+        android:gravity="center"
         android:text="Patient"
-        android:textSize="25sp"/>
+        android:textColor="#848484"
+        android:textSize="25sp" />
+
     <TextView
         android:id="@+id/tvPatientName"
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/margin_10"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_10"
+        android:gravity="center"
         android:text="Sri Krishna"
-        android:textSize="30sp"/>
+        android:textColor="#848484"
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/tvHeading"
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/margin_20"
         android:layout_height="wrap_content"
-        android:text="Choose appointment to cancel"
-        android:textSize="40sp"/>
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="Choose appointment(s) to cancel"
+        android:textSize="40sp" />
+
     <GridView
+        android:id="@+id/gvAppointments"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center"
         android:layout_gravity="center"
         android:layout_margin="@dimen/margin_10"
+        android:layout_weight="1"
+        android:gravity="center"
         android:horizontalSpacing="@dimen/margin_10"
-        android:verticalSpacing="@dimen/margin_10"
-        android:numColumns="2"
         android:listSelector="@android:color/transparent"
-        android:id="@+id/gvAppointments">
+        android:numColumns="2"
+        android:paddingLeft="80dp"
+        android:paddingRight="25dp"
+        android:verticalSpacing="@dimen/margin_10">
 
     </GridView>
+
     <Button
         android:id="@+id/btnCancelAppointment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin_10"
-        android:layout_marginTop="@dimen/margin_10"
+        android:layout_marginTop="20dp"
         android:background="@drawable/confirm_number_btn"
         android:text="Cancel Appointment"
         android:textColor="#FFFFFF"
