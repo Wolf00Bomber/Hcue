@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.v4.app.DialogFragment;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -115,6 +116,28 @@ public class EnterAddressActivity extends BaseActivity implements View.OnClickLi
                     v.performClick();
             }
         });
+
+        edtEnterAddress.setOnTouchListener(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                edtEnterAddress.clearFocus();
+                hideKeyBoard(v);
+                return false;
+            }
+        });
+
+        edtLandmark.setOnTouchListener(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                edtLandmark.clearFocus();
+                hideKeyBoard(v);
+                return false;
+            }
+        });
+
+
     }
 
     @Override

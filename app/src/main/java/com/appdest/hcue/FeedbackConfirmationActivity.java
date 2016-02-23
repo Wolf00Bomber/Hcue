@@ -5,10 +5,12 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.appdest.hcue.common.AppConstants;
+
 public class FeedbackConfirmationActivity extends BaseActivity{
 
     private LinearLayout llConfirm;
-    private TextView tvDownloadFooter;
+    private TextView tvDownloadFooter,tvHeading;
 
     @Override
     public void initializeControls() {
@@ -18,7 +20,10 @@ public class FeedbackConfirmationActivity extends BaseActivity{
         tvBack.setVisibility(View.GONE);
         tvTitle.setVisibility(View.GONE);
         tvDownloadFooter    =   (TextView)  llConfirm.findViewById(R.id.tvDownloadFooter);
+        tvHeading           =   (TextView)  llConfirm.findViewById(R.id.tvHeading);
         tvDownloadFooter.setText(Html.fromHtml("Download our <font color=\"#F57103\">hCue Patient App</font> from Google play store"));
+        tvDownloadFooter.setTypeface(AppConstants.WALSHEIM_LIGHT);
+        tvHeading.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 
     }
 

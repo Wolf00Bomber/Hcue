@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
@@ -33,7 +34,7 @@ public class EnterMailActivity extends BaseActivity implements OnClickListener
 
 
 	@Override
-	public void initializeControls() 
+	public void initializeControls()
 	{
 		llEmail = (LinearLayout) inflater.inflate(R.layout.enter_mail, null);
 		llBody.addView(llEmail);
@@ -48,11 +49,11 @@ public class EnterMailActivity extends BaseActivity implements OnClickListener
 
 		btnConfirm.setOnClickListener(this);
 		btnSkip.setOnClickListener(this);
-		
+
 		setSpecificTypeFace(llEmail, AppConstants.WALSHEIM_LIGHT);
 		btnConfirm.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 		btnSkip.setTypeface(AppConstants.WALSHEIM_MEDIUM);
-		
+
 		tvTitle.setText("Enter Email Address");
 
         slide_up 	= AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up);
@@ -60,7 +61,7 @@ public class EnterMailActivity extends BaseActivity implements OnClickListener
 	}
 
 	@Override
-	public void bindControls() 
+	public void bindControls()
 	{
         Intent i = getIntent();
         if(!i.hasExtra("BookingDetails") || !i.hasExtra("DoctorDetails"))
@@ -100,7 +101,21 @@ public class EnterMailActivity extends BaseActivity implements OnClickListener
         hideKeyBoard(edtEmail);
 
         edtEmail.clearFocus();
+
+        edtEmail.setOnTouchListener(new View.OnTouchListener()
+        {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event)
+            {
+                edtEmail.clearFocus();
+                hideKeyBoard(v);
+                return false;
+            }
+        });
 	}
+
+
 
     public void keyboardClick(View v)
     {
@@ -221,7 +236,7 @@ public class EnterMailActivity extends BaseActivity implements OnClickListener
 				skip.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				startActivity(skip);
 				break;
-				
+
 		}
 	}
 

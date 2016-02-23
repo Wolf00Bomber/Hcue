@@ -177,11 +177,11 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 					llNumbers.setVisibility(View.VISIBLE);
 
 					if(llKeyboard.getVisibility() == View.VISIBLE)
-						llKeyboard.startAnimation(slide_down);
+						/*llKeyboard.startAnimation(slide_down);*/
 					llKeyboard.setVisibility(View.GONE);
 
 					if(llSpecilaKeyboard.getVisibility() == View.VISIBLE)
-						llSpecilaKeyboard.startAnimation(slide_down);
+						/*llSpecilaKeyboard.startAnimation(slide_down);*/
 					llSpecilaKeyboard.setVisibility(View.GONE);
 
 				}
@@ -212,6 +212,8 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 			public boolean onTouch(View v, MotionEvent event) {
 				edtAge.clearFocus();
 				hideKeyBoard(v);
+                llKeyboard.setVisibility(View.GONE);
+                llSpecilaKeyboard.setVisibility(View.GONE);
 				return false;
 			}
 		});
@@ -350,8 +352,10 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 
 				if(llNumbers.getVisibility() == View.GONE)
 				{
-					llKeyboard.startAnimation(slide_down);
-					llSpecilaKeyboard.startAnimation(slide_down);
+					/*llKeyboard.startAnimation(slide_down);*/
+					/*llSpecilaKeyboard.startAnimation(slide_down);*/
+					llKeyboard.setVisibility(View.GONE);
+					llSpecilaKeyboard.setVisibility(View.GONE);
 					llNumbers.setVisibility(View.VISIBLE);
 					llNumbers.startAnimation(slide_up);
 				}
