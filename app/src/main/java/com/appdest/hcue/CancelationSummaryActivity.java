@@ -60,7 +60,7 @@ public class CancelationSummaryActivity extends BaseActivity implements View.OnC
             finish();
             return;
         }
-        tvDoctorName.setText(DoctorName);
+        tvDoctorName.setText("Dr."+DoctorName);
         tvPatientName.setText(PatientName);
         tvDateTime.setText(chosenTime);
     }

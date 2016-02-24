@@ -224,7 +224,7 @@ public class CancelAppointmentActivity extends BaseActivity
             sb.append(DateUtils.isToday(totalInstance) ? ("Today - ") : (/*TimeUtils.getDay(totalInstance) +*/ TimeUtils.format2DateProper(totalInstance)+" - " ));
 
 
-            tvDoctorName.setText(data.doctorDetail.doctorFullName);
+            tvDoctorName.setText("Dr."+data.doctorDetail.doctorFullName);
             tvDateTime.setText(sb.toString());
             tvTime.setText(" "+getFormattedTime(data.appointmentDetails.StartTime));
             ivCheck.setTag(R.id.ivCheck, pos);

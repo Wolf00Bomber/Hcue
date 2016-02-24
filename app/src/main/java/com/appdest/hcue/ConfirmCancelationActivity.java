@@ -82,7 +82,7 @@ public class ConfirmCancelationActivity extends BaseActivity implements View.OnC
         StringBuilder sb = new StringBuilder();
         sb.append(DateUtils.isToday(totalInstance) ? ("Today") : (/*TimeUtils.getDay(totalInstance) + " - " +*/ TimeUtils.format2DateProper(totalInstance)));
         chosenTime = sb.toString();
-        tvDoctorName.setText(Appointment.doctorDetail.doctorFullName);
+        tvDoctorName.setText("Dr."+Appointment.doctorDetail.doctorFullName);
         tvAppointmentTime.setText(chosenTime+" - " +getFormattedTime(Appointment.appointmentDetails.StartTime));
         ArrayList<GetPatientResponse.Patient> patients = patientInfo.patients;
 
@@ -140,7 +140,7 @@ public class ConfirmCancelationActivity extends BaseActivity implements View.OnC
                     Intent intent = new Intent(ConfirmCancelationActivity.this, CancelationSummaryActivity.class);
                     intent.putExtra("PatientName", patient.FullName);
                     intent.putExtra("DoctorName", Appointment.doctorDetail.doctorFullName);
-                    intent.putExtra("chosenTime", chosenTime);
+                    intent.putExtra("chosenTime", tvAppointmentTime.getText().toString().trim());
                     startActivity(intent);
                     finish();
                 } else {
