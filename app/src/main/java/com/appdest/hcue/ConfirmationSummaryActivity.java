@@ -1,12 +1,6 @@
 package com.appdest.hcue;
 
-import com.appdest.hcue.common.AppConstants;
-import com.appdest.hcue.model.DoctorsAppointmentResponse;
-import com.appdest.hcue.model.GetDoctorsResponse;
-import com.appdest.hcue.utils.TimeUtils;
-
 import android.content.Intent;
-import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.text.Html;
 import android.text.TextUtils;
@@ -16,11 +10,15 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.appdest.hcue.common.AppConstants;
+import com.appdest.hcue.model.DoctorsAppointmentResponse;
+import com.appdest.hcue.model.GetDoctorsResponse;
+import com.appdest.hcue.utils.TimeUtils;
 
 import java.util.Locale;
 
-public class ConfirmationSummaryActivity extends BaseActivity implements OnClickListener, TextToSpeech.OnInitListener
+public class ConfirmationSummaryActivity extends BaseActivity implements OnClickListener/*, TextToSpeech.OnInitListener*/
 {
 	private LinearLayout llConfirm;
 	private TextView tvTime,tvToken,tvDoctorName, tvDownloadFooter;
@@ -29,19 +27,51 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
     private GetDoctorsResponse.DoctorDetail selectedDoctorDetails;
 
     //TTS object
-    private TextToSpeech myTTS;
+    private TextToSpeech /*myTTS,*/ t1;
     //status check code
     private int MY_DATA_CHECK_CODE = 0;
 
     boolean isActivityNeedsFinish = false;
 
 	@Override
+	protected void onResume() {
+		super.onResume();
+		if(t1 == null || !t1.isSpeaking()) {
+			t1 = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+				@Override
+				public void onInit(int status) {
+					if (status != TextToSpeech.ERROR) {
+						t1.setLanguage(Locale.UK);
+						if(bookingDetails != null && !TextUtils.isEmpty(bookingDetails.getTokenNumber())) {
+							t1.speak("Your token number is " + bookingDetails.getTokenNumber(), TextToSpeech.QUEUE_FLUSH, null);
+						}
+					}
+				}
+			});
+		}else
+		if(bookingDetails != null && !TextUtils.isEmpty(bookingDetails.getTokenNumber())) {
+			t1.speak("Your token number is " + bookingDetails.getTokenNumber(), TextToSpeech.QUEUE_FLUSH, null);
+		}
+	}
+
+
+
+	@Override
+	protected void onPause() {
+		if(t1 !=null){
+			t1.stop();
+			t1.shutdown();
+		}
+		super.onPause();
+	}
+
+	@Override
 	public void initializeControls() 
 	{
         //check for TTS data
-        Intent checkTTSIntent = new Intent();
+        /*Intent checkTTSIntent = new Intent();
         checkTTSIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
-        startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);
+        startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);*/
 
         Intent i = getIntent();
 		if(!i.hasExtra("BookingDetails") || !i.hasExtra("DoctorDetails"))
@@ -86,7 +116,7 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 	}
 
     //act on result of TTS data check
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+   /* protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if (requestCode == MY_DATA_CHECK_CODE) {
             if (resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
@@ -102,20 +132,20 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
                 startActivity(installTTSIntent);
             }
         }
-    }
+    }*/
 
     //speak the user text
-    private void speakWords(final String speech) {
+    /*private void speakWords(final String speech) {
 
-        //speak straight away
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                myTTS.speak(speech, TextToSpeech.QUEUE_FLUSH, null);
+		//speak straight away
+		new Handler().postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				myTTS.speak(speech, TextToSpeech.QUEUE_FLUSH, null);
             }
         }, 50);
 
-    }
+    }*/
 
 	@Override
 	public void bindControls() 
@@ -144,7 +174,7 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 		}
 	}
 
-    @Override
+    /*@Override
     public void onInit(int initStatus) {
         if (initStatus == TextToSpeech.SUCCESS) {
             if(myTTS.isLanguageAvailable(Locale.US)==TextToSpeech.LANG_AVAILABLE)
@@ -153,5 +183,5 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
         else if (initStatus == TextToSpeech.ERROR) {
             Toast.makeText(this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show();
         }
-    }
+    }*/
 }

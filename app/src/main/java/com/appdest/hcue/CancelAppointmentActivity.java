@@ -266,7 +266,7 @@ public class CancelAppointmentActivity extends BaseActivity
             try {
                 final SimpleDateFormat sdf = new SimpleDateFormat("H:mm");
                 final Date dateObj = sdf.parse(time);
-                formattedTime = new SimpleDateFormat("hh:mm A").format(dateObj);
+                formattedTime = new SimpleDateFormat("hh:mm a").format(dateObj).toUpperCase();
             } catch (final ParseException e) {
                 e.printStackTrace();
             }
