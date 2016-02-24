@@ -45,6 +45,13 @@ public class CustomCalendarView extends LinearLayout
 
     private static final int  DAYS_COUNT = 42;
 
+    //kvk
+    private ImageView btnRefresh;
+    private int currentMonthIndex = 0;
+    private boolean isMonthUpdated;
+    private int updatedMonth;
+
+
     // seasons' rainbow
     int[] rainbow = new int[] {
             R.color.summer,
@@ -89,16 +96,11 @@ public class CustomCalendarView extends LinearLayout
         header = (LinearLayout)findViewById(R.id.calendar_header);
         btnPrev = (ImageView)findViewById(R.id.calendar_prev_button);
         btnNext = (ImageView)findViewById(R.id.calendar_next_button);
+        btnRefresh = (ImageView)findViewById(R.id.calendar_refresh);
         txtDate = (TextView)findViewById(R.id.calendar_date_display);
         grid = (GridView)findViewById(R.id.calendar_grid);
 
-        // set header color according to current season
         currentDate = Calendar.getInstance();
-//        int month = currentDate.get(Calendar.MONTH);
-//        int season = monthSeason[month];
-//        int color = Color.parseColor("#E3E3E3")/*rainbow[season]*/;
-
-//        rvDateTitle.setBackgroundColor(getResources().getColor(color));
         Drawable d = getResources().getDrawable(R.drawable.date_mnth_header);
         calendarCellWidth = d.getIntrinsicWidth()/7;
         calendarCellHeight = d.getIntrinsicHeight();
@@ -107,10 +109,45 @@ public class CustomCalendarView extends LinearLayout
         grid.setAdapter(adapter);
         rvDateTitle.setLayoutParams(new RelativeLayout.LayoutParams(d.getIntrinsicWidth(), d.getIntrinsicHeight()));
 
+        btnPrev.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (currentMonthIndex > 0) {// To avoid the selection of previous months than current month
+                    currentMonthIndex--;
+                    currentDate.add(Calendar.MONTH, -1);
+                    isMonthUpdated = true;
+                    updatedMonth = 0;
+                    updateCalendar();
+                }
+            }
+        });
+
         btnNext.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                currentMonthIndex++;
+                currentDate.add(Calendar.MONTH, 1);
+                isMonthUpdated= true;
+                updatedMonth=0;
+                updateCalendar();
+            }
+        });
 
+        btnRefresh.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                try {
+                    isMonthUpdated = false;
+                    updatedMonth = 0;
+                    currentMonthIndex = 0;
+                    currentDate = null;
+                    currentDate = Calendar.getInstance();
+                    ((CalendarAdapter)grid.getAdapter()).setSelectedDate(new Date());
+                    updateCalendar();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -121,33 +158,17 @@ public class CustomCalendarView extends LinearLayout
                 if (eventHandler == null)
                     return;
 
-                Date date = (Date) parent.getItemAtPosition(position);
-                Date today = new Date();
-                if (isSelectable(date, today))
-                {
-                    //TODO
-                }
-                else
-                {
+                if(view.isEnabled()) {
+//					Toast.makeText(getContext(), "Enabled", Toast.LENGTH_SHORT).show();
+                    Date date = (Date) parent.getItemAtPosition(position);
                     ((CalendarAdapter)grid.getAdapter()).setSelectedDate(date);
                     grid.invalidateViews();
                     eventHandler.onDayClicked(date);
                 }
-
             }
 
         });
     }
-
-    private boolean isSelectable(Date date, Date today)
-    {
-        return (date.before(today)
-                && !DateUtils.isToday(date.getTime()))
-                ||
-                (date.getMonth() != today.getMonth() ||
-                        date.getYear() != today.getYear());
-    }
-
 
     public void updateCalendar()
     {
@@ -219,6 +240,12 @@ public class CustomCalendarView extends LinearLayout
         {
             // day in question
             Date date = getItem(position);
+            if(isMonthUpdated && currentMonthIndex>0) {
+                if(date.getDate()==1){
+                    isMonthUpdated = false;
+                    updatedMonth = date.getMonth();
+                }
+            }
 
             // today
             Date today = new Date();
@@ -234,33 +261,42 @@ public class CustomCalendarView extends LinearLayout
 
             // clear styling
             tvCell.setTypeface(null, Typeface.NORMAL);
-
-            if ( (date.before(today)
-                    && !DateUtils.isToday(date.getTime()))
-            ||
-                    (date.getMonth() != today.getMonth() ||
-                            date.getYear() != today.getYear())
-                    )
-            {
-                // if this day is past Date, grey it out
-                view.setEnabled(false);
-                tvCell.setEnabled(false);
-                tvCell.setTextColor(getResources().getColor(R.color.greyed_out));
-                tvCell.setBackgroundResource(0);
-            }
-            else if(date.getDate() == selectedDate.getDate())
-            {
-                view.setEnabled(true);
-                tvCell.setEnabled(true);
-                tvCell.setTextColor(getResources().getColor(R.color.white));
-                tvCell.setBackgroundResource(R.drawable.selected_date_icon);
-            }
-            else
-            {
-                view.setEnabled(true);
-                tvCell.setEnabled(true);
-                tvCell.setTextColor(Color.BLACK);
-                tvCell.setBackgroundResource(0);
+            if(currentMonthIndex <= 0){
+                if((date.before(today)&& !DateUtils.isToday(date.getTime()))
+                        || (date.getMonth() != today.getMonth() || date.getYear() != today.getYear())) {
+                    // if this day is past Date, grey it out
+                    view.setEnabled(false);
+                    tvCell.setEnabled(false);
+                    tvCell.setTextColor(getResources().getColor(R.color.greyed_out));
+                    tvCell.setBackgroundResource(0);
+                } else if(date.getDate() == selectedDate.getDate()){
+                    view.setEnabled(true);
+                    tvCell.setEnabled(true);
+                    tvCell.setTextColor(getResources().getColor(R.color.white));
+                    tvCell.setBackgroundResource(R.drawable.selected_date_icon);
+                } else {
+                    view.setEnabled(true);
+                    tvCell.setEnabled(true);
+                    tvCell.setTextColor(Color.BLACK);
+                    tvCell.setBackgroundResource(0);
+                    tvCell.setTypeface(null,Typeface.BOLD);
+                }
+            } else if(currentMonthIndex > 0) {
+                if(Math.abs(date.getMonth() - updatedMonth)==0  && date.getDate()>0 && date.getDate()<=31) {
+                    view.setEnabled(true);
+                    tvCell.setEnabled(true);
+                    tvCell.setTextColor(Color.BLACK);
+                    tvCell.setBackgroundResource(0);
+                    if((date.getDate() == selectedDate.getDate()) && (date.getMonth()== selectedDate.getMonth())){
+                        tvCell.setTextColor(getResources().getColor(R.color.white));
+                        tvCell.setBackgroundResource(R.drawable.selected_date_icon);
+                    }
+                } else {
+                    view.setEnabled(false);
+                    tvCell.setEnabled(false);
+                    tvCell.setTextColor(getResources().getColor(R.color.greyed_out));
+                    tvCell.setBackgroundResource(0);
+                }
             }
 
             tvCell.setText(String.valueOf(date.getDate()));

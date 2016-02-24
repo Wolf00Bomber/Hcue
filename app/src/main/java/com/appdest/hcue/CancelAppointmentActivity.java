@@ -221,7 +221,7 @@ public class CancelAppointmentActivity extends BaseActivity
             long timeInstance = TimeUtils.getLongForHHMMSS(data.appointmentDetails.StartTime+":00");
             long totalInstance = dayInstance + timeInstance;
             StringBuilder sb = new StringBuilder();
-            sb.append(DateUtils.isToday(totalInstance) ? ("Today - ") : (TimeUtils.getDay(totalInstance) + " - " + TimeUtils.format2DateProper(totalInstance)));
+            sb.append(DateUtils.isToday(totalInstance) ? ("Today - ") : (/*TimeUtils.getDay(totalInstance) +*/ TimeUtils.format2DateProper(totalInstance)+" - " ));
 
 
             tvDoctorName.setText(data.doctorDetail.doctorFullName);
@@ -266,7 +266,7 @@ public class CancelAppointmentActivity extends BaseActivity
             try {
                 final SimpleDateFormat sdf = new SimpleDateFormat("H:mm");
                 final Date dateObj = sdf.parse(time);
-                formattedTime = new SimpleDateFormat("hh:mm").format(dateObj);
+                formattedTime = new SimpleDateFormat("hh:mm A").format(dateObj);
             } catch (final ParseException e) {
                 e.printStackTrace();
             }

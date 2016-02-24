@@ -32,7 +32,8 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="25dp"
             android:layout_toLeftOf="@+id/calendar_date_display"
-            android:src="@drawable/left_arrow_calendar" />
+            android:rotation="180"
+            android:background="@drawable/right_arrow_calendar" />
 
         <!-- next button -->
 
@@ -52,7 +53,7 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_margin="20dp"
-            android:src="@drawable/refresh_calendar" />
+            android:background="@drawable/refresh_calendar" />
 
         <ImageView
             android:id="@+id/calendar_icon"
@@ -61,7 +62,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_margin="20dp"
-            android:src="@drawable/calendar_icon" />
+            android:background="@drawable/calendar_icon" />
 
     </RelativeLayout>
 
