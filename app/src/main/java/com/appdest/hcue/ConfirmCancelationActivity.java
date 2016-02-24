@@ -22,6 +22,8 @@ import com.appdest.hcue.services.RestError;
 import com.appdest.hcue.utils.Connectivity;
 import com.appdest.hcue.utils.TimeUtils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -74,17 +76,14 @@ public class ConfirmCancelationActivity extends BaseActivity implements View.OnC
         else{
             finish(); return;
         }
-
         long dayInstance = Appointment.appointmentDetails.ConsultationDt.longValue();
         long timeInstance = TimeUtils.getLongForHHMMSS(Appointment.appointmentDetails.StartTime + ":00");
         long totalInstance = dayInstance + timeInstance;
         StringBuilder sb = new StringBuilder();
-        sb.append(DateUtils.isToday(totalInstance) ? "Today" : TimeUtils.getDay(totalInstance))
-                .append(" - ")
-                .append(TimeUtils.format2DateProper(totalInstance));
+        sb.append(DateUtils.isToday(totalInstance) ? ("Today - ") : (TimeUtils.getDay(totalInstance) + " - " + TimeUtils.format2DateProper(totalInstance)));
         chosenTime = sb.toString();
         tvDoctorName.setText(Appointment.doctorDetail.doctorFullName);
-        tvAppointmentTime.setText(chosenTime);
+        tvAppointmentTime.setText(" " + getFormattedTime(Appointment.appointmentDetails.StartTime));
         ArrayList<GetPatientResponse.Patient> patients = patientInfo.patients;
 
         if(patients != null)
@@ -149,6 +148,19 @@ public class ConfirmCancelationActivity extends BaseActivity implements View.OnC
                 }
             }
         });
+    }
+
+    private String getFormattedTime(String time)
+    {
+        String formattedTime = "";
+        try {
+            final SimpleDateFormat sdf = new SimpleDateFormat("H:mm");
+            final Date dateObj = sdf.parse(time);
+            formattedTime = new SimpleDateFormat("hh:mm").format(dateObj);
+        } catch (final ParseException e) {
+            e.printStackTrace();
+        }
+        return formattedTime;
     }
 
 

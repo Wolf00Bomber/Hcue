@@ -131,7 +131,7 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
         if(isActivityNeedsFinish)
             return;
         initMap();
-		tvDoctorName.setText(selectedDoctorDetails.FullName);
+		tvDoctorName.setText("Dr."+selectedDoctorDetails.FullName);
         if (hmSpecialities != null && hmSpecialities.size() > 0) {
             ArrayList<String> list = new ArrayList<>(selectedDoctorDetails.specialityCD.values());
             for (int i = 0; i < list.size(); i++) {
