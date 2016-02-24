@@ -16,14 +16,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appdest.hcue.common.AppConstants;
-import com.appdest.hcue.model.AddPatientResponse;
 import com.appdest.hcue.model.FeedbackRequest;
-import com.appdest.hcue.model.GetDoctors;
 import com.appdest.hcue.model.GetDoctorsResponse;
 import com.appdest.hcue.model.GetPatientAppointmentsRequest;
 import com.appdest.hcue.model.GetPatientAppointmentsResponse;
-import com.appdest.hcue.model.GetPatientDetailsResponse;
-import com.appdest.hcue.model.GetPatientRequest;
 import com.appdest.hcue.model.GetPatientResponse;
 import com.appdest.hcue.services.RestCallback;
 import com.appdest.hcue.services.RestClient;
@@ -31,7 +27,10 @@ import com.appdest.hcue.services.RestError;
 import com.appdest.hcue.utils.Connectivity;
 import com.appdest.hcue.utils.TimeUtils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import retrofit.client.Response;
@@ -147,10 +146,22 @@ public class ChoosePatientAppointmentActivity extends BaseActivity
         getPatientAppointmentsRequest.setPageSize(4);
         getPatientAppointmentsRequest.setPatientID(patientInfo.patients.get(0).PatientID/*selectedPatientAppointment.appointmentDetails.PatientID*/);
         getPatientAppointmentsRequest.setSort("asc");
+        String dt = "2008-01-01";  // Start date
         String baseDate = TimeUtils.format2Date(new Date()/*selectedPatientAppointment.appointmentDetails.ConsultationDt.longValue()*/);
-        getPatientAppointmentsRequest.setBaseDate(baseDate);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar c = Calendar.getInstance();
+        try {
+            c.setTime(sdf.parse(baseDate));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        c.add(Calendar.DATE, 1);  // number of days to add
+        dt = sdf.format(c.getTime());
+
+        getPatientAppointmentsRequest.setBaseDate(dt);
         getPatientAppointmentsRequest.setCount(0);
         getPatientAppointmentsRequest.setIndicator("P");
+        getPatientAppointmentsRequest.setAppointmentStatus("E");
 
         String url = "http://d1lmwj8jm5d3bc.cloudfront.net";
         RestClient.getAPI(url).getPatientAppointment(getPatientAppointmentsRequest, new RestCallback<GetPatientAppointmentsResponse>() {
@@ -225,7 +236,7 @@ public class ChoosePatientAppointmentActivity extends BaseActivity
 
 
             tvDoctorName.setText(data.doctorDetail.doctorFullName);
-            tvDateTime.setText(sb.toString());
+            tvDateTime.setText(sb.toString().contains("AM")?sb.toString().replace("AM", ""):sb.toString().contains("PM")?sb.toString().replace("PM",""):sb.toString());
 
             ivCheck.setTag(R.id.ivCheck, pos);
 

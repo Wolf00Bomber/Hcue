@@ -23,6 +23,8 @@ public class GetPatientAppointmentsRequest {
     public int Count;
     @SerializedName("Indicator")
     public String Indicator = "P";
+    @SerializedName("AppointmentStatus")
+    public String AppointmentStatus = "B";
 
     public Number getFamilyHdID() {
         return FamilyHdID;
@@ -87,4 +89,8 @@ public class GetPatientAppointmentsRequest {
     public void setIndicator(String indicator) {
         Indicator = indicator;
     }
+
+    public void setAppointmentStatus(String appointmentStatus) {AppointmentStatus =  appointmentStatus;   }
+
+    public String getAppointmentStatus() { return AppointmentStatus; }
 }

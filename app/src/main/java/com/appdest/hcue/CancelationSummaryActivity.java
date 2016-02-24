@@ -35,6 +35,7 @@ public class CancelationSummaryActivity extends BaseActivity implements View.OnC
 
         btnOk      =   (Button)    llCancel.findViewById(R.id.btnOk);
 
+        tvBack.setVisibility(View.INVISIBLE);
         btnOk.setOnClickListener(this);
         setSpecificTypeFace(llCancel, AppConstants.WALSHEIM_LIGHT);
         tvHeading.setTypeface(AppConstants.WALSHEIM_MEDIUM);

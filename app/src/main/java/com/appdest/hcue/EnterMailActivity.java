@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class EnterMailActivity extends BaseActivity implements OnClickListener
 {
@@ -226,10 +227,20 @@ public class EnterMailActivity extends BaseActivity implements OnClickListener
                 break;
 
 			case R.id.btnConfirm:
-				Intent intent = new Intent(EnterMailActivity.this,EnterAddressActivity.class);
-                intent.putExtra("BookingDetails", bookingDetails);
-                intent.putExtra("DoctorDetails", selectedDoctorDetails);
-				startActivity(intent);
+                if(edtEmail.getText().toString().isEmpty())
+                {
+                    Toast.makeText(EnterMailActivity.this,"Email address should not be empty.",Toast.LENGTH_LONG).show();
+                }else {
+                    if (validateEmailAddress(edtEmail.getText().toString())) {
+                        Intent intent = new Intent(EnterMailActivity.this, EnterAddressActivity.class);
+                        intent.putExtra("BookingDetails", bookingDetails);
+                        intent.putExtra("DoctorDetails", selectedDoctorDetails);
+                        startActivity(intent);
+                    } else
+                    {
+                        Toast.makeText(EnterMailActivity.this,"Please enter a valid Email address.",Toast.LENGTH_LONG).show();
+                    }
+                }
 				break;
 			case R.id.btnSkip:
 				Intent skip = new Intent(EnterMailActivity.this,SelectDoctorActivity.class);
@@ -239,5 +250,13 @@ public class EnterMailActivity extends BaseActivity implements OnClickListener
 
 		}
 	}
+
+    private boolean validateEmailAddress(String email) {
+        String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+        java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
+        java.util.regex.Matcher m = p.matcher(email);
+        return m.matches();
+
+    }
 
 }

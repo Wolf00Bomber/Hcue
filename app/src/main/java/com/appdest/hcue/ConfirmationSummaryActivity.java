@@ -65,6 +65,8 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 		
 		btnProvideDetails.setOnClickListener(this);
 		btnAskMe.setOnClickListener(this);
+
+		tvBack.setVisibility(View.INVISIBLE);
 		
 		setSpecificTypeFace(llConfirm, AppConstants.WALSHEIM_LIGHT);
 		
@@ -75,10 +77,10 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 		btnAskMe.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 		
 		tvTitle.setText("Booking Confirmation");
-        tvDoctorName.setText(selectedDoctorDetails.FullName);
+        tvDoctorName.setText("Dr "+selectedDoctorDetails.FullName);
         tvDownloadFooter.setText(Html.fromHtml("Download our <font color=\"#F57103\">hCue Patient App</font> from Google play store"));
         String dateString = DateUtils.isToday(bookingDetails.getConsultationDt()) ? "Today" : TimeUtils.format2DateProper(bookingDetails.getConsultationDt());
-        String footer = "<b>" + dateString + ", " + TimeUtils.format2hhmmaa(bookingDetails.getStartTime()) + "</b>" + " with";
+        String footer = "<b>" + dateString + ", " + TimeUtils.format2hhmm(bookingDetails.getStartTime()) + "</b>" + " with";
 		tvTime.setText(Html.fromHtml(footer));
 		tvToken.setText(bookingDetails.getTokenNumber());
 	}

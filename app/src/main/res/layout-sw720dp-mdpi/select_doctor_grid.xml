@@ -105,7 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="35dp"
             android:background="@drawable/quickappointment_btn"
-            android:text="Book Appoinment"
+            android:text="Book Appointment"
             android:textColor="@color/white"
             android:textSize="30sp" />
 
@@ -115,7 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_20"
             android:background="@drawable/latestappointment_btn"
-            android:text="Cancel Appoinment"
+            android:text="Cancel Appointment"
             android:textColor="@color/orange"
             android:textSize="30sp" />
     </LinearLayout>

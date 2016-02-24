@@ -61,7 +61,7 @@ public class CancelAppointmentActivity extends BaseActivity
         tvPatient = (TextView)	llCancelAppointment.findViewById(R.id.tvPatient);
         btnCancelAppointment 		= (Button)		llCancelAppointment.findViewById(R.id.btnCancelAppointment);
 
-        tvBack.setVisibility(View.GONE);
+        tvBack.setVisibility(View.VISIBLE);
         tvHome.setVisibility(View.GONE);
 
 
@@ -158,9 +158,13 @@ public class CancelAppointmentActivity extends BaseActivity
             @Override
             public void success(GetPatientAppointmentsResponse getPatientAppointmentsResponse, Response response) {
                 if (getPatientAppointmentsResponse != null && getPatientAppointmentsResponse.count > 0) {
+                    tvHeading.setText("Choose appointment(s) to cancel");
+                    btnCancelAppointment.setVisibility(View.VISIBLE);
                     pageCount++;
                     gridAdapter.refresh(getPatientAppointmentsResponse.rows);
                 } else {
+                    btnCancelAppointment.setVisibility(View.GONE);
+                    tvHeading.setText("You don't have any appointments to cancel");
                     Log.i("Response", "" + response.getReason());
                     Toast.makeText(CancelAppointmentActivity.this, "No Appointments Found", Toast.LENGTH_SHORT).show();
                 }
@@ -182,7 +186,7 @@ public class CancelAppointmentActivity extends BaseActivity
 
         @Override
         public Object getItem(int arg0) {
-            return patientAppointments.get(arg0);
+            return arg0;
         }
 
         @Override
@@ -198,6 +202,7 @@ public class CancelAppointmentActivity extends BaseActivity
 
         @Override
         public View getView(int pos, View view, ViewGroup parent) {
+            if(view == null)
             view = LayoutInflater.from(CancelAppointmentActivity.this).inflate(R.layout.appointments_history_cell,null);
             TextView tvDoctorName = (TextView) view.findViewById(R.id.tvDoctorName);
             TextView tvDateTime = (TextView) view.findViewById(R.id.tvDateTime);
@@ -221,7 +226,7 @@ public class CancelAppointmentActivity extends BaseActivity
 
             tvDoctorName.setText(data.doctorDetail.doctorFullName);
             tvDateTime.setText(sb.toString());
-            tvTime.setText(getFormattedTime(data.appointmentDetails.StartTime));
+            tvTime.setText(" "+getFormattedTime(data.appointmentDetails.StartTime));
             ivCheck.setTag(R.id.ivCheck, pos);
 
             if(data.isSelected){
@@ -261,7 +266,7 @@ public class CancelAppointmentActivity extends BaseActivity
             try {
                 final SimpleDateFormat sdf = new SimpleDateFormat("H:mm");
                 final Date dateObj = sdf.parse(time);
-                formattedTime = new SimpleDateFormat("hh:mm A").format(dateObj);
+                formattedTime = new SimpleDateFormat("hh:mm").format(dateObj);
             } catch (final ParseException e) {
                 e.printStackTrace();
             }

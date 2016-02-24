@@ -136,13 +136,14 @@ public class ConfirmCancelationActivity extends BaseActivity implements View.OnC
 
             @Override
             public void success(String responseString, Response response) {
-                Toast.makeText(ConfirmCancelationActivity.this, responseString, Toast.LENGTH_SHORT).show();
+         //       Toast.makeText(ConfirmCancelationActivity.this, responseString, Toast.LENGTH_SHORT).show();
                 if ("-Success-".equalsIgnoreCase(responseString)) {
                     Intent intent = new Intent(ConfirmCancelationActivity.this, CancelationSummaryActivity.class);
                     intent.putExtra("PatientName", patient.FullName);
                     intent.putExtra("DoctorName", Appointment.doctorDetail.doctorFullName);
                     intent.putExtra("chosenTime", chosenTime);
                     startActivity(intent);
+                    finish();
                 } else {
                     Log.i("Response", "" + response.getReason());
                 }

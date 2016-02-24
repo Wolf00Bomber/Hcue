@@ -261,6 +261,7 @@ public class ChooseAppointmentActivity extends BaseActivity {
                     i.putExtra("BookingDetails", doctorsAppointmentResponse);
                     i.putExtra("DoctorDetails", selectedDoctorDetails);
                     startActivity(i);
+                    finish();
                 } else {
 
                     if(!TextUtils.isEmpty(response.getReason()) && response.getStatus() != 200)

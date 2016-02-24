@@ -163,6 +163,7 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
 	private void sendFeedback(FeedbackRequest feedbackRequest)
 	{
         feedbackRequest.setRatingComments("N");
+		feedbackRequest.setStarValue(StarValue);
 		String url = "http://d1lmwj8jm5d3bc.cloudfront.net";
 		RestClient.getAPI(url).postFeedback(feedbackRequest, new RestCallback<String>() {
             @Override
@@ -280,6 +281,7 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
 				Intent ac = new Intent(FeedbackActivity.this,AdditionalCommentsActivity.class);
                 ac.putExtra("DoctorDetails", selectedDoctorDetails);
                 ac.putExtra("FeedbackRequest", feedbackRequest);
+				ac.putExtra("StarValue", StarValue);
 				startActivity(ac);
 				break;
 		}

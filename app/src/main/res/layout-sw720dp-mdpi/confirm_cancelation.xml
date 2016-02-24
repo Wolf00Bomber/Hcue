@@ -30,8 +30,8 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight=".35"
-                android:gravity="center|left"
+                android:layout_weight=".55"
+                android:gravity="center|right"
                 android:text="Patient:"
                 android:textColor="#848484"
                 android:textSize="30sp" />
@@ -58,8 +58,8 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.35"
-                android:gravity="center|left"
+                android:layout_weight="0.55"
+                android:gravity="center|right"
                 android:text="Date/Time:"
                 android:textColor="#848484"
                 android:textSize="30sp" />
@@ -86,8 +86,8 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.35"
-                android:gravity="center|left"
+                android:layout_weight="0.55"
+                android:gravity="center|right"
                 android:text="Doctor:"
                 android:textColor="#848484"
                 android:textSize="30sp" />

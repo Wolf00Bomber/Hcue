@@ -43,7 +43,7 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
 
     private FeedbackRequest feedbackRequest;
     private GetDoctorsResponse.DoctorDetail selectedDoctorDetails;
-
+    private float Starvalue = 2.5f;
 
     @Override
     public void initializeControls()
@@ -53,6 +53,7 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
         {
             feedbackRequest = (FeedbackRequest) i.getSerializableExtra("FeedbackRequest");
             selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail)i.getSerializableExtra("DoctorDetails");
+            Starvalue =  i.getFloatExtra("StarValue",2.5f);
         }
         else
         {
@@ -245,6 +246,9 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
                 }, 30);
 
                 break;
+            case R.id.btnCancel:
+                finish();
+                break;
         }
     }
 
@@ -259,7 +263,8 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
 
     private void sendFeedback(FeedbackRequest feedbackRequest)
     {
-        feedbackRequest.setRatingComments("Y");
+        feedbackRequest.setRatingComments(edtEnterComments.getText().toString());
+        feedbackRequest.setStarValue(Starvalue);
         String url = "http://d1lmwj8jm5d3bc.cloudfront.net";
         RestClient.getAPI(url).postFeedback(feedbackRequest, new RestCallback<String>() {
             @Override
@@ -269,9 +274,10 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
 
             @Override
             public void success(String feedbackResponse, Response response) {
-                Toast.makeText(AdditionalCommentsActivity.this, String.valueOf(feedbackResponse), Toast.LENGTH_LONG).show();
+               // Toast.makeText(AdditionalCommentsActivity.this, String.valueOf(feedbackResponse), Toast.LENGTH_LONG).show();
                 Intent FeedbackIntent = new Intent(AdditionalCommentsActivity.this, FeedbackConfirmationActivity.class);
                 startActivity(FeedbackIntent);
+                finish();
             }
         });
     }

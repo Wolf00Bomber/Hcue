@@ -18,6 +18,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.appdest.hcue.common.AppConstants;
 import com.appdest.hcue.model.DoctorsAppointmentResponse;
@@ -382,10 +383,16 @@ public class EnterAddressActivity extends BaseActivity implements View.OnClickLi
                 break;
 
             case R.id.btnConfirm:
-                Intent intent = new Intent(EnterAddressActivity.this, ConfirmationFullViewActivity.class);
-                intent.putExtra("BookingDetails", bookingDetails);
-                intent.putExtra("DoctorDetails", selectedDoctorDetails);
-                startActivity(intent);
+                if(edtEnterAddress.getText().toString().isEmpty())
+                {
+                    Toast.makeText(EnterAddressActivity.this,"Address field should not be empty.",Toast.LENGTH_LONG).show();
+                }else
+                {
+                    Intent intent = new Intent(EnterAddressActivity.this, ConfirmationFullViewActivity.class);
+                    intent.putExtra("BookingDetails", bookingDetails);
+                    intent.putExtra("DoctorDetails", selectedDoctorDetails);
+                    startActivity(intent);
+                }
                 break;
             case R.id.btnSkip:
                 Intent skip = new Intent(EnterAddressActivity.this, SelectDoctorActivity.class);
