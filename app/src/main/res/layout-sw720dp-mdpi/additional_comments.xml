@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/feed_back_text_field"
             android:gravity="left"
-            android:text="Type your feedback here"
+            android:hint="Type your feedback here"
             android:imeOptions="actionNext"
             android:maxLength="150"
             android:maxLines="4"
