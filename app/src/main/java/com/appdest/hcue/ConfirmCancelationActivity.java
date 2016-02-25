@@ -83,7 +83,7 @@ public class ConfirmCancelationActivity extends BaseActivity implements View.OnC
         sb.append(DateUtils.isToday(totalInstance) ? ("Today") : (/*TimeUtils.getDay(totalInstance) + " - " +*/ TimeUtils.format2DateProper(totalInstance)));
         chosenTime = sb.toString();
         tvDoctorName.setText("Dr."+Appointment.doctorDetail.doctorFullName);
-        tvAppointmentTime.setText(chosenTime+" - " +getFormattedTime(Appointment.appointmentDetails.StartTime));
+        tvAppointmentTime.setText(chosenTime+" - " +Appointment.appointmentDetails.StartTime);
         ArrayList<GetPatientResponse.Patient> patients = patientInfo.patients;
 
         if(patients != null)
@@ -156,7 +156,7 @@ public class ConfirmCancelationActivity extends BaseActivity implements View.OnC
         try {
             final SimpleDateFormat sdf = new SimpleDateFormat("H:mm");
             final Date dateObj = sdf.parse(time);
-            formattedTime = new SimpleDateFormat("hh:mm a").format(dateObj).toUpperCase();
+            formattedTime = new SimpleDateFormat("hh:mm").format(dateObj).toUpperCase();
         } catch (final ParseException e) {
             e.printStackTrace();
         }

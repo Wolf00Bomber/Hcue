@@ -56,7 +56,7 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
             tvTitle.setText("Choose patient to give feedback");
         }else
         {
-            tvTitle.setText("Choose patient to cacel appointment");
+            tvTitle.setText("Choose patient to cancel appointment");
         }
             llAddPatient.setVisibility(View.GONE);
         }else

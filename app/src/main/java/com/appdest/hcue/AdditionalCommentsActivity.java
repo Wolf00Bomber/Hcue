@@ -86,7 +86,7 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
         btnCancel.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 
         tvTitle.setText("Thanks for using hCue");
-        tvDoctorName.setText(selectedDoctorDetails.FullName);
+        tvDoctorName.setText("Dr. "+selectedDoctorDetails.FullName);
 
         slide_up 	= AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up);
         slide_down  = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_down);

@@ -128,8 +128,18 @@ public class CustomTimeAdapter extends BaseAdapter
                     holder.tvCell.setPaintFlags(holder.tvCell.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                 } else {
                     //if (hour > Integer.parseInt(vals[0]))
-                    holder.view.setEnabled(true);
-                    holder.tvCell.setEnabled(true);
+                    if(hour == Integer.parseInt(vals[0]) && minute > Integer.parseInt(vals[1]))
+                    {
+                        timeSlot.setAvailable("N");
+                        holder.view.setEnabled(false);
+                        holder.tvCell.setEnabled(false);
+                        holder.tvCell.setTypeface(AppConstants.WALSHEIM_BOLD);
+                        holder.tvCell.setPaintFlags(holder.tvCell.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                    }else
+                    {
+                        holder.view.setEnabled(true);
+                        holder.tvCell.setEnabled(true);
+                    }
                 }
             }
         } else {

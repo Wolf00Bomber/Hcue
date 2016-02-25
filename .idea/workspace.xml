@@ -82,6 +82,12 @@
           <theme>@android:style/Theme.Light.NoTitleBar</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/enter_contact_number.xml">
+        <config>
+          <state>Landscape</state>
+          <theme>@android:style/Theme.Light.NoTitleBar</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/enter_mail.xml">
         <config>
           <state>Landscape</state>
@@ -127,27 +133,37 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="88869" />
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b6cfe82-ac61-41a4-af9e-d3910da41b1f" name="Default" comment="Committed changes for Chaitanya 23Feb2016">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/android_phased_seek_bar_0_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/android_phased_seek_bar_0_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/android_shape_imageview_0_9_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/android_shape_imageview_0_9_3.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/mediarouter_v7_23_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/mediarouter_v7_23_0_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_appinvite_8_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_appinvite_8_4_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_base_8_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_base_8_4_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_basement_8_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_basement_8_4_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_drive_8_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_drive_8_4_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_fitness_8_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_fitness_8_4_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_maps_8_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_maps_8_4_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_measurement_8_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_measurement_8_4_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_vision_8_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_vision_8_4_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_23_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_23_1_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-sw720dp-mdpi/calendar_icon.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-sw720dp-mdpi/calendar_icon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-sw720dp-mdpi/refresh_calendar.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-sw720dp-mdpi/refresh_calendar.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdditionalCommentsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdditionalCommentsActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/CancelAppointmentActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/CancelAppointmentActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ChoosePatientActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ChoosePatientActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ChoosePatientAppointmentActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ChoosePatientAppointmentActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ConfirmCancelationActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ConfirmCancelationActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ConfirmationFullViewActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ConfirmationFullViewActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ConfirmationSummaryActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ConfirmationSummaryActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/utils/CustomCalendarView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/utils/CustomCalendarView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/adapters/CustomTimeAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/adapters/CustomTimeAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/SelectDoctorActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/SelectDoctorActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/utils/TimeUtils.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/utils/TimeUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/appointments_history_cell.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/appointments_history_cell.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/control_calendar.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/control_calendar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/enter_contact_number.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/enter_contact_number.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_8_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_8_4_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_ads_8_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_ads_8_4_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_cast_8_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_cast_8_4_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_games_8_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_games_8_4_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_gcm_8_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_gcm_8_4_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_identity_8_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_identity_8_4_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_location_8_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_location_8_4_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_nearby_8_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_nearby_8_4_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_plus_8_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_plus_8_4_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_wallet_8_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_wallet_8_4_0.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Hcue.iws" />
@@ -200,13 +216,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CancelAppointmentActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/CancelAppointmentActivity.java">
+      <file leaf-file-name="SelectDoctorActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/SelectDoctorActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7533719">
-              <caret line="267" column="53" selection-start-line="267" selection-start-column="53" selection-end-line="267" selection-end-column="53" />
+            <state vertical-scroll-proportion="1.1071428">
+              <caret line="583" column="31" selection-start-line="583" selection-start-column="31" selection-end-line="583" selection-end-column="31" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="select_doctor_grid.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/select_doctor_grid.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="91" column="44" selection-start-line="91" selection-start-column="29" selection-end-line="91" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
@@ -225,6 +254,7 @@
     <option name="ONTO" value="refs/heads/master" />
   </component>
   <component name="Git.Settings">
+    <option name="UPDATE_CHANGES_POLICY" value="SHELVE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
@@ -2176,20 +2206,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/admin_choose_doctors_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/AddPatientRequest.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/AdminLoginRequest.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/AdminGetDoctorsResponse.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/user_details_activity.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/GetDoctors.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/SplashActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/AdminLoginResponse.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ChoosePatientActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ConfirmationFullViewActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/FeedbackConfirmationActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/WelcomeActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/enter_contact_number.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/EnterContactNumberActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/AdminGetDoctorsRequest.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/RegistrationActivity.java" />
@@ -2197,7 +2219,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/ClinicResponse.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/GetDoctorRequest.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/select_doctor_pager_item.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/SelectDoctorActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/splash.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminConfirmation.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
@@ -2205,7 +2226,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/utils/Preference.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminLoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminChooseDoctors.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/appointments_history_cell.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/cancelation_summery.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/additional_comments.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/confirm_cancelation.xml" />
@@ -2213,20 +2233,30 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/admin_pager_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/admin_choose_hospital_grid_cell.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminChooseHospital.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/FeedbackActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/EnterAddressActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/EnterMailActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/booked_appointments.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/select_doctor_grid.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/admin_login.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ChooseAppointmentActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/utils/TimeUtils.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ConfirmationSummaryActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ChoosePatientAppointmentActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/CancelationSummaryActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ConfirmCancelationActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdditionalCommentsActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/utils/TimeUtils.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/appointments_history_cell.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/pager_item.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/GetPatientAppointmentsResponse.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/FeedbackActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ChoosePatientAppointmentActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ConfirmationSummaryActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ConfirmationFullViewActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/CancelAppointmentActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ConfirmCancelationActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ChoosePatientActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/enter_contact_number.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdditionalCommentsActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/control_calendar.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ChooseAppointmentActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/utils/CustomCalendarView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/adapters/CustomTimeAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/SelectDoctorActivity.java" />
       </list>
     </option>
   </component>
@@ -2269,7 +2299,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2278,8 +2308,91 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hcue" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hcue" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hcue" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hcue" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hcue" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hcue" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hcue" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hcue" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hcue" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hcue" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2304,7 +2417,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -2329,22 +2441,39 @@
     <property name="restartRequiresConfirmation" value="true" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_23_x86" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="146" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="146" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="147" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="821" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="147" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="145" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="147" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="821" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.appdest.hcue" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\teja\hcue_new_wrkspc\hCueProject\Hcue\app\src\main\java\com\appdest\hcue\adapters" />
+      <recent name="D:\teja\hcue_new_wrkspc\hCueProject\Hcue\app\src\main\res\drawable-sw720dp-mdpi" />
       <recent name="D:\teja\hcue_new_wrkspc\hCueProject\Hcue\app\src\main\res\layout-sw720dp-mdpi" />
       <recent name="C:\Users\Vinsan\Desktop\hCue WS\Hcue\app\src\main\java\com\appdest\hcue" />
       <recent name="C:\Users\Vinsan\Desktop\hCue WS\Hcue\app\src\main" />
-      <recent name="C:\Users\Vinsan\Desktop\hCue WS\Hcue\app\src\main\res\layout-sw720dp-mdpi" />
-      <recent name="C:\Users\Vinsan\Desktop\hCue WS\Hcue\app\src\main\java\com\appdest\hcue\adapters" />
     </key>
     <key name="android.template.packageName">
       <recent name="layout" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\teja\hcue_new_wrkspc\hCueProject\Hcue\app\src\main\res\drawable-sw720dp-mdpi" />
       <recent name="C:\Users\cvlhyd\Desktop\Hcue\app\src\main" />
     </key>
   </component>
@@ -2756,29 +2885,29 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.047038328" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5121951" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.315331" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5993031" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27591974" sideWeight="0.50907713" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2752613" sideWeight="0.50907713" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.63763064" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4250871" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5083612" sideWeight="0.49092284" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4651568" sideWeight="0.49092284" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28702992" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28702992" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2801228" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277592" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32233307" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32752612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39966556" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -2848,6 +2977,7 @@
     <MESSAGE value="Committed changes for Chaitanya 23Feb2016" />
     <MESSAGE value="Committed changes for Chaitanya 24Feb2016" />
     <option name="LAST_COMMIT_MESSAGE" value="Committed changes for Chaitanya 24Feb2016" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.30612242" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2950,220 +3080,50 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/CancelAppointmentActivity.java</url>
-          <line>226</line>
+          <line>227</line>
           <properties />
           <option name="timeStamp" value="52" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/CancelAppointmentActivity.java</url>
+          <line>271</line>
+          <properties />
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/CancelAppointmentActivity.java</url>
+          <line>267</line>
+          <properties />
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ChoosePatientAppointmentActivity.java</url>
+          <line>179</line>
+          <properties />
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ChoosePatientAppointmentActivity.java</url>
+          <line>100</line>
+          <properties />
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ChoosePatientAppointmentActivity.java</url>
+          <line>73</line>
+          <properties />
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="53" />
+      <option name="time" value="69" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/common/AppConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/TimeObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/WelcomeActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47719297">
-          <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/utils/Preference.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.962963">
-          <caret line="55" column="68" selection-start-line="55" selection-start-column="68" selection-end-line="55" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/AdminLoginRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2982456">
-          <caret line="10" column="35" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/services/RestClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7157895">
-          <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminChooseDoctors.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.310345">
-          <caret line="54" column="16" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/additional_comments.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.620689">
-          <caret line="46" column="24" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/mail_more_details.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.9310346">
-          <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/java/text/SimpleDateFormat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33229813">
-          <caret line="256" column="11" selection-start-line="256" selection-start-column="11" selection-end-line="256" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/services/WebAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="134" column="9" selection-start-line="134" selection-start-column="9" selection-end-line="134" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/GetPatientAppointmentsRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7338552">
-          <caret line="90" column="4" selection-start-line="90" selection-start-column="4" selection-end-line="90" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/GetPatientAppointmentsRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/admin_choose_hospital_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.62069">
-          <caret line="124" column="8" selection-start-line="124" selection-start-column="8" selection-end-line="124" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/admin_pager_item.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.6896553">
-          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/admin_choose_hospital_grid_cell.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.413794">
-          <caret line="33" column="39" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/FeedbackRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/enter_mail.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.37931">
-          <caret line="33" column="39" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/EnterAddressActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="387" column="95" selection-start-line="387" selection-start-column="95" selection-end-line="387" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/EnterMailActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1206896">
-          <caret line="231" column="92" selection-start-line="231" selection-start-column="92" selection-end-line="231" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminChooseHospital.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="154" column="85" selection-start-line="154" selection-start-column="85" selection-end-line="154" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdminConfirmation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="99" column="74" selection-start-line="99" selection-start-column="74" selection-end-line="99" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/SelectDoctorActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="71" column="70" selection-start-line="71" selection-start-column="70" selection-end-line="71" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/select_doctor_grid.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.896552">
-          <caret line="117" column="40" selection-start-line="117" selection-start-column="40" selection-end-line="117" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3188,122 +3148,257 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/admin_login.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.30222222">
           <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/splash.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/splash.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.45333335">
           <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/choose_date_time_of_appointment.xml">
       <provider editor-type-id="android-designer">
         <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.7586207">
-          <caret line="211" column="50" selection-start-line="211" selection-start-column="33" selection-end-line="211" selection-end-column="50" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/confirmation_summary.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.448276">
           <caret line="41" column="45" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="45" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ConfirmationSummaryActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.5411764">
-          <caret line="79" column="33" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/appointments_history_cell.xml">
       <provider editor-type-id="android-designer">
         <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.344828">
-          <caret line="36" column="39" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/booked_patient_appointments_for_feedback.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.89819">
-          <caret line="50" column="4" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="4" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/choose_patitent.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-34.58621">
           <caret line="59" column="8" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ChoosePatientActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="114" column="85" selection-start-line="114" selection-start-column="85" selection-end-line="114" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/booked_appointments.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/booked_appointments.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.551724">
           <caret line="55" column="45" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="45" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/confirm_cancelation.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/confirm_cancelation.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="67" column="50" selection-start-line="67" selection-start-column="33" selection-end-line="67" selection-end-column="50" />
           <folding />
         </state>
       </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/cancelation_summery.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.4827585">
+          <caret line="81" column="12" selection-start-line="81" selection-start-column="12" selection-end-line="81" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/appointments_history_cell.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.206897">
+          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
+          <folding>
+            <element signature="e#1824#1842#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/booked_patient_appointments_for_feedback.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.827586">
+          <caret line="27" column="34" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/utils/TimeUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="119" column="25" selection-start-line="119" selection-start-column="25" selection-end-line="119" selection-end-column="25" />
+          <caret line="35" column="41" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/android/widget/TextView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="3506" column="15" selection-start-line="3506" selection-start-column="15" selection-end-line="3506" selection-end-column="15" />
+          <folding>
+            <element signature="e#129362#129363#0" expanded="false" />
+            <element signature="e#129406#129407#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/color/text_pressed.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/control_calendar_day.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.9310346">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-sw720dp-mdpi/selected_time_gcol_bg.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-sw720dp-mdpi/selected_time_col_bg.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-sw720dp-mdpi/selected_time_bg.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/appointment_time.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1275">
+          <caret line="3" column="51" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/utils/AppointmentTimeInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25297618">
+          <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/pager_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36657682">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/adapters/CustomAppointmentAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="110" column="33" selection-start-line="110" selection-start-column="33" selection-end-line="110" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/feedback.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="186" column="45" selection-start-line="186" selection-start-column="25" selection-end-line="186" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/BaseActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/GetDoctorsResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.0191898">
+          <caret line="60" column="25" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/model/GetPatientAppointmentsResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="74" column="53" selection-start-line="74" selection-start-column="53" selection-end-line="74" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ChoosePatientAppointmentActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="65" column="43" selection-start-line="65" selection-start-column="43" selection-end-line="65" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/EnterMailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.551724">
+          <caret line="234" column="82" selection-start-line="234" selection-start-column="82" selection-end-line="234" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/EnterAddressActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.551724">
+          <caret line="390" column="88" selection-start-line="390" selection-start-column="88" selection-end-line="390" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ConfirmationSummaryActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.551723">
+          <caret line="144" column="83" selection-start-line="144" selection-start-column="83" selection-end-line="144" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ConfirmationFullViewActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="66" column="41" selection-start-line="66" selection-start-column="41" selection-end-line="66" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -3314,86 +3409,147 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ChooseAppointmentActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.280285">
-          <caret line="152" column="41" selection-start-line="152" selection-start-column="41" selection-end-line="152" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ConfirmCancelationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-34.0">
-          <caret line="140" column="88" selection-start-line="140" selection-start-column="88" selection-end-line="140" selection-end-column="88" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ChoosePatientAppointmentActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="7.906024">
-          <caret line="238" column="165" selection-start-line="238" selection-start-column="31" selection-end-line="238" selection-end-column="165" />
+        <state vertical-scroll-proportion="-28.051723">
+          <caret line="137" column="80" selection-start-line="137" selection-start-column="80" selection-end-line="137" selection-end-column="80" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/cancelation_summery.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.4827585">
-          <caret line="81" column="12" selection-start-line="81" selection-start-column="12" selection-end-line="81" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/FeedbackConfirmationActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/feedback.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="186" column="45" selection-start-line="186" selection-start-column="25" selection-end-line="186" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/EnterContactNumberActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="249" column="0" selection-start-line="249" selection-start-column="0" selection-end-line="249" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdditionalCommentsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-65.06896">
-          <caret line="281" column="11" selection-start-line="281" selection-start-column="11" selection-end-line="281" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/FeedbackActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6158302">
-          <caret line="71" column="68" selection-start-line="71" selection-start-column="68" selection-end-line="71" selection-end-column="68" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/CancelAppointmentActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7533719">
-          <caret line="267" column="53" selection-start-line="267" selection-start-column="53" selection-end-line="267" selection-end-column="53" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="171" column="11" selection-start-line="171" selection-start-column="11" selection-end-line="171" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ChoosePatientActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="9" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/EnterContactNumberActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4551282">
+          <caret line="408" column="11" selection-start-line="408" selection-start-column="11" selection-end-line="408" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/enter_contact_number.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39222616">
+          <caret line="98" column="40" selection-start-line="98" selection-start-column="29" selection-end-line="98" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/FeedbackActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="32" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/AdditionalCommentsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0477272">
+          <caret line="88" column="34" selection-start-line="88" selection-start-column="34" selection-end-line="88" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-sw720dp-mdpi/refresh_calendar.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/FeedbackConfirmationActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31363636">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/control_calendar.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6788321">
+          <caret line="74" column="46" selection-start-line="74" selection-start-column="46" selection-end-line="74" selection-end-column="46" />
+          <folding>
+            <element signature="e#1213#1231#0" expanded="true" />
+            <element signature="e#1915#1933#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-23/android/widget/BaseAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33205375">
+          <caret line="48" column="16" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/utils/CustomCalendarView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="163" column="25" selection-start-line="163" selection-start-column="25" selection-end-line="163" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/adapters/CustomTimeAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5840909">
+          <caret line="130" column="65" selection-start-line="130" selection-start-column="65" selection-end-line="130" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/ChooseAppointmentActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="136" column="86" selection-start-line="136" selection-start-column="86" selection-end-line="136" selection-end-column="86" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6821#7294#0" expanded="true" />
+            <element signature="e#7293#7294#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/choose_date_time_of_appointment.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="48" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/select_doctor_grid.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="91" column="44" selection-start-line="91" selection-start-column="29" selection-end-line="91" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/appdest/hcue/SelectDoctorActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1071428">
+          <caret line="583" column="31" selection-start-line="583" selection-start-column="31" selection-end-line="583" selection-end-column="31" />
           <folding />
         </state>
       </provider>

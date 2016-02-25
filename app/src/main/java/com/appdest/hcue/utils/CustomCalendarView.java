@@ -28,7 +28,7 @@ import java.util.Date;
 
 public class CustomCalendarView extends LinearLayout
 { // internal components
-    private LinearLayout header;
+    private LinearLayout header , ll_calendar_next_button , ll_calendar_prev_button;
     private RelativeLayout rvDateTitle;
     private ImageView btnPrev;
     private ImageView btnNext;
@@ -94,6 +94,8 @@ public class CustomCalendarView extends LinearLayout
         // layout is inflated, assign local variables to components
         rvDateTitle = (RelativeLayout) findViewById(R.id.rvDateTitle);
         header = (LinearLayout)findViewById(R.id.calendar_header);
+        ll_calendar_next_button = (LinearLayout)findViewById(R.id.ll_calendar_next_button);
+        ll_calendar_prev_button = (LinearLayout)findViewById(R.id.ll_calendar_prev_button);
         btnPrev = (ImageView)findViewById(R.id.calendar_prev_button);
         btnNext = (ImageView)findViewById(R.id.calendar_next_button);
         btnRefresh = (ImageView)findViewById(R.id.calendar_refresh);
@@ -109,6 +111,20 @@ public class CustomCalendarView extends LinearLayout
         grid.setAdapter(adapter);
         rvDateTitle.setLayoutParams(new RelativeLayout.LayoutParams(d.getIntrinsicWidth(), d.getIntrinsicHeight()));
 
+
+        ll_calendar_next_button.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnNext.performClick();
+            }
+        });
+
+        ll_calendar_prev_button.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnPrev.performClick();
+            }
+        });
         btnPrev.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,6 +161,8 @@ public class CustomCalendarView extends LinearLayout
                     currentDate = Calendar.getInstance();
                     ((CalendarAdapter)grid.getAdapter()).setSelectedDate(new Date());
                     updateCalendar();
+                    if(eventHandler != null)
+                        eventHandler.onDayClicked(currentDate.getTime());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -197,6 +215,7 @@ public class CustomCalendarView extends LinearLayout
         // update title
         SimpleDateFormat sdf = new SimpleDateFormat(dateFormat != null ? dateFormat : "MMM yyyy");
         txtDate.setText(sdf.format(currentDate.getTime()));
+
     }
 
     public class CalendarAdapter extends BaseAdapter

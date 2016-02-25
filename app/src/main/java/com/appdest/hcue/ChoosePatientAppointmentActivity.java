@@ -63,7 +63,7 @@ public class ChoosePatientAppointmentActivity extends BaseActivity
 
         btnFeedbackAppointment 		= (Button)		llFeedbackAppointment.findViewById(R.id.btnFeedbackAppointment);
 
-        tvBack.setVisibility(View.GONE);
+        tvBack.setVisibility(View.VISIBLE);
         tvHome.setVisibility(View.GONE);
 
         gvAppointments = (GridView) llFeedbackAppointment.findViewById(R.id.gvAppointments);

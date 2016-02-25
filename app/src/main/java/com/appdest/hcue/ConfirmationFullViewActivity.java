@@ -63,7 +63,7 @@ public class ConfirmationFullViewActivity extends BaseActivity implements OnClic
 
 		tvDoctorName.setText(selectedDoctorDetails.FullName);
 		String dateString = DateUtils.isToday(bookingDetails.getConsultationDt()) ? "Today" : TimeUtils.format2DateProper(bookingDetails.getConsultationDt());
-		String footer = "<b>" + dateString + ", " + TimeUtils.format2hhmmaa(bookingDetails.getStartTime()) + "</b>" + " with";
+		String footer = "<b>" + dateString + ", " + bookingDetails.getStartTime() + "</b>" + " with";
 		tvTime.setText(Html.fromHtml(footer));
         tvTokenNumber.setText(bookingDetails.getTokenNumber());
 	}

@@ -223,10 +223,11 @@ public class CancelAppointmentActivity extends BaseActivity
             StringBuilder sb = new StringBuilder();
             sb.append(DateUtils.isToday(totalInstance) ? ("Today - ") : (/*TimeUtils.getDay(totalInstance) +*/ TimeUtils.format2DateProper(totalInstance)+" - " ));
 
-
-            tvDoctorName.setText("Dr."+data.doctorDetail.doctorFullName);
+            StringBuilder dname = new StringBuilder();
+            dname.append("Dr ."+" "+data.doctorDetail.doctorFullName );
+            tvDoctorName.setText(dname.toString());
             tvDateTime.setText(sb.toString());
-            tvTime.setText(" "+getFormattedTime(data.appointmentDetails.StartTime));
+            tvTime.setText(" "+data.appointmentDetails.StartTime);
             ivCheck.setTag(R.id.ivCheck, pos);
 
             if(data.isSelected){
@@ -266,7 +267,7 @@ public class CancelAppointmentActivity extends BaseActivity
             try {
                 final SimpleDateFormat sdf = new SimpleDateFormat("H:mm");
                 final Date dateObj = sdf.parse(time);
-                formattedTime = new SimpleDateFormat("hh:mm a").format(dateObj).toUpperCase();
+                formattedTime = new SimpleDateFormat("hh:mm").format(dateObj).toUpperCase();
             } catch (final ParseException e) {
                 e.printStackTrace();
             }

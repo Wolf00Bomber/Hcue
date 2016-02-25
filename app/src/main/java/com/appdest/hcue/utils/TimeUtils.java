@@ -20,7 +20,7 @@ public class TimeUtils {
     private static SimpleDateFormat getSDFHHMMA()
     {
         if(hhmma == null)
-            hhmma = new SimpleDateFormat("HH:mm a");
+            hhmma = new SimpleDateFormat("HH:mm");
         return hhmma;
     }
 

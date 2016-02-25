@@ -577,7 +577,7 @@ public class SelectDoctorActivity extends BaseActivity
 
                 @Override
                 public void onItemClick(AdapterView<?> arg0, View v, int pos, long arg3) {
-                    selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail) gridAdapter.getItem(pos);
+                    selectedDoctorDetails = listDoctors.get(pos);
                     if(!"Y".equalsIgnoreCase(selectedDoctorDetails.Avaialble))
                     {
                         selectedDoctorDetails = null;

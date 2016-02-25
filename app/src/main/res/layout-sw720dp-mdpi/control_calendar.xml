@@ -25,34 +25,44 @@
             android:textColor="#222222" />
 
         <!-- prev button -->
+        <LinearLayout
+            android:id="@+id/ll_calendar_prev_button"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="25dp"
+            android:padding="@dimen/margin_10"
+            android:layout_toLeftOf="@+id/calendar_date_display"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/calendar_prev_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="25dp"
-            android:layout_toLeftOf="@+id/calendar_date_display"
             android:rotation="180"
             android:background="@drawable/right_arrow_calendar" />
-
+        </LinearLayout>
         <!-- next button -->
-
+        <LinearLayout
+            android:id="@+id/ll_calendar_next_button"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25dp"
+            android:padding="@dimen/margin_10"
+            android:layout_toRightOf="@+id/calendar_date_display"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/calendar_next_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="25dp"
-            android:layout_toRightOf="@+id/calendar_date_display"
             android:src="@drawable/right_arrow_calendar" />
-
+</LinearLayout>
         <ImageView
             android:id="@+id/calendar_refresh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:layout_margin="20dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/refresh_calendar" />
 
         <ImageView
@@ -61,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_margin="20dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/calendar_icon" />
 
     </RelativeLayout>
