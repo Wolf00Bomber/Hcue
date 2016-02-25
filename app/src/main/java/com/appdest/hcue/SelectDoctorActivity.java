@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appdest.hcue.common.AppConstants;
+import com.appdest.hcue.common.HCueApplication;
 import com.appdest.hcue.model.ClinicResponse;
 import com.appdest.hcue.model.GetDoctorRequest;
 import com.appdest.hcue.model.GetDoctors;
@@ -66,9 +67,18 @@ public class SelectDoctorActivity extends BaseActivity
     private List<Integer> listDoctorIDs;
     private boolean isClinic;
     private String clinic_name ;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        HCueApplication.getInstance(this);
+    }
+
     @Override
     public void initializeControls()
     {
+
+
         llMain = (LinearLayout) inflater.inflate(R.layout.select_doctor_grid, null);
 
         llBody.addView(llMain,layoutParams);

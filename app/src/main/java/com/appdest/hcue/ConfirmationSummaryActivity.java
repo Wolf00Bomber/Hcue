@@ -1,6 +1,7 @@
 package com.appdest.hcue;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.text.Html;
 import android.text.TextUtils;
@@ -12,10 +13,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.appdest.hcue.common.AppConstants;
+import com.appdest.hcue.common.HCueApplication;
 import com.appdest.hcue.model.DoctorsAppointmentResponse;
 import com.appdest.hcue.model.GetDoctorsResponse;
 import com.appdest.hcue.utils.TimeUtils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 public class ConfirmationSummaryActivity extends BaseActivity implements OnClickListener/*, TextToSpeech.OnInitListener*/
@@ -33,37 +38,11 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 
     boolean isActivityNeedsFinish = false;
 
-	@Override
-	protected void onResume() {
-		super.onResume();
-		if(t1 == null || !t1.isSpeaking()) {
-			t1 = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
-				@Override
-				public void onInit(int status) {
-					if (status != TextToSpeech.ERROR) {
-						t1.setLanguage(Locale.UK);
-						if(bookingDetails != null && !TextUtils.isEmpty(bookingDetails.getTokenNumber())) {
-							t1.speak("Your token number is " + bookingDetails.getTokenNumber(), TextToSpeech.QUEUE_FLUSH, null);
-						}
-					}
-				}
-			});
-		}else
-		if(bookingDetails != null && !TextUtils.isEmpty(bookingDetails.getTokenNumber())) {
-			t1.speak("Your token number is " + bookingDetails.getTokenNumber(), TextToSpeech.QUEUE_FLUSH, null);
-		}
-	}
-
-
-
-	@Override
+	/*@Override
 	protected void onPause() {
-		if(t1 !=null){
-			t1.stop();
-			t1.shutdown();
-		}
+		HCueApplication.getInstance(this).stopSpeak();
 		super.onPause();
-	}
+	}*/
 
 	@Override
 	public void initializeControls() 
@@ -82,6 +61,8 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 		}
         selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail) i.getSerializableExtra("DoctorDetails");
 		bookingDetails = (DoctorsAppointmentResponse) i.getSerializableExtra("BookingDetails");
+		if(bookingDetails != null && !TextUtils.isEmpty(bookingDetails.getTokenNumber()))
+			HCueApplication.getInstance(this).startSpeak("Your token number is " + bookingDetails.getTokenNumber());
 
 		llConfirm = (LinearLayout) inflater.inflate(R.layout.confirmation_summary, null);
 		llBody.addView(llConfirm,layoutParams);
@@ -107,10 +88,10 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 		btnAskMe.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 		
 		tvTitle.setText("Booking Confirmation");
-        tvDoctorName.setText("Dr "+selectedDoctorDetails.FullName);
+        tvDoctorName.setText("Dr. "+selectedDoctorDetails.FullName);
         tvDownloadFooter.setText(Html.fromHtml("Download our <font color=\"#F57103\">hCue Patient App</font> from Google play store"));
         String dateString = DateUtils.isToday(bookingDetails.getConsultationDt()) ? "Today" : TimeUtils.format2DateProper(bookingDetails.getConsultationDt());
-        String footer = "<b>" + dateString + ", " + TimeUtils.format2hhmm(bookingDetails.getStartTime()) + "</b>" + " with";
+        String footer = "<b>" + dateString + ", " + /*TimeUtils.format2hhmm(bookingDetails.getStartTime())*/ getFormattedTime(bookingDetails.getStartTime()) + "</b>" + " with";
 		tvTime.setText(Html.fromHtml(footer));
 		tvToken.setText(bookingDetails.getTokenNumber());
 	}
@@ -184,4 +165,16 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
             Toast.makeText(this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show();
         }
     }*/
+
+	private String getFormattedTime(String time) {
+		String formattedTime = "";
+		try {
+			final SimpleDateFormat sdf = new SimpleDateFormat("H:mm");
+			final Date dateObj = sdf.parse(time);
+			formattedTime = new SimpleDateFormat("hh:mm a").format(dateObj).toUpperCase();
+		} catch (final ParseException e) {
+			e.printStackTrace();
+		}
+		return formattedTime;
+	}
 }
