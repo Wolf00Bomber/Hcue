@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.appdest.hcue.R;
 import com.appdest.hcue.model.GetDoctorAppointmentResponse;
@@ -102,25 +103,37 @@ public class CustomAppointmentAdapter extends PagerAdapter {
                 selectedTimeSlot = ((CustomTimeAdapter) parent.getAdapter()).getSelectedItem(position);
                 if(!"Y".equalsIgnoreCase(selectedTimeSlot.Available))
                     return;
+               TextView tvCell  = (TextView) view.findViewById(R.id.tvCell);
+                if(view.getTag(tvCell.getId())== null || view.getTag(tvCell.getId())==false) {
+                    view.setSelected(true);
+                    if(appointmentTimeInterface != null)
+                    {
+                        GetDoctorAppointmentResponse.AppointmentRow selectedPageItem = getSelectedPageItem(viewPager.getCurrentItem());
+                        long dayInstance = selectedPageItem.getConsultationDate().longValue();
+                        long timeInstance = TimeUtils.getLongForHHMMSS(selectedTimeSlot.getStartTime());
+                        long totalInstance = dayInstance + timeInstance;
+                        StringBuilder sb = new StringBuilder();
+                        sb.append(DateUtils.isToday(totalInstance) ? "Today" : TimeUtils.getDay(totalInstance))
+                                .append(", ")
+                                .append(TimeUtils.format2DateProper(totalInstance))
+                                .append(" @ ")
+                                .append("<font color=\"#48B09E\">" + TimeUtils.format2hhmm(selectedTimeSlot.getStartTime()) + " hrs</font>")
 
-                view.setSelected(true);
-
-                if(appointmentTimeInterface != null)
-                {
-                    GetDoctorAppointmentResponse.AppointmentRow selectedPageItem = getSelectedPageItem(viewPager.getCurrentItem());
-                    long dayInstance = selectedPageItem.getConsultationDate().longValue();
-                    long timeInstance = TimeUtils.getLongForHHMMSS(selectedTimeSlot.getStartTime());
-                    long totalInstance = dayInstance + timeInstance;
-                    StringBuilder sb = new StringBuilder();
-                    sb.append(DateUtils.isToday(totalInstance) ? "Today" : TimeUtils.getDay(totalInstance))
-                            .append(", ")
-                            .append(TimeUtils.format2DateProper(totalInstance))
-                            .append(" @ ")
-                            .append("<font color=\"#48B09E\">" + TimeUtils.format2hhmm(selectedTimeSlot.getStartTime()) + " hrs</font>")
-
-                    ;
-                    appointmentTimeInterface.updateAppointmentText(Html.fromHtml(sb.toString()));
+                        ;
+                        appointmentTimeInterface.updateAppointmentText(Html.fromHtml(sb.toString()));
+                        view.setTag(tvCell.getId(),true);
+                    }
                 }
+                else {
+                    view.setSelected(false);
+                    if(appointmentTimeInterface != null)
+                    {
+                        view.setTag(tvCell.getId(), false);
+                        appointmentTimeInterface.updateAppointmentText(Html.fromHtml(""));
+                    }
+                }
+
+
             }
         });
 

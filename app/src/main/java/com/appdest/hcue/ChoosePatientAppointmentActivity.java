@@ -232,11 +232,11 @@ public class ChoosePatientAppointmentActivity extends BaseActivity
             StringBuilder sb = new StringBuilder();
             sb.append(DateUtils.isToday(totalInstance) ? "Today" : TimeUtils.getDay(totalInstance))
                     .append(" - ")
-                    .append(TimeUtils.format2DateProper(totalInstance));
+                    .append(data.appointmentDetails.StartTime.substring(0,5));
 
 
             tvDoctorName.setText(data.doctorDetail.doctorFullName);
-            tvDateTime.setText(sb.toString().contains("AM")?sb.toString().replace("AM", ""):sb.toString().contains("PM")?sb.toString().replace("PM",""):sb.toString());
+            tvDateTime.setText(sb.toString());
 
             ivCheck.setTag(R.id.ivCheck, pos);
 

@@ -33,6 +33,7 @@ import com.appdest.hcue.services.RestCallback;
 import com.appdest.hcue.services.RestClient;
 import com.appdest.hcue.services.RestError;
 import com.appdest.hcue.utils.Connectivity;
+import com.appdest.hcue.utils.WordUtils;
 
 import java.util.ArrayList;
 
@@ -99,23 +100,24 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
                 R.drawable.female_seek_thumb}));
 
         psbHorizontal.setListener(new PhasedListener() {
-            @Override
-            public void onPositionSelected(int position) {
-                if (position == 0) {
+			@Override
+			public void onPositionSelected(int position) {
+				if (position == 0) {
 
-                } else if (position == 1) {
+				} else if (position == 1) {
 
-                }
-            }
-        });
+				}
+			}
+		});
 
         psbHorizontal.setInteractionListener(new PhasedInteractionListener() {
-            @Override
-            public void onInteracted(int x, int y, int position, MotionEvent motionEvent) {
-                Log.d("PSB", String.format("onInteracted %d %d %d %d", x, y, position, motionEvent.getAction()));
-            }
-        });
+			@Override
+			public void onInteracted(int x, int y, int position, MotionEvent motionEvent) {
+				Log.d("PSB", String.format("onInteracted %d %d %d %d", x, y, position, motionEvent.getAction()));
+			}
+		});
         psbHorizontal.setPosition(0);
+		setCapitalizeTextWatcher(edtFirstName);
     }
 
     @Override
@@ -173,19 +175,19 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 						hideKeyBoard(v);
 					}
 				}, 50);
-				if(hasFocus){
+				if (hasFocus) {
 
-					if(llNumbers.getVisibility() == View.GONE)
+					if (llNumbers.getVisibility() == View.GONE)
 						llNumbers.startAnimation(slide_up);
 					llNumbers.setVisibility(View.VISIBLE);
 
-					if(llKeyboard.getVisibility() == View.VISIBLE)
+					if (llKeyboard.getVisibility() == View.VISIBLE)
 						/*llKeyboard.startAnimation(slide_down);*/
-					llKeyboard.setVisibility(View.GONE);
+						llKeyboard.setVisibility(View.GONE);
 
-					if(llSpecilaKeyboard.getVisibility() == View.VISIBLE)
+					if (llSpecilaKeyboard.getVisibility() == View.VISIBLE)
 						/*llSpecilaKeyboard.startAnimation(slide_down);*/
-					llSpecilaKeyboard.setVisibility(View.GONE);
+						llSpecilaKeyboard.setVisibility(View.GONE);
 
 				}
 			}
@@ -231,7 +233,7 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 		});
 
 
-		edtFirstName.addTextChangedListener(new TextWatcher() {
+		/*edtFirstName.addTextChangedListener(new TextWatcher() {
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -250,7 +252,7 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 //					((TextView) edtFirstName).setText(res);
 				}
 			}
-		});
+		});*/
 	}
 
 	private String getCapWordString(String string){
@@ -508,6 +510,7 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
         intent.putExtra("PatientInfo", addPatientResponse);
         intent.putExtra("isNoMobile", isNoMobile);
         startActivity(intent);
+		finish();
     }
 
 	private void setCapitalizeTextWatcher(final EditText editText) {
@@ -528,7 +531,7 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 			@Override
 			public void afterTextChanged(Editable s) {
 				//Use WordUtils.capitalizeFully if you only want the first letter of each word to be capitalized
-				String capitalizedText = "";//WordUtils.capitalize(editText.getText().toString());
+				String capitalizedText = WordUtils.capitalize(editText.getText().toString().toLowerCase());
 				if (!capitalizedText.equals(editText.getText().toString())) {
 					editText.addTextChangedListener(new TextWatcher() {
 						@Override

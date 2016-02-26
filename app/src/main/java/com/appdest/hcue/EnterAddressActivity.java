@@ -343,7 +343,7 @@ public class EnterAddressActivity extends BaseActivity implements View.OnClickLi
     @Override
     protected void onResume() {
         super.onResume();
-
+        hideKeyBoard(edtEnterAddress);
         h.postDelayed(new Runnable() {
 
             @Override

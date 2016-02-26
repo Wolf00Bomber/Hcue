@@ -203,6 +203,7 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
 
             @Override
             public void run() {
+                hideKeyBoard(edtEnterComments);
                 llKeyboard.setVisibility(View.VISIBLE);
                 llSpecilaKeyboard.setVisibility(View.GONE);
             }

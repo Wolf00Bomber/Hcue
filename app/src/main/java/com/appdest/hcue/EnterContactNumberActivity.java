@@ -93,6 +93,8 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
         fromActivity = i.hasExtra("From") ? i.getStringExtra("From") : "";
 		if(!"CancelAppointment".equalsIgnoreCase(fromActivity))
         {
+			if("Feedback".equalsIgnoreCase(fromActivity))
+				btnNoNumber.setVisibility(View.GONE);
             if(i.hasExtra("DoctorDetails"))
                 selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail) i.getSerializableExtra("DoctorDetails");
             else{

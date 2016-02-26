@@ -52,7 +52,7 @@ public class ChooseAppointmentActivity extends BaseActivity {
     private CustomCalendarView customCalendarView;
     private ViewPager mViewPager;
     private ProgressBar pBar;
-    private TextView tvNoSlots, tvTime;
+    private TextView tvNoSlots, tvTime , tv_youhave_selected;
     private Button btnProvideDetails;
     private ImageView ivLeftTime, ivRightTime;
     private CustomAppointmentAdapter mCustomPagerAdapter;
@@ -141,6 +141,7 @@ public class ChooseAppointmentActivity extends BaseActivity {
         mViewPager          = (ViewPager) llAppointment.findViewById(R.id.viewPager);
         tvNoSlots           = (TextView) llAppointment.findViewById(R.id.tvNoSlots);
         tvTime              = (TextView) llAppointment.findViewById(R.id.tvTime);
+        tv_youhave_selected = (TextView) llAppointment.findViewById(R.id.tv_youhave_selected);
         pBar                = (ProgressBar) llAppointment.findViewById(R.id.pBar);
         btnProvideDetails   = (Button) llAppointment.findViewById(R.id.btnProvideDetails);
         ivLeftTime          = (ImageView) llAppointment.findViewById(R.id.ivLeftTime);
@@ -154,6 +155,8 @@ public class ChooseAppointmentActivity extends BaseActivity {
             }
         });
         mViewPager.setAdapter(mCustomPagerAdapter);
+
+        tv_youhave_selected.setTypeface(AppConstants.WALSHEIM_LIGHT);
 
         customCalendarView.updateCalendar();
         if (Connectivity.isConnected(ChooseAppointmentActivity.this)) {
