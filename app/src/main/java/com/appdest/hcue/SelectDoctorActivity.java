@@ -21,7 +21,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appdest.hcue.common.AppConstants;
-import com.appdest.hcue.common.HCueApplication;
 import com.appdest.hcue.model.ClinicResponse;
 import com.appdest.hcue.model.GetDoctorRequest;
 import com.appdest.hcue.model.GetDoctors;
@@ -32,6 +31,7 @@ import com.appdest.hcue.services.RestClient;
 import com.appdest.hcue.services.RestError;
 import com.appdest.hcue.utils.Connectivity;
 import com.appdest.hcue.utils.Preference;
+import com.appdest.hcue.utils.SpeechHelper;
 import com.github.siyamed.shapeimageview.mask.PorterShapeImageView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -71,7 +71,7 @@ public class SelectDoctorActivity extends BaseActivity
     @Override
     protected void onResume() {
         super.onResume();
-        HCueApplication.getInstance(this);
+        SpeechHelper.getInstance(SelectDoctorActivity.this).initTextSpeaker();
     }
 
     @Override

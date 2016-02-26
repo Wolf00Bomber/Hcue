@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,6 +19,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appdest.hcue.common.AppConstants;
@@ -212,8 +215,8 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 			public boolean onTouch(View v, MotionEvent event) {
 				edtAge.clearFocus();
 				hideKeyBoard(v);
-                llKeyboard.setVisibility(View.GONE);
-                llSpecilaKeyboard.setVisibility(View.GONE);
+				llKeyboard.setVisibility(View.GONE);
+				llSpecilaKeyboard.setVisibility(View.GONE);
 				return false;
 			}
 		});
@@ -226,6 +229,39 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 				return false;
 			}
 		});
+
+
+		edtFirstName.addTextChangedListener(new TextWatcher() {
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+			}
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+			}
+
+			@Override
+			public void afterTextChanged(Editable s) {
+				if (s != null && s.length() > 0) {
+					String res = getCapWordString(s.toString());
+					Log.e("cap word", res);
+//					((TextView) edtFirstName).setText(res);
+				}
+			}
+		});
+	}
+
+	private String getCapWordString(String string){
+		String str = string;
+		String[] strArray = str.split(" ");
+		StringBuilder builder = new StringBuilder();
+		for (String s : strArray) {
+			String cap = s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase();
+			builder.append(cap + " ");
+		}
+		return builder.toString();
 	}
 
 	public void keyboardClick(View v)
@@ -473,5 +509,50 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
         intent.putExtra("isNoMobile", isNoMobile);
         startActivity(intent);
     }
+
+	private void setCapitalizeTextWatcher(final EditText editText) {
+		final TextWatcher textWatcher = new TextWatcher() {
+
+			int mStart = 0;
+
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+			}
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				mStart = start + count;
+			}
+
+			@Override
+			public void afterTextChanged(Editable s) {
+				//Use WordUtils.capitalizeFully if you only want the first letter of each word to be capitalized
+				String capitalizedText = "";//WordUtils.capitalize(editText.getText().toString());
+				if (!capitalizedText.equals(editText.getText().toString())) {
+					editText.addTextChangedListener(new TextWatcher() {
+						@Override
+						public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+						}
+
+						@Override
+						public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+						}
+
+						@Override
+						public void afterTextChanged(Editable s) {
+							editText.setSelection(mStart);
+							editText.removeTextChangedListener(this);
+						}
+					});
+					editText.setText(capitalizedText);
+				}
+			}
+		};
+
+		editText.addTextChangedListener(textWatcher);
+	}
 }
 

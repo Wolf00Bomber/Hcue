@@ -4,6 +4,7 @@
     android:id="@+id/llUserDetails"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:orientation="vertical">
 
     <LinearLayout
@@ -33,9 +34,10 @@
             android:background="@drawable/enter_email_text_feild"
             android:hint="Name"
             android:imeOptions="actionNext"
-            android:inputType="textCapWords"
+            android:inputType="textPersonName"
             android:maxLength="30"
             android:minEms="10"
+            android:capitalize="words"
             android:paddingLeft="15dp"
             android:singleLine="true"
             android:textSize="35sp" />
