@@ -72,7 +72,7 @@ public class WelcomeActivity extends BaseActivity
 			@Override
 			public void onClick(View arg0) 
 			{
-				Intent intent = new Intent(WelcomeActivity.this,ChooseAppointmentActivity.class);
+				Intent intent = new Intent(WelcomeActivity.this,ChooseAppointmentActivityNew.class);
 				startActivity(intent);
 				
 			}

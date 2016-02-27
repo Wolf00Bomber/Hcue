@@ -140,6 +140,8 @@ public class SelectDoctorActivity extends BaseActivity
         viewPager.setCurrentItem(0);
         ibLeft.setAlpha(0.25f);
         ibLeft.setEnabled(false);
+        ibRight.setAlpha(0.25f);
+        ibRight.setEnabled(false);
 
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
