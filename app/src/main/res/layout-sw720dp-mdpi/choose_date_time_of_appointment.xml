@@ -85,8 +85,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
                         android:background="@drawable/selected_time_col_bg" />
 
                     <TextView
@@ -108,8 +108,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
                         android:background="@drawable/selected_time_bg" />
 
                     <TextView
@@ -131,8 +131,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
                         android:background="@drawable/selected_time_gcol_bg" />
 
                     <TextView
@@ -197,8 +197,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:gravity="center"
+                android:textStyle="bold"
                 android:text=""
-                android:textSize="20sp" />
+                android:textSize="25sp" />
 
         </LinearLayout>
 

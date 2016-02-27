@@ -73,6 +73,8 @@ public class GetPatientAppointmentsResponse {
         public ArrayList<DoctorAddress> doctorAddress;
         @SerializedName("doctorEmail")
         public ArrayList<DoctorEmail> arrDoctorEmail;
+        @SerializedName("ImageURL")
+        public String ImageURL;
     }
 
     public class DoctorAddress implements Serializable{}

@@ -11,11 +11,14 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.appdest.hcue.ChooseAppointmentActivity;
 import com.appdest.hcue.R;
 import com.appdest.hcue.model.GetDoctorAppointmentResponse;
 import com.appdest.hcue.utils.AppointmentTimeInterface;
@@ -36,6 +39,17 @@ public class CustomAppointmentAdapter extends PagerAdapter {
     private int gvWidth, gvHeight;
     private LinearLayout.LayoutParams llParams;
     private GetDoctorAppointmentResponse.TimeSlot selectedTimeSlot;
+    private ImageView ivLeftTime , ivRightTime;
+    public CustomAppointmentAdapter(Context context, ImageView ivLeftTime, ImageView ivRightTime) {
+
+        mContext = context ;
+        this.ivLeftTime = ivLeftTime ;
+        this.ivRightTime = ivRightTime ;
+        mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        preCalculateGridDimensions(context);
+        llParams = new LinearLayout.LayoutParams(gvWidth, gvHeight);
+        llParams.gravity = Gravity.CENTER;
+    }
 
     public GetDoctorAppointmentResponse.TimeSlot getSelectedTimeSlot()
     {
@@ -97,6 +111,26 @@ public class CustomAppointmentAdapter extends PagerAdapter {
         gvTime.setLayoutParams(llParams);
         gvTime.setHorizontalSpacing(widthGap);
         gvTime.setVerticalSpacing(heightGap);
+        gvTime.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+                if(scrollState == SCROLL_STATE_TOUCH_SCROLL || scrollState == SCROLL_STATE_FLING)
+                {
+                    ivLeftTime.setVisibility(View.GONE);
+                    ivRightTime.setVisibility(View.GONE);
+                }else if(scrollState == SCROLL_STATE_IDLE)
+                {
+                    ivLeftTime.setVisibility(View.VISIBLE);
+                    ivRightTime.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+            }
+        });
         gvTime.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

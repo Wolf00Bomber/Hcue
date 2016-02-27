@@ -4,6 +4,7 @@ import com.appdest.hcue.common.AppConstants;
 import com.appdest.hcue.model.FeedbackRequest;
 import com.appdest.hcue.model.GetDoctors;
 import com.appdest.hcue.model.GetDoctorsResponse;
+import com.appdest.hcue.model.GetPatientAppointmentsResponse;
 import com.appdest.hcue.model.Speciality;
 import com.appdest.hcue.services.RestCallback;
 import com.appdest.hcue.services.RestClient;
@@ -52,6 +53,7 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
     boolean isActivityNeedsFinish = false;
     private final float MAX_VALUE = 10f;
     private HashMap<String,Speciality> hmSpecialities;
+	private GetPatientAppointmentsResponse.DoctorDetail appointmentDoctorDetails ;
 
 	@Override
 	public void initializeControls() 
@@ -61,6 +63,7 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
         {
             feedbackRequest = (FeedbackRequest) i.getSerializableExtra("FeedbackRequest");
             selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail)i.getSerializableExtra("DoctorDetails");
+			appointmentDoctorDetails = (GetPatientAppointmentsResponse.DoctorDetail)i.getSerializableExtra("SelectedDoctorDetails");
         }
         else
         {
@@ -131,9 +134,9 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
         if(isActivityNeedsFinish)
             return;
         initMap();
-		tvDoctorName.setText("Dr."+selectedDoctorDetails.FullName);
+		tvDoctorName.setText("Dr."+appointmentDoctorDetails.doctorFullName);
         if (hmSpecialities != null && hmSpecialities.size() > 0) {
-            ArrayList<String> list = new ArrayList<>(selectedDoctorDetails.specialityCD.values());
+            ArrayList<String> list = new ArrayList<>(appointmentDoctorDetails.doctorSpecialization.values());
             for (int i = 0; i < list.size(); i++) {
                 list.set(i, hmSpecialities.get(list.get(i)).DoctorSpecialityDesc);
             }
@@ -142,9 +145,9 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
         Drawable d = getResources().getDrawable(R.drawable.profile_doctor_bg_male);
         int mHeight = d.getIntrinsicHeight();
         int mWidth = d.getIntrinsicWidth();
-        if (!TextUtils.isEmpty(selectedDoctorDetails.ImageURL))
+        if (!TextUtils.isEmpty(appointmentDoctorDetails.ImageURL))
             Picasso.with(context)
-                    .load(selectedDoctorDetails.ImageURL)
+                    .load(appointmentDoctorDetails.ImageURL)
                     .resize(mWidth, mHeight)
                     .placeholder(R.drawable.profile_doctor_bg_male)
                     .centerInside()

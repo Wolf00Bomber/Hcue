@@ -122,6 +122,7 @@ public class ChoosePatientAppointmentActivity extends BaseActivity
                 Intent intent = new Intent(ChoosePatientAppointmentActivity.this, FeedbackActivity.class);
                 intent.putExtra("FeedbackRequest", feedbackRequest);
                 intent.putExtra("DoctorDetails", selectedDoctorDetails);
+                intent.putExtra("SelectedDoctorDetails", selectedPatientAppointment.doctorDetail);
                 startActivity(intent);
             }
         });

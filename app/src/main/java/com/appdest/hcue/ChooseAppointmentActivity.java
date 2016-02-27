@@ -146,7 +146,7 @@ public class ChooseAppointmentActivity extends BaseActivity {
         btnProvideDetails   = (Button) llAppointment.findViewById(R.id.btnProvideDetails);
         ivLeftTime          = (ImageView) llAppointment.findViewById(R.id.ivLeftTime);
         ivRightTime         = (ImageView) llAppointment.findViewById(R.id.ivRightTime);
-        mCustomPagerAdapter = new CustomAppointmentAdapter(this);
+        mCustomPagerAdapter = new CustomAppointmentAdapter(this , ivLeftTime , ivRightTime);
         mCustomPagerAdapter.setViewPager(mViewPager);
         mCustomPagerAdapter.setAppointmentTimeInterface(new AppointmentTimeInterface() {
             @Override

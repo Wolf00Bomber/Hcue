@@ -22,14 +22,13 @@
             android:layout_height="wrap_content"
             android:text="BHS Hospital"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="28sp"/>
+            android:textSize="21sp"/>
         <TextView
             android:id="@+id/tvLocation"
             android:layout_width="match_parent"
             android:layout_marginTop="5dp"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:singleLine="true"
             android:textColor="#7E7E7E"
             android:text="T Nagar, Chennai"/>

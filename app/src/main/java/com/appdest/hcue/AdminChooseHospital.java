@@ -257,6 +257,8 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
                 AdminLoginResponse.DoctorAddress hospitalData = hospitalList.get(gridItemPos);
                 tvHospital.setText(hospitalData.getClinicName());
                 tvLocation.setText(hospitalData.getAddress2());
+                tvHospital.setTypeface(AppConstants.WALSHEIM_BOLD);
+                tvLocation.setTypeface(AppConstants.WALSHEIM_LIGHT_OBLIQUE);
                 if(hospitalData.isSelected){
                     ivCheck.setBackgroundResource(R.drawable.check_box_admin);
                 } else {

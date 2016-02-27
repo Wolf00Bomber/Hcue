@@ -198,7 +198,7 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
     @Override
     protected void onResume() {
         super.onResume();
-
+        hideKeyBoard(edtEnterComments);
         h.postDelayed(new Runnable() {
 
             @Override

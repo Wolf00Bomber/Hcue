@@ -31,8 +31,8 @@
                 android:layout_height="wrap_content"
                 android:text="Dr.P.VenkatKrishna,"
                 android:textColor="@color/black"
-                android:textSize="28sp"
-                android:textStyle="bold" />
+                android:textSize="21sp"
+                 />
 
             <TextView
                 android:id="@+id/tvDesignation"
@@ -41,7 +41,7 @@
                 android:paddingLeft="5dp"
                 android:text="BPT"
                 android:textColor="#7E7E7E"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:text="Dr. P.Venkat,"
                 android:textColor="#7E7E7E"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="normal" />
 
             <TextView

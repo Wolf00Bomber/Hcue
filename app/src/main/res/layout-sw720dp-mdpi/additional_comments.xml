@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_20"
         android:gravity="center"
-        android:text="Additional Comments for"
+        android:text="Additional Comments for  "
         android:textSize="30sp" />
     <TextView
         android:id="@+id/tvDoctorName"
