@@ -122,7 +122,7 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
                 else
                 {
                     GetPatientResponse.PatientInfo patientInfo = getPatientResponse.rows.get(position);
-                    Intent summary = new Intent(ChoosePatientActivity.this, ChooseAppointmentActivity.class);
+                    Intent summary = new Intent(ChoosePatientActivity.this, ChooseAppointmentActivityNew.class);
                     summary.putExtra("PhoneNumber", phNumber);
                     summary.putExtra("PhoneCode", PhoneCode);
                     summary.putExtra("DoctorDetails", selectedDoctorDetails);

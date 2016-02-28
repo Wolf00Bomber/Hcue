@@ -15,6 +15,7 @@ public class GetDoctorAppointmentResponse {
 
     public class TimeSlot
     {
+        public boolean isSelected;
         @SerializedName("StartTime")
         public String StartTime;
         @SerializedName("EndTime")

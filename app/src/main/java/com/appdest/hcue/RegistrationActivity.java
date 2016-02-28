@@ -504,7 +504,7 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 
     private void goToNextActivity(AddPatientResponse addPatientResponse)
     {
-        Intent intent = new Intent(RegistrationActivity.this, ChooseAppointmentActivity.class);
+        Intent intent = new Intent(RegistrationActivity.this, ChooseAppointmentActivityNew.class);
         intent.putExtra("DoctorDetails", selectedDoctorDetails);
         intent.putExtra("PhoneNumber", phNumber);
         intent.putExtra("PatientInfo", addPatientResponse);
