@@ -2,6 +2,8 @@ package com.appdest.hcue.services;
 
 import com.appdest.hcue.model.AddPatientRequest;
 import com.appdest.hcue.model.AddPatientResponse;
+import com.appdest.hcue.model.AdditionalInfoRequest;
+import com.appdest.hcue.model.AdditionalInfoResponse;
 import com.appdest.hcue.model.AdminGetDoctorsRequest;
 import com.appdest.hcue.model.AdminGetDoctorsResponse;
 import com.appdest.hcue.model.AdminLogin;
@@ -149,4 +151,10 @@ public interface WebAPI {
     })
     @POST("/doctors/getDoctors")
     void getDoctor(@Body GetDoctorRequest getDoctorRequest, RestCallback<ClinicResponse> callback);
+    @Headers({
+            "Content-Type: application/json",
+            "User-Agent: Hcue"
+    })
+    @POST("/patients/addPatient")
+    void additionalInfo(AdditionalInfoRequest additionalInfoRequest, RestCallback<AdditionalInfoResponse> restCallback);
 }

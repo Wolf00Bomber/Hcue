@@ -15,6 +15,12 @@
     <string name="scheduled_doctor_appointment_time"><b>Today, 8:30 AM</b> with</string>
 
     <string name="download_app_footer">Download our <font color="#F57103">hCue Patient App</font> from Google play store</string>
+    <string-array name="referral_source_names">
+        <item>Friends</item>
+        <item>Relation</item>
+        <item>News Pape</item>
+        <item>Web Site</item>
 
+    </string-array>
 
 </resources>

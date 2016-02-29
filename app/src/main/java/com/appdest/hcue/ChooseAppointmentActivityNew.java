@@ -17,6 +17,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
@@ -360,6 +361,7 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
 
         public void refresh() {
             notifyDataSetChanged();
+
         }
 
         @Override
@@ -380,7 +382,7 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
             LinearLayout itemView = (LinearLayout) mLayoutInflater.inflate(R.layout.pager_item, container, false);
 
             CustomTimeAdapterNew customTimeAdapter = new CustomTimeAdapterNew(mContext, appointmentRows.get(position), instance, position);
-            GridView gvTime = (GridView) itemView.findViewById(R.id.gvTime);
+            final GridView gvTime = (GridView) itemView.findViewById(R.id.gvTime);
             gvTime.setAdapter(customTimeAdapter);
             gvTime.setLayoutParams(llParams);
             gvTime.setHorizontalSpacing(widthGap);
@@ -556,6 +558,8 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
                             tvTime.setText(Html.fromHtml(sb.toString()));
                         }
                         mCustomPagerAdapter.refresh();
+
+
                     }
                 });
                 return convertView;

@@ -24,7 +24,7 @@ public class EnterMailActivity extends BaseActivity implements OnClickListener
 {
 	private LinearLayout llEmail,llKeyboard,llSpecilaKeyboard;
 	private EditText edtEmail;
-	private Button btnConfirm,btnSkip;
+	private Button btnConfirm,btnSkip,btnDel;
 	private InputMethodManager im;
 	private Handler h;
 	private Animation slide_up, slide_down;
@@ -35,33 +35,31 @@ public class EnterMailActivity extends BaseActivity implements OnClickListener
 
 
 	@Override
-	public void initializeControls()
-	{
-		llEmail = (LinearLayout) inflater.inflate(R.layout.enter_mail, null);
-		llBody.addView(llEmail);
-		edtEmail		=	(EditText)		llEmail.findViewById(R.id.edtEmail);
-		btnConfirm		=	(Button)		llEmail.findViewById(R.id.btnConfirm);
-		btnSkip			=	(Button)		llEmail.findViewById(R.id.btnSkip);
-        llKeyboard          =   (LinearLayout) llEmail.findViewById(R.id.llKeyBoard);
-        llSpecilaKeyboard   =   (LinearLayout) llEmail.findViewById(R.id.llSpecialKeyBoard);
+	public void initializeControls() {
+        llEmail = (LinearLayout) inflater.inflate(R.layout.enter_mail, null);
+        llBody.addView(llEmail);
+        edtEmail = (EditText) llEmail.findViewById(R.id.edtEmail);
+        btnConfirm = (Button) llEmail.findViewById(R.id.btnConfirm);
+        btnSkip = (Button) llEmail.findViewById(R.id.btnSkip);
+        llKeyboard          = (LinearLayout) llEmail.findViewById(R.id.llKeyBoard);
+        llSpecilaKeyboard   = (LinearLayout) llEmail.findViewById(R.id.llSpecialKeyBoard);
+        btnDel				= (Button)       llEmail.findViewById(R.id.btnDel);
 
         llKeyboard.setVisibility(View.VISIBLE);
         llSpecilaKeyboard.setVisibility(View.GONE);
 
-		btnConfirm.setOnClickListener(this);
-		btnSkip.setOnClickListener(this);
+        btnConfirm.setOnClickListener(this);
+        btnSkip.setOnClickListener(this);
 
-		setSpecificTypeFace(llEmail, AppConstants.WALSHEIM_LIGHT);
-		btnConfirm.setTypeface(AppConstants.WALSHEIM_MEDIUM);
-		btnSkip.setTypeface(AppConstants.WALSHEIM_MEDIUM);
+        setSpecificTypeFace(llEmail, AppConstants.WALSHEIM_LIGHT);
+        btnConfirm.setTypeface(AppConstants.WALSHEIM_MEDIUM);
+        btnSkip.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 
-		tvTitle.setText("Enter Email Address");
+        tvTitle.setText("Enter Email Address");
 
-        slide_up 	= AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up);
-        slide_down  = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_down);
-	}
-
-	@Override
+        slide_up = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up);
+        slide_down = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_down);
+    }
 	public void bindControls()
 	{
         Intent i = getIntent();
@@ -98,6 +96,14 @@ public class EnterMailActivity extends BaseActivity implements OnClickListener
             }
         });
 
+        btnDel.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if (edtEmail != null)
+                    edtEmail.setText("");
+                return false;
+            }
+        });
 
         hideKeyBoard(edtEmail);
 
@@ -177,7 +183,8 @@ public class EnterMailActivity extends BaseActivity implements OnClickListener
             {
                 str = str + button.getText().toString() ;
                 ((EditText)focusedView).setText(str);
-                ((EditText)focusedView).setSelection(((EditText)focusedView).length());
+                ((EditText)focusedView).requestFocusFromTouch();
+               // ((EditText)focusedView).setSelection(((EditText)focusedView).requestFocusFromTouch());
             }
         }
 
