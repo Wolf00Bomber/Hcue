@@ -4,6 +4,7 @@
     android:id="@+id/llKeyBoard"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:gravity="center|bottom"
     android:background="@drawable/key_board_bg"
     android:orientation="vertical"
     android:visibility="visible">
@@ -335,6 +336,7 @@
             android:textSize="26sp" />
 
         <Button
+            android:id="@+id/btnDel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"

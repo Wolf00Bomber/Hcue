@@ -4,7 +4,7 @@
     android:id="@+id/llSpecialKeyBoard"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center"
+    android:gravity="center|bottom"
     android:background="@drawable/key_board_bg"
     android:orientation="vertical"
     android:visibility="visible">
@@ -117,6 +117,7 @@
             android:text="0"
             android:textSize="26sp" />
         <Button
+            android:id="@+id/btnDel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
