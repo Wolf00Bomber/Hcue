@@ -104,7 +104,7 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 		if(!"CancelAppointment".equalsIgnoreCase(fromActivity))
         {
 			if("Feedback".equalsIgnoreCase(fromActivity))
-				btnNoNumber.setVisibility(View.GONE);
+				btnNoNumber.setVisibility(View.INVISIBLE);
             if(i.hasExtra("DoctorDetails"))
                 selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail) i.getSerializableExtra("DoctorDetails");
             else{
@@ -113,7 +113,7 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
             }
         }else
 		{
-			btnNoNumber.setVisibility(View.GONE);
+			btnNoNumber.setVisibility(View.INVISIBLE);
 		}
 
 		h = new Handler(Looper.getMainLooper());
