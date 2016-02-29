@@ -144,7 +144,7 @@ public class ChoosePatientAppointmentActivity extends BaseActivity
         final GetPatientAppointmentsRequest getPatientAppointmentsRequest = new GetPatientAppointmentsRequest();
         getPatientAppointmentsRequest.setFamilyHdID(patientInfo.patients.get(0).getFamilyHdID());
         getPatientAppointmentsRequest.setPageNumber(pageNumber);
-        getPatientAppointmentsRequest.setPageSize(4);
+        getPatientAppointmentsRequest.setPageSize(1);
         getPatientAppointmentsRequest.setPatientID(patientInfo.patients.get(0).PatientID/*selectedPatientAppointment.appointmentDetails.PatientID*/);
         getPatientAppointmentsRequest.setSort("asc");
         String dt = "2008-01-01";  // Start date
