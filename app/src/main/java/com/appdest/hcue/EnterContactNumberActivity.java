@@ -50,7 +50,7 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
     private Number phNumber;
 	boolean isActivityNeedsFinish = false;
 	private String fromActivity;
-	
+	private Button btnDel;
 	@Override
 	public void initializeControls() 
 	{
@@ -66,6 +66,7 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 		edtNumber 			= (EditText) 	llMain.findViewById(R.id.edtNumber);
 		
 		llNumbers 			= (LinearLayout) llMain.findViewById(R.id.llNumbers);
+		btnDel				= (Button) llMain.findViewById(R.id.btnDel);
 		
 		slide_up 	= AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up);
 		slide_down  = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_down);
@@ -82,6 +83,15 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 		tvLandLine.setOnClickListener(this);
 		btnConfirmNumber.setOnClickListener(this);
 		btnNoNumber.setOnClickListener(this);
+
+		btnDel.setOnLongClickListener(new View.OnLongClickListener() {
+			@Override
+			public boolean onLongClick(View v) {
+				if(edtNumber != null)
+					edtNumber.setText("");
+				return false;
+			}
+		});
 	}
 
 	@Override
@@ -239,7 +249,7 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 			
 			else
 			{
-				str = str + button.getText().toString() ;
+				str = str+button.getText().toString();
 				((EditText)focusedView).setText(str);
 				((EditText)focusedView).setSelection(((EditText)focusedView).length());
 			}
