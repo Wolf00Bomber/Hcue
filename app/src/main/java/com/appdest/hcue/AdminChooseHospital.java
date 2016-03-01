@@ -1,5 +1,7 @@
 package com.appdest.hcue;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -16,6 +18,7 @@ import android.widget.TextView;
 
 import com.appdest.hcue.common.AppConstants;
 import com.appdest.hcue.model.AdminLoginResponse;
+import com.appdest.hcue.utils.Preference;
 import com.github.siyamed.shapeimageview.mask.PorterShapeImageView;
 
 import java.util.ArrayList;
@@ -69,6 +72,37 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
         btnCancel.setOnClickListener(this);
         btnNext.setOnClickListener(this);
         tvBack.setOnClickListener(this);
+
+        toggle_additional_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(toggle_additional_info.getText().toString().equalsIgnoreCase("ON"))
+                {
+                    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (which){
+                                case DialogInterface.BUTTON_POSITIVE:
+                                    //Yes button clicked
+                                    dialog.dismiss();
+                                    break;
+
+                                case DialogInterface.BUTTON_NEGATIVE:
+                                    //No button clicked
+                                    toggle_additional_info.setChecked(false);
+                                    dialog.dismiss();
+                                    break;
+                            }
+                        }
+                    };
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setMessage("Do you want patient to enter additional info ?").setPositiveButton("Yes", dialogClickListener)
+                            .setNegativeButton("No", dialogClickListener).show();
+                }
+            }
+        });
     }
 
     @Override
@@ -91,7 +125,7 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
         tvLogin.setEnabled(false);
         tvBack.setText("Previous Page");
         tvTitle.setText("Choose Hospital / Clinic");
-        tvDoctorName.setText(doctor.getFullName());
+        tvDoctorName.setText("Dr . "+doctor.getFullName());
         tvDesgAndSpeciality.setText("");
         tvEmail.setText(doctor.getDoctorLoginID());
         tvMobile.setText(getIntent().getStringExtra("phone"));
@@ -153,7 +187,18 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
                     //or else
                     //it is a clinic and no need to go to choose doctors activity
                     //directly goto confirm and logout screen
+                    Preference preference = new Preference(AdminChooseHospital.this);
+                    if(toggle_additional_info.getText().toString().equalsIgnoreCase("ON"))
+                    {
+                       AppConstants.Is_AdditionalInfo_On = true ;
 
+                        preference.saveBooleanInPreference(Preference.ADDITIONAL_INFO,true);
+                    }else
+                    {
+                        AppConstants.Is_AdditionalInfo_On = false ;
+                        preference.saveBooleanInPreference(Preference.ADDITIONAL_INFO,false);
+                    }
+                    preference.commitPreference();
                     if(this.hospitalData.getExtDetails().getHospitalID() == 0) { //clinic
                         Intent intent = new Intent(AdminChooseHospital.this, AdminConfirmation.class);
                         intent.putExtra("from", "AdminHospital");
@@ -261,7 +306,7 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
                 tvHospital.setText(hospitalData.getClinicName());
                 tvLocation.setText(hospitalData.getAddress2());
                 tvHospital.setTypeface(AppConstants.WALSHEIM_BOLD);
-                tvLocation.setTypeface(AppConstants.WALSHEIM_LIGHT_OBLIQUE);
+                tvLocation.setTypeface(AppConstants.WALSHEIM_LIGHT);
                 if(hospitalData.isSelected){
                     ivCheck.setBackgroundResource(R.drawable.check_box_admin);
                 } else {

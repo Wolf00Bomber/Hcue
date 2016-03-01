@@ -553,7 +553,7 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
                             sb.append(DateUtils.isToday(totalInstance) ? "Today" : TimeUtils.getDay(totalInstance))
                                     .append(", ")
                                     .append(TimeUtils.format2DateProper(totalInstance))
-                                    .append(" @ ")
+                                    .append("<font color=\"##A2A2A2\"> @ </font>")
                                     .append("<font color=\"#48B09E\">" + TimeUtils.format2hhmm(timeSlot.getStartTime()) + " hrs</font>");
                             tvTime.setText(Html.fromHtml(sb.toString()));
                         }

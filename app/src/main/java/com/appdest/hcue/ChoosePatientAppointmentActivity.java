@@ -175,11 +175,15 @@ public class ChoosePatientAppointmentActivity extends BaseActivity
             @Override
             public void success(GetPatientAppointmentsResponse getPatientAppointmentsResponse, Response response) {
                 if (getPatientAppointmentsResponse != null && getPatientAppointmentsResponse.count > 0) {
+                    tvHeading.setText("Choose appointment to give feedback");
+                    btnFeedbackAppointment.setVisibility(View.VISIBLE);
                     pageCount++;
                     gridAdapter.refresh(getPatientAppointmentsResponse.rows);
                 } else {
+                    btnFeedbackAppointment.setVisibility(View.GONE);
+                    tvHeading.setText("You don't have any appointments to give feedback");
                     Log.i("Response", "" + response.getReason());
-                    Toast.makeText(ChoosePatientAppointmentActivity.this, "No Appointments Found", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(ChoosePatientAppointmentActivity.this, "No Appointments Found", Toast.LENGTH_SHORT).show();
                 }
             }
         });

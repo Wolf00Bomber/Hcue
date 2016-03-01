@@ -28,4 +28,5 @@ public class AppConstants
 	public static String DATABASE_PATH 	= "";
 	public static final String DATABASE_NAME_WITHEXTENSION 	= "HCUE.sqlite";
 	public static final String DATABASE_NAME_WITHOUTEXTENSION 	= "HCUE";
+    public static boolean Is_AdditionalInfo_On = false ;
 }

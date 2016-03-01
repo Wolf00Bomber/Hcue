@@ -54,6 +54,7 @@ public class Preference {
 	public static String CLINIC_NAME = "CLINIC_NAME"; //string
 	public static String ADMIN_ID = "ADMIN_ID"; //string
 	public static String ADMIN_PASSWORD = "ADMIN_PASSWORD"; //string
+	public static String ADDITIONAL_INFO = "ADDITIONAL_INFO"; //string
 
 	
 	public Preference(Context context) {

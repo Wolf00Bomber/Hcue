@@ -100,7 +100,10 @@ public class SelectDoctorActivity extends BaseActivity
         llTop.setVisibility(View.GONE);
 
         setSpecificTypeFace(llMain, AppConstants.WALSHEIM_MEDIUM);
-        tvHeading.setTypeface(AppConstants.WALSHEIM_LIGHT);
+        tvHeading.setTypeface(AppConstants.WALSHEIM_MEDIUM);
+
+        Preference preference = new Preference(SelectDoctorActivity.this);
+        AppConstants.Is_AdditionalInfo_On =  preference.getbooleanFromPreference(Preference.ADDITIONAL_INFO, false);
 
         tvTitle.setText("Welcome to VHSL PhysioPoint");
         tvTitle.setTypeface(AppConstants.MYRAIDPRO_REGULAR);

@@ -112,7 +112,7 @@
         android:paddingBottom="5dp"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
-        android:paddingTop="5dp">
+        android:paddingTop="15dp">
 
         <ImageView
             android:id="@+id/ivLeft"
@@ -143,11 +143,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="@dimen/margin_20"
         android:orientation="horizontal">
+        <ImageView
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/logo_new" />
 
         <Button
+            android:layout_marginLeft="200dp"
+            android:layout_gravity="center"
             android:id="@+id/btnCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -157,6 +165,7 @@
             android:textSize="30sp" />
 
         <Button
+            android:layout_gravity="center"
             android:id="@+id/btnNext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -167,11 +176,6 @@
             android:textSize="30sp" />
     </LinearLayout>
 
-    <ImageView
-        android:layout_marginLeft="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-60dp"
-        android:background="@drawable/logo_new" />
+
 
 </LinearLayout>

@@ -73,7 +73,8 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_10"/>
         </LinearLayout>
     </LinearLayout>
 

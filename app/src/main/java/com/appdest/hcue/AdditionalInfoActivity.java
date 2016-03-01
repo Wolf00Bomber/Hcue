@@ -227,7 +227,7 @@ public class AdditionalInfoActivity extends BaseActivity{
         String strphone = phNumber+"";
         additionalInfoRequest.getArrpatientPhone().get(0).setPhAreaCD(Integer.parseInt(strphone.substring(0,4)));
         additionalInfoRequest.getArrpatientPhone().get(0).setPhNumber(phNumber);
-        additionalInfoRequest.getArrpatientPhone().get(0).setPhStateCD(Integer.parseInt(strphone.substring(4,9)));
+        additionalInfoRequest.getArrpatientPhone().get(0).setPhStateCD(Integer.parseInt(strphone.substring(4,10)));
         String url = "http://d1lmwj8jm5d3bc.cloudfront.net";
         RestClient.getAPI(url).additionalInfo(additionalInfoRequest, new RestCallback<AddPatientResponse>() {
             @Override
@@ -254,7 +254,8 @@ public class AdditionalInfoActivity extends BaseActivity{
 
 
              View view = LayoutInflater.from(getBaseContext()).inflate(R.layout.custom_dialog,null);
-        if(popupWindow == null) {
+        if(popupWindow == null)
+        {
             popupWindow = new PopupWindow(view, llreferral_source.getWidth(), ViewGroup.LayoutParams.WRAP_CONTENT);
             ListView lv_source_names = (ListView) view.findViewById(R.id.lv_source_names);
 
@@ -273,6 +274,7 @@ public class AdditionalInfoActivity extends BaseActivity{
                     tv_select.setTag((String) parent.getItemAtPosition(position));
                     tv_select.setText((String) parent.getItemAtPosition(position));
                     popupWindow.dismiss();
+                    popupWindow = null;
                 }
 
                 @Override
@@ -289,6 +291,10 @@ public class AdditionalInfoActivity extends BaseActivity{
                     popupWindow.dismiss();
                 }
             });
+        }else
+        {
+            popupWindow.dismiss();
+            popupWindow = null;
         }
 
 

@@ -286,8 +286,8 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
                 tvDoctor.setText(doctorData.getFullName());
                 tvDesignation.setText(TextUtils.join(",", list));
                 tvDoctor.setTypeface(AppConstants.WALSHEIM_BOLD);
-                tvDesignation.setTypeface(AppConstants.WALSHEIM_LIGHT_OBLIQUE);
-                tvSpeciality.setTypeface(AppConstants.WALSHEIM_LIGHT_OBLIQUE);
+                tvDesignation.setTypeface(AppConstants.WALSHEIM_LIGHT);
+                tvSpeciality.setTypeface(AppConstants.WALSHEIM_LIGHT);
                 if (hmSpecialities != null && hmSpecialities.size() > 0) {
 
                     for (int i = 0; i < list.size(); i++) {

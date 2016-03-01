@@ -77,7 +77,11 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 		btnAdditionalInfo 	=	(Button)		llUserDetails.findViewById(R.id.btnAdditionalInfo);
 		btnClearFields 		=	(Button)		llUserDetails.findViewById(R.id.btnClearFields);
 
-		btnDone.setVisibility(View.GONE);
+		if(AppConstants.Is_AdditionalInfo_On)
+			btnDone.setVisibility(View.GONE);
+		else
+			btnAdditionalInfo.setVisibility(View.GONE);
+
 
 		tvTitle.setText("Enter Patient Details");
 
