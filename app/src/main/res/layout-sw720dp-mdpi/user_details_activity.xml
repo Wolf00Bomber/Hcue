@@ -146,6 +146,21 @@
             android:textSize="30sp"
             android:textStyle="bold" />
 
+        <Button
+            android:id="@+id/btnAdditionalInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/next_btn"
+            android:gravity="center"
+            android:paddingLeft="@dimen/margin_15"
+            android:paddingRight="@dimen/margin_15"
+            android:text="Additional Info"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
 
     </LinearLayout>
 

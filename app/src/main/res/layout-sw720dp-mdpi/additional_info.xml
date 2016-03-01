@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <LinearLayout
-
+        android:layout_marginTop="@dimen/margin_25"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -132,4 +132,15 @@
             android:textColor="@color/white"
             android:textSize="25sp" />
     </LinearLayout>
+    <!--<FrameLayout
+        android:layout_marginTop="-150dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <include layout="@layout/alphabet_keyboard" />
+
+        <include layout="@layout/special_keyboard" />
+
+    </FrameLayout>-->
 </LinearLayout>

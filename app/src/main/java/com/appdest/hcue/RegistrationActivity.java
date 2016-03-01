@@ -46,7 +46,7 @@ import retrofit.client.Response;
 public class RegistrationActivity extends BaseActivity implements OnClickListener
 {
 	EditText edtFirstName, edtAge;
-	Button  btnDone,btnClearFields;
+	Button  btnDone,btnClearFields,btnAdditionalInfo;
 	LinearLayout llUserDetails, llKeyboard,llNumbers,llSpecilaKeyboard;
 	View focusedView;
 	InputMethodManager im;
@@ -74,7 +74,10 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 
 		edtAge 				= 	(EditText)		llUserDetails.findViewById(R.id.edtAge);
 		btnDone 			=	(Button)		llUserDetails.findViewById(R.id.btnDone);
+		btnAdditionalInfo 	=	(Button)		llUserDetails.findViewById(R.id.btnAdditionalInfo);
 		btnClearFields 		=	(Button)		llUserDetails.findViewById(R.id.btnClearFields);
+
+		btnDone.setVisibility(View.GONE);
 
 		tvTitle.setText("Enter Patient Details");
 
@@ -90,16 +93,17 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 		edtFirstName.setOnClickListener(this);
 		btnClearFields.setOnClickListener(this);
 		btnDone.setOnClickListener(this);
+		btnAdditionalInfo.setOnClickListener(this);
 
         psbHorizontal = (PhasedSeekBar) findViewById(R.id.psb_hor);
 
         final Resources resources = getResources();
 
-        psbHorizontal.setAdapter(new SimplePhasedAdapter(resources, new int[]{
-                R.drawable.male_seek_thumb,
-                R.drawable.female_seek_thumb}));
+		psbHorizontal.setAdapter(new SimplePhasedAdapter(resources, new int[]{
+				R.drawable.male_seek_thumb,
+				R.drawable.female_seek_thumb}));
 
-        psbHorizontal.setListener(new PhasedListener() {
+		psbHorizontal.setListener(new PhasedListener() {
 			@Override
 			public void onPositionSelected(int position) {
 				if (position == 0) {
@@ -110,7 +114,7 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 			}
 		});
 
-        psbHorizontal.setInteractionListener(new PhasedInteractionListener() {
+		psbHorizontal.setInteractionListener(new PhasedInteractionListener() {
 			@Override
 			public void onInteracted(int x, int y, int position, MotionEvent motionEvent) {
 				Log.d("PSB", String.format("onInteracted %d %d %d %d", x, y, position, motionEvent.getAction()));
@@ -118,6 +122,8 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 		});
         psbHorizontal.setPosition(0);
 		setCapitalizeTextWatcher(edtFirstName);
+
+
     }
 
     @Override
@@ -421,6 +427,34 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 			case R.id.btnClearFields:
 				edtFirstName.getText().clear();
 				edtAge.getText().clear();
+				break;
+			case R.id.btnAdditionalInfo:
+				if(TextUtils.isEmpty(edtFirstName.getText().toString().trim()))
+				{
+					showToast("Please enter Name.");
+				}
+				else if(TextUtils.isEmpty(edtAge.getText().toString().trim()))
+				{
+					showToast("Please enter Age.");
+				}
+				else if(!TextUtils.isDigitsOnly(edtAge.getText().toString().trim()))
+				{
+					showToast("Please enter a number for Age.");
+				}
+				else
+				{
+					Intent intent = new Intent(RegistrationActivity.this,AdditionalInfoActivity.class);
+					intent.putExtra("FullName",edtFirstName.getText().toString());
+					intent.putExtra("phNumber",phNumber);
+					intent.putExtra("PhoneCode",PhoneCode);
+					intent.putExtra("Age",edtAge.getText().toString());
+					intent.putExtra("Gender",psbHorizontal.getCurrentItem() == 0 ? "M" : "F");
+					intent.putExtra("DoctorDetails", selectedDoctorDetails);
+					intent.putExtra("isNoMobile", isNoMobile);
+					startActivity(intent);
+					finish();
+				}
+
 				break;
 			default:
 				break;

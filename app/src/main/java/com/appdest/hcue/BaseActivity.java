@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.appdest.hcue.common.AppConstants;
 
@@ -34,7 +35,8 @@ public abstract class BaseActivity extends FragmentActivity
 	public ProgressDialog progressdialog;
 	public TextView tvBack,tvTitle,tvHome,tvLogin;
 	public Bundle savedInstanceState;
-
+    public LinearLayout lladditional_info ;
+	public ToggleButton toggle_additional_info ;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) 
@@ -87,12 +89,15 @@ public abstract class BaseActivity extends FragmentActivity
 		
 		llTop 		= 	(LinearLayout) 	findViewById(R.id.llTop);
 		llBody 		= 	(LinearLayout) 	findViewById(R.id.llMiddle);
+		lladditional_info 		= 	(LinearLayout) 	findViewById(R.id.lladditional_info);
 		llBottom 	= 	(LinearLayout) 	findViewById(R.id.llFooter);
 		tvBack 		= 	(TextView) 		findViewById(R.id.tvBack);
 		tvTitle 	= 	(TextView) 		findViewById(R.id.tvTitle);
 		tvLogin		=	(TextView) 		findViewById(R.id.tvLogin);
 		tvHome 		= 	(TextView) 		findViewById(R.id.tvHome);
-		
+		toggle_additional_info 		= 	(ToggleButton) 		findViewById(R.id.toggle_additional_info);
+
+
 //		tvTitle.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 //		tvBack.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 		setSpecificTypeFace(llBottom, AppConstants.WALSHEIM_MEDIUM);

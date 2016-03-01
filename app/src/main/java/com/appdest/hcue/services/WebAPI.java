@@ -156,5 +156,5 @@ public interface WebAPI {
             "User-Agent: Hcue"
     })
     @POST("/patients/addPatient")
-    void additionalInfo(AdditionalInfoRequest additionalInfoRequest, RestCallback<AdditionalInfoResponse> restCallback);
+    void additionalInfo(@Body AdditionalInfoRequest additionalInfoRequest, RestCallback<AddPatientResponse> restCallback);
 }

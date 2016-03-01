@@ -42,6 +42,8 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
         layout = (LinearLayout) inflater.inflate(R.layout.admin_choose_hospital_main, null);
         llBody.addView(layout);
 
+
+
         imageView   = (PorterShapeImageView) layout.findViewById(R.id.imageView);
         tvDoctorName    = (TextView) layout.findViewById(R.id.tvDoctorName);
         tvDesgAndSpeciality    = (TextView) layout.findViewById(R.id.tvDesgAndSpeciality);
@@ -85,6 +87,7 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
         AdminLoginResponse.Doctor doctor = (AdminLoginResponse.Doctor) getIntent().getSerializableExtra("doctor");
         tvHome.setVisibility(View.GONE);
         tvBack.setVisibility(View.GONE);
+        lladditional_info.setVisibility(View.VISIBLE);
         tvLogin.setEnabled(false);
         tvBack.setText("Previous Page");
         tvTitle.setText("Choose Hospital / Clinic");

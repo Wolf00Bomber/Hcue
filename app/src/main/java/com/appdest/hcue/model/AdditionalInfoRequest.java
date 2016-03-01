@@ -13,27 +13,71 @@ public class AdditionalInfoRequest {
     public String USRType;
 
     @SerializedName("USRId")
-    public String USRId;
+    public int USRId;
 
 
     @SerializedName("patientDetails")
-    public ArrayList<patientDetails> arrpatientDetails ;
+    public patientDetails patientDetails = new patientDetails();
+
+    public AdditionalInfoRequest.patientDetails getPatientDetails() {
+        return patientDetails;
+    }
+
+    public void setPatientDetails(AdditionalInfoRequest.patientDetails patientDetails) {
+        this.patientDetails = patientDetails;
+    }
+
+    public ArrayList<patientEmail> getArrpatientEmail() {
+        /*if(arrpatientEmail.isEmpty())
+        {
+            arrpatientEmail.add(new patientEmail());
+        }*/
+        return arrpatientEmail;
+    }
+
+    public void setArrpatientEmail(ArrayList<patientEmail> arrpatientEmail) {
+        this.arrpatientEmail = arrpatientEmail;
+    }
+
+    public ArrayList<patientAddress> getArrpatientAddress() {
+        /*if(arrpatientAddress.isEmpty())
+        {
+            arrpatientAddress.add(new patientAddress());
+        }*/
+        return arrpatientAddress;
+    }
+
+    public void setArrpatientAddress(ArrayList<patientAddress> arrpatientAddress) {
+        this.arrpatientAddress = arrpatientAddress;
+    }
+
+    public ArrayList<patientPhone> getArrpatientPhone() {
+        if(arrpatientPhone.isEmpty())
+        {
+            arrpatientPhone.add(new patientPhone());
+        }
+        return arrpatientPhone;
+    }
+
+    public void setArrpatientPhone(ArrayList<patientPhone> arrpatientPhone) {
+        this.arrpatientPhone = arrpatientPhone;
+    }
 
     @SerializedName("patientEmail")
-    public ArrayList<patientEmail> arrpatientEmail ;
+    public ArrayList<patientEmail> arrpatientEmail = new ArrayList<>();
 
     @SerializedName("patientAddress")
-    public ArrayList<patientAddress> arrpatientAddress ;
+    public ArrayList<patientAddress> arrpatientAddress = new ArrayList<>();
 
     @SerializedName("patientPhone")
-    public ArrayList<patientPhone> arrpatientPhone ;
+    public ArrayList<patientPhone> arrpatientPhone = new ArrayList<>();
 
 
-    public String getUSRId() {
+    public int getUSRId() {
         return USRId;
     }
 
-    public void setUSRId(String USRId) {
+    public void setUSRId(int USRId) {
         this.USRId = USRId;
     }
 
@@ -48,27 +92,106 @@ public class AdditionalInfoRequest {
     public class patientDetails
     {
         @SerializedName("FullName")
-        public String FullName;
+        public String FullName = "";
 
         @SerializedName("Gender")
-        public String Gender;
+        public String Gender ="";
 
         @SerializedName("Age")
-        public int Age;
+        public int Age = 0;
 
         @SerializedName("MobileID")
-        public String MobileID;
+        public Number MobileID = 0;
 
-        public ArrayList<PatientOtherDetails> getArrPatientOtherDetails() {
-            return arrPatientOtherDetails;
+        @SerializedName("TermsAccepted")
+        public String TermsAccepted = "Y";
+
+        @SerializedName("AadhaarID")
+        public int AadhaarID = 0;
+
+        @SerializedName("FirstName")
+        public String FirstName = "";
+
+        public int getAadhaarID() {
+            return AadhaarID;
         }
 
-        public void setArrPatientOtherDetails(ArrayList<PatientOtherDetails> arrPatientOtherDetails) {
-            this.arrPatientOtherDetails = arrPatientOtherDetails;
+        public void setAadhaarID(int aadhaarID) {
+            AadhaarID = aadhaarID;
+        }
+
+        public String getFirstName() {
+            return FirstName;
+        }
+
+        public void setFirstName(String firstName) {
+            FirstName = firstName;
+        }
+
+        public String getLastName() {
+            return LastName;
+        }
+
+        public void setLastName(String lastName) {
+            LastName = lastName;
+        }
+
+       /* public String getPatientLoginID() {
+            return PatientLoginID;
+        }
+
+        public void setPatientLoginID(String patientLoginID) {
+            PatientLoginID = patientLoginID;
+        }
+
+        public String getPatientPassword() {
+            return PatientPassword;
+        }
+
+        public void setPatientPassword(String patientPassword) {
+            PatientPassword = patientPassword;
+        }*/
+
+        @SerializedName("LastName")
+        public String LastName = "";
+
+/*        @SerializedName("PatientLoginID")
+        public String PatientLoginID = "0";
+
+        @SerializedName("PatientPassword")
+        public String PatientPassword = "";*/
+
+        public String getTermsAccepted() {
+            return TermsAccepted;
+        }
+
+        public void setTermsAccepted(String termsAccepted) {
+            TermsAccepted = termsAccepted;
+        }
+
+
+
+        public AdditionalInfoRequest.patientDetails.PatientOtherDetails getPatientOtherDetails() {
+            return PatientOtherDetails;
+        }
+
+        public void setPatientOtherDetails(AdditionalInfoRequest.patientDetails.PatientOtherDetails patientOtherDetails) {
+            PatientOtherDetails = patientOtherDetails;
+        }
+
+        @SerializedName("EmergencyInfo")
+        public EmergencyInfo EmergencyInfo = new EmergencyInfo();
+
+        public AdditionalInfoRequest.patientDetails.EmergencyInfo getEmergencyInfo() {
+            return EmergencyInfo;
+        }
+
+        public void setEmergencyInfo(AdditionalInfoRequest.patientDetails.EmergencyInfo emergencyInfo) {
+            EmergencyInfo = emergencyInfo;
         }
 
         @SerializedName("PatientOtherDetails")
-        public ArrayList<PatientOtherDetails> arrPatientOtherDetails;
+        public PatientOtherDetails PatientOtherDetails = new PatientOtherDetails();
 
         public String getFullName() {
             return FullName;
@@ -94,30 +217,93 @@ public class AdditionalInfoRequest {
             Age = age;
         }
 
-        public String getMobileID() {
+        public Number getMobileID() {
             return MobileID;
         }
 
-        public void setMobileID(String mobileID) {
+        public void setMobileID(Number mobileID) {
             MobileID = mobileID;
+        }
+
+        public class EmergencyInfo
+        {
+            @SerializedName("AlternateNumber")
+            public String AlternateNumber = "";
+
+            @SerializedName("EmailID")
+            public String EmailID = "";
+
+            public String getAlternateNumber() {
+                return AlternateNumber;
+            }
+
+            public void setAlternateNumber(String alternateNumber) {
+                AlternateNumber = alternateNumber;
+            }
+
+            public String getEmailID() {
+                return EmailID;
+            }
+
+            public void setEmailID(String emailID) {
+                EmailID = emailID;
+            }
+
+            public String getMobileNumber() {
+                return MobileNumber;
+            }
+
+            public void setMobileNumber(String mobileNumber) {
+                MobileNumber = mobileNumber;
+            }
+
+            public String getName() {
+                return Name;
+            }
+
+            public void setName(String name) {
+                Name = name;
+            }
+
+            public String getRelationship() {
+                return Relationship;
+            }
+
+            public void setRelationship(String relationship) {
+                Relationship = relationship;
+            }
+
+            @SerializedName("MobileNumber")
+            public String MobileNumber = "0";
+
+            @SerializedName("Name")
+            public String Name = "";
+
+            @SerializedName("Relationship")
+            public String Relationship = "";
         }
 
         public class PatientOtherDetails
         {
             @SerializedName("MaritalStatus")
-            public String MaritalStatus;
+            public String MaritalStatus = "N";
 
             @SerializedName("Occupation")
-            public String Occupation;
+            public String Occupation = "";
 
             @SerializedName("Education")
-            public String Education;
-
-            @SerializedName("Gender")
-            public String Gender;
+            public String Education = "";
 
             @SerializedName("ReferralSource")
-            public ArrayList<ReferralSource> arrReferralSource;
+            public ReferralSource ReferralSource = new ReferralSource();
+
+            public AdditionalInfoRequest.patientDetails.PatientOtherDetails.ReferralSource getReferralSource() {
+                return ReferralSource;
+            }
+
+            public void setReferralSource(AdditionalInfoRequest.patientDetails.PatientOtherDetails.ReferralSource referralSource) {
+                ReferralSource = referralSource;
+            }
 
             public String getMaritalStatus() {
                 return MaritalStatus;
@@ -143,27 +329,21 @@ public class AdditionalInfoRequest {
                 Education = education;
             }
 
-            public String getGender() {
-                return Gender;
-            }
 
-            public void setGender(String gender) {
-                Gender = gender;
-            }
 
             public class ReferralSource
             {
                 @SerializedName("FRIEND")
-                public String FRIEND;
+                public String FRIEND = "";
 
                 @SerializedName("RELATION")
-                public String RELATION;
+                public String RELATION = "";
 
                 @SerializedName("NEWSPAPER")
-                public String NEWSPAPER;
+                public String NEWSPAPER = "";
 
                 @SerializedName("WEBSITE")
-                public String WEBSITE;
+                public String WEBSITE = "";
 
                 public String getRELATION() {
                     return RELATION;
@@ -362,63 +542,54 @@ public class AdditionalInfoRequest {
     public class patientPhone
     {
         @SerializedName("PhAreaCD")
-        public String PhAreaCD;
+        public Number PhAreaCD;
 
         @SerializedName("PhCntryCD")
-        public String PhCntryCD;
+        public Number PhCntryCD = 91;
 
         @SerializedName("PhNumber")
-        public String PhNumber;
+        public Number PhNumber;
 
-        @SerializedName("FirstName")
-        public String FirstName;
+
 
         @SerializedName("PhStateCD")
-        public String PhStateCD;
+        public Number PhStateCD;
 
         @SerializedName("PhType")
-        public String PhType;
+        public String PhType = "M";
 
         @SerializedName("PrimaryIND")
-        public String PrimaryIND;
+        public String PrimaryIND = "Y";
 
-        public String getPhAreaCD() {
+        public Number getPhAreaCD() {
             return PhAreaCD;
         }
 
-        public void setPhAreaCD(String phAreaCD) {
+        public void setPhAreaCD(Number phAreaCD) {
             PhAreaCD = phAreaCD;
         }
 
-        public String getPhCntryCD() {
+        public Number getPhCntryCD() {
             return PhCntryCD;
         }
 
-        public void setPhCntryCD(String phCntryCD) {
+        public void setPhCntryCD(Number phCntryCD) {
             PhCntryCD = phCntryCD;
         }
 
-        public String getPhNumber() {
+        public Number getPhNumber() {
             return PhNumber;
         }
 
-        public void setPhNumber(String phNumber) {
+        public void setPhNumber(Number phNumber) {
             PhNumber = phNumber;
         }
 
-        public String getFirstName() {
-            return FirstName;
-        }
-
-        public void setFirstName(String firstName) {
-            FirstName = firstName;
-        }
-
-        public String getPhStateCD() {
+        public Number getPhStateCD() {
             return PhStateCD;
         }
 
-        public void setPhStateCD(String phStateCD) {
+        public void setPhStateCD(Number phStateCD) {
             PhStateCD = phStateCD;
         }
 
