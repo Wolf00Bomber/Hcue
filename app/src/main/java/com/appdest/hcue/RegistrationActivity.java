@@ -456,7 +456,7 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 					intent.putExtra("DoctorDetails", selectedDoctorDetails);
 					intent.putExtra("isNoMobile", isNoMobile);
 					startActivity(intent);
-					finish();
+					//finish();
 				}
 
 				break;

@@ -485,7 +485,7 @@ public class SelectDoctorActivity extends BaseActivity
                 holder.iv = (PorterShapeImageView) view.findViewById(R.id.imageView);
 
                 holder.tvDoctorName.setTypeface(AppConstants.WALSHEIM_MEDIUM);
-                holder.tvSpecality.setTypeface(AppConstants.WALSHEIM_MEDIUM);
+                holder.tvSpecality.setTypeface(AppConstants.WALSHEIM_LIGHT);
                 holder.tvStatus.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 
                 holder.tvDoctorName.setTextColor(context.getResources().getColorStateList(R.color.text_pressed_doctors));
@@ -520,7 +520,7 @@ public class SelectDoctorActivity extends BaseActivity
                 }
 
                 view.setTag(R.string.app_name, doctorDetail);
-                holder.tvDoctorName.setText(doctorDetail.FullName/*"Dr.P. Venkatakrishna"*/);
+                holder.tvDoctorName.setText("Dr. "+doctorDetail.FullName/*"Dr.P. Venkatakrishna"*/);
                 if (hmSpecialities != null && hmSpecialities.size() > 0) {
                     ArrayList<String> list = new ArrayList<>(doctorDetail.specialityCD.values());
                     for (int i = 0; i < list.size(); i++) {

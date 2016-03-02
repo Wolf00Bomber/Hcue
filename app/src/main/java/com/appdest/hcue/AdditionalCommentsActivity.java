@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -122,6 +123,13 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
                         hideKeyBoard(v);
                     }
                 }, 50);
+            }
+        });
+        edtEnterComments.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                hideKeyBoard(v);
+                return false;
             }
         });
 

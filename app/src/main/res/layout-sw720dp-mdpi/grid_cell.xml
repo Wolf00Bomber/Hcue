@@ -5,17 +5,24 @@
     android:layout_height="wrap_content"
     android:background="@drawable/doctor"
     android:padding="5dp">
-
+<!--<LinearLayout
+    android:id="@+id/llimageView"
+    android:padding="1dp"
+    android:layout_marginLeft="20dp"
+    android:background="@drawable/selected_time_white"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">-->
     <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
         android:id="@+id/imageView"
+        android:layout_marginLeft="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="20dp"
+
         app:siShape="@drawable/rounded_rect_shape"
         android:src="@drawable/profile_doctor_bg_male"
-        app:siSquare="true"/>
+        app:siSquare="true"/><!--</LinearLayout>-->
 
     <!--<com.github.siyamed.shapeimageview.CircularImageView
         android:id="@+id/imageView"
@@ -49,7 +56,7 @@
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:text="Dr.P.Venkatakrishna" />
 
 <!--        <TextView

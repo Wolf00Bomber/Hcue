@@ -124,7 +124,9 @@ public class AdditionalInfoActivity extends BaseActivity{
                     Toast.makeText(AdditionalInfoActivity.this,"Please select referral source.", Toast.LENGTH_LONG).show();
                 }else
                 {
+                    showLoader("Loading");
                     callWebService();
+
                 }
             }
         });
@@ -232,7 +234,7 @@ public class AdditionalInfoActivity extends BaseActivity{
         RestClient.getAPI(url).additionalInfo(additionalInfoRequest, new RestCallback<AddPatientResponse>() {
             @Override
             public void success(AddPatientResponse additionalInfoResponse, Response response) {
-
+                hideLoader();
                 Toast.makeText(AdditionalInfoActivity.this,"SUCCESS"+"",Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(AdditionalInfoActivity.this, ChooseAppointmentActivityNew.class);
                 intent.putExtra("DoctorDetails", selectedDoctorDetails);
@@ -245,6 +247,7 @@ public class AdditionalInfoActivity extends BaseActivity{
 
             @Override
             public void failure(RestError restError) {
+                hideLoader();
                 Toast.makeText(AdditionalInfoActivity.this, restError.getErrorMessage(), Toast.LENGTH_LONG).show();
             }
         });

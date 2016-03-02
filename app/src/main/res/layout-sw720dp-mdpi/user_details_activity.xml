@@ -65,7 +65,7 @@
             <ademar.phasedseekbar.PhasedSeekBar
                 android:id="@+id/psb_hor"
                 android:layout_width="240dp"
-                android:layout_height="100dp"
+                android:layout_height="115dp"
                 app:phased_anchor_height="@dimen/test_anchor_size"
                 app:phased_anchor_width="@dimen/test_anchor_size"
                 app:phased_base_margin_bottom="@dimen/test_bottom_padding"
@@ -83,7 +83,7 @@
                 android:layout_marginLeft="45dp"
                 android:layout_marginTop="@dimen/margin_10"
                 android:text="Male"
-                android:textSize="16sp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -92,7 +92,7 @@
                 android:layout_marginRight="40dp"
                 android:layout_marginTop="@dimen/margin_10"
                 android:text="Female"
-                android:textSize="16sp" />
+                android:textSize="20sp" />
 
         </FrameLayout>
 
@@ -156,7 +156,7 @@
             android:gravity="center"
             android:paddingLeft="@dimen/margin_15"
             android:paddingRight="@dimen/margin_15"
-            android:text="Additional Info"
+            android:text="Additional Details"
             android:textColor="#FFFFFF"
             android:textSize="30sp"
             android:textStyle="bold" />

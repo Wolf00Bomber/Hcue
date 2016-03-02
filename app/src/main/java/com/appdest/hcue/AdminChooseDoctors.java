@@ -118,16 +118,27 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
                     ivLeft.setEnabled(false);
                     ivRight.setAlpha(1.0f);
                     ivRight.setEnabled(true);
-                } else if(position == listDoctors.size()/6+(listDoctors.size()%6==0?0:1)-1) {
+                } else if(position == maxDoctors/6+(maxDoctors%6==0?0:1)-1) {
                     ivRight.setAlpha(0.25f);
                     ivRight.setEnabled(false);
                     ivLeft.setAlpha(1.0f);
                     ivLeft.setEnabled(true);
+
+                    if(!listCalledPos.get(position)) {
+                        callService(PAGE_SIZE, position+1, hospitalData.getExtDetails().getHospitalID());
+                        listCalledPos.set(position, true);
+                    }
+
                 } else {
                     ivLeft.setAlpha(1.0f);
                     ivLeft.setEnabled(true);
                     ivRight.setAlpha(1.0f);
                     ivRight.setEnabled(true);
+
+                    if(!listCalledPos.get(position)) {
+                        callService(PAGE_SIZE, position+1, hospitalData.getExtDetails().getHospitalID());
+                        listCalledPos.set(position, true);
+                    }
                 }
             }
 
@@ -186,7 +197,7 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
         }
         @Override
         public int getCount() {
-            int count = listDoctors.size()/6 + (listDoctors.size()%6==0 ? 0:1);
+            int count = maxDoctors/6 + (maxDoctors%6==0 ? 0:1);
             if(count<=1) {
                 ivRight.setAlpha(0.25f);
                 ivRight.setEnabled(false);
@@ -397,6 +408,7 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
     }
 
     private void getDoctors(int pageSize, int pageNumber, int hospitalId) {
+        showLoader("Loading");
         final AdminGetDoctorsRequest adminGetDoctorsRequest = new AdminGetDoctorsRequest();
         adminGetDoctorsRequest.setPageSize(pageSize);
         adminGetDoctorsRequest.setPageNumber(pageNumber);
@@ -407,6 +419,7 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
         RestClient.getAPI(url).getDoctors(adminGetDoctorsRequest, new RestCallback<AdminGetDoctorsResponse>() {
             @Override
             public void failure(RestError restError) {
+                hideLoader();
                 Log.e("Doctor Login", "" + restError.getErrorMessage());
                 ivRight.setAlpha(0.25f);
                 ivRight.setEnabled(false);
@@ -416,6 +429,7 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
 
             @Override
             public void success(AdminGetDoctorsResponse adminGetDoctorsResponse, Response response) {
+                hideLoader();
                 if (adminGetDoctorsResponse != null) {
 
                     if(maxDoctors == 0) {

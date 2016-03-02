@@ -98,7 +98,7 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
                     };
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setMessage("Do you want patient to enter additional info ?").setPositiveButton("Yes", dialogClickListener)
+                    builder.setMessage("Do you want the patient to enter additional details?").setPositiveButton("Yes", dialogClickListener)
                             .setNegativeButton("No", dialogClickListener).show();
                 }
             }
@@ -125,7 +125,7 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
         tvLogin.setEnabled(false);
         tvBack.setText("Previous Page");
         tvTitle.setText("Choose Hospital / Clinic");
-        tvDoctorName.setText("Dr . "+doctor.getFullName());
+        tvDoctorName.setText("Dr. "+doctor.getFullName());
         tvDesgAndSpeciality.setText("");
         tvEmail.setText(doctor.getDoctorLoginID());
         tvMobile.setText(getIntent().getStringExtra("phone"));

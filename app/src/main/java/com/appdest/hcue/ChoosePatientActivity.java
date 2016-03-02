@@ -43,7 +43,7 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
 
 		setSpecificTypeFace(llPatient, AppConstants.WALSHEIM_LIGHT);
 
-        tvAdd.setTypeface(AppConstants.WALSHEIM_MEDIUM);
+        tvAdd.setTypeface(AppConstants.WALSHEIM_LIGHT);
 		
 		llAddPatient.setOnClickListener(this);
         extractInfoFromIntent();

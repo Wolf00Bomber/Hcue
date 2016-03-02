@@ -151,6 +151,38 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
         ivRightTime = (ImageView) llAppointment.findViewById(R.id.ivRightTime);
         mCustomPagerAdapter = new CustomAppointmentAdapterNew(this);
         mViewPager.setAdapter(mCustomPagerAdapter);
+        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+                if(position == 0)
+                {
+                        ivLeftTime.setImageResource(R.drawable.left_arrow_time_un);
+                    if(appointmentRows != null && appointmentRows.size() == 1)
+                        ivRightTime.setImageResource(R.drawable.right_arrow_time_un);
+                    else
+                        ivRightTime.setImageResource(R.drawable.right_arrow_time);
+                }else
+                {
+                    ivLeftTime.setImageResource(R.drawable.left_arrow_time);
+                    if(appointmentRows != null && (appointmentRows.size()-1) > position)
+                        ivRightTime.setImageResource(R.drawable.right_arrow_time);
+                    else
+                        ivRightTime.setImageResource(R.drawable.right_arrow_time_un);
+
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
         tv_youhave_selected.setTypeface(AppConstants.WALSHEIM_LIGHT);
 
@@ -304,6 +336,20 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
                     tvNoSlots.setVisibility(View.GONE);
                     appointmentRows = new ArrayList<>();
                     appointmentRows = getDoctorAppointmentResponse.appointmentRows;
+                    if(appointmentRows == null || appointmentRows.size() == 0)
+                    {
+                        ivLeftTime.setImageResource(R.drawable.left_arrow_time_un);
+                        ivRightTime.setImageResource(R.drawable.right_arrow_time_un);
+                    }
+                    else if(appointmentRows != null && appointmentRows.size() == 1)
+                    {
+                        ivLeftTime.setImageResource(R.drawable.left_arrow_time_un);
+                        ivRightTime.setImageResource(R.drawable.right_arrow_time_un);
+                    }else
+                    {
+                        ivLeftTime.setImageResource(R.drawable.left_arrow_time_un);
+                        ivRightTime.setImageResource(R.drawable.right_arrow_time);
+                    }
                     mCustomPagerAdapter.refresh();
                 } else {
                     mViewPager.setVisibility(View.INVISIBLE);
@@ -545,6 +591,7 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
                             tvTime.setText(Html.fromHtml(""));
                         } else {
                             Log.e("convertView click :", "select at " + position);
+                            tv_youhave_selected.setVisibility(View.VISIBLE);
                             resetData(pageNumber, position, true);
                             long dayInstance = appointmentRow.getConsultationDate().longValue();
                             long timeInstance = TimeUtils.getLongForHHMMSS(timeSlot.getStartTime());
