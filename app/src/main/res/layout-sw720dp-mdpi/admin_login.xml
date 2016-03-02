@@ -71,7 +71,7 @@
             android:hint="Enter Email ID"
             android:imeOptions="actionNext"
             android:inputType="textEmailAddress"
-            android:maxLength="30"
+            android:maxLength="100"
             android:minEms="10"
             android:paddingLeft="15dp"
             android:singleLine="true"

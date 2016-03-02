@@ -45,7 +45,7 @@ public class AdditionalInfoActivity extends BaseActivity{
   //  private LinearLayout llKeyboard, llSpecilaKeyboard;
     private TextView tv_referral_source , tv_select , tv_marital_status , tv_single , tv_married;
     private EditText edt_educational , edt_occupation;
-    private boolean isSingleSelected = false;
+    private boolean isSingleSelected = true;
     private Button btn_confirm_addition_details ;
     private PopupWindow popupWindow ;
     private View focusedView;
@@ -201,6 +201,16 @@ public class AdditionalInfoActivity extends BaseActivity{
         });*/
     }
 
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if(popupWindow != null)
+        {
+            popupWindow.dismiss();
+        }
+    }
+
     private void callWebService() {
 
         final AdditionalInfoRequest additionalInfoRequest = new AdditionalInfoRequest();
@@ -215,17 +225,24 @@ public class AdditionalInfoActivity extends BaseActivity{
 
 
         additionalInfoRequest.getPatientDetails().getPatientOtherDetails().setEducation(edt_educational.getText().toString());
-        additionalInfoRequest.getPatientDetails().getPatientOtherDetails().setOccupation(edt_educational.getText().toString());
+        additionalInfoRequest.getPatientDetails().getPatientOtherDetails().setOccupation(edt_occupation.getText().toString());
         additionalInfoRequest.getPatientDetails().setGender(Gender);
+
         additionalInfoRequest.getPatientDetails().getPatientOtherDetails().setMaritalStatus(isSingleSelected ? "N" : "Y");
-        if(tv_referral_source.getText().toString().equalsIgnoreCase("Friends"))
-            additionalInfoRequest.getPatientDetails().getPatientOtherDetails().getReferralSource().setFRIEND("Friends");
-        else  if(tv_referral_source.getText().toString().equalsIgnoreCase("Relation"))
-            additionalInfoRequest.getPatientDetails().getPatientOtherDetails().getReferralSource().setRELATION("Relation");
-        else  if(tv_referral_source.getText().toString().equalsIgnoreCase("News Paper"))
-            additionalInfoRequest.getPatientDetails().getPatientOtherDetails().getReferralSource().setNEWSPAPER("News Paper");
+        if(tv_select.getText().toString().equalsIgnoreCase("Friends"))
+            additionalInfoRequest.getPatientDetails().getPatientOtherDetails().getReferralSource().put("FRIEND", "friends");
+        else  if(tv_select.getText().toString().equalsIgnoreCase("Relation"))
+            additionalInfoRequest.getPatientDetails().getPatientOtherDetails().getReferralSource().put("RELATION","Relation");
+        else  if(tv_select.getText().toString().equalsIgnoreCase("News Paper"))
+            additionalInfoRequest.getPatientDetails().getPatientOtherDetails().getReferralSource().put("NEWSPAPER", "News Paper");
+        else if(tv_select.getText().toString().equalsIgnoreCase("Flyer"))
+            additionalInfoRequest.getPatientDetails().getPatientOtherDetails().getReferralSource().put("FLYER", "Flyer");
+        else if(tv_select.getText().toString().equalsIgnoreCase("JustDial"))
+            additionalInfoRequest.getPatientDetails().getPatientOtherDetails().getReferralSource().put("JUSTDIAL", "JustDial");
+        else if(tv_select.getText().toString().equalsIgnoreCase("Others"))
+            additionalInfoRequest.getPatientDetails().getPatientOtherDetails().getReferralSource().put("OTHERS", "Others");
         else
-            additionalInfoRequest.getPatientDetails().getPatientOtherDetails().getReferralSource().setWEBSITE("Web Site");
+            additionalInfoRequest.getPatientDetails().getPatientOtherDetails().getReferralSource().put("WEBSITE","Web Site");
         String strphone = phNumber+"";
         additionalInfoRequest.getArrpatientPhone().get(0).setPhAreaCD(Integer.parseInt(strphone.substring(0,4)));
         additionalInfoRequest.getArrpatientPhone().get(0).setPhNumber(phNumber);
@@ -235,7 +252,7 @@ public class AdditionalInfoActivity extends BaseActivity{
             @Override
             public void success(AddPatientResponse additionalInfoResponse, Response response) {
                 hideLoader();
-                Toast.makeText(AdditionalInfoActivity.this,"SUCCESS"+"",Toast.LENGTH_LONG).show();
+                //Toast.makeText(AdditionalInfoActivity.this,"SUCCESS"+"",Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(AdditionalInfoActivity.this, ChooseAppointmentActivityNew.class);
                 intent.putExtra("DoctorDetails", selectedDoctorDetails);
                 intent.putExtra("PhoneNumber", phNumber);
@@ -248,7 +265,7 @@ public class AdditionalInfoActivity extends BaseActivity{
             @Override
             public void failure(RestError restError) {
                 hideLoader();
-                Toast.makeText(AdditionalInfoActivity.this, restError.getErrorMessage(), Toast.LENGTH_LONG).show();
+               // Toast.makeText(AdditionalInfoActivity.this, restError.getErrorMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -262,7 +279,7 @@ public class AdditionalInfoActivity extends BaseActivity{
             popupWindow = new PopupWindow(view, llreferral_source.getWidth(), ViewGroup.LayoutParams.WRAP_CONTENT);
             ListView lv_source_names = (ListView) view.findViewById(R.id.lv_source_names);
 
-            String[] items = {"News Paper", "Web Site" , "Flyer" , "JustDial" , "Friends" , "Others"};
+            String[] items = {"News Paper", "Relation" , "Web Site" , "Flyer" , "JustDial" , "Friends" , "Others"};
             ArrayAdapter<String> referral_names_adapter = new ArrayAdapter(this, R.layout.popup_cell, R.id.tv_pop_cell, items);
             lv_source_names.setAdapter(referral_names_adapter);
 

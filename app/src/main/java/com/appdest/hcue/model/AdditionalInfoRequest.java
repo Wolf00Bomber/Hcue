@@ -3,6 +3,7 @@ package com.appdest.hcue.model;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by Admin on 29-02-2016.
@@ -179,7 +180,7 @@ public class AdditionalInfoRequest {
             PatientOtherDetails = patientOtherDetails;
         }
 
-        @SerializedName("EmergencyInfo")
+       /* @SerializedName("EmergencyInfo")
         public EmergencyInfo EmergencyInfo = new EmergencyInfo();
 
         public AdditionalInfoRequest.patientDetails.EmergencyInfo getEmergencyInfo() {
@@ -188,7 +189,7 @@ public class AdditionalInfoRequest {
 
         public void setEmergencyInfo(AdditionalInfoRequest.patientDetails.EmergencyInfo emergencyInfo) {
             EmergencyInfo = emergencyInfo;
-        }
+        }*/
 
         @SerializedName("PatientOtherDetails")
         public PatientOtherDetails PatientOtherDetails = new PatientOtherDetails();
@@ -295,13 +296,13 @@ public class AdditionalInfoRequest {
             public String Education = "";
 
             @SerializedName("ReferralSource")
-            public ReferralSource ReferralSource = new ReferralSource();
+            public HashMap<String,String> ReferralSource = new HashMap<>();
 
-            public AdditionalInfoRequest.patientDetails.PatientOtherDetails.ReferralSource getReferralSource() {
+            public HashMap<String, String> getReferralSource() {
                 return ReferralSource;
             }
 
-            public void setReferralSource(AdditionalInfoRequest.patientDetails.PatientOtherDetails.ReferralSource referralSource) {
+            public void setReferralSource(HashMap<String, String> referralSource) {
                 ReferralSource = referralSource;
             }
 
@@ -330,20 +331,28 @@ public class AdditionalInfoRequest {
             }
 
 
-
-            public class ReferralSource
+            /*public class ReferralSource
             {
-                @SerializedName("FRIEND")
-                public String FRIEND = "";
+                HashMap<String , String> values = new HashMap<String , String>();
+
+                public HashMap<String, String> getValues() {
+                    return values;
+                }
+
+                public void setValues(HashMap<String, String> values) {
+                    this.values = values;
+                }
+                *//*@SerializedName("FRIEND")
+                public String FRIEND ;
 
                 @SerializedName("RELATION")
-                public String RELATION = "";
+                public String RELATION ;
 
                 @SerializedName("NEWSPAPER")
-                public String NEWSPAPER = "";
+                public String NEWSPAPER ;
 
                 @SerializedName("WEBSITE")
-                public String WEBSITE = "";
+                public String WEBSITE ;
 
                 public String getRELATION() {
                     return RELATION;
@@ -375,8 +384,8 @@ public class AdditionalInfoRequest {
 
                 public void setFRIEND(String FRIEND) {
                     this.FRIEND = FRIEND;
-                }
-            }
+                }*//*
+            }*/
 
         }
 

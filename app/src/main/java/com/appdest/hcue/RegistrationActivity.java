@@ -83,6 +83,7 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 			btnAdditionalInfo.setVisibility(View.GONE);
 
 
+
 		tvTitle.setText("Enter Patient Details");
 
 		slide_up 	= AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up);
@@ -145,6 +146,8 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 			if(i.hasExtra("NoMobile"))
 			{
 				isNoMobile = true;
+				btnDone.setVisibility(View.VISIBLE);
+				btnAdditionalInfo.setVisibility(View.GONE);
 			}
 		}
 		else{
