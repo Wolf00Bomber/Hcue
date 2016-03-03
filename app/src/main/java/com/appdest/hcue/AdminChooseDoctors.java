@@ -85,7 +85,6 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
 
     @Override
     public void bindControls() {
-//        prepareData();
         hospitalData = (AdminLoginResponse.DoctorAddress) getIntent().getSerializableExtra("hospitalData");
         doctorId = getIntent().getIntExtra("doctorId",0);
         tvLogin.setEnabled(false);
@@ -304,7 +303,7 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
                     for (int i = 0; i < list.size(); i++) {
                         list.set(i, hmSpecialities.get(list.get(i)).DoctorSpecialityDesc);
                     }
-                    tvSpeciality.setText(TextUtils.join(",", list) /*"Physiotherapist"*/);
+                    tvSpeciality.setText(TextUtils.join(",", list));
                 }
 
                 tvDoctor.setText(doctorData.getFullName()+",");
@@ -355,50 +354,6 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
         }
     }
 
-    //Temperory class for Holding data
-    /*private class HospitalData {
-        public boolean isSelected;
-        public String name = "BHS Hospital";
-        public String location = "T Nagar, Chennai";
-    }
-
-    private ArrayList<HospitalData> hospitalList;
-    private void prepareData() {
-        hospitalList = new ArrayList<>();
-        for(int i=0; i<24; i++) {
-            HospitalData hospitalData = new HospitalData();
-            hospitalList.add(hospitalData);
-        }
-    }*/
-
-    /*private void setData(int pos, boolean selection) {
-        ArrayList<HospitalData> list = new ArrayList<>();
-        for(int i=0; i<hospitalList.size(); i++) {
-            HospitalData hospitalData = hospitalList.get(i);
-            if(i==pos)
-                hospitalData.isSelected = selection;
-            else
-//                hospitalData.isSelected = false;
-            list.add(hospitalData);
-        }
-        hospitalList.clear();
-        hospitalList.addAll(list);
-    }*/
-
-    private void setData(int pos, boolean selection) {
-        ArrayList<AdminGetDoctorsResponse.DoctorDetails> list = new ArrayList<>();
-        for(int i=0; i<listDoctors.size(); i++) {
-            AdminGetDoctorsResponse.DoctorDetails doctorData = listDoctors.get(i);
-            if(i==pos)
-                doctorData.isSelected = selection;
-            else
-//                hospitalData.isSelected = false;
-                list.add(doctorData);
-        }
-        listDoctors.clear();
-        listDoctors.addAll(list);
-    }
-
     private void callService(int pageSize, int pageNumber, int hospitalId) {
         if (Connectivity.isConnected(AdminChooseDoctors.this)) {
             getDoctors(pageSize, pageNumber, hospitalId);
@@ -408,18 +363,15 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
     }
 
     private void getDoctors(int pageSize, int pageNumber, int hospitalId) {
-        showLoader("Loading");
         final AdminGetDoctorsRequest adminGetDoctorsRequest = new AdminGetDoctorsRequest();
         adminGetDoctorsRequest.setPageSize(pageSize);
         adminGetDoctorsRequest.setPageNumber(pageNumber);
         adminGetDoctorsRequest.setHospitalID(hospitalId);
-//        adminGetDoctorsRequest.setDoctorID(new ArrayList<Integer>());
 
         String url = "http://dct4avjn1lfw.cloudfront.net";
         RestClient.getAPI(url).getDoctors(adminGetDoctorsRequest, new RestCallback<AdminGetDoctorsResponse>() {
             @Override
             public void failure(RestError restError) {
-                hideLoader();
                 Log.e("Doctor Login", "" + restError.getErrorMessage());
                 ivRight.setAlpha(0.25f);
                 ivRight.setEnabled(false);
@@ -429,7 +381,6 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
 
             @Override
             public void success(AdminGetDoctorsResponse adminGetDoctorsResponse, Response response) {
-                hideLoader();
                 if (adminGetDoctorsResponse != null) {
 
                     if(maxDoctors == 0) {
@@ -447,7 +398,7 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
                             listCalledPos.add(false);
                         }
                         if(pages>0)
-                        listCalledPos.set(0, true);
+                            listCalledPos.set(0, true);
                     }
 
                     listDoctors.addAll(adminGetDoctorsResponse.getListDoctorDetails());
@@ -459,7 +410,7 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
                         doctorsPagerAdapter.refreshPager();
                     }
                 } else {
-                    Log.i("Response", "" + response.getReason());
+                    Log.e("Response", "" + response.getReason());
                     ivRight.setAlpha(0.25f);
                     ivRight.setEnabled(false);
                     ivLeft.setAlpha(0.25f);

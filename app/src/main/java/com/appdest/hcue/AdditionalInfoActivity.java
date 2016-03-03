@@ -1,6 +1,5 @@
 package com.appdest.hcue;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
@@ -31,18 +30,14 @@ import com.appdest.hcue.services.RestCallback;
 import com.appdest.hcue.services.RestClient;
 import com.appdest.hcue.services.RestError;
 
-import java.text.NumberFormat;
-
 import retrofit.client.Response;
-
-import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 /**
  * Created by Admin on 29-02-2016.
  */
 public class AdditionalInfoActivity extends BaseActivity{
     private LinearLayout llAdditional_info , llreferral_source ;
-  //  private LinearLayout llKeyboard, llSpecilaKeyboard;
+    private LinearLayout llKeyboard, llSpecilaKeyboard;
     private TextView tv_referral_source , tv_select , tv_marital_status , tv_single , tv_married;
     private EditText edt_educational , edt_occupation;
     private boolean isSingleSelected = true;
@@ -56,7 +51,7 @@ public class AdditionalInfoActivity extends BaseActivity{
     private int age ;
     private GetDoctorsResponse.DoctorDetail selectedDoctorDetails;
     private boolean isNoMobile;
-  //  private Dialog dialog ;
+    //  private Dialog dialog ;
 
     @Override
     public void initializeControls() {
@@ -69,8 +64,8 @@ public class AdditionalInfoActivity extends BaseActivity{
         slide_down  = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_down);
 
         llreferral_source  =  (LinearLayout)    llAdditional_info.findViewById(R.id.llreferral_source);
-       // llKeyboard		   =  (LinearLayout)	llAdditional_info.findViewById(R.id.llKeyBoard);
-        //llSpecilaKeyboard  =  (LinearLayout)	llAdditional_info.findViewById(R.id.llSpecialKeyBoard);
+        llKeyboard		   =  (LinearLayout)	llAdditional_info.findViewById(R.id.llKeyBoard);
+        llSpecilaKeyboard  =  (LinearLayout)	llAdditional_info.findViewById(R.id.llSpecialKeyBoard);
         tv_referral_source = (TextView) llAdditional_info.findViewById(R.id.tv_referral_source);
         tv_select          = (TextView) llAdditional_info.findViewById(R.id.tv_select);
         tv_marital_status  = (TextView) llAdditional_info.findViewById(R.id.tv_marital_status);
@@ -99,9 +94,9 @@ public class AdditionalInfoActivity extends BaseActivity{
             @Override
             public void onClick(View v) {
 
-                isSingleSelected = false ;
-                tv_married.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check_icon,0,0,0);
-                tv_single.setCompoundDrawablesWithIntrinsicBounds(R.drawable.un_check_icon,0,0,0);
+                isSingleSelected = false;
+                tv_married.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check_icon, 0, 0, 0);
+                tv_single.setCompoundDrawablesWithIntrinsicBounds(R.drawable.un_check_icon, 0, 0, 0);
 
             }
         });
@@ -109,7 +104,7 @@ public class AdditionalInfoActivity extends BaseActivity{
         llreferral_source.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+
                 showSelectSourcePopup();
             }
         });
@@ -119,11 +114,9 @@ public class AdditionalInfoActivity extends BaseActivity{
             @Override
             public void onClick(View v) {
 
-                if(tv_select.getTag() == null)
-                {
-                    Toast.makeText(AdditionalInfoActivity.this,"Please select referral source.", Toast.LENGTH_LONG).show();
-                }else
-                {
+                if (tv_select.getTag() == null) {
+                    Toast.makeText(AdditionalInfoActivity.this, "Please select referral source.", Toast.LENGTH_LONG).show();
+                } else {
                     showLoader("Loading");
                     callWebService();
 
@@ -131,7 +124,12 @@ public class AdditionalInfoActivity extends BaseActivity{
             }
         });
 
-        /*edt_educational.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        edt_educational.clearFocus();
+        edt_occupation.clearFocus();
+        llKeyboard.setVisibility(View.GONE);
+        llSpecilaKeyboard.setVisibility(View.GONE);
+
+        edt_educational.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
             @Override
             public void onFocusChange(final View v, boolean hasFocus) {
@@ -145,12 +143,12 @@ public class AdditionalInfoActivity extends BaseActivity{
                 }, 50);
                 if (hasFocus) {
                     if (llKeyboard.getVisibility() == View.GONE) {
-                        //llKeyboard.startAnimation(slide_down);
+//                        llKeyboard.startAnimation(slide_up);
                         llKeyboard.setVisibility(View.VISIBLE);
                     }
 
                     if (llSpecilaKeyboard.getVisibility() == View.VISIBLE)
-						*//*llSpecilaKeyboard.startAnimation(slide_down);*//*
+//                        llSpecilaKeyboard.startAnimation(slide_down);
                         llSpecilaKeyboard.setVisibility(View.GONE);
                 }
             }
@@ -171,18 +169,18 @@ public class AdditionalInfoActivity extends BaseActivity{
                 if(hasFocus)
                 {
                     if (llKeyboard.getVisibility() == View.GONE) {
-                        //llKeyboard.startAnimation(slide_down);
+//                        llKeyboard.startAnimation(slide_up);
                         llKeyboard.setVisibility(View.VISIBLE);
                     }
 
                     if (llSpecilaKeyboard.getVisibility() == View.VISIBLE)
-						*//*llSpecilaKeyboard.startAnimation(slide_down);*//*
+//                        llSpecilaKeyboard.startAnimation(slide_down);
                         llSpecilaKeyboard.setVisibility(View.GONE);
                 }
             }
-        });*/
+        });
 
-       /* edt_occupation.setOnTouchListener(new View.OnTouchListener() {
+        edt_occupation.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 edt_occupation.clearFocus();
@@ -198,17 +196,29 @@ public class AdditionalInfoActivity extends BaseActivity{
                 hideKeyBoard(v);
                 return false;
             }
-        });*/
+        });
     }
 
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        if(popupWindow != null)
-        {
+
+        if(popupWindow != null) {
             popupWindow.dismiss();
         }
+
+        if((llSpecilaKeyboard != null && llSpecilaKeyboard.getVisibility()== View.VISIBLE)
+                ||(llKeyboard != null && llKeyboard.getVisibility() == View.VISIBLE))  {
+            try{
+                llSpecilaKeyboard.setVisibility(View.GONE);
+                llKeyboard.setVisibility(View.GONE);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        } else {
+            super.onBackPressed();
+        }
+
     }
 
     private void callWebService() {
@@ -259,13 +269,13 @@ public class AdditionalInfoActivity extends BaseActivity{
                 intent.putExtra("PatientInfo", additionalInfoResponse);
                 intent.putExtra("isNoMobile", isNoMobile);
                 startActivity(intent);
-                finish();
+//                finish();
             }
 
             @Override
             public void failure(RestError restError) {
                 hideLoader();
-               // Toast.makeText(AdditionalInfoActivity.this, restError.getErrorMessage(), Toast.LENGTH_LONG).show();
+                // Toast.makeText(AdditionalInfoActivity.this, restError.getErrorMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -273,7 +283,7 @@ public class AdditionalInfoActivity extends BaseActivity{
     private void showSelectSourcePopup() {
 
 
-             View view = LayoutInflater.from(getBaseContext()).inflate(R.layout.custom_dialog,null);
+        View view = LayoutInflater.from(getBaseContext()).inflate(R.layout.custom_dialog,null);
         if(popupWindow == null)
         {
             popupWindow = new PopupWindow(view, llreferral_source.getWidth(), ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -349,7 +359,7 @@ public class AdditionalInfoActivity extends BaseActivity{
 
     }
 
-    /*public void keyboardClick(View v)
+    public void keyboardClick(View v)
     {
         hideKeyBoard(v);
         focusedView = getCurrentFocus();
@@ -364,20 +374,20 @@ public class AdditionalInfoActivity extends BaseActivity{
             {
                 if(llSpecilaKeyboard.getVisibility() == View.GONE)
                 {
-                    llKeyboard.startAnimation(slide_down);
+//                    llKeyboard.startAnimation(slide_down);
                     llKeyboard.setVisibility(View.GONE);
                     llSpecilaKeyboard.setVisibility(View.VISIBLE);
-                    llSpecilaKeyboard.startAnimation(slide_up);
+//                    llSpecilaKeyboard.startAnimation(slide_up);
                 }
             }
             else if(button.getText().toString().equalsIgnoreCase("ABC"))
             {
                 if(llKeyboard.getVisibility() == View.GONE)
                 {
-                    llSpecilaKeyboard.startAnimation(slide_down);
+//                    llSpecilaKeyboard.startAnimation(slide_down);
                     llSpecilaKeyboard.setVisibility(View.GONE);
                     llKeyboard.setVisibility(View.VISIBLE);
-                    llKeyboard.startAnimation(slide_up);
+//                    llKeyboard.startAnimation(slide_up);
                 }
             }
             else if(button.getText().toString().equalsIgnoreCase("DEL"))
@@ -411,8 +421,7 @@ public class AdditionalInfoActivity extends BaseActivity{
                 ((EditText)focusedView).setSelection(((EditText)focusedView).length());
             }
         }
-
-    }*/
+    }
 
     public class MyCustomAdapter extends BaseAdapter
     {

@@ -168,11 +168,11 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 		edtNumber.clearFocus();
 
 		edtNumber.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				hideKeyBoard(v);
-			}
-		});
+		@Override
+		public void onClick(View v) {
+			hideKeyBoard(v);
+		}
+	});
 		edtCode.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -183,7 +183,7 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 		edtNumber.setOnTouchListener(new View.OnTouchListener() {
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
-                v.clearFocus();
+				v.clearFocus();
 				hideKeyBoard(v);
 				return false;
 			}

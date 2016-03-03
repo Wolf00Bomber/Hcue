@@ -356,6 +356,13 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 				llNumbers.setVisibility(View.GONE);
 			}
 		}, 50);
+
+		try{
+			edtAge.clearFocus();
+			edtFirstName.setFocusable(true);
+		}catch(Exception e){
+
+		}
 	}
 
 	public void hideKeyBoard(View view)
