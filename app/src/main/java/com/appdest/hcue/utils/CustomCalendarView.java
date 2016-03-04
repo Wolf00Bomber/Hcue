@@ -50,6 +50,7 @@ public class CustomCalendarView extends LinearLayout
     private int currentMonthIndex = 0;
     private boolean isMonthUpdated;
     private int updatedMonth;
+    private CalendarAdapter adapter;
 
 
     // seasons' rainbow
@@ -81,6 +82,16 @@ public class CustomCalendarView extends LinearLayout
         this.eventHandler = eventHandler;
     }
 
+    public EventHandler getEventHandler()
+    {
+        return eventHandler;
+    }
+
+    public GridView getGrid()
+    {
+        return grid ;
+    }
+
     /**
      * Load component XML layout
      */
@@ -106,9 +117,12 @@ public class CustomCalendarView extends LinearLayout
         Drawable d = getResources().getDrawable(R.drawable.date_mnth_header);
         calendarCellWidth = d.getIntrinsicWidth()/7;
         calendarCellHeight = d.getIntrinsicHeight();
-        CalendarAdapter adapter = new CalendarAdapter(null);
+        adapter = new CalendarAdapter(null);
         adapter.setSelectedDate(new Date());
         grid.setAdapter(adapter);
+
+
+        btnPrev.setBackgroundResource(R.drawable.right_arrow_calendar_un);
         rvDateTitle.setLayoutParams(new RelativeLayout.LayoutParams(d.getIntrinsicWidth(), d.getIntrinsicHeight()));
 
 
@@ -134,6 +148,14 @@ public class CustomCalendarView extends LinearLayout
                     isMonthUpdated = true;
                     updatedMonth = 0;
                     updateCalendar();
+                    if(currentMonthIndex == 0)
+                        btnPrev.setBackgroundResource(R.drawable.right_arrow_calendar_un);
+                    else
+                        btnPrev.setBackgroundResource(R.drawable.right_arrow_calendar);
+
+                }else
+                {
+                    btnPrev.setBackgroundResource(R.drawable.right_arrow_calendar_un);
                 }
             }
         });
@@ -146,6 +168,7 @@ public class CustomCalendarView extends LinearLayout
                 isMonthUpdated= true;
                 updatedMonth=0;
                 updateCalendar();
+                btnPrev.setBackgroundResource(R.drawable.right_arrow_calendar);
             }
         });
 
@@ -186,6 +209,12 @@ public class CustomCalendarView extends LinearLayout
             }
 
         });
+    }
+
+    public CalendarAdapter getAdapter()
+
+    {
+        return adapter;
     }
 
     public void updateCalendar()

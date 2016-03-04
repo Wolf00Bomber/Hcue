@@ -3,6 +3,7 @@ package com.appdest.hcue;
 import com.appdest.hcue.common.AppConstants;
 import com.appdest.hcue.model.GetDoctorsResponse;
 import com.appdest.hcue.model.GetPatientResponse;
+import com.appdest.hcue.utils.Preference;
 import com.appdest.hcue.utils.TimeUtils;
 
 import android.content.Intent;
@@ -89,7 +90,25 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
         return isValid;
     }
 
-	@Override
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        resetSharedValues();
+    }
+
+    private void resetSharedValues() {
+
+        Preference preference = new Preference(ChoosePatientActivity.this);
+        preference.saveStringInPreference("PreferenceSource","");
+        preference.saveStringInPreference("MaritalStatus","");
+        preference.saveStringInPreference("Education","");
+        preference.saveStringInPreference("Ocupation","");
+
+        preference.commitPreference();
+    }
+
+    @Override
 	public void bindControls() 
 	{
 		tvLogin.setEnabled(false);
@@ -127,6 +146,10 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
                     summary.putExtra("PhoneCode", PhoneCode);
                     summary.putExtra("DoctorDetails", selectedDoctorDetails);
                     summary.putExtra("PatientInfo", patientInfo);
+                    if((patientInfo.patientEmail == null || patientInfo.patientEmail.size()== 0)&&(patientInfo.patientAddress == null || patientInfo.patientAddress.size()== 0))
+                        summary.putExtra("ShowProvideMoreDetails",true);
+                    else
+                        summary.putExtra("ShowProvideMoreDetails", false);
                     startActivity(summary);
                 }
 

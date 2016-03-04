@@ -75,6 +75,9 @@ public class CancelAppointmentActivity extends BaseActivity
 
         tvTitle.setText("Cancel Your Appointment");
 
+        tvHeading.setVisibility(View.GONE);
+        btnCancelAppointment.setVisibility(View.GONE);
+
     }
 
     @Override
@@ -159,12 +162,14 @@ public class CancelAppointmentActivity extends BaseActivity
             public void success(GetPatientAppointmentsResponse getPatientAppointmentsResponse, Response response) {
                 if (getPatientAppointmentsResponse != null && getPatientAppointmentsResponse.count > 0) {
                     tvHeading.setText("Choose appointment(s) to cancel");
+                    tvHeading.setVisibility(View.VISIBLE);
                     btnCancelAppointment.setVisibility(View.VISIBLE);
                     pageCount++;
                     gridAdapter.refresh(getPatientAppointmentsResponse.rows);
                 } else {
                     btnCancelAppointment.setVisibility(View.GONE);
                     tvHeading.setText("You don't have any appointments to cancel");
+                    tvHeading.setVisibility(View.VISIBLE);
                     Log.i("Response", "" + response.getReason());
                     Toast.makeText(CancelAppointmentActivity.this, "No Appointments Found", Toast.LENGTH_SHORT).show();
                 }

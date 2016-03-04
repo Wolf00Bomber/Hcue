@@ -131,7 +131,26 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 
     }
 
-    @Override
+	@Override
+	protected void onNewIntent(Intent intent) {
+		super.onNewIntent(intent);
+		boolean isFromAdditionalInfo=intent.getBooleanExtra("isFromAdditionalInfo",false);
+		if(isFromAdditionalInfo)
+			finish();
+	}
+
+	/*@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if(requestCode==506)
+		{
+			boolean isFromAdditionalInfo=data.getBooleanExtra("isFromAdditionalInfo",false);
+			if(isFromAdditionalInfo)
+			finish();
+		}
+	}*/
+
+	@Override
 	public void bindControls()
 	{
 		tvLogin.setEnabled(false);
@@ -288,7 +307,7 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 
 		if(focusedView != null && focusedView instanceof EditText)
 		{
-			String str = ((EditText)focusedView).getText().toString();
+			String str = ((Button)v).getText().toString();
 
 			if(button.getText().toString().equalsIgnoreCase("123"))
 			{
@@ -314,9 +333,18 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 			{
 				if(str.length()>0)
 				{
-					str = str.substring(0, str.length()-1);
+					/*str = str.substring(0, str.length()-1);
 					((EditText)focusedView).setText(str);
-					((EditText)focusedView).setSelection(((EditText)focusedView).length());
+					((EditText)focusedView).setSelection(((EditText) focusedView).length());*/
+
+					int remove_index_position = ((EditText)focusedView).getSelectionStart() -1 ;  //getting cursor starting position
+					StringBuilder dialled_nos_builder = new StringBuilder(((EditText)focusedView).getText().toString());
+					if(remove_index_position>=0) {
+						dialled_nos_builder.deleteCharAt(remove_index_position);
+						((EditText)focusedView).setText(dialled_nos_builder.toString());
+						((EditText)focusedView).setSelection(remove_index_position);
+					}
+
 				}
 			}
 			else if(button.getText().toString().equalsIgnoreCase("SPACE"))
@@ -336,9 +364,12 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 			}
 			else
 			{
-				str = str + button.getText().toString() ;
-				((EditText)focusedView).setText(str);
-				((EditText)focusedView).setSelection(((EditText)focusedView).length());
+				int start =(((EditText) focusedView).getSelectionStart()); //this is to get the the cursor position
+				//String s = "Some string";
+				//editText.getText().insert(start, s);
+				//str = str + button.getText().toString() ;
+				((EditText)focusedView).getText().insert(start, str);
+				((EditText)focusedView).setSelection((start+1));
 			}
 		}
 
@@ -347,6 +378,9 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 	@Override
 	protected void onResume() {
 		super.onResume();
+
+		//edtFirstName.setText("");
+		//edtAge.setText("");
 
 		h.postDelayed(new Runnable() {
 

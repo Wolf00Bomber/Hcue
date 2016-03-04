@@ -38,6 +38,7 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 		}
         selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail) i.getSerializableExtra("DoctorDetails");
 		bookingDetails = (DoctorsAppointmentResponse) i.getSerializableExtra("BookingDetails");
+		boolean isprovidemoredetails = i.getBooleanExtra("ProvideMoredetails",false) ;
 		if(bookingDetails != null && !TextUtils.isEmpty(bookingDetails.getTokenNumber()))
 			SpeechHelper.getInstance(ConfirmationSummaryActivity.this).startSpeak("Your token number is " + bookingDetails.getTokenNumber());
 
@@ -71,6 +72,9 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
         String footer = "<b>" + dateString + ", " + /*TimeUtils.format2hhmm(bookingDetails.getStartTime())*/ bookingDetails.getStartTime() + "</b>" + " with";
 		tvTime.setText(Html.fromHtml(footer));
 		tvToken.setText(bookingDetails.getTokenNumber());
+
+		if(!isprovidemoredetails)
+			btnProvideDetails.setVisibility(View.GONE);
 	}
 
 	@Override

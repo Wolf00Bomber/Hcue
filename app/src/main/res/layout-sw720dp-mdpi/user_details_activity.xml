@@ -37,6 +37,7 @@
             android:inputType="textCapWords"
             android:maxLength="30"
             android:minEms="10"
+            android:focusableInTouchMode="true"
             android:capitalize="words"
             android:paddingLeft="15dp"
             android:singleLine="true"

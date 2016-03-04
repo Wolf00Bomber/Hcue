@@ -65,7 +65,7 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
     private CustomCalendarView customCalendarView;
     private ViewPager mViewPager;
     private ProgressBar pBar;
-    private TextView tvNoSlots, tvTime, tv_youhave_selected;
+    private TextView tvNoSlots, tvTime, tv_youhave_selected , selected_pos;
     private Button btnProvideDetails;
     private ImageView ivLeftTime, ivRightTime;
     private CustomAppointmentAdapterNew mCustomPagerAdapter;
@@ -78,6 +78,7 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
     private Date selected_date;
     private ArrayList<GetDoctorAppointmentResponse.AppointmentRow> appointmentRows;
     private GetDoctorAppointmentResponse.TimeSlot selectedTimeSlot;
+    private boolean provideMoredetails , isfromAdditionalinfo;
 
     private Number getPatientId(AddPatientResponse addPatientResponse) {
         ArrayList<AddPatientResponse.PatientPhone> patientPhones = addPatientResponse.arrPatientPhone;
@@ -121,6 +122,11 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
             phNumber = (Number) i.getSerializableExtra("PhoneNumber");
             Object patientInfo = i.getSerializableExtra("PatientInfo");
             boolean isNoMobile = i.getBooleanExtra("isNoMobile", false);
+            provideMoredetails = i.getBooleanExtra("ShowProvideMoreDetails", false);
+
+            isfromAdditionalinfo =  i.getBooleanExtra("isFromAdditionalInfo", false);
+
+
             if (patientInfo instanceof AddPatientResponse) {
                 addPatientResponse = (AddPatientResponse) patientInfo;
                 patientId = getPatientId(addPatientResponse);
@@ -145,6 +151,7 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
         tvNoSlots = (TextView) llAppointment.findViewById(R.id.tvNoSlots);
         tvTime = (TextView) llAppointment.findViewById(R.id.tvTime);
         tv_youhave_selected = (TextView) llAppointment.findViewById(R.id.tv_youhave_selected);
+        selected_pos = (TextView) llAppointment.findViewById(R.id.selected_pos);
         pBar = (ProgressBar) llAppointment.findViewById(R.id.pBar);
         btnProvideDetails = (Button) llAppointment.findViewById(R.id.btnProvideDetails);
         ivLeftTime = (ImageView) llAppointment.findViewById(R.id.ivLeftTime);
@@ -288,6 +295,7 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
                     Intent i = new Intent(ChooseAppointmentActivityNew.this, ConfirmationSummaryActivity.class);
                     i.putExtra("BookingDetails", doctorsAppointmentResponse);
                     i.putExtra("DoctorDetails", selectedDoctorDetails);
+                    i.putExtra("ProvideMoredetails",provideMoredetails);
                     startActivity(i);
                     finish();
                 } else {
@@ -306,6 +314,18 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if(isfromAdditionalinfo)
+        {
+            Intent intent=new Intent(ChooseAppointmentActivityNew.this,RegistrationActivity.class);
+            intent.putExtra("isFromAdditionalInfo", true);
+            startActivity(intent);
+        }
+        finish();
     }
 
     private void populateTimeSlots(Date date) {
@@ -352,8 +372,16 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
                     }
                     mCustomPagerAdapter.refresh();
                 } else {
-                    mViewPager.setVisibility(View.INVISIBLE);
-                    tvNoSlots.setVisibility(View.VISIBLE);
+                    /*mViewPager.setVisibility(View.INVISIBLE);
+                    tvNoSlots.setVisibility(View.VISIBLE);*/
+                    Calendar cal = Calendar.getInstance();
+                    cal.setTime(selected_date);
+                    cal.add(Calendar.DATE, 1);
+                     // populateTimeSlots(cal.getTime());
+                    //;
+                    customCalendarView.getAdapter().setSelectedDate(cal.getTime());
+                    customCalendarView.getGrid().invalidateViews();
+                    customCalendarView.getEventHandler().onDayClicked(cal.getTime());
                     Log.i("Response", "" + response.getReason());
                 }
             }
@@ -433,7 +461,22 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
             gvTime.setLayoutParams(llParams);
             gvTime.setHorizontalSpacing(widthGap);
             gvTime.setVerticalSpacing(heightGap);
+
             container.addView(itemView);
+            if(!selected_pos.getText().toString().isEmpty())
+            {
+                gvTime.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                       /* String[] vals = selected_pos.getText().toString().split(",");
+                        int x =  Integer.parseInt(vals[0]);
+                        int y =  Integer.parseInt(vals[1]);
+                        gvTime.scrollBy(x, y);*/
+                        gvTime.setSelection( Integer.parseInt(selected_pos.getText().toString()));
+                    }
+                }, 200);
+
+            }
 
             return itemView;
         }
@@ -604,6 +647,9 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
                                     .append("<font color=\"#48B09E\">" + TimeUtils.format2hhmm(timeSlot.getStartTime()) + " hrs</font>");
                             tvTime.setText(Html.fromHtml(sb.toString()));
                         }
+                      // selected_pos.setText(tvCell.getLeft()+","+tvCell.getRight());
+                        selected_pos.setText(position+"");
+                      //  selected_pos.setTag(tvCell);
                         mCustomPagerAdapter.refresh();
 
 

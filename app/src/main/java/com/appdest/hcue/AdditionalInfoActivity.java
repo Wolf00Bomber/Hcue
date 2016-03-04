@@ -29,6 +29,7 @@ import com.appdest.hcue.model.GetDoctorsResponse;
 import com.appdest.hcue.services.RestCallback;
 import com.appdest.hcue.services.RestClient;
 import com.appdest.hcue.services.RestError;
+import com.appdest.hcue.utils.Preference;
 
 import retrofit.client.Response;
 
@@ -197,8 +198,39 @@ public class AdditionalInfoActivity extends BaseActivity{
                 return false;
             }
         });
+        tv_single.performClick();
+        retrieveFromPreference();
     }
 
+    private void retrieveFromPreference() {
+
+        Preference preference = new Preference(AdditionalInfoActivity.this);
+        if(!preference.getStringFromPreference("PreferenceSource", "").isEmpty())
+        {
+            if(!preference.getStringFromPreference("PreferenceSource", "").equalsIgnoreCase("Select"))
+            tv_select.setTag(preference.getStringFromPreference("PreferenceSource", ""));
+            tv_select.setText(preference.getStringFromPreference("PreferenceSource", ""));
+        }
+       if(preference.getStringFromPreference("MaritalStatus", "true").equalsIgnoreCase("true"))
+       {
+           tv_single.performClick();
+       }else
+       {
+           tv_married.performClick();
+       }
+       edt_educational.setText(preference.getStringFromPreference("Education", ""));
+       edt_occupation.setText(preference.getStringFromPreference("Ocupation",""));
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        tv_referral_source.requestFocus();
+        edt_educational.clearFocus();
+
+        llKeyboard.setVisibility(View.GONE);
+    }
 
     @Override
     public void onBackPressed() {
@@ -206,7 +238,7 @@ public class AdditionalInfoActivity extends BaseActivity{
         if(popupWindow != null) {
             popupWindow.dismiss();
         }
-
+saveSharedValues();
         if((llSpecilaKeyboard != null && llSpecilaKeyboard.getVisibility()== View.VISIBLE)
                 ||(llKeyboard != null && llKeyboard.getVisibility() == View.VISIBLE))  {
             try{
@@ -219,6 +251,16 @@ public class AdditionalInfoActivity extends BaseActivity{
             super.onBackPressed();
         }
 
+    }
+
+    private void saveSharedValues() {
+        Preference preference = new Preference(AdditionalInfoActivity.this);
+        preference.saveStringInPreference("PreferenceSource",tv_select.getText().toString());
+        preference.saveStringInPreference("MaritalStatus",isSingleSelected+"");
+        preference.saveStringInPreference("Education",edt_educational.getText().toString());
+        preference.saveStringInPreference("Ocupation",edt_occupation.getText().toString());
+
+        preference.commitPreference();
     }
 
     private void callWebService() {
@@ -262,14 +304,16 @@ public class AdditionalInfoActivity extends BaseActivity{
             @Override
             public void success(AddPatientResponse additionalInfoResponse, Response response) {
                 hideLoader();
+                resetSharedValues();
                 //Toast.makeText(AdditionalInfoActivity.this,"SUCCESS"+"",Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(AdditionalInfoActivity.this, ChooseAppointmentActivityNew.class);
                 intent.putExtra("DoctorDetails", selectedDoctorDetails);
                 intent.putExtra("PhoneNumber", phNumber);
                 intent.putExtra("PatientInfo", additionalInfoResponse);
                 intent.putExtra("isNoMobile", isNoMobile);
+                intent.putExtra("isFromAdditionalInfo", true);
                 startActivity(intent);
-//                finish();
+                finish();
             }
 
             @Override
@@ -278,6 +322,16 @@ public class AdditionalInfoActivity extends BaseActivity{
                 // Toast.makeText(AdditionalInfoActivity.this, restError.getErrorMessage(), Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    private void resetSharedValues() {
+        Preference preference = new Preference(AdditionalInfoActivity.this);
+        preference.saveStringInPreference("PreferenceSource","");
+        preference.saveStringInPreference("MaritalStatus","");
+        preference.saveStringInPreference("Education","");
+        preference.saveStringInPreference("Ocupation","");
+
+        preference.commitPreference();
     }
 
     private void showSelectSourcePopup() {
