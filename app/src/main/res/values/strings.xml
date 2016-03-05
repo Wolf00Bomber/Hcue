@@ -14,6 +14,7 @@
     <string name="internet_unavailable">Please check your Internet(Wifi/GPRS) Connection</string>
     <string name="scheduled_doctor_appointment_time"><b>Today, 8:30 AM</b> with</string>
     <string name="API_KEY">AIzaSyBy-Zi9XXJmVS2N8oDhWlcsPBhyHkCPXAk</string>
+    <string name="SERVER_KEY">AIzaSyCsf9jcJbK3M0aCHVL7u4QtvFkRYgREkOE</string>
 
     <string name="download_app_footer">Download our <font color="#F57103">hCue Patient App</font> from Google play store</string>
     <string-array name="referral_source_names">

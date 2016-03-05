@@ -203,6 +203,7 @@ public class AdminChooseDoctors extends BaseActivity implements View.OnClickList
                 ivLeft.setAlpha(0.25f);
                 ivLeft.setEnabled(false);
             }
+            Log.e("Count :", ""+count);
             return count;
         }
 
