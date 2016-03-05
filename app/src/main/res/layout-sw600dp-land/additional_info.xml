@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin_25"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_25"
+                android:gravity="center_vertical|bottom">
+
+                <TextView
+                    android:id="@+id/tv_referral_source"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/margin_5"
+                    android:text="Referral Source "
+                    android:textSize="25sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_25"
+                    android:gravity="top"
+                    android:src="@drawable/star" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llreferral_source"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_25"
+                android:layout_marginRight="@dimen/margin_25"
+                android:layout_marginTop="@dimen/margin_10"
+                android:background="@drawable/enter_email_text_feild"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tv_select"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="@dimen/margin_25"
+                    android:text="Select"
+                    android:textSize="25sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/margin_25"
+                    android:src="@drawable/dropdown_arrow" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_25"
+                android:layout_marginTop="@dimen/margin_25">
+
+                <TextView
+                    android:id="@+id/tv_marital_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Marital Status :"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/tv_single"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_15"
+                    android:drawableLeft="@drawable/check_icon"
+                    android:drawablePadding="@dimen/margin_15"
+                    android:gravity="center"
+                    android:text="Single"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/tv_married"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_25"
+                    android:drawableLeft="@drawable/un_check_icon"
+                    android:drawablePadding="@dimen/margin_15"
+                    android:gravity="center"
+                    android:text="Married"
+                    android:textSize="25sp" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/edt_educational"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_25"
+                android:layout_marginRight="@dimen/margin_25"
+                android:layout_marginTop="@dimen/margin_25"
+                android:background="@drawable/enter_email_text_feild"
+                android:hint="Enter Education Details"
+                android:paddingLeft="@dimen/margin_25"
+                android:textSize="25sp" />
+
+            <EditText
+                android:id="@+id/edt_occupation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_25"
+                android:layout_marginRight="@dimen/margin_25"
+                android:layout_marginTop="@dimen/margin_25"
+                android:background="@drawable/enter_email_text_feild"
+                android:hint="Enter Occupation Details"
+                android:paddingLeft="@dimen/margin_25"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/btn_confirm_addition_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin_25"
+                android:background="@drawable/logout_admin"
+                android:paddingLeft="@dimen/margin_25"
+                android:paddingRight="@dimen/margin_25"
+                android:text="Confirm Additional Details"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:visibility="visible">
+
+        <include layout="@layout/special_keyboard" />
+        <include layout="@layout/alphabet_keyboard" />
+
+
+    </FrameLayout>
+
+</LinearLayout>

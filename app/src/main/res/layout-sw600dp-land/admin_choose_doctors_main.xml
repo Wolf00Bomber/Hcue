@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FAF9F9"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="15dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:paddingTop="15dp">
+
+
+        <TextView
+            android:id="@+id/tvHospitalName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="Bharathi Raja Hospital"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="invisible" />
+
+
+        <TextView
+            android:id="@+id/tvAddress"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="345, Nanaji Street,\nT Nagar, Chennai-600032"
+            android:textColor="#646464"
+            android:textSize="26sp"
+            android:textStyle="normal" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvHeading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="Choose Doctors to add to your Hospital / Clinic"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="normal" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="15dp"
+        android:layout_weight="1"
+        android:background="@drawable/border_clinic_admin"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:paddingTop="15dp">
+
+        <ImageView
+            android:id="@+id/ivLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:src="@drawable/arrow_left_admin" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_weight="1"></android.support.v4.view.ViewPager>
+
+        <ImageView
+            android:id="@+id/ivRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:src="@drawable/arrow_right_admin" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cancel_btn_admin"
+            android:text="Cancel"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/next_btn_admin"
+            android:text="Next"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-60dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/logo_new" />
+</LinearLayout>
