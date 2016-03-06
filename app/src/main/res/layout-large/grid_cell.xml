@@ -19,7 +19,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-
         app:siShape="@drawable/rounded_rect_shape"
         android:src="@drawable/profile_doctor_bg_male"
         app:siSquare="true"/><!--</LinearLayout>-->

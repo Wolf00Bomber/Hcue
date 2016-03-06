@@ -54,7 +54,6 @@
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
         android:layout_marginTop="@dimen/margin_20"
-        android:background="@drawable/login_bg"
         android:gravity="center"
         android:paddingBottom="10dp"
         android:paddingLeft="30dp"

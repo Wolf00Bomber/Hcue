@@ -2,9 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,51 +10,21 @@
         android:background="#FAF9F9"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingBottom="5dp"
+        android:paddingBottom="15dp"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
-        android:paddingTop="5dp">
-<!--<LinearLayout
-    android:padding="1dp"
-    android:background="@drawable/selected_time_white"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">-->
-        <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            app:siShape="@drawable/rounded_rect_shape"
-            android:src="@drawable/profile_doctor_bg_male"
-            app:siSquare="true"/>
-<!--</LinearLayout>-->
+        android:paddingTop="15dp">
 
-        <!--<com.github.siyamed.shapeimageview.CircularImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:background="@drawable/profile_doctor_bg_male" />-->
 
         <TextView
-            android:id="@+id/tvDoctorName"
+            android:id="@+id/tvHospitalName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:text="Dr.P.Venkatakrishna,"
+            android:text="Bharathi Raja Hospital"
             android:textSize="30sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tvDesgAndSpeciality"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" BFT., Physiotherapist"
-            android:textColor="#646464"
-            android:textSize="30sp"
-            android:textStyle="normal" />
 
         <TextView
             android:layout_width="0dp"
@@ -64,30 +32,16 @@
             android:layout_weight="1"
             android:visibility="invisible" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+
+        <TextView
+            android:id="@+id/tvAddress"
+            android:layout_width="400dp"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="venkata.krishna@gmail.com"
-                android:textColor="#646464"
-                android:textSize="26sp"
-                android:textStyle="normal" />
-
-            <TextView
-                android:id="@+id/tvMobile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="9848978789"
-                android:textSize="26sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
+            android:text="345, Nanaji Street,\nT Nagar, Chennai-600032"
+            android:textColor="#646464"
+            android:textSize="26sp"
+            android:textStyle="normal" />
 
 
     </LinearLayout>
@@ -98,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:gravity="center"
-        android:text="Select your Practising Hospital / Clinic"
+        android:text="Choose Doctors to add to your Hospital / Clinic"
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="normal" />
@@ -148,19 +102,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="@dimen/margin_20"
+        android:layout_marginTop="0dp"
+        android:gravity="center"
         android:orientation="horizontal">
-        <ImageView
-            android:layout_marginLeft="20dp"
-            android:layout_gravity="left"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/logo_new" />
 
         <Button
-            android:layout_marginLeft="200dp"
-            android:layout_gravity="center"
             android:id="@+id/btnCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -170,7 +116,6 @@
             android:textSize="30sp" />
 
         <Button
-            android:layout_gravity="center"
             android:id="@+id/btnNext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -181,6 +126,10 @@
             android:textSize="30sp" />
     </LinearLayout>
 
-
-
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-60dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/logo" />
 </LinearLayout>
