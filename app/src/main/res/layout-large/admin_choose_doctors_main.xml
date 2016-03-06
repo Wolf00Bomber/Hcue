@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:text="Bharathi Raja Hospital"
-            android:textSize="30sp"
+            android:textSize="@dimen/test_size_30"
             android:textStyle="bold" />
 
 
@@ -54,7 +54,7 @@
         android:gravity="center"
         android:text="Choose Doctors to add to your Hospital / Clinic"
         android:textColor="@color/black"
-        android:textSize="30sp"
+        android:textSize="@dimen/test_size_30"
         android:textStyle="normal" />
 
     <LinearLayout
@@ -113,7 +113,7 @@
             android:background="@drawable/cancel_btn_admin"
             android:text="Cancel"
             android:textColor="#FFFFFF"
-            android:textSize="30sp" />
+            android:textSize="@dimen/test_size_30" />
 
         <Button
             android:id="@+id/btnNext"
@@ -123,7 +123,7 @@
             android:background="@drawable/next_btn_admin"
             android:text="Next"
             android:textColor="#FFFFFF"
-            android:textSize="30sp" />
+            android:textSize="@dimen/test_size_30" />
     </LinearLayout>
 
     <ImageView

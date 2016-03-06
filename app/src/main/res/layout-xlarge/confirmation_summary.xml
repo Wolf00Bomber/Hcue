@@ -93,7 +93,7 @@
                 android:background="@drawable/quickappointment_btn"
                 android:text="Provide More Details"
                 android:textColor="#FFFFFF"
-                android:textSize="30sp"
+                android:textSize="@dimen/test_size_30"
                 android:textStyle="bold" />
 
             <Button
@@ -104,7 +104,7 @@
                 android:background="@drawable/dont_have_num_btn"
                 android:text="Finish"
                 android:textColor="#000000"
-                android:textSize="30sp"
+                android:textSize="@dimen/test_size_30"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>

@@ -92,7 +92,7 @@
             android:background="@drawable/confirm_number_btn"
             android:text="Confirm Number"
             android:textColor="#FFFFFF"
-            android:textSize="30sp"
+            android:textSize="@dimen/test_size_30"
             android:textStyle="bold" />
 
         <Button
@@ -101,6 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="30dp"
+            android:visibility="gone"
             android:layout_marginTop="20dp"
             android:background="@drawable/dont_have_num_btn"
             android:text="I don&apos;t have a number"

@@ -36,7 +36,7 @@
             android:gravity="center"
             android:text="Dr P.Venkata Krishna"
             android:textColor="@android:color/black"
-            android:textSize="30sp"
+            android:textSize="@dimen/test_size_30"
             android:textStyle="bold" />
 
         <TextView
@@ -79,7 +79,7 @@
             android:gravity="center"
             android:text="Thursday, January 07"
             android:textColor="@android:color/black"
-            android:textSize="30sp" />
+            android:textSize="@dimen/test_size_30" />
 
         <TextView
             android:id="@+id/tvTime"
@@ -91,7 +91,7 @@
             android:gravity="center"
             android:text="2:30 hrs"
             android:textColor="@android:color/black"
-            android:textSize="30sp"
+            android:textSize="@dimen/test_size_30"
             android:textStyle="bold" />
 
         <Button
@@ -102,7 +102,7 @@
             android:background="@drawable/quickappointment_btn"
             android:text="Quick Appointment"
             android:textColor="#FFFFFF"
-            android:textSize="30sp"
+            android:textSize="@dimen/test_size_30"
             android:textStyle="bold" />
 
         <Button
@@ -113,7 +113,7 @@
             android:background="@drawable/latestappointment_btn"
             android:text="Later Appointment"
             android:textColor="#F57104"
-            android:textSize="30sp"
+            android:textSize="@dimen/test_size_30"
             android:textStyle="bold" />
     </LinearLayout>
 

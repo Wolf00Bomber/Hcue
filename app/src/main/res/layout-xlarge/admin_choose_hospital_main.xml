@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:text="Dr.P.Venkatakrishna,"
-            android:textSize="30sp"
+            android:textSize="@dimen/test_size_30"
             android:textStyle="bold" />
 
         <TextView
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:text=" BFT., Physiotherapist"
             android:textColor="#646464"
-            android:textSize="30sp"
+            android:textSize="@dimen/test_size_30"
             android:textStyle="normal" />
 
         <TextView
@@ -100,7 +100,7 @@
         android:gravity="center"
         android:text="Select your Practising Hospital / Clinic"
         android:textColor="@color/black"
-        android:textSize="30sp"
+        android:textSize="@dimen/test_size_30"
         android:textStyle="normal" />
 
     <LinearLayout
@@ -167,7 +167,7 @@
             android:background="@drawable/cancel_btn_admin"
             android:text="Cancel"
             android:textColor="#FFFFFF"
-            android:textSize="30sp" />
+            android:textSize="@dimen/test_size_30" />
 
         <Button
             android:layout_gravity="center"
@@ -178,7 +178,7 @@
             android:background="@drawable/next_btn_admin"
             android:text="Next"
             android:textColor="#FFFFFF"
-            android:textSize="30sp" />
+            android:textSize="@dimen/test_size_30" />
     </LinearLayout>
 
 

@@ -224,7 +224,7 @@
                 android:background="@drawable/confirm_number_btn"
                 android:text="Confirm Appointment"
                 android:textColor="#FFFFFF"
-                android:textSize="30sp"
+                android:textSize="@dimen/test_size_30"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>

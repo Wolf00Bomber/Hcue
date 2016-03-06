@@ -26,7 +26,7 @@
         android:gravity="center_vertical"
         android:text="Choose your Doctor"
         android:textColor="@android:color/black"
-        android:textSize="30sp" />
+        android:textSize="@dimen/test_size_30" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -97,7 +97,7 @@
             android:gravity="center"
             android:text="@string/rate"
             android:textColor="#4EAF9F"
-            android:textSize="30sp" />
+            android:textSize="@dimen/test_size_30" />
 
         <Button
             android:id="@+id/btnBookAppointment"
@@ -107,7 +107,7 @@
             android:background="@drawable/quickappointment_btn"
             android:text="Book Appointment"
             android:textColor="@color/white"
-            android:textSize="30sp" />
+            android:textSize="@dimen/test_size_30" />
 
         <Button
             android:id="@+id/btnCancelAppointment"
@@ -117,7 +117,7 @@
             android:background="@drawable/latestappointment_btn"
             android:text="Cancel Appointment"
             android:textColor="@color/orange"
-            android:textSize="30sp" />
+            android:textSize="@dimen/test_size_30" />
     </LinearLayout>
 
 </LinearLayout>

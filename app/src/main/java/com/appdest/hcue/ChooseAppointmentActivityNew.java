@@ -249,8 +249,6 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
 
     private void bookAppointment() {
         int selectedPage = mViewPager.getCurrentItem();
-        if(appointmentRows==null || appointmentRows.size()<0)
-            return;
         GetDoctorAppointmentResponse.AppointmentRow selectedPageItem = appointmentRows.get(selectedPage); //mCustomPagerAdapter.getSelectedPageItem(selectedPage);
         if (selectedPageItem == null) {
             Toast.makeText(this, "Please select an another date, where doctor appointment slots are present.", Toast.LENGTH_SHORT).show();

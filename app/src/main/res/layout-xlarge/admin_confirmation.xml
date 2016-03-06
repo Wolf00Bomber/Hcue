@@ -18,7 +18,7 @@
             android:gravity="center"
             android:text="You have successfully completed\nthe configuration for your Hospital / Clinic!"
             android:textColor="@color/black"
-            android:textSize="30sp"
+            android:textSize="@dimen/test_size_30"
             android:textStyle="normal" />
 
         <LinearLayout
@@ -36,7 +36,7 @@
                 android:background="@drawable/back_btn_modify"
                 android:text="Go back &amp; Modify"
                 android:textColor="#FFFFFF"
-                android:textSize="30sp" />
+                android:textSize="@dimen/test_size_30" />
 
             <Button
                 android:id="@+id/btnConfirm"
@@ -46,7 +46,7 @@
                 android:background="@drawable/logout_admin"
                 android:text="Confirm &amp; Logout"
                 android:textColor="#FFFFFF"
-                android:textSize="30sp" />
+                android:textSize="@dimen/test_size_30" />
         </LinearLayout>
     </LinearLayout>
 
