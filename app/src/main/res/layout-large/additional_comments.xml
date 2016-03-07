@@ -41,7 +41,7 @@
             android:layout_width="0dp"
             android:inputType="textCapSentences"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
+            android:layout_height="150dp"
             android:background="@drawable/feed_back_text_field"
             android:gravity="left"
             android:hint="Type your feedback here"

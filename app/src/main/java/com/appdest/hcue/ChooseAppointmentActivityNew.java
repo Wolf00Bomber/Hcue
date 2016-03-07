@@ -461,7 +461,7 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
             gvTime.setVerticalSpacing(heightGap);
 
             container.addView(itemView);
-            if(!selected_pos.getText().toString().isEmpty())
+            if(selected_pos!=null && !selected_pos.getText().toString().isEmpty())
             {
                 gvTime.postDelayed(new Runnable() {
                     @Override
