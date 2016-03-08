@@ -232,7 +232,7 @@ public class CancelAppointmentActivity extends BaseActivity
             dname.append("Dr ."+" "+data.doctorDetail.doctorFullName );
             tvDoctorName.setText(dname.toString());
             tvDateTime.setText(sb.toString());
-            tvTime.setText(" "+data.appointmentDetails.StartTime);
+            tvTime.setText(" "+data.appointmentDetails.StartTime+"Hrs");
             ivCheck.setTag(R.id.ivCheck, pos);
 
             if(data.isSelected){

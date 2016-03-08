@@ -267,7 +267,7 @@ public class ChoosePatientAppointmentActivity extends BaseActivity
 
 
             tvDoctorName.setText(data.doctorDetail.doctorFullName);
-            tvDateTime.setText(sb.toString());
+            tvDateTime.setText(sb.toString()+" Hrs");
 
             ivCheck.setTag(R.id.ivCheck, pos);
 

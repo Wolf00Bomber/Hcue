@@ -83,7 +83,7 @@ public class ConfirmCancelationActivity extends BaseActivity implements View.OnC
         sb.append(DateUtils.isToday(totalInstance) ? ("Today") : (/*TimeUtils.getDay(totalInstance) + " - " +*/ TimeUtils.format2DateProper(totalInstance)));
         chosenTime = sb.toString();
         tvDoctorName.setText("Dr."+Appointment.doctorDetail.doctorFullName);
-        tvAppointmentTime.setText(chosenTime+" - " +Appointment.appointmentDetails.StartTime);
+        tvAppointmentTime.setText(chosenTime+" - " +Appointment.appointmentDetails.StartTime +"Hrs");
         ArrayList<GetPatientResponse.Patient> patients = patientInfo.patients;
 
         if(patients != null)
