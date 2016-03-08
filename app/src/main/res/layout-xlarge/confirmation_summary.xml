@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:text="Your Appointment is confirmed for"
                 android:textColor="#262626"
-                android:textSize="24sp" />
+                android:textSize="@dimen/test_size_25" />
 
             <TextView
                 android:id="@+id/tvTime"
@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/scheduled_doctor_appointment_time"
-                android:textSize="32sp" />
+                android:textSize="@dimen/test_size_30" />
 
             <TextView
                 android:id="@+id/tvDoctorName"
@@ -45,7 +45,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Dr.P.VenkataKrishna"
                 android:textColor="#262626"
-                android:textSize="28sp"
+                android:textSize="@dimen/test_size_28"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -59,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:text="And your token number is : "
                     android:textColor="#262626"
-                    android:textSize="28sp" />
+                    android:textSize="@dimen/test_size_28" />
 
                 <TextView
                     android:id="@+id/tvToken"
@@ -67,7 +67,7 @@
                     android:layout_height="wrap_content"
                     android:text="XXX-DDDDDD"
                     android:textColor="#262626"
-                    android:textSize="32sp"
+                    android:textSize="@dimen/test_size_30"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
@@ -117,7 +117,7 @@
         android:paddingLeft="15dp"
         android:text="If you provide more details, we will provide free services"
         android:textColor="#262626"
-        android:textSize="28sp" />
+        android:textSize="@dimen/test_size_28" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -146,7 +146,7 @@
                 android:gravity="center"
                 android:text="Soft copies of your diagnosis"
                 android:textColor="#262626"
-                android:textSize="24sp" />
+                android:textSize="@dimen/test_size_25" />
 
             <TextView
                 android:id="@+id/tvSoftCopiesOfYourD"
@@ -159,7 +159,7 @@
                 android:gravity="center"
                 android:text="Soft copies of your reports"
                 android:textColor="#262626"
-                android:textSize="24sp" />
+                android:textSize="@dimen/test_size_25" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -171,7 +171,7 @@
                 android:gravity="center"
                 android:text="Home delivery of pharmacy"
                 android:textColor="#262626"
-                android:textSize="24sp" />
+                android:textSize="@dimen/test_size_25" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -192,7 +192,7 @@
                 android:gravity="center"
                 android:text="Home sample collection"
                 android:textColor="#262626"
-                android:textSize="24sp" />
+                android:textSize="@dimen/test_size_25" />
 
             <TextView
                 android:id="@+id/tvAppointmentReminder"
@@ -205,7 +205,7 @@
                 android:gravity="center"
                 android:text="Appointment reminder via mail"
                 android:textColor="#262626"
-                android:textSize="24sp" />
+                android:textSize="@dimen/test_size_25" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -217,7 +217,7 @@
                 android:gravity="center"
                 android:text="Other free offers &amp; services"
                 android:textColor="#262626"
-                android:textSize="24sp" />
+                android:textSize="@dimen/test_size_25" />
         </RelativeLayout>
     </LinearLayout>
 
@@ -241,6 +241,6 @@
             android:layout_marginLeft="@dimen/margin_10"
             android:gravity="center"
             android:text="@string/download_app_footer"
-            android:textSize="32sp" />
+            android:textSize="@dimen/test_size_30" />
     </LinearLayout>
 </LinearLayout>

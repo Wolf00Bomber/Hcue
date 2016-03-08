@@ -18,7 +18,7 @@
         android:gravity="center"
         android:text="Patient: "
         android:textColor="#848484"
-        android:textSize="25sp" />
+        android:textSize="@dimen/test_size_25" />
 
     <TextView
         android:id="@+id/tvPatientName"
@@ -38,7 +38,7 @@
         android:layout_marginTop="40dp"
         android:gravity="center"
         android:text="Choose appointment(s) to cancel"
-        android:textSize="40sp" />
+        android:textSize="@dimen/test_size_40" />
 
     <GridView
         android:id="@+id/gvAppointments"

@@ -14,5 +14,5 @@
         android:layout_marginLeft="@dimen/margin_25"
         android:padding="@dimen/margin_15"
         android:text="Sample"
-        android:textSize="25sp" />
+        android:textSize="@dimen/test_size_25" />
 </LinearLayout>

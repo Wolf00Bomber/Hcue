@@ -22,7 +22,7 @@
             android:layout_marginBottom="5dp"
             android:layout_marginRight="40dp"
             android:text="Name : "
-            android:textSize="25sp"
+            android:textSize="@dimen/test_size_25"
             android:visibility="visible" />
 
         <EditText
@@ -41,7 +41,7 @@
             android:capitalize="words"
             android:paddingLeft="15dp"
             android:singleLine="true"
-            android:textSize="35sp" />
+            android:textSize="@dimen/test_size_35" />
     </LinearLayout>
 
     <LinearLayout
@@ -84,7 +84,7 @@
                 android:layout_marginLeft="45dp"
                 android:layout_marginTop="@dimen/margin_10"
                 android:text="Male"
-                android:textSize="20sp" />
+                android:textSize="@dimen/test_size_20" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -93,7 +93,7 @@
                 android:layout_marginRight="40dp"
                 android:layout_marginTop="@dimen/margin_10"
                 android:text="Female"
-                android:textSize="20sp" />
+                android:textSize="@dimen/test_size_20" />
 
         </FrameLayout>
 

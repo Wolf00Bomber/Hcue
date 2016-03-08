@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:text="Thanks for your feedback!"
         android:textColor="@color/black"
-        android:textSize="32sp"
+        android:textSize="@dimen/test_size_30"
         android:textStyle="bold"
          />
 
@@ -32,7 +32,7 @@
             android:layout_marginTop="100dp"
             android:gravity="center"
             android:text="@string/download_app_footer"
-            android:textSize="28sp" />
+            android:textSize="@dimen/test_size_28" />
 
         <ImageView
             android:layout_width="wrap_content"

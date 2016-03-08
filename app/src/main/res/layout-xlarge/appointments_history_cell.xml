@@ -31,14 +31,14 @@
                 android:layout_height="wrap_content"
                 android:text="Today - "
                 android:textColor="@color/black"
-                android:textSize="25sp" />
+                android:textSize="@dimen/test_size_25" />
 
             <TextView
                 android:id="@+id/tvTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#848484"
-                android:textSize="25sp" />
+                android:textSize="@dimen/test_size_25" />
         </LinearLayout>
 
         <TextView
@@ -50,7 +50,7 @@
             android:singleLine="true"
             android:text="Sri krishna"
             android:textColor="#747474"
-            android:textSize="25sp" />
+            android:textSize="@dimen/test_size_25" />
     </LinearLayout>
 
 </LinearLayout>

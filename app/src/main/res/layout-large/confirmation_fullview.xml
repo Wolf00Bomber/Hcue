@@ -86,7 +86,7 @@
                 android:layout_marginTop="15dp"
                 android:gravity="center"
                 android:text="XXX-DDDDDD"
-                android:textSize="35sp" />
+                android:textSize="@dimen/test_size_35" />
         </LinearLayout>
 
         <Button

@@ -7,8 +7,8 @@
     android:orientation="vertical">
 
     <ImageView
-        android:layout_width="115dp"
-        android:layout_height="115dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_gravity="center"
         android:layout_marginTop="60dp"
         android:background="@drawable/appicon" />
@@ -20,7 +20,7 @@
         android:gravity="center"
         android:text="Configure your Hospital/Clinic and Doctors"
         android:textColor="#F37122"
-        android:textSize="40sp" />
+        android:textSize="@dimen/test_size_40" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,7 +35,7 @@
             android:gravity="center"
             android:text="Please enter the Hospital/Clinic ID provided by "
             android:textColor="#767676"
-            android:textSize="25sp" />
+            android:textSize="@dimen/test_size_25" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -43,8 +43,7 @@
             android:gravity="center"
             android:text="hCue"
             android:textColor="#F37122"
-
-            android:textSize="25sp" />
+            android:textSize="@dimen/test_size_25" />
     </LinearLayout>
 
     <LinearLayout
@@ -75,7 +74,7 @@
             android:minEms="10"
             android:paddingLeft="15dp"
             android:singleLine="true"
-            android:textSize="28sp" />
+            android:textSize="@dimen/test_size_28" />
 
         <EditText
             android:id="@+id/edtEnterPassword"
@@ -92,7 +91,7 @@
             android:minEms="10"
             android:paddingLeft="15dp"
             android:singleLine="true"
-            android:textSize="28sp" />
+            android:textSize="@dimen/test_size_28" />
 
         <Button
             android:id="@+id/btnSubmit"
@@ -116,7 +115,7 @@
         android:gravity="center"
         android:text="You have entered an invalid Email ID and Password. Please try again."
         android:textColor="#FF5858"
-        android:textSize="25sp"
+        android:textSize="@dimen/test_size_25"
         android:visibility="gone" />
 
     <View

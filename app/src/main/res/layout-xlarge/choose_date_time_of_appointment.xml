@@ -17,7 +17,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="Choose Date"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
         <TextView
             android:layout_width="0dp"
@@ -25,7 +25,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="Choose Time"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
     </LinearLayout>
 
@@ -118,7 +118,7 @@
                         android:layout_marginLeft="10dp"
                         android:gravity="center"
                         android:text="Unavailable"
-                        android:textSize="20sp" />
+                        android:textSize="@dimen/test_size_20" />
 
 
                 </LinearLayout>
@@ -141,7 +141,7 @@
                         android:layout_marginLeft="10dp"
                         android:gravity="center"
                         android:text="Selected"
-                        android:textSize="20sp" />
+                        android:textSize="@dimen/test_size_20" />
 
 
                 </LinearLayout>
@@ -190,7 +190,7 @@
                 android:visibility="invisible"
                 android:text="You have selected"
                 android:textColor="#A2A2A2"
-                android:textSize="25sp" />
+                android:textSize="@dimen/test_size_25" />
 
             <TextView
                 android:id="@+id/tvTime"
@@ -200,7 +200,7 @@
                 android:gravity="center"
                 android:textStyle="bold"
                 android:text=""
-                android:textSize="25sp" />
+                android:textSize="@dimen/test_size_25" />
 
             <TextView
                 android:visibility="gone"

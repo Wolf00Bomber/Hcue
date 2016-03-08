@@ -26,6 +26,14 @@
     <!--New-->
 
     <dimen name="test_size_30">30sp</dimen>
+    <dimen name="test_size_35">35sp</dimen>
+    <dimen name="test_size_20">20sp</dimen>
+    <dimen name="test_size_26">26sp</dimen>
+    <dimen name="test_size_21">21sp</dimen>
+    <dimen name="test_size_25">25sp</dimen>
+    <dimen name="test_size_28">28sp</dimen>
+    <dimen name="test_size_40">40sp</dimen>
+    <dimen name="test_size_16">16sp</dimen>
 
 
 </resources>

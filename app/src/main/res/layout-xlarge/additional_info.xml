@@ -31,7 +31,7 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/margin_5"
                     android:text="Referral Source "
-                    android:textSize="25sp" />
+                    android:textSize="@dimen/test_size_25" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -58,7 +58,7 @@
                     android:layout_weight="1"
                     android:paddingLeft="@dimen/margin_25"
                     android:text="Select"
-                    android:textSize="25sp" />
+                    android:textSize="@dimen/test_size_25" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -78,7 +78,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Marital Status :"
-                    android:textSize="25sp" />
+                    android:textSize="@dimen/test_size_25" />
 
                 <TextView
                     android:id="@+id/tv_single"
@@ -89,7 +89,7 @@
                     android:drawablePadding="@dimen/margin_15"
                     android:gravity="center"
                     android:text="Single"
-                    android:textSize="25sp" />
+                    android:textSize="@dimen/test_size_25" />
 
                 <TextView
                     android:id="@+id/tv_married"
@@ -100,7 +100,7 @@
                     android:drawablePadding="@dimen/margin_15"
                     android:gravity="center"
                     android:text="Married"
-                    android:textSize="25sp" />
+                    android:textSize="@dimen/test_size_25" />
             </LinearLayout>
 
             <EditText
@@ -113,7 +113,7 @@
                 android:background="@drawable/enter_email_text_feild"
                 android:hint="Enter Education Details"
                 android:paddingLeft="@dimen/margin_25"
-                android:textSize="25sp" />
+                android:textSize="@dimen/test_size_25" />
 
             <EditText
                 android:id="@+id/edt_occupation"
@@ -125,7 +125,7 @@
                 android:background="@drawable/enter_email_text_feild"
                 android:hint="Enter Occupation Details"
                 android:paddingLeft="@dimen/margin_25"
-                android:textSize="25sp" />
+                android:textSize="@dimen/test_size_25" />
 
             <Button
                 android:id="@+id/btn_confirm_addition_details"
@@ -138,7 +138,7 @@
                 android:paddingRight="@dimen/margin_25"
                 android:text="Confirm Additional Details"
                 android:textColor="@color/white"
-                android:textSize="25sp" />
+                android:textSize="@dimen/test_size_25" />
 
 
         </LinearLayout>

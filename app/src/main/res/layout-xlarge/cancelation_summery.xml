@@ -35,7 +35,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Appointment Cancelled "
-                    android:textSize="35sp" />
+                    android:textSize="@dimen/test_size_35" />
 
                 <TextView
                     android:id="@+id/tvHeading2"
@@ -43,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="for"
-                    android:textSize="35sp" />
+                    android:textSize="@dimen/test_size_35" />
             </LinearLayout>
         </LinearLayout>
 

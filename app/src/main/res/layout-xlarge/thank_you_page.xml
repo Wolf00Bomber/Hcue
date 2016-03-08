@@ -12,7 +12,7 @@
         android:text="Thanks for your feedback!"
         android:paddingBottom="110dp"
         android:gravity="center"
-        android:textSize="40sp"/>
+        android:textSize="@dimen/test_size_40"/>
 
     <LinearLayout
         android:orientation="horizontal" android:layout_width="match_parent"
@@ -24,20 +24,20 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:text="Download our "
-            android:textSize="40sp"/>
+            android:textSize="@dimen/test_size_40"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#F57103"
             android:textStyle="bold"
             android:text="hCue Patient App"
-            android:textSize="40sp"/>
+            android:textSize="@dimen/test_size_40"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:text=" from Google Play Store!"
-            android:textSize="40sp"/>
+            android:textSize="@dimen/test_size_40"/>
 
     </LinearLayout>
 

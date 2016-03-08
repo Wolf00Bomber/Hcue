@@ -76,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:text="venkata.krishna@gmail.com"
                 android:textColor="#646464"
-                android:textSize="26sp"
+                android:textSize="@dimen/test_size_26"
                 android:textStyle="normal" />
 
             <TextView
@@ -84,7 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="9848978789"
-                android:textSize="26sp"
+                android:textSize="@dimen/test_size_26"
                 android:textStyle="bold" />
 
         </LinearLayout>

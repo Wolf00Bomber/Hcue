@@ -31,7 +31,7 @@
             android:paddingLeft="15dp"
             android:text="Male, 27 years"
             android:textColor="#000000"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
     </LinearLayout>
 
 </LinearLayout>

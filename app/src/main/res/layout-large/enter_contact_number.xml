@@ -26,7 +26,7 @@
                 android:drawableRight="@drawable/mobile_icon"
                 android:gravity="center_vertical"
                 android:text="Mobile"
-                android:textSize="35sp" />
+                android:textSize="@dimen/test_size_35" />
 
             <TextView
                 android:visibility="gone"
@@ -39,7 +39,7 @@
                 android:drawableRight="@drawable/landline_icon"
                 android:gravity="center_vertical"
                 android:text="Landline"
-                android:textSize="35sp" />
+                android:textSize="@dimen/test_size_35" />
         </LinearLayout>
 
         <LinearLayout
@@ -62,7 +62,7 @@
                 android:paddingLeft="15dp"
                 android:singleLine="true"
                 android:textColor="@android:color/darker_gray"
-                android:textSize="35sp"
+                android:textSize="@dimen/test_size_35"
                 android:textStyle="bold" />
 
             <EditText
@@ -79,7 +79,7 @@
                 android:paddingLeft="15dp"
                 android:singleLine="true"
                 android:textColor="@android:color/black"
-                android:textSize="35sp"
+                android:textSize="@dimen/test_size_35"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -106,7 +106,7 @@
             android:background="@drawable/dont_have_num_btn"
             android:text="I don&apos;t have a number"
             android:textColor="#000000"
-            android:textSize="25sp" />
+            android:textSize="@dimen/test_size_25" />
     </LinearLayout>
 
     <include layout="@layout/numeric_keyboard" />

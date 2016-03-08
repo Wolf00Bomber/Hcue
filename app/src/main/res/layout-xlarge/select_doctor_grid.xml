@@ -14,7 +14,7 @@
         android:gravity="center"
         android:text="Welcome to Venus Global Multi Speciality Clinic"
         android:textColor="#848484"
-        android:textSize="35sp"
+        android:textSize="@dimen/test_size_35"
         android:textStyle="normal" />
 
     <TextView
@@ -57,7 +57,7 @@
                 android:gravity="center"
                 android:text="No doctors found."
                 android:textColor="@android:color/black"
-                android:textSize="40sp" />
+                android:textSize="@dimen/test_size_40" />
 
             <android.support.v4.view.ViewPager
                 android:id="@+id/viewPager"

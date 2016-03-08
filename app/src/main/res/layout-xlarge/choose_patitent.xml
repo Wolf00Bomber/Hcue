@@ -14,7 +14,7 @@
         android:gravity="center"
         android:text="Please choose Patient"
         android:textColor="#000000"
-        android:textSize="25sp" />
+        android:textSize="@dimen/test_size_25" />
 
     <LinearLayout
         android:id="@+id/llAddPatient"
@@ -36,7 +36,7 @@
             android:gravity="center"
             android:text="+"
             android:textColor="#000000"
-            android:textSize="40sp" />
+            android:textSize="@dimen/test_size_40" />
 
         <TextView
             android:id="@+id/tvAdd"
@@ -45,7 +45,7 @@
             android:layout_marginLeft="@dimen/margin_10"
             android:text="Add New Patient"
             android:textColor="#000000"
-            android:textSize="35sp" />
+            android:textSize="@dimen/test_size_35" />
     </LinearLayout>
 
     <LinearLayout

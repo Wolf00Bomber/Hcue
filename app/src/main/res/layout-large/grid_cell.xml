@@ -55,7 +55,7 @@
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="25sp"
+            android:textSize="@dimen/test_size_25"
             android:text="Dr.P.Venkatakrishna" />
 
 <!--        <TextView
@@ -72,7 +72,7 @@
             android:textStyle="normal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="@dimen/test_size_20"
             android:textColor="#646464"
             android:lines="2"
             android:singleLine="false"
@@ -85,7 +85,7 @@
             android:layout_marginBottom="@dimen/margin_5"
             android:layout_marginRight="@dimen/margin_10"
             android:textColor="@color/green"
-            android:textSize="20sp"
+            android:textSize="@dimen/test_size_20"
             android:gravity="center|right"
             android:text="Available" />
     </LinearLayout>
