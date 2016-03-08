@@ -29,6 +29,7 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
 	private GridView gridView;
 	private GridAdapter adapter;
 	private String fromActivity;
+    private TextView tvChoosePatient ;
 
 	@Override
 	public void initializeControls() 
@@ -36,7 +37,8 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
 		llPatient = (LinearLayout) inflater.inflate(R.layout.choose_patitent, null);
 		llBody.addView(llPatient);
 
-		tvAdd			 =	(TextView)	llPatient.findViewById(R.id.tvAdd);
+		tvAdd			         =	(TextView)	llPatient.findViewById(R.id.tvAdd);
+        tvChoosePatient			 =	(TextView)	llPatient.findViewById(R.id.tvChoosePatient);
 
 		llAddPatient	 =	(LinearLayout) llPatient.findViewById(R.id.llAddPatient);
 
@@ -112,8 +114,14 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
 	public void bindControls() 
 	{
 		tvLogin.setEnabled(false);
-        if(!extractInfoFromIntent()){
+       /* if(!extractInfoFromIntent()){
             finish();  return;
+        }*/
+        if(selectedDoctorDetails == null && getPatientResponse == null)
+        {
+            tvChoosePatient.setText("No patients found");
+            gridView.setVisibility(View.GONE);
+            llAddPatient.setVisibility(View.GONE);
         }
 		adapter = new GridAdapter();
 		gridView.setAdapter(adapter);

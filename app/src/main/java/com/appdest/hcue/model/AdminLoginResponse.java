@@ -123,6 +123,18 @@ public class AdminLoginResponse implements Serializable {
         @SerializedName("TermsAccepted")
         public String TermsAccepted;
 
+        public String getProfileImage() {
+            return ProfileImage;
+        }
+
+        public void setProfileImage(String profileImage) {
+            ProfileImage = profileImage;
+        }
+
+        @SerializedName("ProfileImage")
+
+        public String ProfileImage;
+
         public LinkedHashMap<String, String> getSpecialityCD() {
             return specialityCD;
         }

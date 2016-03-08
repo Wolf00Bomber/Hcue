@@ -130,9 +130,9 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 						hideKeyBoard(v);
 					}
 				}, 50);
-				if(hasFocus){
-										
-					if(llNumbers.getVisibility() == View.GONE)
+				if (hasFocus) {
+
+					if (llNumbers.getVisibility() == View.GONE)
 						llNumbers.startAnimation(slide_up);
 
 					llNumbers.setVisibility(View.VISIBLE);
@@ -152,8 +152,8 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
 						hideKeyBoard(v);
 					}
 				}, 50);
-				if(hasFocus){
-					if(llNumbers.getVisibility() == View.GONE)
+				if (hasFocus) {
+					if (llNumbers.getVisibility() == View.GONE)
 						llNumbers.startAnimation(slide_up);
 					llNumbers.setVisibility(View.VISIBLE);
 				}
@@ -413,12 +413,26 @@ public class EnterContactNumberActivity extends BaseActivity implements OnClickL
                     // Patient Exists.
                     goToPatientListActivity(getPatientResponse);
                 } else {
-                     //Patient Doesn't Exist.
-                    goToRegistrationActivity();
+					if("Feedback".equalsIgnoreCase(fromActivity) || "CancelAppointment".equalsIgnoreCase(fromActivity))
+					{
+						goToPatientListActivity();
+					}else {
+						//Patient Doesn't Exist.
+						goToRegistrationActivity();
+					}
                 }
                 hideLoader();
             }
         });
     }
+
+	private void goToPatientListActivity() {
+
+		Intent intent	= new Intent(EnterContactNumberActivity.this, ChoosePatientActivity.class);
+		intent.putExtra("PhoneNumber", phNumber);
+		intent.putExtra("PhoneCode", edtCode.getVisibility() == View.VISIBLE ? getPhoneCode() : "");
+		intent.putExtra("From", fromActivity);
+		startActivity(intent);
+	}
 
 }

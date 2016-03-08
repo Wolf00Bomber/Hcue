@@ -75,6 +75,12 @@ public class EnterMailActivity extends BaseActivity implements OnClickListener
         if(isActivityNeedsFinish)
             return;
         h = new Handler(Looper.getMainLooper());
+        if(i.hasExtra("Email"))
+        {
+            String emailid = i.getStringExtra("Email");
+            if(emailid != null)
+            edtEmail.setText(emailid);
+        }
 
         edtEmail.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 

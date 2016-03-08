@@ -3,8 +3,11 @@ package com.appdest.hcue;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +23,7 @@ import com.appdest.hcue.common.AppConstants;
 import com.appdest.hcue.model.AdminLoginResponse;
 import com.appdest.hcue.utils.Preference;
 import com.github.siyamed.shapeimageview.mask.PorterShapeImageView;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -135,6 +139,14 @@ public class AdminChooseHospital extends BaseActivity implements View.OnClickLis
         viewPager.setCurrentItem(0);
         ivLeft.setAlpha(0.25f);
         ivLeft.setEnabled(false);
+
+        if(doctor.getProfileImage() != null && !doctor.getProfileImage().isEmpty())
+        {
+            byte[] decodedString = Base64.decode(doctor.getProfileImage().replace("Some(", "").replace(")", ""), Base64.DEFAULT);
+            Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+
+            imageView.setImageBitmap(Bitmap.createScaledBitmap(decodedByte, 80, 80, true));
+        }
 
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override

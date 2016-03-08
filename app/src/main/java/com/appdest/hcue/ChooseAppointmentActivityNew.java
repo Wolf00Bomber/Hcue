@@ -294,6 +294,7 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
                     i.putExtra("BookingDetails", doctorsAppointmentResponse);
                     i.putExtra("DoctorDetails", selectedDoctorDetails);
                     i.putExtra("ProvideMoredetails",provideMoredetails);
+                    i.putExtra("PatientInfo",getPatientInfo);
                     startActivity(i);
                     finish();
                 } else {

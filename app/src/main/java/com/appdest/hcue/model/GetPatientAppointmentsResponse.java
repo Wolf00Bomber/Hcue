@@ -23,7 +23,16 @@ public class GetPatientAppointmentsResponse {
         public AppointmentDetails appointmentDetails;
         @SerializedName("DoctorDetails")
         public DoctorDetail doctorDetail;
+        @SerializedName("RatingEntered")
+        public boolean RatingEntered ;
 
+        public boolean isRatingEntered() {
+            return RatingEntered;
+        }
+
+        public void setRatingEntered(boolean ratingEntered) {
+            RatingEntered = ratingEntered;
+        }
     }
 
 
@@ -73,7 +82,7 @@ public class GetPatientAppointmentsResponse {
         public ArrayList<DoctorAddress> doctorAddress;
         @SerializedName("doctorEmail")
         public ArrayList<DoctorEmail> arrDoctorEmail;
-        @SerializedName("ImageURL")
+        @SerializedName("ProfileImage")
         public String ImageURL;
     }
 

@@ -48,7 +48,7 @@ public abstract class BaseActivity extends FragmentActivity
 	{
 		super.onCreate(savedInstanceState);
 
-		registerReceivers();
+		/*registerReceivers();
 
 		PushManager pushManager = PushManager.getInstance(this);
 
@@ -64,7 +64,7 @@ public abstract class BaseActivity extends FragmentActivity
 		//Register for push!
 		pushManager.registerForPushNotifications();
 
-		checkMessage(getIntent());
+		checkMessage(getIntent());*/
 
 		this.savedInstanceState = savedInstanceState;
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -109,7 +109,7 @@ public abstract class BaseActivity extends FragmentActivity
 	@Override
 	protected void onResume() {
 		super.onResume();
-		registerReceivers();
+		//registerReceivers();
 	}
 
 	@Override
@@ -118,7 +118,7 @@ public abstract class BaseActivity extends FragmentActivity
 		super.onNewIntent(intent);
 		setIntent(intent);
 
-		checkMessage(intent);
+		//checkMessage(intent);
 	}
 
 	private void checkMessage(Intent intent)
@@ -323,7 +323,7 @@ public abstract class BaseActivity extends FragmentActivity
 	protected void onPause() 
 	{
 		super.onPause();
-		unregisterReceivers();
+	//	unregisterReceivers();
 		if(progressdialog != null && progressdialog.isShowing())
 		{
 			progressdialog.dismiss();

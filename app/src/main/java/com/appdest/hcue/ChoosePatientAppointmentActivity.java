@@ -32,6 +32,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Iterator;
 
 import retrofit.client.Response;
 
@@ -108,7 +109,14 @@ public class ChoosePatientAppointmentActivity extends BaseActivity
             public void onClick(View v) {
                 if (selectedPatientAppointment == null) {
                     Toast.makeText(ChoosePatientAppointmentActivity.this,
-                            "Select an appointment for Feedback",
+                            "Select an appointment for Feedback.",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(selectedPatientAppointment.isRatingEntered())
+                {
+                    Toast.makeText(ChoosePatientAppointmentActivity.this,
+                            "Feedback already given.",
                             Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -178,7 +186,21 @@ public class ChoosePatientAppointmentActivity extends BaseActivity
                     tvHeading.setText("Choose appointment to give feedback");
                     btnFeedbackAppointment.setVisibility(View.VISIBLE);
                     pageCount++;
-                    gridAdapter.refresh(getPatientAppointmentsResponse.rows);
+                  /* Iterator<GetPatientAppointmentsResponse.AppointmentRow> iterator =  getPatientAppointmentsResponse.rows.iterator();
+                    while (iterator.hasNext())
+                    {
+                        if(iterator.next().isRatingEntered())
+                        {
+                            iterator.remove();
+                        }
+                    }
+                    if(getPatientAppointmentsResponse.rows.isEmpty())
+                    {
+                        btnFeedbackAppointment.setVisibility(View.GONE);
+                        tvHeading.setText("You don't have any appointments to give feedback");
+                    }else {*/
+                        gridAdapter.refresh(getPatientAppointmentsResponse.rows);
+                    //}
                 } else {
                     btnFeedbackAppointment.setVisibility(View.GONE);
                     tvHeading.setText("You don't have any appointments to give feedback");
@@ -231,6 +253,10 @@ public class ChoosePatientAppointmentActivity extends BaseActivity
 
             final GetPatientAppointmentsResponse.AppointmentRow data = patientAppointments.get(pos);
 
+            /*if(data.is)
+            {
+                view.setVisibility(View.GONE);
+            }*/
             long dayInstance = data.appointmentDetails.ConsultationDt.longValue();
             long timeInstance = TimeUtils.getLongForHHMMSS(data.appointmentDetails.StartTime+":00");
             long totalInstance = dayInstance + timeInstance;

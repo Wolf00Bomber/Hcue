@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.appdest.hcue.common.AppConstants;
 import com.appdest.hcue.model.DoctorsAppointmentResponse;
 import com.appdest.hcue.model.GetDoctorsResponse;
+import com.appdest.hcue.model.GetPatientResponse;
 import com.appdest.hcue.utils.SpeechHelper;
 import com.appdest.hcue.utils.TimeUtils;
 
@@ -27,6 +28,7 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 	private DoctorsAppointmentResponse bookingDetails;
     private GetDoctorsResponse.DoctorDetail selectedDoctorDetails;
     boolean isActivityNeedsFinish = false;
+	private GetPatientResponse.PatientInfo getPatientInfo;
 
 	@Override
 	public void initializeControls() {
@@ -36,6 +38,9 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 			finish();
 			return;
 		}
+		if(i.hasExtra("PatientInfo"))
+		getPatientInfo = (GetPatientResponse.PatientInfo) i.getSerializableExtra("PatientInfo");
+
         selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail) i.getSerializableExtra("DoctorDetails");
 		bookingDetails = (DoctorsAppointmentResponse) i.getSerializableExtra("BookingDetails");
 		boolean isprovidemoredetails = i.getBooleanExtra("ProvideMoredetails",false) ;
@@ -94,6 +99,9 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
 				Intent intent = new Intent(ConfirmationSummaryActivity.this,EnterMailActivity.class);
 				intent.putExtra("BookingDetails", bookingDetails);
 				intent.putExtra("DoctorDetails", selectedDoctorDetails);
+				if(getPatientInfo != null)
+				if(getPatientInfo.patientAddress != null && !getPatientInfo.patientAddress.isEmpty())
+				intent.putExtra("Email", getPatientInfo.patientAddress.get(0).EmailID);
 				startActivity(intent);
 				break;
 			case R.id.btnAskMe:

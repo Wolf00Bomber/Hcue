@@ -349,9 +349,15 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 			}
 			else if(button.getText().toString().equalsIgnoreCase("SPACE"))
 			{
-				str = str + " ";
+				/*str = str + " ";
 				((EditText)focusedView).setText(str);
-				((EditText)focusedView).setSelection(((EditText) focusedView).length());
+				((EditText)focusedView).setSelection(((EditText) focusedView).length());*/
+				int start =(((EditText) focusedView).getSelectionStart()); //this is to get the the cursor position
+				//String s = "Some string";
+				//editText.getText().insert(start, s);
+				//str = str + button.getText().toString() ;
+				((EditText)focusedView).getText().insert(start, " ");
+				((EditText)focusedView).setSelection((start+1));
 			}
 
 
