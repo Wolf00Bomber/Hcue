@@ -25,7 +25,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="Q"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
         <Button
             android:layout_width="wrap_content"
@@ -35,7 +35,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="W"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
         <Button
             android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="E"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
         <Button
             android:layout_width="wrap_content"
@@ -55,7 +55,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="R"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
         <Button
             android:layout_width="wrap_content"
@@ -65,7 +65,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="T"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
         <Button
             android:layout_width="wrap_content"
@@ -75,7 +75,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="Y"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
         <Button
             android:layout_width="wrap_content"
@@ -85,7 +85,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="U"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
         <Button
             android:layout_width="wrap_content"
@@ -95,7 +95,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="I"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
         <Button
             android:layout_width="wrap_content"
@@ -105,7 +105,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="O"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
         <Button
             android:layout_width="wrap_content"
@@ -115,7 +115,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="P"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
         <Button
             android:id="@+id/btnDel"
             android:layout_width="wrap_content"
@@ -145,7 +145,7 @@
             android:padding="5dp"
             android:textColor="@android:color/transparent"
             android:text="123"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
         <Button
             android:layout_width="wrap_content"
@@ -155,7 +155,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="A"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
         <Button
             android:layout_width="wrap_content"
@@ -165,7 +165,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="S"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
         <Button
             android:layout_width="wrap_content"
@@ -175,7 +175,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="D"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
         <Button
             android:layout_width="wrap_content"
@@ -185,7 +185,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="F"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
         <Button
             android:layout_width="wrap_content"
@@ -195,7 +195,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="G"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
         <Button
             android:layout_width="wrap_content"
@@ -205,7 +205,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="H"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
         <Button
             android:layout_width="wrap_content"
@@ -215,7 +215,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="J"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
         <Button
             android:layout_width="wrap_content"
@@ -225,7 +225,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="K"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
         <Button
             android:layout_width="wrap_content"
@@ -235,7 +235,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="L"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
     </LinearLayout>
 
     <LinearLayout
@@ -257,7 +257,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="Z"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
         <Button
             android:layout_width="wrap_content"
@@ -267,7 +267,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="X"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
         <Button
             android:layout_width="wrap_content"
@@ -277,7 +277,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="C"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
         <Button
             android:layout_width="wrap_content"
@@ -287,7 +287,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="V"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
         <Button
             android:layout_width="wrap_content"
@@ -297,7 +297,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="B"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
         <Button
             android:layout_width="wrap_content"
@@ -307,7 +307,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="N"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
         <Button
         android:layout_width="wrap_content"
@@ -317,7 +317,7 @@
         android:onClick="keyboardClick"
         android:padding="5dp"
         android:text="M"
-        android:textSize="26sp" />
+        android:textSize="@dimen/test_size_26" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -326,7 +326,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="SPACE"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
 
     </LinearLayout>
@@ -348,7 +348,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="123"
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
 
         <Button
             android:layout_width="wrap_content"
@@ -359,7 +359,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text=""
-            android:textSize="26sp" />
+            android:textSize="@dimen/test_size_26" />
     </LinearLayout>
 
 

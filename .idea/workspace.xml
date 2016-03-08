@@ -414,10 +414,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b6cfe82-ac61-41a4-af9e-d3910da41b1f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values-large/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values-large/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values-xlarge/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values-xlarge/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-large/user_details_activity.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-large/user_details_activity.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-xlarge/user_details_activity.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-xlarge/user_details_activity.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-large/alphabet_keyboard.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-large/alphabet_keyboard.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-xlarge/alphabet_keyboard.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-xlarge/alphabet_keyboard.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-large/alphabet_keyboard_small.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-large/alphabet_keyboard_small.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-xlarge/alphabet_keyboard_small.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-xlarge/alphabet_keyboard_small.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-large/feedback_keyboard.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-large/feedback_keyboard.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-xlarge/feedback_keyboard.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-xlarge/feedback_keyboard.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-large/numeric_keyboard.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-large/numeric_keyboard.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-xlarge/numeric_keyboard.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-xlarge/numeric_keyboard.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-large/special_keyboard.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-large/special_keyboard.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-xlarge/special_keyboard.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-xlarge/special_keyboard.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Hcue.iws" />
@@ -539,110 +545,7 @@
     <favorites_list name="Hcue" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="user_details_activity.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/user_details_activity.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-81.72414">
-              <caret line="158" column="47" selection-start-line="0" selection-start-column="0" selection-end-line="191" selection-end-column="15" />
-              <folding>
-                <element signature="e#502#520#0" expanded="true" />
-                <element signature="e#549#567#0" expanded="true" />
-                <element signature="e#597#615#0" expanded="true" />
-                <element signature="e#643#661#0" expanded="true" />
-                <element signature="e#819#835#0" expanded="true" />
-                <element signature="e#875#892#0" expanded="true" />
-                <element signature="e#957#978#0" expanded="true" />
-                <element signature="e#1212#1229#0" expanded="true" />
-                <element signature="e#1715#1736#0" expanded="true" />
-                <element signature="e#1898#1914#0" expanded="true" />
-                <element signature="e#2147#2164#0" expanded="true" />
-                <element signature="e#2759#2776#0" expanded="true" />
-                <element signature="e#2821#2838#0" expanded="true" />
-                <element signature="e#2884#2901#0" expanded="true" />
-                <element signature="e#2945#2962#0" expanded="true" />
-                <element signature="e#3354#3371#0" expanded="true" />
-                <element signature="e#3413#3430#0" expanded="true" />
-                <element signature="e#3500#3521#0" expanded="true" />
-                <element signature="e#3748#3765#0" expanded="true" />
-                <element signature="e#3807#3824#0" expanded="true" />
-                <element signature="e#3896#3917#0" expanded="true" />
-                <element signature="e#4500#4521#0" expanded="true" />
-                <element signature="e#4670#4686#0" expanded="true" />
-                <element signature="e#5088#5105#0" expanded="true" />
-                <element signature="e#5311#5332#0" expanded="true" />
-                <element signature="e#5608#5625#0" expanded="true" />
-                <element signature="e#5816#5837#0" expanded="true" />
-                <element signature="e#6251#6268#0" expanded="true" />
-                <element signature="e#6435#6456#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user_details_activity.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-large/user_details_activity.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.40431267">
-              <caret line="68" column="41" selection-start-line="68" selection-start-column="41" selection-end-line="68" selection-end-column="41" />
-              <folding>
-                <element signature="e#502#520#0" expanded="true" />
-                <element signature="e#549#567#0" expanded="true" />
-                <element signature="e#597#615#0" expanded="true" />
-                <element signature="e#643#661#0" expanded="true" />
-                <element signature="e#819#835#0" expanded="true" />
-                <element signature="e#875#892#0" expanded="true" />
-                <element signature="e#957#978#0" expanded="true" />
-                <element signature="e#1212#1229#0" expanded="true" />
-                <element signature="e#1715#1736#0" expanded="true" />
-                <element signature="e#1898#1914#0" expanded="true" />
-                <element signature="e#2147#2164#0" expanded="true" />
-                <element signature="e#2620#2645#0" expanded="true" />
-                <element signature="e#2686#2711#0" expanded="true" />
-                <element signature="e#2758#2775#0" expanded="true" />
-                <element signature="e#2820#2837#0" expanded="true" />
-                <element signature="e#2883#2900#0" expanded="true" />
-                <element signature="e#2944#2961#0" expanded="true" />
-                <element signature="e#3001#3024#0" expanded="true" />
-                <element signature="e#3063#3086#0" expanded="true" />
-                <element signature="e#3353#3370#0" expanded="true" />
-                <element signature="e#3412#3429#0" expanded="true" />
-                <element signature="e#3499#3520#0" expanded="true" />
-                <element signature="e#3747#3764#0" expanded="true" />
-                <element signature="e#3806#3823#0" expanded="true" />
-                <element signature="e#3895#3916#0" expanded="true" />
-                <element signature="e#4499#4520#0" expanded="true" />
-                <element signature="e#4669#4685#0" expanded="true" />
-                <element signature="e#4820#4841#0" expanded="true" />
-                <element signature="e#5087#5104#0" expanded="true" />
-                <element signature="e#5310#5331#0" expanded="true" />
-                <element signature="e#5607#5624#0" expanded="true" />
-                <element signature="e#5815#5836#0" expanded="true" />
-                <element signature="e#6250#6267#0" expanded="true" />
-                <element signature="e#6301#6318#0" expanded="true" />
-                <element signature="e#6434#6455#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dimens.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values-xlarge/dimens.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="54" column="39" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -2609,16 +2512,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout-large/confirm_cancelation.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout-large/confirmation_fullview.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout-large/confirmation_summary.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout-large/enter_contact_number.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout-large/enter_mail.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout-large/feedback.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout-large/feedback_confirmation.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout-large/grid_cell.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout-large/mail_more_details.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout-large/popup_cell.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-large/select_doctor_grid.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-large/splash.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-large/thank_you_page.xml" />
@@ -2660,6 +2553,16 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values-large/dimens.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-xlarge/user_details_activity.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-large/user_details_activity.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout-xlarge/alphabet_keyboard.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout-large/alphabet_keyboard.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout-xlarge/special_keyboard.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout-xlarge/numeric_keyboard.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout-large/numeric_keyboard.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout-xlarge/alphabet_keyboard_small.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout-xlarge/feedback_keyboard.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout-large/alphabet_keyboard_small.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout-large/feedback_keyboard.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout-large/special_keyboard.xml" />
       </list>
     </option>
   </component>
@@ -2704,8 +2607,32 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hcue" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Hcue" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2738,219 +2665,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hcue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hcue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hcue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hcue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hcue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hcue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hcue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hcue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="values-xlarge" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hcue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hcue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="values-large" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hcue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hcue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout-xlarge" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hcue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hcue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout-large" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hcue" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gradle Scripts" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hcue" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -3482,7 +3199,13 @@
       <option name="project" value="LOCAL" />
       <updated>1457400828191</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="dimens">
+      <created>1457402467713</created>
+      <option name="number" value="00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1457402467713</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3496,7 +3219,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="728" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -3504,7 +3227,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3006536" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3006536" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5653595" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
@@ -3519,7 +3242,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959184" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3352181" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3352181" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4722222" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -3534,15 +3257,15 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34949833" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27591974" sideWeight="0.50907713" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277592" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31316188" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -3557,8 +3280,8 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5083612" sideWeight="0.49092284" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39966556" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -3723,191 +3446,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-large/time_selection_grid_for_appointment.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-large/welcome_screen.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5956873">
-          <caret line="115" column="29" selection-start-line="115" selection-start-column="29" selection-end-line="115" selection-end-column="29" />
-          <folding>
-            <element signature="e#1494#1515#0" expanded="true" />
-            <element signature="e#1967#1991#0" expanded="true" />
-            <element signature="e#2646#2670#0" expanded="true" />
-            <element signature="e#3128#3149#0" expanded="true" />
-            <element signature="e#3596#3617#0" expanded="true" />
-            <element signature="e#4041#4062#0" expanded="true" />
-            <element signature="e#4487#4508#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/activity_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/additional_comments.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07008086">
-          <caret line="85" column="33" selection-start-line="85" selection-start-column="33" selection-end-line="85" selection-end-column="33" />
-          <folding>
-            <element signature="e#386#404#0" expanded="true" />
-            <element signature="e#742#763#0" expanded="true" />
-            <element signature="e#1135#1156#0" expanded="true" />
-            <element signature="e#2048#2069#0" expanded="true" />
-            <element signature="e#2812#2833#0" expanded="true" />
-            <element signature="e#3311#3332#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/additional_info.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.010781671">
-          <caret line="140" column="53" selection-start-line="140" selection-start-column="53" selection-end-line="140" selection-end-column="53" />
-          <folding>
-            <element signature="e#1331#1352#0" expanded="true" />
-            <element signature="e#2546#2567#0" expanded="true" />
-            <element signature="e#3407#3428#0" expanded="true" />
-            <element signature="e#3936#3957#0" expanded="true" />
-            <element signature="e#4470#4491#0" expanded="true" />
-            <element signature="e#5097#5118#0" expanded="true" />
-            <element signature="e#5696#5717#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-large/additional_info.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.18670887">
-          <caret line="138" column="53" selection-start-line="138" selection-start-column="53" selection-end-line="138" selection-end-column="53" />
-          <folding>
-            <element signature="e#1246#1267#0" expanded="true" />
-            <element signature="e#1460#1478#0" expanded="true" />
-            <element signature="e#1827#1845#0" expanded="true" />
-            <element signature="e#1889#1907#0" expanded="true" />
-            <element signature="e#1949#1967#0" expanded="true" />
-            <element signature="e#2363#2381#0" expanded="true" />
-            <element signature="e#2461#2482#0" expanded="true" />
-            <element signature="e#2674#2692#0" expanded="true" />
-            <element signature="e#2957#2975#0" expanded="true" />
-            <element signature="e#3017#3035#0" expanded="true" />
-            <element signature="e#3322#3343#0" expanded="true" />
-            <element signature="e#3581#3599#0" expanded="true" />
-            <element signature="e#3708#3726#0" expanded="true" />
-            <element signature="e#3851#3872#0" expanded="true" />
-            <element signature="e#4111#4129#0" expanded="true" />
-            <element signature="e#4241#4259#0" expanded="true" />
-            <element signature="e#4385#4406#0" expanded="true" />
-            <element signature="e#4658#4676#0" expanded="true" />
-            <element signature="e#4720#4738#0" expanded="true" />
-            <element signature="e#4780#4798#0" expanded="true" />
-            <element signature="e#4960#4978#0" expanded="true" />
-            <element signature="e#5012#5033#0" expanded="true" />
-            <element signature="e#5256#5274#0" expanded="true" />
-            <element signature="e#5318#5336#0" expanded="true" />
-            <element signature="e#5378#5396#0" expanded="true" />
-            <element signature="e#5559#5577#0" expanded="true" />
-            <element signature="e#5611#5632#0" expanded="true" />
-            <element signature="e#5925#5943#0" expanded="true" />
-            <element signature="e#6040#6058#0" expanded="true" />
-            <element signature="e#6096#6114#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-large/admin_choose_doctors_grid_cell.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55525607">
-          <caret line="72" column="53" selection-start-line="72" selection-start-column="53" selection-end-line="72" selection-end-column="53" />
-          <folding>
-            <element signature="e#1253#1274#0" expanded="true" />
-            <element signature="e#1667#1688#0" expanded="true" />
-            <element signature="e#2222#2243#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-large/admin_choose_doctors_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.393531">
-          <caret line="125" column="29" selection-start-line="125" selection-start-column="29" selection-end-line="125" selection-end-column="29" />
-          <folding>
-            <element signature="e#886#907#0" expanded="true" />
-            <element signature="e#1467#1488#0" expanded="true" />
-            <element signature="e#1903#1924#0" expanded="true" />
-            <element signature="e#4030#4051#0" expanded="true" />
-            <element signature="e#4411#4432#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-large/admin_choose_hospital_grid_cell.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47439352">
-          <caret line="30" column="49" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
-          <folding>
-            <element signature="e#1005#1026#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-large/admin_choose_hospital_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.606469">
-          <caret line="180" column="29" selection-start-line="180" selection-start-column="29" selection-end-line="180" selection-end-column="29" />
-          <folding>
-            <element signature="e#1970#1991#0" expanded="true" />
-            <element signature="e#2317#2338#0" expanded="true" />
-            <element signature="e#3076#3097#0" expanded="true" />
-            <element signature="e#3390#3411#0" expanded="true" />
-            <element signature="e#3846#3867#0" expanded="true" />
-            <element signature="e#6340#6361#0" expanded="true" />
-            <element signature="e#6765#6786#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-large/admin_confirmation.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.9407008">
           <caret line="48" column="33" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
@@ -3918,11 +3460,11 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/admin_choose_doctors_grid_cell.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/admin_choose_doctors_grid_cell.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5660377">
           <caret line="72" column="53" selection-start-line="72" selection-start-column="53" selection-end-line="72" selection-end-column="53" />
@@ -3933,11 +3475,11 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/admin_choose_doctors_main.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/admin_choose_doctors_main.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.393531">
           <caret line="125" column="29" selection-start-line="125" selection-start-column="29" selection-end-line="125" selection-end-column="29" />
@@ -3950,11 +3492,11 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/admin_choose_hospital_grid_cell.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/admin_choose_hospital_grid_cell.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.1212938">
           <caret line="30" column="49" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
@@ -3963,11 +3505,11 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/admin_choose_hospital_main.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/admin_choose_hospital_main.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.0808625">
           <caret line="180" column="29" selection-start-line="180" selection-start-column="29" selection-end-line="180" selection-end-column="29" />
@@ -3982,11 +3524,11 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/admin_confirmation.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/admin_confirmation.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.9407008">
           <caret line="48" column="33" selection-start-line="48" selection-start-column="33" selection-end-line="48" selection-end-column="33" />
@@ -3997,11 +3539,11 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/admin_login.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/admin_login.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.010781671">
           <caret line="116" column="45" selection-start-line="116" selection-start-column="45" selection-end-line="116" selection-end-column="45" />
@@ -4015,22 +3557,22 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/admin_pager_item.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/admin_pager_item.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/appointments_history_cell.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/appointments_history_cell.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5253165">
           <caret line="52" column="49" selection-start-line="52" selection-start-column="49" selection-end-line="52" selection-end-column="49" />
@@ -4041,11 +3583,11 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/base.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/base.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5148248">
           <caret line="114" column="49" selection-start-line="114" selection-start-column="49" selection-end-line="114" selection-end-column="49" />
@@ -4058,11 +3600,11 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/booked_appointments.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/booked_appointments.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.3854446">
           <caret line="59" column="11" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="11" />
@@ -4074,11 +3616,11 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/booked_patient_appointments_for_feedback.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/booked_patient_appointments_for_feedback.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.80862534">
           <caret line="62" column="25" selection-start-line="62" selection-start-column="25" selection-end-line="62" selection-end-column="25" />
@@ -4090,11 +3632,11 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/cancelation_summery.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/cancelation_summery.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.29380053">
           <caret line="128" column="33" selection-start-line="128" selection-start-column="33" selection-end-line="128" selection-end-column="33" />
@@ -4111,11 +3653,11 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/choose_date_time_of_appointment.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/choose_date_time_of_appointment.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5148248">
           <caret line="226" column="33" selection-start-line="226" selection-start-column="33" selection-end-line="226" selection-end-column="33" />
@@ -4130,11 +3672,11 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/choose_patient_grid_cell.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/choose_patient_grid_cell.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6469003">
           <caret line="33" column="49" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
@@ -4143,11 +3685,11 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/choose_patitent.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/choose_patitent.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.9002695">
           <caret line="47" column="34" selection-start-line="47" selection-start-column="34" selection-end-line="47" selection-end-column="34" />
@@ -4157,11 +3699,11 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/confirm_cancelation.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/confirm_cancelation.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6469003">
           <caret line="127" column="25" selection-start-line="127" selection-start-column="25" selection-end-line="127" selection-end-column="25" />
@@ -4177,11 +3719,11 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/confirmation_fullview.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/confirmation_fullview.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5956873">
           <caret line="99" column="29" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
@@ -4197,11 +3739,11 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/confirmation_summary.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/confirmation_summary.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.67654985">
           <caret line="243" column="49" selection-start-line="243" selection-start-column="49" selection-end-line="243" selection-end-column="49" />
@@ -4223,44 +3765,44 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/control_calendar.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/control_calendar.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.954178">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/control_calendar_day.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/control_calendar_day.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/custom_dialog.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/enter_contact_number.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/enter_contact_number.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="4.3261456">
           <caret line="107" column="48" selection-start-line="107" selection-start-column="48" selection-end-line="107" selection-end-column="48" />
@@ -4273,11 +3815,11 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/enter_mail.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/enter_mail.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.091644205">
           <caret line="55" column="29" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
@@ -4288,11 +3830,11 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/feedback.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/feedback.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.67654985">
           <caret line="208" column="25" selection-start-line="208" selection-start-column="25" selection-end-line="208" selection-end-column="25" />
@@ -4309,11 +3851,11 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/feedback_confirmation.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/feedback_confirmation.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43396226">
           <caret line="34" column="49" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
@@ -4322,11 +3864,11 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/mail_more_details.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/mail_more_details.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.17250673">
           <caret line="73" column="29" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
@@ -4338,33 +3880,33 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/popup_cell.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/popup_cell.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6469003">
           <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/pager_item.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/pager_item.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/grid_cell.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/grid_cell.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.55525607">
           <caret line="88" column="49" selection-start-line="88" selection-start-column="49" selection-end-line="88" selection-end-column="49" />
@@ -4374,22 +3916,22 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/progress_dialog.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/progress_dialog.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/select_doctor_grid.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/select_doctor_grid.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6361186">
           <caret line="119" column="29" selection-start-line="119" selection-start-column="29" selection-end-line="119" selection-end-column="29" />
@@ -4403,33 +3945,33 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/select_doctor_pager_item.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/select_doctor_pager_item.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/splash.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/splash.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4851752">
           <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/thank_you_page.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/thank_you_page.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35309973">
           <caret line="39" column="49" selection-start-line="39" selection-start-column="49" selection-end-line="39" selection-end-column="49" />
@@ -4440,22 +3982,22 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/time_selection_grid_for_appointment.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/time_selection_grid_for_appointment.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.0107816">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/welcome_screen.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/welcome_screen.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5956873">
           <caret line="115" column="29" selection-start-line="115" selection-start-column="29" selection-end-line="115" selection-end-column="29" />
@@ -4470,9 +4012,6 @@
           </folding>
         </state>
       </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values-large/dimens.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -4482,56 +4021,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-xlarge/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="39" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/user_details_activity.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-81.72414">
-          <caret line="158" column="47" selection-start-line="0" selection-start-column="0" selection-end-line="191" selection-end-column="15" />
-          <folding>
-            <element signature="e#502#520#0" expanded="true" />
-            <element signature="e#549#567#0" expanded="true" />
-            <element signature="e#597#615#0" expanded="true" />
-            <element signature="e#643#661#0" expanded="true" />
-            <element signature="e#819#835#0" expanded="true" />
-            <element signature="e#875#892#0" expanded="true" />
-            <element signature="e#957#978#0" expanded="true" />
-            <element signature="e#1212#1229#0" expanded="true" />
-            <element signature="e#1715#1736#0" expanded="true" />
-            <element signature="e#1898#1914#0" expanded="true" />
-            <element signature="e#2147#2164#0" expanded="true" />
-            <element signature="e#2759#2776#0" expanded="true" />
-            <element signature="e#2821#2838#0" expanded="true" />
-            <element signature="e#2884#2901#0" expanded="true" />
-            <element signature="e#2945#2962#0" expanded="true" />
-            <element signature="e#3354#3371#0" expanded="true" />
-            <element signature="e#3413#3430#0" expanded="true" />
-            <element signature="e#3500#3521#0" expanded="true" />
-            <element signature="e#3748#3765#0" expanded="true" />
-            <element signature="e#3807#3824#0" expanded="true" />
-            <element signature="e#3896#3917#0" expanded="true" />
-            <element signature="e#4500#4521#0" expanded="true" />
-            <element signature="e#4670#4686#0" expanded="true" />
-            <element signature="e#5088#5105#0" expanded="true" />
-            <element signature="e#5311#5332#0" expanded="true" />
-            <element signature="e#5608#5625#0" expanded="true" />
-            <element signature="e#5816#5837#0" expanded="true" />
-            <element signature="e#6251#6268#0" expanded="true" />
-            <element signature="e#6435#6456#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-large/user_details_activity.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-large/user_details_activity.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.40431267">
           <caret line="68" column="41" selection-start-line="68" selection-start-column="41" selection-end-line="68" selection-end-column="41" />
@@ -4574,8 +4067,380 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/user_details_activity.xml">
       <provider editor-type-id="android-designer">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="6.38814">
+          <caret line="158" column="47" selection-start-line="0" selection-start-column="0" selection-end-line="191" selection-end-column="15" />
+          <folding>
+            <element signature="e#502#520#0" expanded="true" />
+            <element signature="e#549#567#0" expanded="true" />
+            <element signature="e#597#615#0" expanded="true" />
+            <element signature="e#643#661#0" expanded="true" />
+            <element signature="e#819#835#0" expanded="true" />
+            <element signature="e#875#892#0" expanded="true" />
+            <element signature="e#957#978#0" expanded="true" />
+            <element signature="e#1212#1229#0" expanded="true" />
+            <element signature="e#1715#1736#0" expanded="true" />
+            <element signature="e#1898#1914#0" expanded="true" />
+            <element signature="e#2147#2164#0" expanded="true" />
+            <element signature="e#2759#2776#0" expanded="true" />
+            <element signature="e#2821#2838#0" expanded="true" />
+            <element signature="e#2884#2901#0" expanded="true" />
+            <element signature="e#2945#2962#0" expanded="true" />
+            <element signature="e#3354#3371#0" expanded="true" />
+            <element signature="e#3413#3430#0" expanded="true" />
+            <element signature="e#3500#3521#0" expanded="true" />
+            <element signature="e#3748#3765#0" expanded="true" />
+            <element signature="e#3807#3824#0" expanded="true" />
+            <element signature="e#3896#3917#0" expanded="true" />
+            <element signature="e#4500#4521#0" expanded="true" />
+            <element signature="e#4670#4686#0" expanded="true" />
+            <element signature="e#5088#5105#0" expanded="true" />
+            <element signature="e#5311#5332#0" expanded="true" />
+            <element signature="e#5608#5625#0" expanded="true" />
+            <element signature="e#5816#5837#0" expanded="true" />
+            <element signature="e#6251#6268#0" expanded="true" />
+            <element signature="e#6435#6456#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/alphabet_keyboard.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="16.186708">
+          <caret line="361" column="49" selection-start-line="361" selection-start-column="49" selection-end-line="361" selection-end-column="49" />
+          <folding>
+            <element signature="e#974#995#0" expanded="true" />
+            <element signature="e#1341#1362#0" expanded="true" />
+            <element signature="e#1708#1729#0" expanded="true" />
+            <element signature="e#2075#2096#0" expanded="true" />
+            <element signature="e#2442#2463#0" expanded="true" />
+            <element signature="e#2809#2830#0" expanded="true" />
+            <element signature="e#3176#3197#0" expanded="true" />
+            <element signature="e#3543#3564#0" expanded="true" />
+            <element signature="e#3910#3931#0" expanded="true" />
+            <element signature="e#4277#4298#0" expanded="true" />
+            <element signature="e#5411#5432#0" expanded="true" />
+            <element signature="e#5778#5799#0" expanded="true" />
+            <element signature="e#6145#6166#0" expanded="true" />
+            <element signature="e#6512#6533#0" expanded="true" />
+            <element signature="e#6879#6900#0" expanded="true" />
+            <element signature="e#7246#7267#0" expanded="true" />
+            <element signature="e#7613#7634#0" expanded="true" />
+            <element signature="e#7980#8001#0" expanded="true" />
+            <element signature="e#8347#8368#0" expanded="true" />
+            <element signature="e#8714#8735#0" expanded="true" />
+            <element signature="e#8971#8988#0" expanded="true" />
+            <element signature="e#9403#9424#0" expanded="true" />
+            <element signature="e#9770#9791#0" expanded="true" />
+            <element signature="e#10137#10158#0" expanded="true" />
+            <element signature="e#10504#10525#0" expanded="true" />
+            <element signature="e#10871#10892#0" expanded="true" />
+            <element signature="e#11238#11259#0" expanded="true" />
+            <element signature="e#11573#11594#0" expanded="true" />
+            <element signature="e#11953#11974#0" expanded="true" />
+            <element signature="e#12630#12651#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/special_keyboard.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="13.57595">
+          <caret line="306" column="49" selection-start-line="306" selection-start-column="49" selection-end-line="306" selection-end-column="49" />
+          <folding>
+            <element signature="e#988#1009#0" expanded="true" />
+            <element signature="e#1362#1383#0" expanded="true" />
+            <element signature="e#1736#1757#0" expanded="true" />
+            <element signature="e#2110#2131#0" expanded="true" />
+            <element signature="e#2484#2505#0" expanded="true" />
+            <element signature="e#2858#2879#0" expanded="true" />
+            <element signature="e#3232#3253#0" expanded="true" />
+            <element signature="e#3606#3627#0" expanded="true" />
+            <element signature="e#3980#4001#0" expanded="true" />
+            <element signature="e#4354#4375#0" expanded="true" />
+            <element signature="e#5426#5447#0" expanded="true" />
+            <element signature="e#5793#5814#0" expanded="true" />
+            <element signature="e#6160#6181#0" expanded="true" />
+            <element signature="e#6527#6548#0" expanded="true" />
+            <element signature="e#6861#6879#0" expanded="true" />
+            <element signature="e#6909#6930#0" expanded="true" />
+            <element signature="e#7276#7297#0" expanded="true" />
+            <element signature="e#7643#7664#0" expanded="true" />
+            <element signature="e#8010#8031#0" expanded="true" />
+            <element signature="e#8377#8398#0" expanded="true" />
+            <element signature="e#8744#8765#0" expanded="true" />
+            <element signature="e#9124#9145#0" expanded="true" />
+            <element signature="e#9765#9786#0" expanded="true" />
+            <element signature="e#10136#10157#0" expanded="true" />
+            <element signature="e#10503#10524#0" expanded="true" />
+            <element signature="e#10837#10849#0" expanded="true" />
+            <element signature="e#10879#10900#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/numeric_keyboard.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="4.60443">
+          <caret line="112" column="49" selection-start-line="112" selection-start-column="49" selection-end-line="112" selection-end-column="49" />
+          <folding>
+            <element signature="e#880#901#0" expanded="true" />
+            <element signature="e#1254#1275#0" expanded="true" />
+            <element signature="e#1628#1649#0" expanded="true" />
+            <element signature="e#2002#2023#0" expanded="true" />
+            <element signature="e#2376#2397#0" expanded="true" />
+            <element signature="e#2750#2771#0" expanded="true" />
+            <element signature="e#3124#3145#0" expanded="true" />
+            <element signature="e#3498#3519#0" expanded="true" />
+            <element signature="e#3872#3893#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/alphabet_keyboard_small.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="16.234177">
+          <caret line="362" column="49" selection-start-line="362" selection-start-column="49" selection-end-line="362" selection-end-column="49" />
+          <folding>
+            <element signature="e#974#995#0" expanded="true" />
+            <element signature="e#1341#1362#0" expanded="true" />
+            <element signature="e#1708#1729#0" expanded="true" />
+            <element signature="e#2117#2138#0" expanded="true" />
+            <element signature="e#2484#2505#0" expanded="true" />
+            <element signature="e#2851#2872#0" expanded="true" />
+            <element signature="e#3218#3239#0" expanded="true" />
+            <element signature="e#3585#3606#0" expanded="true" />
+            <element signature="e#3952#3973#0" expanded="true" />
+            <element signature="e#4319#4340#0" expanded="true" />
+            <element signature="e#5458#5479#0" expanded="true" />
+            <element signature="e#5825#5846#0" expanded="true" />
+            <element signature="e#6192#6213#0" expanded="true" />
+            <element signature="e#6559#6580#0" expanded="true" />
+            <element signature="e#6926#6947#0" expanded="true" />
+            <element signature="e#7293#7314#0" expanded="true" />
+            <element signature="e#7660#7681#0" expanded="true" />
+            <element signature="e#8027#8048#0" expanded="true" />
+            <element signature="e#8394#8415#0" expanded="true" />
+            <element signature="e#8761#8782#0" expanded="true" />
+            <element signature="e#9402#9423#0" expanded="true" />
+            <element signature="e#9769#9790#0" expanded="true" />
+            <element signature="e#10136#10157#0" expanded="true" />
+            <element signature="e#10503#10524#0" expanded="true" />
+            <element signature="e#10870#10891#0" expanded="true" />
+            <element signature="e#11237#11258#0" expanded="true" />
+            <element signature="e#11604#11625#0" expanded="true" />
+            <element signature="e#11984#12005#0" expanded="true" />
+            <element signature="e#12661#12682#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/feedback_keyboard.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="14.905064">
+          <caret line="335" column="49" selection-start-line="335" selection-start-column="49" selection-end-line="335" selection-end-column="49" />
+          <folding>
+            <element signature="e#1014#1035#0" expanded="true" />
+            <element signature="e#1381#1402#0" expanded="true" />
+            <element signature="e#1748#1769#0" expanded="true" />
+            <element signature="e#2115#2136#0" expanded="true" />
+            <element signature="e#2482#2503#0" expanded="true" />
+            <element signature="e#2849#2870#0" expanded="true" />
+            <element signature="e#3216#3237#0" expanded="true" />
+            <element signature="e#3583#3604#0" expanded="true" />
+            <element signature="e#3950#3971#0" expanded="true" />
+            <element signature="e#4317#4338#0" expanded="true" />
+            <element signature="e#5349#5370#0" expanded="true" />
+            <element signature="e#5716#5737#0" expanded="true" />
+            <element signature="e#6083#6104#0" expanded="true" />
+            <element signature="e#6450#6471#0" expanded="true" />
+            <element signature="e#6817#6838#0" expanded="true" />
+            <element signature="e#7184#7205#0" expanded="true" />
+            <element signature="e#7551#7572#0" expanded="true" />
+            <element signature="e#7918#7939#0" expanded="true" />
+            <element signature="e#8285#8306#0" expanded="true" />
+            <element signature="e#8652#8673#0" expanded="true" />
+            <element signature="e#9594#9615#0" expanded="true" />
+            <element signature="e#9961#9982#0" expanded="true" />
+            <element signature="e#10328#10349#0" expanded="true" />
+            <element signature="e#10695#10716#0" expanded="true" />
+            <element signature="e#11062#11083#0" expanded="true" />
+            <element signature="e#11429#11450#0" expanded="true" />
+            <element signature="e#11796#11817#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-xlarge/dimens.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.475">
+          <caret line="30" column="29" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-large/alphabet_keyboard_small.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.0181818">
+          <caret line="362" column="13" selection-start-line="362" selection-start-column="13" selection-end-line="362" selection-end-column="13" />
+          <folding>
+            <element signature="e#1513#1534#0" expanded="true" />
+            <element signature="e#1874#1895#0" expanded="true" />
+            <element signature="e#2193#2214#0" expanded="true" />
+            <element signature="e#2512#2533#0" expanded="true" />
+            <element signature="e#2831#2852#0" expanded="true" />
+            <element signature="e#3150#3171#0" expanded="true" />
+            <element signature="e#3469#3490#0" expanded="true" />
+            <element signature="e#3788#3809#0" expanded="true" />
+            <element signature="e#4805#4826#0" expanded="true" />
+            <element signature="e#5124#5145#0" expanded="true" />
+            <element signature="e#5443#5464#0" expanded="true" />
+            <element signature="e#5762#5783#0" expanded="true" />
+            <element signature="e#6081#6102#0" expanded="true" />
+            <element signature="e#6400#6421#0" expanded="true" />
+            <element signature="e#6719#6740#0" expanded="true" />
+            <element signature="e#7038#7059#0" expanded="true" />
+            <element signature="e#7357#7378#0" expanded="true" />
+            <element signature="e#7676#7697#0" expanded="true" />
+            <element signature="e#8243#8264#0" expanded="true" />
+            <element signature="e#8562#8583#0" expanded="true" />
+            <element signature="e#8881#8902#0" expanded="true" />
+            <element signature="e#9200#9221#0" expanded="true" />
+            <element signature="e#9519#9540#0" expanded="true" />
+            <element signature="e#9838#9859#0" expanded="true" />
+            <element signature="e#10157#10178#0" expanded="true" />
+            <element signature="e#10489#10510#0" expanded="true" />
+            <element signature="e#11092#11113#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-large/alphabet_keyboard.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.68733156">
+          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+          <folding>
+            <element signature="e#10547#10568#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-large/feedback_keyboard.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44474393">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+          <folding>
+            <element signature="e#876#897#0" expanded="true" />
+            <element signature="e#1195#1216#0" expanded="true" />
+            <element signature="e#1514#1535#0" expanded="true" />
+            <element signature="e#1833#1854#0" expanded="true" />
+            <element signature="e#2152#2173#0" expanded="true" />
+            <element signature="e#2471#2492#0" expanded="true" />
+            <element signature="e#2790#2811#0" expanded="true" />
+            <element signature="e#3109#3130#0" expanded="true" />
+            <element signature="e#3428#3449#0" expanded="true" />
+            <element signature="e#3747#3768#0" expanded="true" />
+            <element signature="e#4632#4653#0" expanded="true" />
+            <element signature="e#4951#4972#0" expanded="true" />
+            <element signature="e#5270#5291#0" expanded="true" />
+            <element signature="e#5589#5610#0" expanded="true" />
+            <element signature="e#5908#5929#0" expanded="true" />
+            <element signature="e#6227#6248#0" expanded="true" />
+            <element signature="e#6546#6567#0" expanded="true" />
+            <element signature="e#6865#6886#0" expanded="true" />
+            <element signature="e#7184#7205#0" expanded="true" />
+            <element signature="e#7503#7524#0" expanded="true" />
+            <element signature="e#8298#8319#0" expanded="true" />
+            <element signature="e#8617#8638#0" expanded="true" />
+            <element signature="e#8936#8957#0" expanded="true" />
+            <element signature="e#9255#9276#0" expanded="true" />
+            <element signature="e#9574#9595#0" expanded="true" />
+            <element signature="e#9893#9914#0" expanded="true" />
+            <element signature="e#10212#10233#0" expanded="true" />
+            <element signature="e#10544#10565#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-large/numeric_keyboard.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.52560645">
+          <caret line="22" column="53" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
+          <folding>
+            <element signature="e#880#901#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-large/special_keyboard.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="11.629746">
+          <caret line="245" column="4" selection-start-line="245" selection-start-column="4" selection-end-line="245" selection-end-column="4" />
+          <folding>
+            <element signature="e#1171#1192#0" expanded="true" />
+            <element signature="e#1497#1518#0" expanded="true" />
+            <element signature="e#1823#1844#0" expanded="true" />
+            <element signature="e#2149#2170#0" expanded="true" />
+            <element signature="e#2475#2496#0" expanded="true" />
+            <element signature="e#2801#2822#0" expanded="true" />
+            <element signature="e#3127#3148#0" expanded="true" />
+            <element signature="e#3453#3474#0" expanded="true" />
+            <element signature="e#3779#3800#0" expanded="true" />
+            <element signature="e#4685#4706#0" expanded="true" />
+            <element signature="e#5004#5025#0" expanded="true" />
+            <element signature="e#5323#5344#0" expanded="true" />
+            <element signature="e#5642#5663#0" expanded="true" />
+            <element signature="e#5928#5946#0" expanded="true" />
+            <element signature="e#5976#5997#0" expanded="true" />
+            <element signature="e#6295#6316#0" expanded="true" />
+            <element signature="e#6614#6635#0" expanded="true" />
+            <element signature="e#6933#6954#0" expanded="true" />
+            <element signature="e#7252#7273#0" expanded="true" />
+            <element signature="e#7571#7592#0" expanded="true" />
+            <element signature="e#7904#7925#0" expanded="true" />
+            <element signature="e#8413#8434#0" expanded="true" />
+            <element signature="e#8736#8757#0" expanded="true" />
+            <element signature="e#9055#9076#0" expanded="true" />
+            <element signature="e#9341#9353#0" expanded="true" />
+            <element signature="e#9383#9404#0" expanded="true" />
+            <element signature="e#9702#9723#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>
