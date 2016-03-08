@@ -11,16 +11,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
-        android:paddingBottom="10dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-        android:paddingTop="10dp">
+        android:paddingBottom="@dimen/padding10"
+        android:paddingLeft="@dimen/padding30"
+        android:paddingRight="@dimen/padding30"
+        android:paddingTop="@dimen/padding10">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:layout_marginRight="40dp"
+            android:layout_marginBottom="@dimen/margin5"
+            android:layout_marginRight="@dimen/margin40"
             android:text="Name : "
             android:textSize="@dimen/test_size_25"
             android:visibility="visible" />
@@ -29,7 +29,7 @@
             android:id="@+id/edtFirstName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="15dp"
+            android:layout_marginRight="@dimen/margin15"
             android:layout_weight="1"
             android:background="@drawable/enter_email_text_feild"
             android:hint="Name"
@@ -37,6 +37,7 @@
             android:inputType="textCapWords"
             android:maxLength="30"
             android:minEms="10"
+            android:focusableInTouchMode="true"
             android:capitalize="words"
             android:paddingLeft="15dp"
             android:singleLine="true"
@@ -46,14 +47,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_margin="@dimen/margin5"
         android:gravity="center"
         android:orientation="horizontal">
 
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp">
+            android:layout_marginLeft="@dimen/margin15">
 
 
             <ImageView
@@ -65,13 +66,13 @@
             <ademar.phasedseekbar.PhasedSeekBar
                 android:id="@+id/psb_hor"
                 android:layout_width="240dp"
-                android:layout_height="115dp"
+                android:layout_height="95dp"
                 app:phased_anchor_height="@dimen/test_anchor_size"
                 app:phased_anchor_width="@dimen/test_anchor_size"
-                app:phased_base_margin_bottom="@dimen/test_bottom_padding"
-                app:phased_base_margin_left="@dimen/test_left_padding"
-                app:phased_base_margin_right="@dimen/test_right_padding"
-                app:phased_base_margin_top="@dimen/test_top_padding"
+                app:phased_base_margin_bottom="@dimen/margin30"
+                app:phased_base_margin_left="@dimen/margin10"
+                app:phased_base_margin_right="@dimen/margin10"
+                app:phased_base_margin_top="@dimen/margin30"
                 app:phased_item_height="@dimen/test_item_size"
                 app:phased_item_width="@dimen/test_item_size"
                 app:phased_mode="horizontal" />
@@ -80,8 +81,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="@dimen/margin_10"
+                android:layout_marginLeft="@dimen/margin45"
+                android:layout_marginTop="@dimen/margin10"
                 android:text="Male"
                 android:textSize="@dimen/test_size_20" />
 
@@ -89,8 +90,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"
-                android:layout_marginRight="40dp"
-                android:layout_marginTop="@dimen/margin_10"
+                android:layout_marginRight="@dimen/margin40"
+                android:layout_marginTop="@dimen/margin10"
                 android:text="Female"
                 android:textSize="@dimen/test_size_20" />
 
@@ -114,7 +115,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="@dimen/margin5"
             android:layout_weight="1"
             android:padding="5dp"
             android:text="Years"
@@ -125,7 +126,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="@dimen/margin20"
             android:background="@drawable/clear_field_btn"
             android:gravity="center"
             android:text="Clear Fields"
@@ -138,7 +139,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginRight="25dp"
+            android:layout_marginRight="@dimen/margin25"
             android:background="@drawable/next_btn"
             android:gravity="center"
             android:text="Done"
@@ -154,8 +155,8 @@
             android:layout_marginRight="25dp"
             android:background="@drawable/next_btn"
             android:gravity="center"
-            android:paddingLeft="@dimen/margin_15"
-            android:paddingRight="@dimen/margin_15"
+            android:paddingLeft="@dimen/margin15"
+            android:paddingRight="@dimen/margin15"
             android:text="Additional Details"
             android:textColor="#FFFFFF"
             android:textSize="@dimen/test_size_30"

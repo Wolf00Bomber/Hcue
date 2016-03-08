@@ -23,7 +23,7 @@
     <dimen name="test_item_size">60dp</dimen>
     <dimen name="test_anchor_size">40dp</dimen>
 
-    <!--New-->
+    <!--Text Sizes-->
 
     <dimen name="test_size_30">30sp</dimen>
     <dimen name="test_size_35">35sp</dimen>
@@ -34,6 +34,34 @@
     <dimen name="test_size_28">28sp</dimen>
     <dimen name="test_size_40">40sp</dimen>
     <dimen name="test_size_16">16sp</dimen>
+
+    <!--Paddings-->
+
+    <dimen name="padding10">10dp</dimen>
+    <dimen name="padding20">20dp</dimen>
+    <dimen name="padding25">25dp</dimen>
+    <dimen name="padding30">30dp</dimen>
+    <dimen name="padding35">35dp</dimen>
+    <dimen name="padding40">40dp</dimen>
+
+    <!--Margins-->
+
+    <dimen name="margin5">5dp</dimen>
+    <dimen name="margin10">10dp</dimen>
+    <dimen name="margin15">15dp</dimen>
+    <dimen name="margin20">20dp</dimen>
+    <dimen name="margin25">25dp</dimen>
+    <dimen name="margin30">30dp</dimen>
+    <dimen name="margin35">35dp</dimen>
+    <dimen name="margin40">40dp</dimen>
+    <dimen name="margin45">45dp</dimen>
+    <dimen name="margin50">50dp</dimen>
+    <dimen name="margin55">55dp</dimen>
+    <dimen name="margin60">60dp</dimen>
+    <dimen name="margin65">65dp</dimen>
+    <dimen name="margin70">70dp</dimen>
+    <dimen name="margin75">75dp</dimen>
+    <dimen name="margin80">80dp</dimen>
 
 
 </resources>
