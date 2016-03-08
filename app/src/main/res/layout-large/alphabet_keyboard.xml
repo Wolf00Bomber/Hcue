@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llKeyBoard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/key_board_bg"
+    android:gravity="center|bottom"
+    android:orientation="vertical"
+    android:visibility="visible">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+            android:text="Q"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+            android:text="W"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+            android:text="E"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+            android:text="R"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+            android:text="T"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+            android:text="Y"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+            android:text="U"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+            android:text="I"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+
+            android:text="O"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+
+            android:text="P"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:id="@+id/btnDel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/clear_back_icon"
+            android:onClick="keyboardClick"
+
+            android:text="DEL"
+            android:textColor="@android:color/transparent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/special_key"
+            android:onClick="keyboardClick"
+
+            android:text="123"
+            android:textColor="@android:color/transparent"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+
+            android:text="A"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+
+            android:text="S"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+
+            android:text="D"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+
+            android:text="F"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+
+            android:text="G"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+
+            android:text="H"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+
+            android:text="J"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+
+            android:text="K"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+
+            android:text="L"
+            android:textSize="@dimen/test_size_26" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/margin_5"
+
+        >
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+
+            android:text="Z"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+
+            android:text="X"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+
+            android:text="C"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+
+            android:text="V"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+
+            android:text="B"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+
+            android:text="N"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+
+            android:text="M"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/space_bar_key_icon"
+            android:onClick="keyboardClick"
+
+            android:text="SPACE"
+            android:textSize="@dimen/test_size_26" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+
+
+        android:visibility="gone">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/keyboard"
+            android:onClick="keyboardClick"
+
+            android:text="123"
+            android:textSize="@dimen/test_size_26" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/keyboard"
+            android:minEms="6"
+            android:onClick="keyboardClick"
+
+            android:text=""
+            android:textSize="@dimen/test_size_26" />
+    </LinearLayout>
+
+
+</LinearLayout>

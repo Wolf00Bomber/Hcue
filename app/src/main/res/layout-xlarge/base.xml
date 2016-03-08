@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/llTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/base_header_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tvBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_15"
+            android:drawableLeft="@drawable/base_header_back_arrow"
+            android:drawablePadding="@dimen/margin_15"
+            android:gravity="center"
+            android:text="@string/back"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/test_size_30"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Enter Patient Details"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/test_size_35"
+            android:textStyle="bold" />
+
+
+
+        <TextView
+            android:id="@+id/tvHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/margin_15"
+            android:drawableRight="@drawable/home_nav_icn"
+            android:drawablePadding="@dimen/margin_15"
+            android:gravity="center"
+            android:text="Home Page"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/test_size_30"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:gravity="center"
+            android:visibility="gone"
+            android:id="@+id/lladditional_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Additional Details  "
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/test_size_20"
+                android:textStyle="bold"
+                />
+            <ToggleButton
+                android:id="@+id/toggle_additional_info"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_10"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llMiddle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center_horizontal"
+        android:layout_weight="1"
+        android:orientation="vertical">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/llFooter"
+        android:orientation="horizontal"
+        android:background="@drawable/base_footer_bg"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/powered_by_hcue"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/test_size_20"
+            android:layout_marginLeft="@dimen/margin_15"/>
+        <ImageView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/website"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/test_size_20"
+            android:layout_marginRight="@dimen/margin_15"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

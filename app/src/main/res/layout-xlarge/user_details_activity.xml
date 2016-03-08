@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llUserDetails"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingBottom="@dimen/padding10"
+        android:paddingLeft="@dimen/padding30"
+        android:paddingRight="@dimen/padding30"
+        android:paddingTop="@dimen/padding10">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin5"
+            android:layout_marginRight="@dimen/margin40"
+            android:text="Name : "
+            android:textSize="@dimen/test_size_25"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/edtFirstName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/margin15"
+            android:layout_weight="1"
+            android:background="@drawable/enter_email_text_feild"
+            android:hint="Name"
+            android:imeOptions="actionNext"
+            android:inputType="textCapWords"
+            android:maxLength="30"
+            android:minEms="10"
+            android:focusableInTouchMode="true"
+            android:capitalize="words"
+            android:paddingLeft="15dp"
+            android:singleLine="true"
+            android:textSize="@dimen/test_size_35" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin5"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin15">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/slide_line" />
+
+            <ademar.phasedseekbar.PhasedSeekBar
+                android:id="@+id/psb_hor"
+                android:layout_width="240dp"
+                android:layout_height="115dp"
+                app:phased_anchor_height="@dimen/test_anchor_size"
+                app:phased_anchor_width="@dimen/test_anchor_size"
+                app:phased_base_margin_bottom="@dimen/margin30"
+                app:phased_base_margin_left="@dimen/margin10"
+                app:phased_base_margin_right="@dimen/margin10"
+                app:phased_base_margin_top="@dimen/margin30"
+                app:phased_item_height="@dimen/test_item_size"
+                app:phased_item_width="@dimen/test_item_size"
+                app:phased_mode="horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="@dimen/margin45"
+                android:layout_marginTop="@dimen/margin10"
+                android:text="Male"
+                android:textSize="@dimen/test_size_20" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_marginRight="@dimen/margin40"
+                android:layout_marginTop="@dimen/margin10"
+                android:text="Female"
+                android:textSize="@dimen/test_size_20" />
+
+        </FrameLayout>
+
+        <EditText
+            android:id="@+id/edtAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:background="@drawable/enter_age_text_field"
+            android:gravity="center"
+            android:hint="Age"
+            android:imeOptions="actionDone"
+            android:inputType="number|phone"
+            android:maxLength="3"
+            android:padding="5dp"
+            android:singleLine="true"
+            android:textSize="@dimen/test_size_30" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin5"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:text="Years"
+            android:textSize="@dimen/test_size_30" />
+
+        <Button
+            android:id="@+id/btnClearFields"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/margin20"
+            android:background="@drawable/clear_field_btn"
+            android:gravity="center"
+            android:text="Clear Fields"
+            android:textColor="#848484"
+            android:textSize="@dimen/test_size_30"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnDone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/margin25"
+            android:background="@drawable/next_btn"
+            android:gravity="center"
+            android:text="Done"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/test_size_30"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnAdditionalInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/next_btn"
+            android:gravity="center"
+            android:paddingLeft="@dimen/margin15"
+            android:paddingRight="@dimen/margin15"
+            android:text="Additional Details"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/test_size_30"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <include layout="@layout/alphabet_keyboard" />
+
+        <include layout="@layout/special_keyboard" />
+
+
+        <include
+            layout="@layout/numeric_keyboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:visibility="gone" />
+    </FrameLayout>
+
+</LinearLayout>

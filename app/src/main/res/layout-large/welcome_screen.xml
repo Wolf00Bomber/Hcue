@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical" >
+
+        <com.github.siyamed.shapeimageview.CircularImageView
+            android:id="@+id/ivImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/doctor_profile_img_icn"
+            app:siBorderWidth="2dp"
+            app:siBorderColor="#000000"/>
+
+       <!-- <ImageView
+            android:id="@+id/ivImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/doctor_profile_img_icn" />-->
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:gravity="center"
+            android:text="Dr P.Venkata Krishna"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/test_size_30"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvSpecality"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:text="Physiotherapist"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_size_large" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:text="Earliest Available Appointment"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_size_large" />
+
+        <TextView
+            android:id="@+id/tvDay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Thursday, January 07"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/test_size_30" />
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="2:30 hrs"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/test_size_30"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnQuickAppointment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/quickappointment_btn"
+            android:text="Quick Appointment"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/test_size_30"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnLaterAppointment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/latestappointment_btn"
+            android:text="Later Appointment"
+            android:textColor="#F57104"
+            android:textSize="@dimen/test_size_30"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

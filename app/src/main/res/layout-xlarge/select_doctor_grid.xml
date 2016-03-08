@@ -1,0 +1,123 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_15"
+        android:gravity="center"
+        android:text="Welcome to Venus Global Multi Speciality Clinic"
+        android:textColor="#848484"
+        android:textSize="@dimen/test_size_35"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/tvHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:gravity="center_vertical"
+        android:text="Choose your Doctor"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/test_size_30" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingLeft="@dimen/margin_10"
+        android:paddingRight="@dimen/margin_10"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/ibLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/margin_15"
+            android:background="@null"
+            android:src="@drawable/left_scroll_welcome" />
+
+        <FrameLayout
+            android:layout_width="1100dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvNoDoctors"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="No doctors found."
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/test_size_40" />
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewPager"
+                android:layout_width="1100dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@color/white"></android.support.v4.view.ViewPager>
+        </FrameLayout>
+
+        <ImageButton
+            android:id="@+id/ibRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/margin_15"
+            android:background="@null"
+            android:src="@drawable/right_scroll_welcome" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_20"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvRateYourVisit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/rate_your_visit_icn"
+            android:drawablePadding="@dimen/margin_10"
+            android:gravity="center"
+            android:text="@string/rate"
+            android:textColor="#4EAF9F"
+            android:textSize="@dimen/test_size_30" />
+
+        <Button
+            android:id="@+id/btnBookAppointment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:background="@drawable/quickappointment_btn"
+            android:text="Book Appointment"
+            android:textColor="@color/white"
+            android:textSize="@dimen/test_size_30" />
+
+        <Button
+            android:id="@+id/btnCancelAppointment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_20"
+            android:background="@drawable/latestappointment_btn"
+            android:text="Cancel Appointment"
+            android:textColor="@color/orange"
+            android:textSize="@dimen/test_size_30" />
+    </LinearLayout>
+
+</LinearLayout>

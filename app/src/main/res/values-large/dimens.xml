@@ -1,0 +1,66 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="widget_margin">16dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="margin_5">5dp</dimen>
+    <dimen name="margin_15">15dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="margin_25">25dp</dimen>
+    <dimen name="text_size_normal">16sp</dimen>
+    <dimen name="text_size_medium">18sp</dimen>
+    <dimen name="text_size_large">20sp</dimen>
+    <dimen name="text_size_extra_large">22sp</dimen>
+    <dimen name="text_size_extra_extra_large">24sp</dimen>
+
+
+    <dimen name="test_left_padding">10dp</dimen>
+    <dimen name="test_right_padding">10dp</dimen>
+    <dimen name="test_top_padding">30dp</dimen>
+    <dimen name="test_bottom_padding">30dp</dimen>
+    <dimen name="test_item_size">60dp</dimen>
+    <dimen name="test_anchor_size">40dp</dimen>
+
+    <!--Text Sizes-->
+
+    <dimen name="test_size_30">20sp</dimen>
+    <dimen name="test_size_35">30sp</dimen>
+    <dimen name="test_size_20">15sp</dimen>
+    <dimen name="test_size_26">21sp</dimen>
+    <dimen name="test_size_21">16sp</dimen>
+    <dimen name="test_size_28">23sp</dimen>
+    <dimen name="test_size_40">32sp</dimen>
+    <dimen name="test_size_25">20sp</dimen>
+    <dimen name="test_size_16">12sp</dimen>
+
+    <!--Paddings-->
+
+    <dimen name="padding10">4dp</dimen>
+    <dimen name="padding20">14dp</dimen>
+    <dimen name="padding25">18dp</dimen>
+    <dimen name="padding30">24dp</dimen>
+    <dimen name="padding35">28dp</dimen>
+    <dimen name="padding40">34dp</dimen>
+
+    <!--Margins-->
+
+    <dimen name="margin5">2dp</dimen>
+    <dimen name="margin10">4dp</dimen>
+    <dimen name="margin15">8dp</dimen>
+    <dimen name="margin20">14dp</dimen>
+    <dimen name="margin25">18dp</dimen>
+    <dimen name="margin30">24dp</dimen>
+    <dimen name="margin35">28dp</dimen>
+    <dimen name="margin40">34dp</dimen>
+    <dimen name="margin45">38dp</dimen>
+    <dimen name="margin50">44dp</dimen>
+    <dimen name="margin55">48dp</dimen>
+    <dimen name="margin60">54dp</dimen>
+    <dimen name="margin65">58dp</dimen>
+    <dimen name="margin70">64dp</dimen>
+    <dimen name="margin75">68dp</dimen>
+    <dimen name="margin80">74dp</dimen>
+
+</resources>

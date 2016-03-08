@@ -85,7 +85,7 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
 		ivAverage 				= 	(ImageView)	llFeedback.findViewById(R.id.ivAverage);
 		ivPoor 					= 	(ImageView)	llFeedback.findViewById(R.id.ivPoor);
 
-		tvDoctorName 					= 	(TextView) 	llFeedback.findViewById(R.id.tvDoctorName);
+		tvDoctorName 			= 	(TextView) 	llFeedback.findViewById(R.id.tvDoctorName);
 		tvSpecality				= 	(TextView) 	llFeedback.findViewById(R.id.tvSpecality);
 		tvAdditionalComments	= 	(TextView) 	llFeedback.findViewById(R.id.tvAdditionalComments);
 
