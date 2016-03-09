@@ -11,6 +11,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:gravity="center"
+        android:fadeScrollbars="false"
         android:listSelector="@android:color/transparent"
         android:numColumns="5" />
 </LinearLayout>

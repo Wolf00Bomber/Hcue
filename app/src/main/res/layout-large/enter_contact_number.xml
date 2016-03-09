@@ -64,23 +64,36 @@
                 android:textColor="@android:color/darker_gray"
                 android:textSize="@dimen/test_size_35"
                 android:textStyle="bold" />
+            <LinearLayout
+                android:background="@drawable/mobile_text_field"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
             <EditText
                 android:id="@+id/edtNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="15dp"
-                android:background="@drawable/mobile_text_field"
+                android:background="@null"
                 android:hint="Enter Number"
                 android:imeOptions="actionDone"
                 android:inputType="number"
                 android:maxLength="10"
                 android:minEms="10"
+                android:paddingRight="5dp"
                 android:paddingLeft="15dp"
                 android:singleLine="true"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/test_size_35"
                 android:textStyle="bold" />
+                <ImageView
+                    android:layout_marginRight="@dimen/margin10"
+                    android:id="@+id/iv_textclear"
+                    android:src="@drawable/text_clear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
         </LinearLayout>
 
         <Button

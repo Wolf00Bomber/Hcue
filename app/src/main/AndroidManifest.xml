@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.appdest.hcue"
+    package="com.hCue.Kiosk"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -66,7 +66,7 @@
         <meta-data android:name="PW_PROJECT_ID" android:value="A916920590677" />-->
 
         <activity
-            android:name="com.appdest.hcue.SplashActivity"
+            android:name="com.hCue.Kiosk.SplashActivity"
             android:screenOrientation="landscape"
             android:label="@string/app_name" >
             <intent-filter>
@@ -76,122 +76,122 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.appdest.hcue.SelectDoctorActivity"
+            android:name="com.hCue.Kiosk.SelectDoctorActivity"
             android:screenOrientation="landscape"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.appdest.hcue.RegistrationActivity"
+            android:name="com.hCue.Kiosk.RegistrationActivity"
             android:launchMode="singleTop"
             android:screenOrientation="landscape"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.appdest.hcue.WelcomeActivity"
+            android:name="com.hCue.Kiosk.WelcomeActivity"
             android:screenOrientation="landscape"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.appdest.hcue.EnterContactNumberActivity"
+            android:name="com.hCue.Kiosk.EnterContactNumberActivity"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="stateHidden|stateAlwaysHidden"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.appdest.hcue.ChoosePatientActivity"
+            android:name="com.hCue.Kiosk.ChoosePatientActivity"
             android:screenOrientation="landscape"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.appdest.hcue.ConfirmationSummaryActivity"
+            android:name="com.hCue.Kiosk.ConfirmationSummaryActivity"
             android:screenOrientation="landscape"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.appdest.hcue.EnterMailActivity"
+            android:name="com.hCue.Kiosk.EnterMailActivity"
             android:windowSoftInputMode="stateHidden|stateAlwaysHidden"
             android:screenOrientation="landscape"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.appdest.hcue.FeedbackActivity"
+            android:name="com.hCue.Kiosk.FeedbackActivity"
             android:screenOrientation="landscape"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.appdest.hcue.ConfirmationFullViewActivity"
+            android:name="com.hCue.Kiosk.ConfirmationFullViewActivity"
             android:screenOrientation="landscape"
             android:label="@string/app_name" >
         </activity>
 
         <activity
-            android:name="com.appdest.hcue.ChooseAppointmentActivityNew"
+            android:name="com.hCue.Kiosk.ChooseAppointmentActivityNew"
             android:screenOrientation="landscape"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.appdest.hcue.CancelAppointmentActivity"
+            android:name="com.hCue.Kiosk.CancelAppointmentActivity"
             android:screenOrientation="landscape"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.appdest.hcue.ConfirmCancelationActivity"
+            android:name="com.hCue.Kiosk.ConfirmCancelationActivity"
             android:screenOrientation="landscape"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.appdest.hcue.CancelationSummaryActivity"
+            android:name="com.hCue.Kiosk.CancelationSummaryActivity"
             android:screenOrientation="landscape"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.appdest.hcue.AdditionalCommentsActivity"
+            android:name="com.hCue.Kiosk.AdditionalCommentsActivity"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.appdest.hcue.EnterAddressActivity"
+            android:name="com.hCue.Kiosk.EnterAddressActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
             android:screenOrientation="landscape"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.appdest.hcue.AdminLoginActivity"
+            android:name="com.hCue.Kiosk.AdminLoginActivity"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="stateHidden|adjustPan"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.appdest.hcue.AdminChooseHospital"
+            android:name="com.hCue.Kiosk.AdminChooseHospital"
             android:screenOrientation="landscape"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.appdest.hcue.AdminChooseDoctors"
+            android:name="com.hCue.Kiosk.AdminChooseDoctors"
             android:screenOrientation="landscape"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.appdest.hcue.AdminConfirmation"
-            android:screenOrientation="landscape"
-            android:label="@string/app_name" >
-        </activity>
-
-        <activity
-            android:name="com.appdest.hcue.FeedbackConfirmationActivity"
+            android:name="com.hCue.Kiosk.AdminConfirmation"
             android:screenOrientation="landscape"
             android:label="@string/app_name" >
         </activity>
 
         <activity
-            android:name="com.appdest.hcue.ChoosePatientAppointmentActivity"
+            android:name="com.hCue.Kiosk.FeedbackConfirmationActivity"
             android:screenOrientation="landscape"
             android:label="@string/app_name" >
         </activity>
 
         <activity
-            android:name="com.appdest.hcue.AdditionalInfoActivity"
+            android:name="com.hCue.Kiosk.ChoosePatientAppointmentActivity"
+            android:screenOrientation="landscape"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
+            android:name="com.hCue.Kiosk.AdditionalInfoActivity"
             android:screenOrientation="landscape"
             android:label="@string/app_name" >
         </activity>

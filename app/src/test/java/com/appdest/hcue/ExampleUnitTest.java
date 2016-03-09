@@ -1,4 +1,4 @@
-package com.appdest.hcue;
+package com.hCue.Kiosk;
 
 import org.junit.Test;
 

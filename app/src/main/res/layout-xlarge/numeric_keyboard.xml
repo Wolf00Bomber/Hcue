@@ -4,12 +4,11 @@
         android:id="@+id/llNumbers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="0dp"
         android:gravity="center|bottom"
         android:orientation="horizontal"
         android:background="@drawable/number_pad_bg"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
+        android:padding="5dp"
         android:visibility="visible" >
 
         <Button
@@ -121,6 +120,7 @@
             android:onClick="keyboardClick"
             android:padding="5dp"
             android:text="DEL"
+            android:textSize="@dimen/test_size_26"
             android:textColor="@android:color/transparent"
              />
 </LinearLayout>

@@ -43,7 +43,7 @@
             android:src="@drawable/vertical_shade_line_calendar"
             android:visibility="invisible" />
 
-        <com.appdest.hcue.utils.CustomCalendarView
+        <com.hCue.Kiosk.utils.CustomCalendarView
             android:id="@+id/calendar_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
