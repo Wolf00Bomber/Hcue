@@ -91,13 +91,12 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
     <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5b6cfe82-ac61-41a4-af9e-d3910da41b1f" name="Default" comment="Bug Fixces @ 26/02/2016">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-large/text_clear.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xlarge/text_clear.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/animated_vector_drawable_23_2_0.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_2_0.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/pushwoosh_3_4_3.xml" />
@@ -107,25 +106,9 @@
       <change type="DELETED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\.idea\libraries\appcompat_v7_23_1_1.xml" afterPath="" />
       <change type="DELETED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\.idea\libraries\support_annotations_23_1_1.xml" afterPath="" />
       <change type="DELETED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\.idea\libraries\support_v4_23_1_1.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-large/clear_back_icon.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-large/clear_back_icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xlarge/clear_back_icon.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xlarge/clear_back_icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-large/patient_add_new.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-large/patient_add_new.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xlarge/patient_add_new.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xlarge/patient_add_new.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-large/selected_time_col_bg.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-large/selected_time_col_bg.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xlarge/selected_time_col_bg.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xlarge/selected_time_col_bg.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/test/java/com/appdest/hcue/ExampleUnitTest.java" afterPath="$PROJECT_DIR$/app/src/test/java/com/appdest/hcue/ExampleUnitTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/SelectDoctorActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/SelectDoctorActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/android_phased_seek_bar_0_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/android_phased_seek_bar_0_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-large/choose_date_time_of_appointment.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-large/choose_date_time_of_appointment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-xlarge/choose_date_time_of_appointment.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-xlarge/choose_date_time_of_appointment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-large/enter_contact_number.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-large/enter_contact_number.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-xlarge/enter_contact_number.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-xlarge/enter_contact_number.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/mediarouter_v7_23_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/mediarouter_v7_23_0_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-large/numeric_keyboard.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-large/numeric_keyboard.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-xlarge/numeric_keyboard.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-xlarge/numeric_keyboard.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-xlarge/pager_item.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-xlarge/pager_item.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_ads_8_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_ads_8_4_0.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_analytics_8_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_analytics_8_4_0.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_appindexing_8_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_appindexing_8_4_0.xml" />
@@ -146,77 +129,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_vision_8_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_vision_8_4_0.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_wallet_8_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_wallet_8_4_0.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_wearable_8_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_wearable_8_4_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/rounded_rect.xml" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rounded_rect.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-xlarge/user_details_activity.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-xlarge/user_details_activity.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\androidTest\java\com\appdest\hcue\ApplicationTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/hCue/Kiosk/ApplicationTest.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\AdditionalCommentsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/AdditionalCommentsActivity.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\AdditionalInfoActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/AdditionalInfoActivity.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\AdminChooseDoctors.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/AdminChooseDoctors.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\AdminChooseHospital.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/AdminChooseHospital.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\AdminConfirmation.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/AdminConfirmation.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\AdminLoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/AdminLoginActivity.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\BaseActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/BaseActivity.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\CancelAppointmentActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/CancelAppointmentActivity.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\CancelationSummaryActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/CancelationSummaryActivity.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\ChooseAppointmentActivityNew.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/ChooseAppointmentActivityNew.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\ChoosePatientActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/ChoosePatientActivity.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\ChoosePatientAppointmentActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/ChoosePatientAppointmentActivity.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\ConfirmCancelationActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/ConfirmCancelationActivity.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\ConfirmationFullViewActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/ConfirmationFullViewActivity.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\ConfirmationSummaryActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/ConfirmationSummaryActivity.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\EnterAddressActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/EnterAddressActivity.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\EnterContactNumberActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/EnterContactNumberActivity.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\EnterMailActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/EnterMailActivity.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\FeedbackActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/FeedbackActivity.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\FeedbackConfirmationActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/FeedbackConfirmationActivity.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\RegistrationActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/RegistrationActivity.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\SelectDoctorActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/SelectDoctorActivity.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\SplashActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/SplashActivity.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\WelcomeActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/WelcomeActivity.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\common\AppConstants.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/common/AppConstants.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\AddPatientRequest.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/AddPatientRequest.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\AddPatientResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/AddPatientResponse.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\AdditionalInfoRequest.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/AdditionalInfoRequest.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\AdditionalInfoResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/AdditionalInfoResponse.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\AdminGetDoctorsRequest.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/AdminGetDoctorsRequest.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\AdminGetDoctorsResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/AdminGetDoctorsResponse.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\AdminLogin.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/AdminLogin.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\AdminLoginRequest.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/AdminLoginRequest.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\AdminLoginResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/AdminLoginResponse.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\CancelAppointmentRequest.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/CancelAppointmentRequest.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\CancelAppointmentResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/CancelAppointmentResponse.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\ClinicResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/ClinicResponse.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\ConfirmCancellationRequest.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/ConfirmCancellationRequest.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\DoctorsAppointment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/DoctorsAppointment.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\DoctorsAppointmentResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/DoctorsAppointmentResponse.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\FeedbackRequest.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/FeedbackRequest.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\GetDoctorAppointmentRequest.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/GetDoctorAppointmentRequest.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\GetDoctorAppointmentResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/GetDoctorAppointmentResponse.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\GetDoctorRequest.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/GetDoctorRequest.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\GetDoctors.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/GetDoctors.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\GetDoctorsResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/GetDoctorsResponse.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\GetHospitalsRequest.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/GetHospitalsRequest.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\GetHospitalsResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/GetHospitalsResponse.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\GetPatientAppointmentsRequest.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/GetPatientAppointmentsRequest.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\GetPatientAppointmentsResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/GetPatientAppointmentsResponse.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\GetPatientDetailsRequest.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/GetPatientDetailsRequest.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\GetPatientDetailsResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/GetPatientDetailsResponse.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\GetPatientRequest.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/GetPatientRequest.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\GetPatientResponse.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/GetPatientResponse.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\Speciality.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/Speciality.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\model\TimeObject.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/model/TimeObject.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\services\RestCallback.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/services/RestCallback.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\services\RestClient.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/services/RestClient.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\services\RestError.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/services/RestError.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\services\WebAPI.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/services/WebAPI.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\utils\Connectivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/utils/Connectivity.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\utils\CustomCalendarView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/utils/CustomCalendarView.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\utils\EventHandler.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/utils/EventHandler.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\utils\Preference.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/utils/Preference.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\utils\SpeechHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/utils/SpeechHelper.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\utils\TimeUtils.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/utils/TimeUtils.java" />
-      <change type="MOVED" beforePath="D:\chaitanya\hCuewrkspc\Hcue\app\src\main\java\com\appdest\hcue\utils\WordUtils.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/utils/WordUtils.java" />
     </list>
     <ignored path="Hcue.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -287,7 +200,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="28" />
+              <caret line="2" column="27" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -303,12 +216,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.61445785">
+            <state vertical-scroll-proportion="0.0">
               <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SelectDoctorActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/SelectDoctorActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.18579236">
+              <caret line="462" column="55" selection-start-line="462" selection-start-column="55" selection-end-line="462" selection-end-column="55" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -2310,7 +2235,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/grid_cell.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/admin_choose_hospital_grid_cell.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/admin_choose_doctors_grid_cell.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-sw720dp-mdpi/admin_login.xml" />
@@ -2361,6 +2285,7 @@
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/AdditionalCommentsActivity.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/SelectDoctorActivity.java" />
       </list>
     </option>
   </component>
@@ -2475,44 +2400,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hcue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hcue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hCue" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kiosk" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -3150,7 +3037,13 @@
       <option name="project" value="LOCAL" />
       <updated>1457447529907</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="package change@bug fix@ 09 march 2016">
+      <created>1457525984715</created>
+      <option name="number" value="00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1457525984715</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3172,8 +3065,8 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.60672516" sideWeight="0.48285198" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.47368422" sideWeight="0.4927798" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15643275" sideWeight="0.48285198" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.07017544" sideWeight="0.4927798" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6683673" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
@@ -3244,7 +3137,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="UnNecessary Drawables Removed" />
     <MESSAGE value="FeedbackActivity Changed" />
     <MESSAGE value="Keyboard's" />
     <MESSAGE value="Additional Comments" />
@@ -3269,7 +3161,8 @@
     <MESSAGE value="Bug Fixces @ 08/03/2016" />
     <MESSAGE value="Bug Fixces @ 26/02/2016" />
     <MESSAGE value="UI FIx@ 08 march 2016" />
-    <option name="LAST_COMMIT_MESSAGE" value="UI FIx@ 08 march 2016" />
+    <MESSAGE value="package change@bug fix@ 09 march 2016" />
+    <option name="LAST_COMMIT_MESSAGE" value="package change@bug fix@ 09 march 2016" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3960,18 +3853,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/SelectDoctorActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="635" column="24" selection-start-line="635" selection-start-column="24" selection-end-line="635" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#26618#26971#0" expanded="true" />
-            <element signature="e#26970#26971#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/common/AppConstants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8095238">
@@ -4004,14 +3885,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.444445">
@@ -4022,9 +3895,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61445785">
+        <state vertical-scroll-proportion="0.0">
           <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="27" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/hCue/Kiosk/SelectDoctorActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18579236">
+          <caret line="462" column="55" selection-start-line="462" selection-start-column="55" selection-end-line="462" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
