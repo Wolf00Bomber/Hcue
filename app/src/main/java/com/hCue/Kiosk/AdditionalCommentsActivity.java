@@ -135,6 +135,8 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
             }
         });
 
+        edtEnterComments.setShowSoftInputOnFocus(false);
+
         hideKeyBoard(edtEnterComments);
 
         edtEnterComments.clearFocus();
@@ -221,8 +223,11 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
 
     public void hideKeyBoard(View view)
     {
-        im = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-        im.hideSoftInputFromWindow(view.getWindowToken(), 0);
+
+        if(view != null){
+            InputMethodManager im = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            im.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 
     @Override

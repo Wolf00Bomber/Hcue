@@ -561,18 +561,19 @@ public class SelectDoctorActivity extends BaseActivity {
                 }
                 holder.tvStatus.setTextColor(context.getResources().getColorStateList(R.color.text_pressed_doctors_availability));
 
-                if ("Y".equalsIgnoreCase(doctorDetail.Avaialble)) {
+                if ("Y".equalsIgnoreCase(doctorDetail.Avaialble))
+                {
                     view.setEnabled(true);
                     holder.tvStatus.setEnabled(true);
                     holder.tvDoctorName.setEnabled(true);
                     holder.tvSpecality.setEnabled(true);
                     holder.tvStatus.setText("Available");
                 } else {
-                    view.setEnabled(false);
+                    view.setEnabled(true);
                     holder.tvStatus.setEnabled(false);
-                    holder.tvDoctorName.setEnabled(false);
-                    holder.tvSpecality.setEnabled(false);
-                    holder.tvStatus.setText("Not available");
+                    holder.tvDoctorName.setEnabled(true);
+                    holder.tvSpecality.setEnabled(true);
+                    holder.tvStatus.setText("Not available Today");
                 }
 
                 view.setTag(R.id.tvStatus, doctorDetail);
@@ -653,10 +654,10 @@ public class SelectDoctorActivity extends BaseActivity {
                 @Override
                 public void onItemClick(AdapterView<?> arg0, View v, int pos, long arg3) {
                     selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail) v.getTag(R.id.tvStatus);
-                    if (!"Y".equalsIgnoreCase(selectedDoctorDetails.Avaialble)) {
+                    /*if (!"Y".equalsIgnoreCase(selectedDoctorDetails.Avaialble)) {
                         selectedDoctorDetails = null;
                         return;
-                    }
+                    }*/
                     selectedDoctorPos = pos;
                     v.setSelected(true);
 

@@ -351,8 +351,28 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 				//String s = "Some string";
 				//editText.getText().insert(start, s);
 				//str = str + button.getText().toString() ;
-				((EditText)focusedView).getText().insert(start, " ");
-				((EditText)focusedView).setSelection((start+1));
+				/*((EditText)focusedView).getText().insert(start, " ");
+				((EditText)focusedView).setSelection((start+1));*/
+
+				if(focusedView.getId() == R.id.edtFirstName)
+				{
+					if(start >= 30)
+					{
+
+					}else {
+						((EditText) focusedView).getText().insert(start, " ");
+						((EditText) focusedView).setSelection((start + 1));
+					}
+				}else if(focusedView.getId() == R.id.edtAge)
+				{
+					if(start >= 3)
+					{
+
+					}else {
+						((EditText) focusedView).getText().insert(start, " ");
+						((EditText) focusedView).setSelection((start + 1));
+					}
+				}
 			}
 
 
@@ -365,12 +385,30 @@ public class RegistrationActivity extends BaseActivity implements OnClickListene
 			}
 			else
 			{
+
 				int start =(((EditText) focusedView).getSelectionStart()); //this is to get the the cursor position
 				//String s = "Some string";
 				//editText.getText().insert(start, s);
 				//str = str + button.getText().toString() ;
-				((EditText)focusedView).getText().insert(start, str);
-				((EditText)focusedView).setSelection((start+1));
+				if(focusedView.getId() == R.id.edtFirstName)
+				{
+				if(start >= 30)
+				{
+
+				}else {
+					((EditText) focusedView).getText().insert(start, str);
+					((EditText) focusedView).setSelection((start + 1));
+				}
+				}else if(focusedView.getId() == R.id.edtAge)
+				{
+					if(start >= 3)
+					{
+
+					}else {
+						((EditText) focusedView).getText().insert(start, str);
+						((EditText) focusedView).setSelection((start + 1));
+					}
+				}
 			}
 		}
 

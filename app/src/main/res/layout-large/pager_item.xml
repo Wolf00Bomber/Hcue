@@ -6,11 +6,14 @@
     android:orientation="vertical">
 
     <GridView
+        android:padding="2dp"
         android:id="@+id/gvTime"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:gravity="center"
+        android:fadeScrollbars="false"
+        android:scrollbarStyle="outsideInset"
         android:listSelector="@android:color/transparent"
         android:numColumns="5" />
 </LinearLayout>
