@@ -404,10 +404,10 @@ public class SelectDoctorActivity extends BaseActivity {
         tvRateYourVisit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (selectedDoctorDetails == null) {
+               /* if (selectedDoctorDetails == null) {
                     Toast.makeText(context, "Please select a doctor!", Toast.LENGTH_SHORT).show();
                     return;
-                }
+                }*/
                 Intent intent = new Intent(SelectDoctorActivity.this, EnterContactNumberActivity.class);
                 intent.putExtra("From", "Feedback");
                 intent.putExtra("DoctorDetails", selectedDoctorDetails);

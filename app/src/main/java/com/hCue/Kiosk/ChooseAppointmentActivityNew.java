@@ -168,14 +168,15 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
                 if(position == 0)
                 {
                         ivLeftTime.setImageResource(R.drawable.left_arrow_time_un);
-                    if(appointmentRows != null && appointmentRows.size() == 1)
+
+                    if(mViewPager.getChildCount() == 1)
                         ivRightTime.setImageResource(R.drawable.right_arrow_time_un);
                     else
                         ivRightTime.setImageResource(R.drawable.right_arrow_time);
                 }else
                 {
                     ivLeftTime.setImageResource(R.drawable.left_arrow_time);
-                    if(appointmentRows != null && (appointmentRows.size()-1) > position)
+                    if(appointmentRows != null && (mViewPager.getChildCount()-1) > position)
                         ivRightTime.setImageResource(R.drawable.right_arrow_time);
                     else
                         ivRightTime.setImageResource(R.drawable.right_arrow_time_un);
@@ -247,7 +248,7 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
 
     private void bookAppointment() {
         int selectedPage = mViewPager.getCurrentItem();
-        GetDoctorAppointmentResponse.AppointmentRow selectedPageItem = appointmentRows.get(selectedPage); //mCustomPagerAdapter.getSelectedPageItem(selectedPage);
+        GetDoctorAppointmentResponse.AppointmentRow selectedPageItem = appointmentRows.get(0); //mCustomPagerAdapter.getSelectedPageItem(selectedPage);
         if (selectedPageItem == null) {
             Toast.makeText(this, "Please select an another date, where doctor appointment slots are present.", Toast.LENGTH_SHORT).show();
             return;
@@ -349,25 +350,25 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
             public void success(GetDoctorAppointmentResponse getDoctorAppointmentResponse, Response response) {
                 pBar.setVisibility(View.GONE);
                 if (getDoctorAppointmentResponse != null && getDoctorAppointmentResponse.count > 0) {
+                    int pages = 0;
                     mViewPager.setVisibility(View.VISIBLE);
                     tvNoSlots.setVisibility(View.GONE);
                     appointmentRows = new ArrayList<>();
                     appointmentRows = getDoctorAppointmentResponse.appointmentRows;
-                    if(appointmentRows == null || appointmentRows.size() == 0)
-                    {
+                    if (appointmentRows != null
+                            && appointmentRows.size() > 0)
+                        pages = appointmentRows.get(0).getTimeSlots().size() / 25 + (appointmentRows.get(0).getTimeSlots().size() % 25 == 0 ? 0 : 1);
+                    if (appointmentRows == null || pages == 0) {
                         ivLeftTime.setVisibility(View.GONE);
                         ivRightTime.setVisibility(View.GONE);
                         ivLeftTime.setImageResource(R.drawable.left_arrow_time_un);
                         ivRightTime.setImageResource(R.drawable.right_arrow_time_un);
-                    }
-                    else if(appointmentRows != null && appointmentRows.size() == 1)
-                    {
+                    } else if (appointmentRows != null && pages == 1) {
                         ivLeftTime.setImageResource(R.drawable.left_arrow_time_un);
                         ivRightTime.setImageResource(R.drawable.right_arrow_time_un);
                         ivLeftTime.setVisibility(View.GONE);
                         ivRightTime.setVisibility(View.GONE);
-                    }else
-                    {
+                    } else {
                         ivLeftTime.setVisibility(View.VISIBLE);
                         ivRightTime.setVisibility(View.VISIBLE);
                         ivLeftTime.setImageResource(R.drawable.left_arrow_time_un);
@@ -380,7 +381,7 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
                     Calendar cal = Calendar.getInstance();
                     cal.setTime(selected_date);
                     cal.add(Calendar.DATE, 1);
-                     // populateTimeSlots(cal.getTime());
+                    // populateTimeSlots(cal.getTime());
                     //;
                     customCalendarView.getAdapter().setSelectedDate(cal.getTime());
                     customCalendarView.getGrid().invalidateViews();
@@ -422,8 +423,8 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
         private CustomAppointmentAdapterNew instance;
         private Context mContext;
         LayoutInflater mLayoutInflater;
-        private static final int heightGap = 25;
-        private static final int widthGap = 25;
+        private static final int heightGap = 20;
+        private static final int widthGap = 20;
         private int gvWidth, gvHeight;
         private LinearLayout.LayoutParams llParams;
 
@@ -443,10 +444,16 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
 
         @Override
         public int getCount() {
-            if (appointmentRows != null
+            /*if (appointmentRows != null
                     && appointmentRows.size() > 0)
                 return appointmentRows.size();
-            return 0;
+            return 0;*/
+            if (appointmentRows != null
+                    && appointmentRows.size() > 0) {
+                int pages = appointmentRows.get(0).getTimeSlots().size() / 25 + (appointmentRows.get(0).getTimeSlots().size() % 25 == 0 ? 0 : 1);
+                return pages;
+            }
+            else return 0;
         }
 
         @Override
@@ -455,10 +462,10 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
         }
 
         @Override
-        public Object instantiateItem(ViewGroup container, int position) {
+        public Object instantiateItem(ViewGroup container, final int position) {
             LinearLayout itemView = (LinearLayout) mLayoutInflater.inflate(R.layout.pager_item, container, false);
 
-            CustomTimeAdapterNew customTimeAdapter = new CustomTimeAdapterNew(mContext, appointmentRows.get(position), instance, position);
+            CustomTimeAdapterNew customTimeAdapter = new CustomTimeAdapterNew(mContext, appointmentRows.get(0), instance, position);
             final GridView gvTime = (GridView) itemView.findViewById(R.id.gvTime);
             gvTime.setAdapter(customTimeAdapter);
             gvTime.setLayoutParams(llParams);
@@ -479,6 +486,59 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
                     }
                 }, 200);
 
+            }else
+            {
+                if(mViewPager.getTag() == null)
+                {
+                    mViewPager.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            int pagenumber = 0;
+                            outerloop:
+                            for (int i=0;i<appointmentRows.get(0).getTimeSlots().size();i++)
+                            {
+                               GetDoctorAppointmentResponse.TimeSlot timeSlot =  appointmentRows.get(0).getTimeSlots().get(i);
+                                if ("Y".equalsIgnoreCase(timeSlot.Available)) {
+                                    Calendar now = Calendar.getInstance();
+                                    int hour = now.get(Calendar.HOUR_OF_DAY);
+                                    int minute = now.get(Calendar.MINUTE);
+
+                                    Date currentDate = new Date();
+                                    currentDate.setTime(System.currentTimeMillis());
+                                    if (currentDate.before(selected_date)) { //27 before 29(true)
+
+                                        if (timeSlot.isSelected) {
+
+                                        } else {
+
+                                        }
+                                    } else { //same day or 27 before 26 (false). We need to check for current elapsed time
+                                        String vals[] = TimeUtils.format2hhmm(timeSlot.getStartTime()).toString().split(":");
+                                        if (hour > Integer.parseInt(vals[0])) {
+
+                                        } else {
+                                            if (hour == Integer.parseInt(vals[0]) && minute > Integer.parseInt(vals[1])) {
+
+                                            } else {
+
+                                                if (timeSlot.isSelected) {
+
+                                                } else {
+
+                                                    pagenumber = i/25;
+                                                    break outerloop;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            mViewPager.setTag(new Intent());
+                            mViewPager.setCurrentItem(pagenumber);
+                        }
+                    },100);
+
+                }
             }
 
             return itemView;
@@ -486,8 +546,8 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
 
         private void preCalculateGridDimensions(Context context) {
             Drawable d = context.getResources().getDrawable(R.drawable.selected_time_col_bg);
-            int gvCellWidth = d.getIntrinsicWidth();
-            int gvCellHeight = d.getIntrinsicHeight();
+            int gvCellWidth = d.getIntrinsicWidth()+1;
+            int gvCellHeight = d.getIntrinsicHeight()+1;
             int xItems = 5;
             int yItems = 5;
             gvWidth = xItems * gvCellWidth + (xItems - 1) * widthGap + 1;
@@ -534,10 +594,24 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
 
             @Override
             public int getCount() {
+                /*if (appointmentRow != null
+                        && appointmentRow.getTimeSlots() != null
+                        && appointmentRow.getTimeSlots().size() > 0)
+                    return appointmentRow.getTimeSlots().size();*/
+                Log.e("Page number , size ",pageNumber+" , "+appointmentRow.getTimeSlots().size());
                 if (appointmentRow != null
                         && appointmentRow.getTimeSlots() != null
                         && appointmentRow.getTimeSlots().size() > 0)
-                    return appointmentRow.getTimeSlots().size();
+                {
+                    if(appointmentRow.getTimeSlots().size() - ((pageNumber) *25) < 25) {
+                        Log.e("return value ", (appointmentRow.getTimeSlots().size() - ((pageNumber) * 25)) + "");
+                        return (appointmentRow.getTimeSlots().size() - ((pageNumber) * 25));
+                    }
+                    else {
+                        Log.e("return value ", 25+"");
+                        return 25;
+                    }
+                }
                 return 0;
             }
 
@@ -557,7 +631,7 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
             }
 
             @Override
-            public View getView(final int position, View convertView, ViewGroup parent) {
+            public View getView(final int pos, View convertView, ViewGroup parent) {
                 convertView = LayoutInflater.from(context).inflate(R.layout.control_calendar_day, parent, false);
                 final LinearLayout llCalCell = (LinearLayout) convertView.findViewById(R.id.llCalCell);
                 final TextView tvCell = (TextView) convertView.findViewById(R.id.tvCell);
@@ -566,6 +640,9 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
                 convertView.setBackgroundResource(R.drawable.appointment_time);
                 tvCell.setTextColor(context.getResources().getColorStateList(R.color.text_pressed));
                 ((BaseActivity) context).setSpecificTypeFace((ViewGroup) llCalCell, AppConstants.WALSHEIM_MEDIUM);
+
+                final int position = (pageNumber) * 25 + pos;
+                Log.e("Position",position+"");
 
                 final GetDoctorAppointmentResponse.TimeSlot timeSlot = appointmentRow.getTimeSlots().get(position);
                 tvCell.setText(TimeUtils.format2hhmm(timeSlot.getStartTime()));
@@ -612,6 +689,7 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
                                     convertView.setBackgroundResource(R.drawable.selected_time_gcol_bg);
                                     tvCell.setTextColor(Color.WHITE);
                                 } else {
+
                                     convertView.setSelected(false);
                                     convertView.setBackgroundResource(R.drawable.selected_time_col_bg);
                                     tvCell.setTextColor(Color.LTGRAY);
@@ -625,6 +703,7 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
                     tvCell.setTypeface(AppConstants.WALSHEIM_BOLD);
                     tvCell.setPaintFlags(tvCell.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                 }
+                final View finalConvertView = convertView;
                 convertView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -642,6 +721,9 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
                             long dayInstance = appointmentRow.getConsultationDate().longValue();
                             long timeInstance = TimeUtils.getLongForHHMMSS(timeSlot.getStartTime());
                             long totalInstance = dayInstance + timeInstance;
+                            finalConvertView.setSelected(true);
+                            finalConvertView.setBackgroundResource(R.drawable.selected_time_gcol_bg);
+                            tvCell.setTextColor(Color.WHITE);
                             StringBuilder sb = new StringBuilder();
                             sb.append(DateUtils.isToday(totalInstance) ? "Today" : TimeUtils.getDay(totalInstance))
                                     .append(", ")
@@ -649,11 +731,13 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
                                     .append("<font color=\"##A2A2A2\"> @ </font>")
                                     .append("<font color=\"#48B09E\">" + TimeUtils.format2hhmm(timeSlot.getStartTime()) + " hrs</font>");
                             tvTime.setText(Html.fromHtml(sb.toString()));
+                            timeSlot.isSelected = true ;
+                            selectedTimeSlot = timeSlot;
                         }
                       // selected_pos.setText(tvCell.getLeft()+","+tvCell.getRight());
                         selected_pos.setText(position+"");
                       //  selected_pos.setTag(tvCell);
-                        mCustomPagerAdapter.refresh();
+                       mCustomPagerAdapter.refresh();
 
 
                     }

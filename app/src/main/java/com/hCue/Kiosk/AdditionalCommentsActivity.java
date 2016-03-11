@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
@@ -131,11 +132,16 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 hideKeyBoard(v);
-                return false;
+                EditText edittext = (EditText) v;
+                int inType = edittext.getInputType();       // Backup the input type
+                edittext.setInputType(InputType.TYPE_NULL); // Disable standard keyboard
+                edittext.onTouchEvent(event);               // Call native handler
+                edittext.setInputType(inType);              // Restore input type
+                return true; // Consume touch event
+               // return false;
             }
         });
 
-        edtEnterComments.setShowSoftInputOnFocus(false);
 
         hideKeyBoard(edtEnterComments);
 
