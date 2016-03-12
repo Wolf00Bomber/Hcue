@@ -32,6 +32,7 @@ import com.hCue.Kiosk.model.DoctorsAppointmentResponse;
 import com.hCue.Kiosk.model.GetDoctorAppointmentRequest;
 import com.hCue.Kiosk.model.GetDoctorAppointmentResponse;
 import com.hCue.Kiosk.model.GetDoctorsResponse;
+import com.hCue.Kiosk.model.GetPatientAppointmentsResponse;
 import com.hCue.Kiosk.model.GetPatientResponse;
 import com.hCue.Kiosk.model.Speciality;
 import com.hCue.Kiosk.services.RestCallback;
@@ -52,6 +53,7 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
@@ -176,11 +178,10 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
                 }else
                 {
                     ivLeftTime.setImageResource(R.drawable.left_arrow_time);
-                    if(appointmentRows != null && (mViewPager.getChildCount()-1) > position)
+                    if(appointmentRows != null && (((int)mViewPager.getTag(R.id.tvCell))-1) > position)
                         ivRightTime.setImageResource(R.drawable.right_arrow_time);
                     else
                         ivRightTime.setImageResource(R.drawable.right_arrow_time_un);
-
                 }
             }
 
@@ -356,8 +357,20 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
                     appointmentRows = new ArrayList<>();
                     appointmentRows = getDoctorAppointmentResponse.appointmentRows;
                     if (appointmentRows != null
-                            && appointmentRows.size() > 0)
+                            && appointmentRows.size() > 0) {
+                        for (int i = 0; i < appointmentRows.size(); i++) {
+                            if(i!=0)
+                            appointmentRows.get(0).getTimeSlots().addAll(appointmentRows.get(i).getTimeSlots());
+                        }
+                        /*Iterator<GetDoctorAppointmentResponse.AppointmentRow> iterator = appointmentRows.iterator();
+                        int i=0;
+                        while (iterator.hasNext()) {
+                            if(i != 0)
+                                appointmentRows.get(0).getTimeSlots().addAll(iterator.next().getTimeSlots());
+                            i++;
+                        }*/
                         pages = appointmentRows.get(0).getTimeSlots().size() / 25 + (appointmentRows.get(0).getTimeSlots().size() % 25 == 0 ? 0 : 1);
+                    }
                     if (appointmentRows == null || pages == 0) {
                         ivLeftTime.setVisibility(View.GONE);
                         ivRightTime.setVisibility(View.GONE);
@@ -448,9 +461,11 @@ public class ChooseAppointmentActivityNew extends BaseActivity {
                     && appointmentRows.size() > 0)
                 return appointmentRows.size();
             return 0;*/
+
             if (appointmentRows != null
                     && appointmentRows.size() > 0) {
                 int pages = appointmentRows.get(0).getTimeSlots().size() / 25 + (appointmentRows.get(0).getTimeSlots().size() % 25 == 0 ? 0 : 1);
+                mViewPager.setTag(R.id.tvCell,pages);
                 return pages;
             }
             else return 0;

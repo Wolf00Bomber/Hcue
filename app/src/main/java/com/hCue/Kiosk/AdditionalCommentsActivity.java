@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.hCue.Kiosk.common.AppConstants;
 import com.hCue.Kiosk.model.FeedbackRequest;
 import com.hCue.Kiosk.model.GetDoctorsResponse;
+import com.hCue.Kiosk.model.GetPatientAppointmentsResponse;
 import com.hCue.Kiosk.services.RestCallback;
 import com.hCue.Kiosk.services.RestClient;
 import com.hCue.Kiosk.services.RestError;
@@ -44,7 +45,7 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
     boolean isActivityNeedsFinish = false;
 
     private FeedbackRequest feedbackRequest;
-    private GetDoctorsResponse.DoctorDetail selectedDoctorDetails;
+    private GetPatientAppointmentsResponse.DoctorDetail selectedDoctorDetails;
     private float Starvalue = 2.5f;
 
     @Override
@@ -55,7 +56,7 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
         if(i.hasExtra("FeedbackRequest") && i.hasExtra("DoctorDetails"))
         {
             feedbackRequest = (FeedbackRequest) i.getSerializableExtra("FeedbackRequest");
-            selectedDoctorDetails = (GetDoctorsResponse.DoctorDetail)i.getSerializableExtra("DoctorDetails");
+            selectedDoctorDetails = (GetPatientAppointmentsResponse.DoctorDetail)i.getSerializableExtra("DoctorDetails");
             Starvalue =  i.getFloatExtra("StarValue",2.5f);
         }
         else
@@ -89,7 +90,7 @@ public class AdditionalCommentsActivity extends BaseActivity implements View.OnC
         btnCancel.setTypeface(AppConstants.WALSHEIM_MEDIUM);
 
         tvTitle.setText("Thanks for using hCue");
-        tvDoctorName.setText("Dr. "+selectedDoctorDetails.FullName);
+        tvDoctorName.setText("Dr. "+selectedDoctorDetails.doctorFullName);
 
         slide_up 	= AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up);
         slide_down  = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_down);

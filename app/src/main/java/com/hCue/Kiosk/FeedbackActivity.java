@@ -176,7 +176,7 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
             public void success(String feedbackResponse, Response response) {
                // Toast.makeText(FeedbackActivity.this, String.valueOf(feedbackResponse), Toast.LENGTH_LONG).show();
                 Intent FeedbackIntent = new Intent(FeedbackActivity.this, FeedbackConfirmationActivity.class);
-                FeedbackIntent.putExtra("DoctorDetails", selectedDoctorDetails);
+                FeedbackIntent.putExtra("DoctorDetails", appointmentDoctorDetails);
                 startActivity(FeedbackIntent);
 				finish();
             }
@@ -280,7 +280,7 @@ public class FeedbackActivity extends BaseActivity implements OnClickListener
                 }
                 feedbackRequest.setStarValue(StarValue);
 				Intent ac = new Intent(FeedbackActivity.this,AdditionalCommentsActivity.class);
-                ac.putExtra("DoctorDetails", selectedDoctorDetails);
+                ac.putExtra("DoctorDetails", appointmentDoctorDetails);
                 ac.putExtra("FeedbackRequest", feedbackRequest);
 				ac.putExtra("StarValue", StarValue);
 				startActivity(ac);
