@@ -78,9 +78,9 @@ public class ChoosePatientActivity extends BaseActivity implements OnClickListen
             phNumber = (Number) i.getSerializableExtra("PhoneNumber");
             PhoneCode = i.getStringExtra("PhoneCode");
             getPatientResponse = (GetPatientResponse) i.getSerializableExtra("GetPatientResponse");
-            fromActivity = i.hasExtra("From") ? i.getStringExtra("From") : "";
             isValid = true;
         }
+        fromActivity = i.hasExtra("From") ? i.getStringExtra("From") : "";
 
         if(!"CancelAppointment".equalsIgnoreCase(fromActivity))
         {

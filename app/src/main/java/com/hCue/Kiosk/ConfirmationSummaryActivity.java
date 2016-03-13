@@ -74,7 +74,7 @@ public class ConfirmationSummaryActivity extends BaseActivity implements OnClick
         tvDoctorName.setText("Dr. "+selectedDoctorDetails.FullName);
         tvDownloadFooter.setText(Html.fromHtml("Download our <font color=\"#F57103\">hCue Patient App</font> from Google play store"));
         String dateString = DateUtils.isToday(bookingDetails.getConsultationDt()) ? "Today" : TimeUtils.format2DateProper(bookingDetails.getConsultationDt());
-        String footer = "<b>" + dateString + ", " + /*TimeUtils.format2hhmm(bookingDetails.getStartTime())*/ bookingDetails.getStartTime() + "</b>" + " with";
+        String footer = "<b>" + dateString + ", " + /*TimeUtils.format2hhmm(bookingDetails.getStartTime())*/ bookingDetails.getStartTime() + "</b>" + "Hrs with";
 		tvTime.setText(Html.fromHtml(footer));
 		tvToken.setText(bookingDetails.getTokenNumber());
 
