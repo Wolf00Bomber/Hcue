@@ -55,8 +55,8 @@ public class CancelAppointmentActivity extends BaseActivity
 
         tvHeading  				= (TextView)	llCancelAppointment.findViewById(R.id.tvHeading);
         tvPatientName  			= (TextView)	llCancelAppointment.findViewById(R.id.tvPatientName);
-        tvPatient = (TextView)	llCancelAppointment.findViewById(R.id.tvPatient);
-        btnCancelAppointment 		= (Button)		llCancelAppointment.findViewById(R.id.btnCancelAppointment);
+        tvPatient               = (TextView)	llCancelAppointment.findViewById(R.id.tvPatient);
+        btnCancelAppointment 	= (Button)		llCancelAppointment.findViewById(R.id.btnCancelAppointment);
 
         tvBack.setVisibility(View.VISIBLE);
         tvHome.setVisibility(View.GONE);
